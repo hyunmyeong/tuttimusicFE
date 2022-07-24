@@ -1,14 +1,26 @@
-import React, {useState} from 'react'
+import React, {useState, useCallback} from 'react'
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
+import Modal from '../elements/Modal';
 
-const Login = () => {
+const Login = (props) => {
 
     const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const [alert, setAlert] = useState("")
+
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const openModal = () => {
+        setModalOpen(true);
+        };
+    const closeModal = () => {
+        setModalOpen(false);
+        };
 
     //이메일 체크
     const checkEmail = (email) => {
@@ -20,20 +32,27 @@ const Login = () => {
         }
     }
 
+    
+
     const loginCheck = () => {
         if (email === "" && password === "") {
-            return window.alert("모든 항목을 입력하세요")
+            // return window.alert("모든 항목을 입력하세요")
+            setAlert("모든 항목을 입력하세요!")
+            openModal()
         }
-        if (email === "") {
-            return window.alert("아이디를 입력하세요")
+        else if (email === "") {
+            setAlert("아이디를 입력하세요")
+            openModal()
         }
-        if (checkEmail(email) === false) {
-            return window.alert("이메일 형식을 확인하세요")
+        else if (checkEmail(email) === false) {
+            setAlert("이메일 형식을 확인하세요")
+            openModal()
         }
-        if (password === "") {
-            return window.alert("비밀번호를 입력하세요")
+        else if (password === "") {
+            setAlert("비밀번호를 입력하세요")
+            openModal()
         }
-
+        else {
 
         axios 
             .post("https://seyeolpersonnal.shop/user/login", {
@@ -53,10 +72,14 @@ const Login = () => {
             })
             .catch((error) => {
                 console.log(error)
-                window.alert("로그인 정보를 확인해주세요")
-
+                setAlert("로그인 정보를 확인해주세요")
+                openModal()
             })
     }
+}
+
+
+
 
     return (
         <div className='login-container'>
@@ -95,7 +118,8 @@ const Login = () => {
                         <p className='login-tutti-signup' onClick={()=>{navigate("/signup")}}>회원가입</p>
                     </div>
                 </div>
-            <button className='primary login-button' onClick={(loginCheck)}>로그인</button>
+            <button className='primary login-button' onClick={loginCheck}>로그인</button>
+            <Modal open={modalOpen} close={closeModal} alert={alert}/>
             </div>
         </div>  
     )
