@@ -2746,7 +2746,7 @@ input[type=radio] {
   width: 90%;
   max-width: 450px;
   margin: 0 auto;
-  border-radius: 0.3rem;
+  border-radius: 10px;
   background-color: #fff;
   /* 팝업이 열릴때 스르륵 열리는 효과 */
   animation: modal-show 0.3s;
@@ -2754,18 +2754,34 @@ input[type=radio] {
 }
 .modal > section > main {
   padding: 40px 20px ;
-  border-bottom: 1px solid #dee2e6;
+  /* border-bottom: 1px solid #dee2e6; */
+  font-size: 22px;
+  text-align: center;
+  color: #000;
 }
 .modal > section > footer {
   padding: 12px 16px;
-  text-align: right;
+  text-align: center;
 }
-.modal > section > footer button {
-  padding: 6px 12px;
-  color: var(--primary-color);
-  background-color: var(--secondary-color);
-  border-radius: 5px;
-  font-size: 13px;
+.modal-delete-button {
+  margin: 0 10px;
+  padding: 12px 24px;
+  color:  #18191B;;
+  background-color: #D9D9D9;
+  border-radius: 10px;
+  font-size: 16px;
+  width: 160px;
+  height: 50px;
+}
+.modal-close-button {
+  margin: 0 10px;
+  padding: 12px 24px;
+  color: #F0F0F0;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  font-size: 16px;
+  width: 160px;
+  height: 50px;
 }
 .modal.openModal {
   display: flex;
