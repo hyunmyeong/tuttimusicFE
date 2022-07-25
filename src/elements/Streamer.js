@@ -219,6 +219,7 @@ class Streamers extends Component {
         
         if (mySession) {
             mySession.disconnect();
+            window.location.reload();
         }
 
         // Empty all properties...
@@ -240,8 +241,6 @@ class Streamers extends Component {
         .catch((error)=>{
         console.log(error)
         })
-
-        // --- 7) Leave the session by calling 'disconnect' method over the Session object ---
 
         const mySession = this.state.session;
     }

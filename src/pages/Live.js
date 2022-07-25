@@ -86,10 +86,6 @@ function Live() {
         <div className="live-box-right">
         <div className="live-chat">
             <Chatbox streamer={data.artist} session={`session${data.id}`} subscriber={userName} userProfileUrl={userProfileUrl} />
-            {/* <div className="live-chat-list-box"> */}
-              
-
-            {/* </div> */}
          </div>   
       </div>
 

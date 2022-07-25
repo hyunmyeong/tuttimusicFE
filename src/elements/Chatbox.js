@@ -12,8 +12,7 @@ let stompClient = null;
 const Chatbox = (props) => {
     const scrollToBottom = useScrollToBottom();
     console.log(props)
-    const currentTime = moment().format();
-    const [privateChats, setPrivateChats] = useState(new Map());     
+    const currentTime = moment().format();    
     const [publicChats1, setPublicChats1] = useState([]); 
     const [publicChats, setPublicChats] = useState([]); 
     const [tab,setTab] =useState("CHATROOM");
