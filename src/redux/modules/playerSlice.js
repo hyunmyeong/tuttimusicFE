@@ -32,6 +32,7 @@ const PlayerSlice = createSlice({
     },
 
     playerVolume: (state,action) => {
+      console.log(action.payload);
       const new_list = {...current(state.player), volume:action.payload};
       state.player = new_list;
     },

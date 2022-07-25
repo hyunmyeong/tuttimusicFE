@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+
+import React, {useEffect, useState} from "react";
+
 import styled from "styled-components";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -27,6 +29,13 @@ function Navbar() {
   const userProfileUrl = localStorage.getItem("userProfileUrl");
   const userName = localStorage.getItem("userName");
 
+
+  useEffect(()=>{
+    if (!token) {
+      setToggleState(false);
+    }
+  },[])
+
   const ClickLogout = () => {
     setToggleState(false);
     localStorage.clear();
@@ -51,11 +60,18 @@ function Navbar() {
 
   return (
     <>
-      <NavBar toggle={toggleState} search={searchState}>
-        <div className="nav-wrap">
-          <div
-            className="logo"
-            onClick={() => {
+    <NavBar toggle={toggleState} search={searchState}>
+      <div className="nav-wrap">
+        <img
+        className="logo" 
+        src="img/logo_light.png"
+        onClick={()=>{
+          navigate('/')
+        }}/>
+        <div className="nav">
+          <ul>
+            <li onClick={()=>{
+
               navigate('/')
             }}>
             tutti
@@ -122,22 +138,20 @@ function Navbar() {
               </div>}
           </div>
         </div>
-        {/* 모바일 버전 nav */}
-        <div className="nav-mobile-wrap">
-          <div
-            className="logo"
-            onClick={() => {
-              navigate('/')
-            }}>
-            tutti
-          </div>
-          <div className="nav-mobile-right">
-            <BiSearchAlt2
-              id="search-mobile-icon"
-              onClick={() => { setSearchState(true) }}
-            />
-
-
+      </div>
+{/* 모바일 버전 nav */}
+      <div className="nav-mobile-wrap">
+        <img
+          className="logo" 
+          src="img/logo_light.png"
+          onClick={()=>{
+            navigate('/')
+        }}/>
+        <div className="nav-mobile-right">
+        <BiSearchAlt2 
+          id="search-mobile-icon"
+          onClick={()=>{setSearchState(true)}}
+          />
             <IoMenu
               id="menu-mobile-icon"
               onClick={() => { setToggleState(true) }} />

@@ -18,7 +18,16 @@ function Main() {
 
   useEffect(()=>{
     const token= localStorage.getItem("token");
-    dispatch(getMainLists(token));
+    dispatch(getMainLists(token))
+    .then((response) => {
+      console.log(response)
+      if (response.type === "GET/getMainLists/rejected") {
+        localStorage.clear();
+        navigate("/");
+        window.location.reload();
+      }
+    })
+
     setTimeout(()=> {
       setLoading(false);
     },200)
@@ -124,6 +133,10 @@ function Main() {
     <div className="main-container">
       <section className="main-top">
         <div className="main-top-header">
+          <img 
+          src="img/main_banner1.png" 
+          className="main-banner"
+          />
         </div>
       </section>
       <section className="main-content">
