@@ -50,15 +50,12 @@ function Player() {
     state.Player.player?.volume,
     state.Player.player?.currentTime,
   ])
+
+  console.log(_volume)
     
   useEffect(()=>{
-    setDisplay(_display);    
-    setSong(_song);
-    setPlaying(_playing);
-    setVolume(_volume);
-  },[playerInfo])
-
-  
+    setDisplay(_display);
+  },[_display])
 
   useEffect(()=>{
     if (_song) {
@@ -81,9 +78,15 @@ function Player() {
   },[_song])
 
   useEffect(()=>{
+    setPlaying(_playing);
     wavesurfer.current?.playPause();
-  },[playing])
+  },[_playing])
 
+  useEffect(()=>{
+    setVolume(_volume);
+    wavesurfer.current?.setVolume(_volume);
+  },[_volume])
+  
   useEffect(()=>{
     setCurrentTime(_time);
     if (_time>0) {
@@ -111,7 +114,7 @@ function Player() {
     if (newVolume) {
       setVolume(newVolume);
       dispatch(playerVolume(newVolume))
-      wavesurfer.current.setVolume(newVolume || 1);
+      wavesurfer.current.setVolume(newVolume);
     }
   }
 
