@@ -6,6 +6,8 @@ import styled from 'styled-components';
 
 import { BsDot } from "react-icons/bs"
 
+import Modal from '../elements/Modal';
+
 
 const SignUp = () => {
 
@@ -24,6 +26,16 @@ const SignUp = () => {
     const [youtube, setYoutube] = useState(null);
 
     const genreNames = ["발라드", "어쿠스틱", "R&B", "힙합", "댄스", "연주곡"]
+
+    //모달
+    const [alert, setAlert] = useState("")
+    const [modalOpen, setModalOpen] = useState(false);
+    const openModal = () => {
+        setModalOpen(true);
+        };
+    const closeModal = () => {
+        setModalOpen(false);
+        };
     
 
 
@@ -75,44 +87,55 @@ const SignUp = () => {
     //이메일 확인
     const emailCheck = () => {
         if (email === "") {
-            return window.alert("이메일을 입력하세요!");
+            setAlert("이메일을 입력하세요!");
+            openModal()
         }
-
       //이메일 양식이 다를 때
-        if (checkEmail(email) === false) {
-            return window.alert("이메일 양식을 확인하세요!")
+        else if (checkEmail(email) === false) {
+            setAlert("이메일 양식을 확인하세요!")
+            openModal()
         }
-
+        else {
         let emailList = {email : email}
 
         axios
             .post("https://seyeolpersonnal.shop/user/email",emailList)
             .then((response) => {
                 console.log(response)
-                if(response)
-                {window.alert("인증 메일이 발송되었습니다. 메일함을 확인해 주세요!")}
+                if(response) {
+                    setAlert("인증 메일이 발송되었습니다. 메일함을 확인해 주세요!")
+                    openModal()
+                }
             })
             .catch((error) => {
                 console.log(error)
-                window.alert("중복된 이메일입니다!")
+                setAlert("중복된 이메일입니다!")
+                openModal()
                 // setEmail("")
             })
+    }
+
     }
 
     //닉네임(아티스트 이름) 확인
     const artistCheck = () => {
         if (artist === "") {
-            return window.alert("닉네임을 입력하세요!")
+            setAlert("닉네임을 입력하세요!")
+            openModal()
         } else {
             axios
             .post("https://seyeolpersonnal.shop/user/artist",{artist : artist})
             .then((response) => {
                 console.log(response)
-                if(response){window.alert("사용 가능한 닉네임입니다!")}    
+                if(response) {
+                    setAlert("사용 가능한 닉네임입니다!")
+                    openModal()
+                }    
             })
             .catch((error) => {
                 console.log(error)
-                window.alert("중복된 닉네임입니다!")
+                setAlert("중복된 닉네임입니다!")
+                openModal()
                 // setArtist("")
             })
         }
@@ -122,6 +145,8 @@ const SignUp = () => {
 
 
     const signupCheck = () => {
+        const nullList = [null, null, null, null]
+        
         //하나라도 공백일 때
         if (
             email === "" ||
@@ -129,25 +154,29 @@ const SignUp = () => {
             password === "" ||
             passwordCheck === "" 
         ) {
-            return window.alert("모든 항목을 입력하세요!");    
+            setAlert("모든 항목을 입력하세요!"); 
+            openModal()   
         }
 
-        const nullList = [null, null, null, null]
+        // const nullList = [null, null, null, null]
 
-        if (genre.toString() === nullList.toString()) {
-            return window.alert("장르를 최소 1개 선택해 주세요!")
+        else if (genre.toString() === nullList.toString()) {
+            setAlert("장르를 최소 1개 선택해 주세요!")
+            openModal()
         }
 
       //비밀번호 양식이 다를 때
-        if (checkPw(password) === false || checkPw(passwordCheck) === false) {
-            return window.alert("비밀번호는 8~20글자 영문+숫자 조합입니다!")
+        else if (checkPw(password) === false || checkPw(passwordCheck) === false) {
+            setAlert("비밀번호는 8~20글자 영문+숫자 조합입니다!")
+            openModal()
         }
 
       //비밀번호가 서로 다를 때
-        if (password !== passwordCheck) {
-            return window.alert("비밀번호가 서로 달라요!")
+        else if (password !== passwordCheck) {
+            setAlert("비밀번호가 서로 달라요!")
+            openModal()
         }
-
+        else {
 
         //signupdata로 하나로 만들기 + form데이터 형식으로 보내기
         let signupdata = {
@@ -173,17 +202,19 @@ const SignUp = () => {
             .post("https://seyeolpersonnal.shop/user/signup", formData)
             .then((response) => {
                 console.log(response)
-                window.alert("가입이 완료되었어요!")
+                setAlert("가입이 완료되었어요!")
+                openModal()
                 navigate('/login')
             })
             .catch((error) => {
                 console.log(error)
-                window.alert("이메일 인증 전입니다. 메일함을 확인해 주세요!")
+                setAlert("이메일 인증 전입니다. 메일함을 확인해 주세요!")
+                openModal()
             })   
             
             
     
-    }
+    }}
 
     const [genre, setGenre] = useState([null, null, null, null]);
     const [clickGenre, setClickGenre] = useState([false, false, false, false, false, false]);
@@ -192,7 +223,8 @@ const SignUp = () => {
     // indexOf 함수는 해당 배열에서 특정 값을 찾을 때 인덱스 숫자로 위치를 알려주고 없으면 -1을 반환
     // genre 배열에서 null값이 없어서 -1을 반환할 때 name(장르 이름)으로 가득 찬 상태이므로 알림창 띄우기
     if (genre.indexOf(null) === -1 &&  genre.indexOf(name) === -1) {
-      return window.alert("장르는 최대 4개까지 선택 가능합니다.")
+      setAlert("장르는 최대 4개까지 선택 가능합니다.")
+      openModal()
     } else if (genre.indexOf(name) === -1) {
       genre.pop();
       genre.unshift(name);
@@ -406,6 +438,7 @@ const SignUp = () => {
         </div>
             <button className='primary signup-button-box' 
                 onClick={(signupCheck)}>회원가입</button>
+            <Modal open={modalOpen} close={closeModal} alert={alert}/>
         </div>
     )
 }   
