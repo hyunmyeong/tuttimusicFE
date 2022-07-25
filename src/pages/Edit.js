@@ -10,6 +10,8 @@ import axios from 'axios';
 
 import {SERVER_URL} from "../redux/modules/songSlice";
 
+import Modal from '../elements/Modal';
+
 
 function Edit() {
 
@@ -47,13 +49,32 @@ function Edit() {
 
   const [musicName, setMusicName] = React.useState(detail.musicTitle);
 
+  const [alert, setAlert] = useState("")
+
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {setModalOpen(true);};
+  const closeModal = () => {
+    setModalOpen(false);
+    if (alert === "피드 수정을 완료했습니다.") {
+      if (detail.postType === "audio") {
+        navigate(`/detail/${params.id}`);
+      } else if (detail.postType === "video") {
+        navigate(`/detail/video/${params.id}`);
+      }
+    }
+  };
+
   const EditMusic = () => {
 
     if (title_ref.current.value === "") {
-      return window.alert("곡명을 채워 주세요.")
+      setAlert("곡명을 채워 주세요.")
+      openModal()
     } else if (description_ref.current.value === "") {
-      return window.alert ("소개글을 채워 주세요.")
+      setAlert ("소개글을 채워 주세요.")
+      openModal()
     } 
+    else {
 
     const token = localStorage.getItem("token");
 
@@ -75,21 +96,17 @@ function Edit() {
     })
     .then((response) => {
       console.log("res ===> ", response);
-      alert("피드 수정을 완료했습니다.");
-
-      if (detail.postType === "audio") {
-        navigate(`/detail/${params.id}`);
-      } else if (detail.postType === "video") {
-        navigate(`/detail/video/${params.id}`);
-      }
-     
+      setAlert("피드 수정을 완료했습니다.");
+      openModal()
       window.scrollTo(0, 0);
     })
+
     .catch((error) => {
       console.log("err ===> ", error);
-      alert("수정에 실패했습니다.");
+      setAlert("수정에 실패했습니다.");
+      openModal()
     });
-  }
+  }}
 
   return (
 
@@ -188,6 +205,9 @@ function Edit() {
 
       </div>
       </div>
+
+      <Modal open={modalOpen} close={closeModal} alert={alert}/>
+
       </UpLoad>
   )
 }

@@ -6,6 +6,9 @@ import {useDispatch } from "react-redux";
 import{HiOutlineDotsVertical} from "react-icons/hi" ;
 import {MdEdit} from "react-icons/md";
 
+import Modal from '../elements/Modal'
+import ConfirmModal from './ConfirmModal';
+
 function EditComment(props) {
   // console.log(props)
   const comment = props.comment
@@ -17,18 +20,44 @@ function EditComment(props) {
   const [dropdown, setDropdown] = useState(false);
   const currentTime = moment().format();
 
+  const [alert, setAlert] = useState("정말로 삭제하시겠습니까?")
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {setModalOpen(true);};
+  const closeModal = () => {
+    setModalOpen(false);
+      dispatch(deleteComment({
+        token: props.token,
+        feedid: props.feedid,
+        commentid: comment.id,
+      }))
+    
+  };
+    
+  const [confirm, setComfirm] = useState("정말로 삭제하시겠습니까?");
+  const [confirmOpen, setComfirmOpen] = useState(false);
+  const openConfirm = () => {setComfirmOpen(true);};
+  const closeConfirm = () => {setComfirmOpen(false);};
+  const clickDelete = () => {
+    setComfirmOpen(false); 
+    setModalOpen(true); 
+    setAlert("삭제되었습니다.")
+  };
+
   //delete a comment
   const DeleteComment=(id)=>{
+    openConfirm()
     console.log(id);
-    if(window.confirm("정말로 삭제하시겠습니까?")) {
-    dispatch(deleteComment({
-      token: props.token,
-      feedid: props.feedid,
-      commentid: comment.id,
-    }))
+  //   if(window.confirm("정말로 삭제하시겠습니까?")) {
+  //   dispatch(deleteComment({
+  //     token: props.token,
+  //     feedid: props.feedid,
+  //     commentid: comment.id,
+  //   }))
+  // }
   }
-    setDropdown(false); 
-  }
+
+  
 
   //save edited comment
   const SaveEditedComment=()=>{
@@ -117,6 +146,8 @@ function EditComment(props) {
       </div>
 
     }
+    <Modal open={modalOpen} close={closeModal} alert={alert}/>
+    <ConfirmModal open={confirmOpen} close={closeConfirm} alert={alert} clickDelete={clickDelete}/>
     </div>
 
 

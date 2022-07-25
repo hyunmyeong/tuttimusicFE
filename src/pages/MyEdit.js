@@ -3,6 +3,8 @@ import React, {useEffect, useState} from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+import Modal from '../elements/Modal';
+
 function MyEdit() {
 
   const navigate = useNavigate();
@@ -16,6 +18,21 @@ function MyEdit() {
   const [userInfoDto, setUserInfoDto] = useState();
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(userInfo.profileImage);  
+
+  const [alert, setAlert] = useState("")
+
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+        setModalOpen(true);
+        };
+  const closeModal = () => {
+        setModalOpen(false);
+        if (alert === "수정이 완료되었습니다.") {
+          openModal()
+          navigate('/mypage')
+        }
+        };
 
   //수정할 값들
   const [profileText, setProfileText] = useState(userInfo.profileText);
@@ -45,6 +62,8 @@ const myinfoEdit = () => {
   if (image !== null ) {
     formData.append("file", image)
   }
+
+  else {
       formData.append("updateData", new Blob([JSON.stringify(updateData)], {type: "application/json"}))
 
 console.log("formData", formData);
@@ -56,16 +75,17 @@ console.log("formData", formData);
   })
   .then((response) => {
     console.log(response)
-    alert("수정이 완료되었습니다.")
-    navigate('/mypage')
+    setAlert("수정이 완료되었습니다.")
+    openModal()
+    // navigate('/mypage')
   })
   .catch((error) => {
     console.log(error)
-
-    alert("수정되지 않았습니다.")
+    setAlert("수정되지 않았습니다.")
+    openModal()
     
   })
-}
+}}
 
   
 
@@ -97,7 +117,8 @@ const genrePick = (name, index) => {
 // indexOf 함수는 해당 배열에서 특정 값을 찾을 때 인덱스 숫자로 위치를 알려주고 없으면 -1을 반환
 // genre 배열에서 null값이 없어서 -1을 반환할 때 name(장르 이름)으로 가득 찬 상태이므로 알림창 띄우기
 if (genre.indexOf(null) === -1 &&  genre.indexOf(name) === -1) {
-  return window.alert("장르는 최대 4개까지 선택 가능합니다.")
+  setAlert("장르는 최대 4개까지 선택 가능합니다.")
+  openModal()
 } else if (genre.indexOf(name) === -1) {
   genre.pop();
   genre.unshift(name);
@@ -248,6 +269,7 @@ console.log("clickGenre ==> ", clickGenre)
         
       </div>
         <button className='primary signup-button-box' onClick={myinfoEdit}>저장</button>
+        <Modal open={modalOpen} close={closeModal} alert={alert}/>
     </div>
   )
 }
