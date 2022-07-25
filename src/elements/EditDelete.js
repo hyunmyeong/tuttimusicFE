@@ -13,6 +13,8 @@ function EditDelete(props) {
   const detail = props.detail;
   const token = props.token;
 
+
+  //모달
   const [alert, setAlert] = useState("삭제하시겠습니까?")
   const [modalOpen, setModalOpen] = useState(false);
   const openModal = () => {setModalOpen(true);};

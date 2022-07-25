@@ -19,10 +19,9 @@ function MyEdit() {
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(userInfo.profileImage);  
 
+  //모달
   const [alert, setAlert] = useState("")
-
   const [modalOpen, setModalOpen] = useState(false);
-
   const openModal = () => {
         setModalOpen(true);
         };

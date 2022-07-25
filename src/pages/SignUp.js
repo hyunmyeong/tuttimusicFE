@@ -27,10 +27,9 @@ const SignUp = () => {
 
     const genreNames = ["발라드", "어쿠스틱", "R&B", "힙합", "댄스", "연주곡"]
 
+    //모달
     const [alert, setAlert] = useState("")
-
     const [modalOpen, setModalOpen] = useState(false);
-
     const openModal = () => {
         setModalOpen(true);
         };

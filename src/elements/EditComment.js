@@ -20,6 +20,8 @@ function EditComment(props) {
   const [dropdown, setDropdown] = useState(false);
   const currentTime = moment().format();
 
+
+  //모달
   const [alert, setAlert] = useState("정말로 삭제하시겠습니까?")
   const [modalOpen, setModalOpen] = useState(false);
 

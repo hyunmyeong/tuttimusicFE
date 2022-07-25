@@ -11,10 +11,10 @@ const Login = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+
+    //모달
     const [alert, setAlert] = useState("")
-
     const [modalOpen, setModalOpen] = useState(false);
-
     const openModal = () => {
         setModalOpen(true);
         };

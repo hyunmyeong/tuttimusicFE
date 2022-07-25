@@ -21,10 +21,9 @@ function UploadVideo() {
   const title_ref = useRef(null);
   const description_ref = useRef(null);
 
+  //모달
   const [alert, setAlert] = useState("")
-
   const [modalOpen, setModalOpen] = useState(false);
-
   const openModal = () => {
         setModalOpen(true);
         };

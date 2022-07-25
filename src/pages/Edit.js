@@ -49,10 +49,9 @@ function Edit() {
 
   const [musicName, setMusicName] = React.useState(detail.musicTitle);
 
+  //모달
   const [alert, setAlert] = useState("")
-
   const [modalOpen, setModalOpen] = useState(false);
-
   const openModal = () => {setModalOpen(true);};
   const closeModal = () => {
     setModalOpen(false);
