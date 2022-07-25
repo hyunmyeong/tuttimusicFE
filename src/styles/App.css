@@ -1799,6 +1799,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   align-items: flex-start;
   padding: 0px;
   gap: 5px;
+  position: relative;
 }
 
 .live-box-thumbnail {
@@ -2432,6 +2433,18 @@ input[type=radio] {
   color:#fff;
   border-radius: 10px;
   text-align: center;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+#live-user-live {
+  font-size: 14px;
+  background-color:#8A51FB;
+  padding:6px 12px;
+  color:#fff;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .live-info-title {
@@ -2617,6 +2630,13 @@ input[type=radio] {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.message-header.self{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .message-flex-wrap{

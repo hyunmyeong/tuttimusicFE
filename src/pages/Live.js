@@ -6,9 +6,12 @@ import BeatLoader from "react-spinners/BeatLoader";
 import Streamer from '../elements/Streamer';
 import Subscribers from '../elements/Subscribers';
 import Chatbox from "../elements/Chatbox";
+import {usePrompt} from '../elements/Blocker';
 
 
 function Live() {
+  usePrompt('현재 페이지를 벗어나면 라이브가 종료됩니다. 😭', true);
+
   const navigate = useNavigate();
 
   //PARAMS=STREAMER'S NAME
@@ -72,7 +75,7 @@ function Live() {
         />
           <div className="live-info-user">
             <div id="live-info-user-name">{data.artist}</div>
-            <div id="live-info-user-live">LIVE</div>
+            <div id="live-user-live">LIVE</div>
           </div>
           <div className="live-info-title">
             <div id="live-info-title-main">{data.roomTitle}</div>
