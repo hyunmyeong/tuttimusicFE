@@ -25,11 +25,11 @@
   }
   
   .divider {
-    max-width: var(--container-width);
+    max-width:100%;
     height: 1px;
     background-color: #ececec;
-    margin: 50px auto 70px auto;
-    width: 98%;
+    margin: 20px auto;
+    width: 100%;
   }
   
   .vertical-divider {
@@ -46,6 +46,7 @@
   
   .btn-primary{
     border-radius: 10px;
+    width:120px;
     color: #fff;
     font-size: 18px;
     background-color: var(--primary-button);
@@ -219,47 +220,39 @@
   
   /* DETAIL  */
   .detail-container{
-    max-width: var(--container-width);
+    max-width: 100%;
+    padding:0 20px;
     margin: 50px auto 100px auto;
     position: relative;
     min-height: 80vh;
   }
   .music-detail{
     display: flex;
-    flex-direction: row;
-    gap: 40px;
+    flex-direction: column;
+    gap: 30px;
   }
   
-  .left-column {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .right-column {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
   
   .detail-album-art{
-    width: 290px;
-    height: 290px;
-    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
   }
   
   .detail-artist-profile{
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap:20px;
-    margin-top: 60px;
+    gap:0;
+    margin-top: 0;
   }
   
   .detail-artist-img{
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     object-fit: cover;
+    margin-right: 10px;
   }
   
   .detail-artist{
@@ -277,7 +270,7 @@
   }
   
   .mgtop50 {
-    margin-top: 50px;
+    margin-top: 0px;
     justify-content: space-between;
   }
   
@@ -292,6 +285,7 @@
   }
   
   .flex-wrap{
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
     gap:5px;
@@ -325,20 +319,9 @@
   }
   
   .detail-song-detail{
-    font-size: 15px;
-    color: #7E7E7E; 
-    margin-top: 63px;
-    margin-bottom: 34px;
-    white-space: pre-wrap;
-    
-    /* overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    word-wrap:break-word;  */
+    margin-top: 0;
+    margin-bottom: 0;
     line-height: 22px;
-    /* height: 66px; */
   }
   
   .detail-more-detail{
@@ -362,6 +345,7 @@
     flex-direction: row;
     justify-content:space-between;
     align-items: center;
+    margin:20px 0;
   }
   
   .music-video-edit-box {
@@ -370,14 +354,16 @@
   }
   
   .music-video-title {
-    margin-top:40px;
-    margin-bottom:20px;
-    font-size: 30px;
+    margin-top:0px;
+    margin-bottom:0px;
+    font-size: 22px;
+    display: flex;
+    align-items:center;
     font-weight: bold;
   }
   
   .music-video video {
-    width:1280px;
+    width:100%;
   }
   
   .follow-button{
@@ -396,27 +382,28 @@
   }
   
   .detail-artist-img-sm{
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
+    width:50px;
+    height:50px;
+    aspect-ratio: 1 / 1;
   }
   
   .comment-input{
     padding: 15px 30px;
-    margin: 0px 20px 0px 30px;
-    background: #E8E8E8;
-    border-radius: 10px;
-    max-width: 1050px;
-    width: 100%;
-    outline: none;
-    border: none;
-    height: 60px;
-    font-size: 18px;
+    margin: 0px 10px;
+    max-width: 100%;
+    height: 50px;
+    font-size: 13px;
   }
   
   .comment-input::placeholder{
-    font-size: 18px;
+    font-size: 13px;
+  }
+
+  .mobile-button {
+    height:50px;
+    font-size: 14px;
+    padding:0;
+    line-height: 50px;
   }
   
   .all-comments{
@@ -501,15 +488,7 @@
   }
   
   .icon-round-button{
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 40px;
-    font-size: 22px;
-    position: relative;
+    margin-right: 0;
   }
   
   .icon-round-button:hover{
