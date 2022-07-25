@@ -7,6 +7,8 @@ import axios from 'axios';
 
 import {SERVER_URL} from "../redux/modules/songSlice";
 
+import Modal from '../elements/Modal';
+
 function CreateLive() {
 
   const navigate = useNavigate();
@@ -18,6 +20,17 @@ function CreateLive() {
   const [previewImg, setPreviewImg] = useState(null);
   const [imgName, setImgName] = useState(null);
   const [imgFile, setImgFlie] = useState(null);
+
+  const [alert, setAlert] = useState("")
+
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+        setModalOpen(true);
+        };
+  const closeModal = () => {
+        setModalOpen(false);
+        };
 
   const onLoadImage = (e) => {
     let render = new FileReader()
@@ -62,9 +75,11 @@ function CreateLive() {
   const startLive = () => {
 
     if (title_ref.current.value === "") {
-      return window.alert("라이브 제목을 채워 주세요.")
+      setAlert("라이브 제목을 채워 주세요.")
+      openModal()
     } else if (description_ref.current.value === "") {
-      return window.alert ("소개글을 채워 주세요.")
+      setAlert ("소개글을 채워 주세요.")
+      openModal()
     } 
     
     const token = localStorage.getItem("token");
@@ -139,6 +154,8 @@ function CreateLive() {
 
       </div>
       </div>
+
+      <Modal open={modalOpen} close={closeModal} alert={alert}/>
 
     </CreateLiveWrap>
   )
