@@ -10,7 +10,8 @@ export const getMainLists = createAsyncThunk("GET/getMainLists", async (token)=>
   .get(`${SERVER_URL}/`,{
     headers: {Authorization:token? token:""}
   })
-  .then((response)=> response.data.data);
+  .then((response)=> response.data.data)
+  // .catch((error)=> console.log(error))
 })
 
 //GET MUSICFEED (FEED TAB)

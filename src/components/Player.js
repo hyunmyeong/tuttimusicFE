@@ -148,7 +148,6 @@ function Player() {
             max="1"
             step="0.025"
             onChange={onvolumechange}
-            defaultValue={volume}
             value={volume}
           />       
         </Controls>

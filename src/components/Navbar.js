@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import { useNavigate, useLocation } from "react-router-dom";
 import {useDispatch } from "react-redux";
@@ -26,6 +26,13 @@ function Navbar() {
 
   const userProfileUrl = localStorage.getItem("userProfileUrl");
   const userName = localStorage.getItem("userName");
+
+
+  useEffect(()=>{
+    if (!token) {
+      setToggleState(false);
+    }
+  },[])
 
   const ClickLogout = () => {
     setToggleState(false);

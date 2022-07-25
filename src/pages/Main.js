@@ -18,7 +18,16 @@ function Main() {
 
   useEffect(()=>{
     const token= localStorage.getItem("token");
-    dispatch(getMainLists(token));
+    dispatch(getMainLists(token))
+    .then((response) => {
+      console.log(response)
+      if (response.type === "GET/getMainLists/rejected") {
+        localStorage.clear();
+        navigate("/");
+        window.location.reload();
+      }
+    })
+
     setTimeout(()=> {
       setLoading(false);
     },200)
