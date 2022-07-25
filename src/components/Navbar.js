@@ -60,13 +60,12 @@ function Navbar() {
     <>
     <NavBar toggle={toggleState} search={searchState}>
       <div className="nav-wrap">
-        <div 
-          className="logo"
-          onClick={()=>{
-            navigate('/')
-        }}>
-          tutti
-        </div>
+        <img
+        className="logo" 
+        src="img/logo_light.png"
+        onClick={()=>{
+          navigate('/')
+        }}/>
         <div className="nav">
         
           <ul>
@@ -131,13 +130,12 @@ function Navbar() {
       </div>
 {/* 모바일 버전 nav */}
       <div className="nav-mobile-wrap">
-      <div 
-          className="logo"
+        <img
+          className="logo" 
+          src="img/logo_light.png"
           onClick={()=>{
             navigate('/')
-        }}>
-          tutti
-        </div>
+        }}/>
         <div className="nav-mobile-right">
         <BiSearchAlt2 
           id="search-mobile-icon"

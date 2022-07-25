@@ -103,6 +103,10 @@ function Main() {
     <div className="main-container">
       <section className="main-top">
         <div className="main-top-header">
+          <img 
+          src="img/main_banner1.png" 
+          className="main-banner"
+          />
         </div>
       </section>
       <section className="main-content">
