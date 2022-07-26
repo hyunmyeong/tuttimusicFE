@@ -175,7 +175,7 @@ const [submit, setSubmit] = React.useState(false);
 
     const token = localStorage.getItem("token");
     console.log(imgFile)
-    const file = new File([imgFile], musicName);
+    const file = new File([imgFile], musicName.slice(0,-4)+".png");
     console.log(file)
       
     const feedRequestDto = {
