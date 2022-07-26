@@ -48,18 +48,19 @@ function Tab1(props) {
               {
                 likeList && likeList.map((song, Index) => {
                   return (
-                    <div className='main-card'>
+                    <div className='main-card page-card'>
                       <img
                         src={song.albumImageUrl}
-                        className='main-album-art'
+                        className='main-album-art page-album-art'
                         alt={song.title} 
                         onClick={() => {navigate(`/detail/${song.feedId}`)}}/>
-                      <div className="main-card-text" >
-                        <p className="main-card-title" 
+                      <div className="main-card-text
+                      page-card-text" >
+                        <p className="main-card-title page-card-title" 
                         onClick={() => {navigate(`/detail/${song.feedId}`)}}>
                           {song.title}
                         </p>
-                        <p className="main-card-artist"
+                        <p className="main-card-artist page-card-artist"
                           onClick={() => {navigate(`/userpage/${song.artist}`)}}>
                           {song.artist}
                         </p>
@@ -83,7 +84,7 @@ function Tab1(props) {
               <BeatLoader color={"grey"} loading={loading} size={10} />
             </div>
           ) : (
-            <div className='body-like-list'>
+            <div className='page-video-list'>
               {
                 likeVideoList && likeVideoList.map((song, Index) => {
                   return (
@@ -156,14 +157,14 @@ function Tab1(props) {
               {
                 uploadList && uploadList.map((song, index) => {
                   return (
-                    <div className='main-card'>
+                    <div className='main-card page-card'>
                       <img
                         src={song.albumImageUrl}
-                        className='main-album-art'
+                        className='main-album-art page-album-art'
                         alt={song.title} 
                         onClick={() => {navigate(`/detail/${song.feedId}`)}}/>
-                      <div className="main-card-text">
-                        <p className="main-card-title"
+                      <div className="main-card-text page-card-text">
+                        <p className="main-card-title page-card-title"
                           onClick={() => {navigate(`/detail/${song.feedId}`)}}>
                           {song.title}
                         </p>
@@ -189,7 +190,7 @@ function Tab1(props) {
               <BeatLoader color={"grey"} loading={loading} size={10} />
             </div>
           ) : (
-            <div className='body-like-list'>
+            <div className='page-video-list'>
               {
                 uploadVideoList && uploadVideoList.map((song, index) => {
                   return (

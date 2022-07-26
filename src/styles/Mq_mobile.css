@@ -88,15 +88,25 @@
     font-size: 14px;
   }
   
-  
+  .page-video-list {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0px;
+    gap: 0;
+    width: 100%;
+  }
+
   .mypage-video-card{
     display: flex;
     flex-direction: column;
-    width:295px;
+    width:47%;
     padding: 0px;  
     justify-content: center;
     flex-wrap: wrap;
-  
+    margin: 10px 0;
   }
   
   .main-album-art {
@@ -109,7 +119,9 @@
   
   .mypage-main-thumbnail {
     width: 100%;
-    height: 171px;
+    height: 100%;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 10px;
   }
   
   .main-card-text {
@@ -574,70 +586,78 @@
     gap: 40px;
     width: 1280px;
     height: 1459px; */
-  
-    max-width: 1280px;
     width: 100%;
-    margin: 50px auto 150px auto;
+    padding: 0 20px;
+    margin: 50px auto 50px auto;
     position: relative;
     
   }
+
+
+
   
-  .mypage-header {
+  .mobile-mypage-header {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 40px;
-  
-    width: 1280px;
-    height: 150px;
-  }
-  
-  .header-porfile-img{
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit:cover;
-    background-color: #D9D9D9;
-  }
-  
-  .header-profile-info{
-    display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 40px;
-  
-    width: 1120px;
-    height: 123px;
+    width: 100%;
+    aspect-ratio: 16/9;
   }
-  
-  .header-artist{
+
+  .mobile-header-left {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 40px;
+    width:33%;
+    height: 100%;
+    justify-content: flex-start;
+  }
+
+  .mobile-header-right {
+    width:62%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content:flex-start;
+  }
+
+  .mobile-user-button {
+    width:100%;
+  }
+
+  .mobile-header-profile-img-circle {
+    width:100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: #D9D9D9;
+    margin-bottom: 20px;
+  }
+
+
   
-    width: 232px;
-    height: 123px;
-    min-width: 250px;
+  .mobile-header-porfile-img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
   }
   
-  .header-artist-name {
-    font-size: 20px;
-    font-style: normal;
+  .mobile-header-artist{
+    width: 100%;
+    height: 60%;
+  }
+  
+  .mobile-header-artist-name {
+    font-size: 18px;
     font-weight: bold;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
   }
   
-  .header-artist-info {
+  .mobile-header-artist-info {
     font-size: 14px;
     color: #7e7e7e;
-    margin-top: -20px;
-    width:400px;
+    height: 100%;
   }
   
   .header-sns {
@@ -647,7 +667,7 @@
     padding: 0px;
     gap: 18px;
   
-    margin-top: -40px;
+    margin-top: 0px;
   
     /* display: flex;
     flex-direction: row;
@@ -665,120 +685,103 @@
   .sns-youtube {
     color: #c4302b;
   }
-  
-  .header-follow-container {
-    width: 225px;
+
+  .mobile-header-profile-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 40px;
+    width: 60px;
     height: 123px;
+
+  }
+
+  .mobile-header-follow-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 15px;
+    width: 100%;
   }
   
-  .header-follow {
+  .mobile-header-follow {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 28px;
-  
-    margin-left: 30px;
-  
-    width: 225px;
-    height: 22px;
-  
+    justify-content:flex-start;
+    margin-bottom: 10px;
   }
   
-  .follow-follower {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 12px;
-  
-    width: 82px;
-    height: 22px;
-  
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
-  
+  .mobile-follow-follower {
+    margin-right: 10px;
     color: #7E7E7E;
   }
   
-  .follow-follower-count {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
-  
-    margin-left: -40px;
-  
+  .mobile-follow-follower-count {
     color: #000000;
   }
   
-  .follow-follower-icon {
-    width: 20px;
-    height: 20px;
-  
-    color: #FFFFFF;
+  .mobile-follow-follower-icon {
+    width: 15px;
+    height: 15px;
+    color: #fff;
+    margin-right: 4px;
+  }
+
+  .follow-icon {
+    width:17px;
+    height:17px;
+    color:#fff;
+    margin-right: 5px;
   }
   
-  .follow-follower-button {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 10px;
-    gap: 10px;
-    width: 177px;
-    height: 50px;
-    margin-left: auto;
-    margin-top: 50px;
+  .mobile-follow-follower-button {
+    width: 60%;
+    height: 40px;
     border-radius: 10px;
     outline: none;
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
   }
   
   .icon-separate {
     display: flex;
     /* flex-direction: row; */
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-  
-    margin-left: 20px;
+    margin-left: 0px;
   }
   
-  .follow-follower-button-text {
-    width: 95px;
-  
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
-  
-    color: #FFFFFF;
-  
-    cursor: pointer;
+  .mobile-follow-follower-button-text {
+    font-size: 15px;
   }
   
   .mypage-body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px;
-    gap: 30px;
-    width: 1280px;
+    width: 100%;
     min-height: 60vh;
   }
   
   .body-bar {
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
-    align-items: flex-start;
-    padding: 25px 20px;
-    gap: 61px;
+    align-items: none;
+    justify-content: space-between;
+    gap:0;
+    padding: 0;
   }
   
   .body-bar-menu {
     cursor: pointer;
+    font-size: 14px;
   }
   
   .body-contents {
@@ -786,44 +789,65 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 80px;
+    gap: 40px;
   
-    width: 1280px;
+    width: 100%;
   }
   
   .body-like {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 39px;
-  
-    width: 1280px;
+    gap: 0;
+    width: 100%;
   }
   
   .body-font {
-    font-size: 25px;
+    font-size: 20px;
     color: #000000;
     font-weight: 500;
+    margin-bottom: 20px;
   }
   
   .body-like-list {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    justify-content: flex-start;
     flex-wrap: wrap;
     padding: 0px;
-    gap: 28px;
-    width: 1280px;
+    gap: 0;
+    width: 100%;
   }
   
-  .body-like-list{
+  .page-card {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 20px;
-    width: 1280px;
-    padding: 0px;
+    flex-direction: column;
+    width: 31%;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+  }
+
+  .page-card:nth-of-type(2), .page-card:nth-of-type(5) {
+    margin:0 3.5%;
+  }
+
+  .page-album-art {
+    width:100%;
+    height: 100%;
+    aspect-ratio: 1;
+    margin-bottom: 10px;
+  }
+
+  .page-card-title {
+    font-size: 14px;
+  }
+
+  .page-card-text {
+    width: 100%;
   }
   
   .body-card {
@@ -862,29 +886,34 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 39px;
+    gap: 0;
   
-    width: 1280px;
-    height: 266px;
+    width: 100%;
+    height: fit-content;
   }
   
   .body-following-card {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     padding: 0px;
-    gap: 20px;
-    margin-top: 39px;
+    gap: 10px;
+    margin-top:0;
     cursor: pointer;
+    width: 31%;
+    margin: 10px 1.15%;
   }
   
   .body-circle {
-    width: 158px;
-    height: 158px;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
     border-radius: 50%;
-    margin-top: -50px;
+    margin-top: 0;
     background-color: #D9D9D9;
     object-fit:cover;
+    margin-bottom: 10px;
   }
   
   .body-upload {
@@ -903,14 +932,23 @@
   
   /* TAB */
   .tab-body{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 28px;
-  
-    width: 1280px;
+    justify-content: space-between;
+    gap:0;
+    width: 100%;
+  }
+
+  .tab-following-body {
+    justify-content: flex-start;
+  }
+
+  .tab-card {
+    width:49%;
+  }
+
+  .tab-card img {
+    width:100%;
+    height:100%;
+    aspect-ratio: 1;
   }
   
   .no-content {
@@ -921,7 +959,6 @@
   
   
   /* SIGNUP PAGE */
-  
   .signup-container {
     display: flex;
     flex-direction: column;
@@ -929,9 +966,8 @@
     padding: 60px 0px;
     gap: 50px;
   
-    max-width: 1280px;
-    width: 100%;
-    
+    width: 2560px;
+    background-color: pink;
   
     margin : 80px auto;
   }
@@ -999,6 +1035,15 @@
     height: 1280px;
   }
   
+  .signup-box {
+    background-color: palevioletred;
+    max-width:41.29%;
+  }
+  
+  .signup-label {
+  
+  }
+  
   .signup-email-box {
     display: flex;
     flex-direction: row;
@@ -1052,7 +1097,7 @@
     align-items: flex-start;
     padding: 15px 30px;
     gap: 10px;
-    width: 700px;
+    width: 680px;
     height: 60px;
     background: #E8E8E8;
     border-radius: 10px;
@@ -1132,7 +1177,7 @@
     padding: 25px 30px;
     gap: 10px;
     margin-left: -80px;
-    width: 840px;
+    width: 820px;
     height: 60px;
     background: #E8E8E8;
     border-radius: 10px;
@@ -1309,7 +1354,7 @@
     padding: 0px;
     gap: 10px;
   
-    width: 840px;
+    width: 810px;
     height: 173px;
   }
   
@@ -1321,7 +1366,7 @@
     padding: 0px;
     gap: 46px;
   
-    width: 800px;
+    width: 810px;
     height: 51px;
   
     flex-wrap: wrap;
@@ -1401,7 +1446,6 @@
     color:#8A51FB;
     margin-left:2px;
   }
-  
   /* SIGNUP PAGE END */
   
   
