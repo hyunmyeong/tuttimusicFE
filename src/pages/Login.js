@@ -4,12 +4,18 @@ import axios from 'axios';
 
 import Modal from '../elements/Modal';
 
+import { useMediaQuery } from "react-responsive";
+
 const Login = (props) => {
 
     const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const isMobile = useMediaQuery({
+      query : "(max-width:480px)"
+    })
 
 
     //모달
@@ -68,7 +74,10 @@ const Login = (props) => {
                 localStorage.setItem("userName", artist);
                 localStorage.setItem("userProfileUrl", profileUrl);
                 navigate("/")
-                // window.location.reload();
+                if (!isMobile) {
+                  window.location.reload();
+                }
+                
             })
             .catch((error) => {
                 console.log(error)
