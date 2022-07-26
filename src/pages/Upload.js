@@ -11,6 +11,8 @@ import {SERVER_URL} from "../redux/modules/songSlice";
 
 import Modal from '../elements/Modal';
 
+import imageCompression from 'browser-image-compression'; 
+
 
 function Upload() {
 
@@ -73,13 +75,15 @@ function Upload() {
 
   const [previewImg, setPreviewImg] = React.useState(null);
   const [imgName, setImgName] = React.useState(null);
-  const [imgFile, setImgFlie] = React.useState(null);
+  const [imgFile, setImgFile] = React.useState(null);
+  const [file, setFile] = React.useState(null);
 
 
-  const onLoadImage = (e) => {
+  const onLoadImage = async(e) => {
     let render = new FileReader()
     setImgName(e.target.files[0].name);
-    setImgFlie(e.target.files[0]);
+    // setImgFile(e.target.files[0])
+    handleFileOnChange(e.target.files[0])
 
     if(e.target.files[0]) {
       render.readAsDataURL(e.target.files[0])
@@ -93,8 +97,33 @@ function Upload() {
       }
     }
 
-    
   }
+
+  const handleFileOnChange = async (img) => {
+    
+    console.log(img)
+    // 이미지 resize 옵션 설정 (최대 width을 100px로 지정)
+    const options = { 
+      maxSizeMB: 1, 
+      maxWidthOrHeight: 400
+    }
+    
+    try {
+      const compressedFile = await imageCompression(img, options);
+      setImgFile(compressedFile);
+      console.log(imgFile)
+      
+      // // resize된 이미지의 url을 받아 fileUrl에 저장
+      // const promise = imageCompression.getDataUrlFromFile(compressedFile);
+      // promise.then(result => {
+      //   setImgFile(result);
+      //   console.log("resized img:", imgFile)
+      // })
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
 
   const [color, setColor] = React.useState("#545454");
   const [colorState, setColorState] = React.useState(false);
@@ -145,7 +174,10 @@ const [submit, setSubmit] = React.useState(false);
     
 
     const token = localStorage.getItem("token");
-
+    console.log(imgFile)
+    const file = new File([imgFile], musicName);
+    console.log(file)
+      
     const feedRequestDto = {
       title : title_ref.current.value,
       musicTitle : musicName,
@@ -158,7 +190,7 @@ const [submit, setSubmit] = React.useState(false);
     const formData = new FormData();
     formData.append("feedRequestDto", new Blob([JSON.stringify(feedRequestDto)], {type: "application/json"}))
     formData.append("song", musicFile)
-    formData.append("albumImage", imgFile)
+    formData.append("albumImage", file)
     
     axios.post(`${SERVER_URL}/feeds/upload`, formData,{
       headers: {

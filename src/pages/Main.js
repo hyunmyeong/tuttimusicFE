@@ -161,6 +161,8 @@ function Main() {
                   alt={song.title}
                   className="main-album-art" 
                   src={song.albumImageUrl}
+                  srcset={song.albumImageUrl+" 100w"}
+                  sizes="30vw"
                   />
                   <div className="main-card-text">
                     <p className="main-card-title">
