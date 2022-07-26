@@ -433,6 +433,19 @@ const SignUp = () => {
                             id="youtube"
                         />
                     </div>
+
+                    {/* 약관동의 */}
+                    <div className='signup-box'>
+                        <div className='checkbox-flex'>
+                            <input    
+                                className="checkbox-signup"         
+                                type="checkbox"
+                                id="youtube"
+                            />
+                            <p className='agree-text'>개인정보 수집 및 <span a href='/feed'>이용약관</span>에 대한 안내에 동의합니다.</p>
+                        </div>
+                        
+                    </div>
                 </div>
         </div>
             <button className='primary signup-button-box' 

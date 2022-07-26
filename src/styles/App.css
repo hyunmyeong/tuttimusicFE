@@ -1452,6 +1452,24 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   margin-left:2px;
 }
 
+.checkbox-flex{
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-signup{
+  display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #bcbcbc;
+	cursor: pointer;
+  margin-right: 15px;
+}
+
+.agree-text{
+  font-size:17px;
+}
+
 /* SIGNUP PAGE END */
 
 
