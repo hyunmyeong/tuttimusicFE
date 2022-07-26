@@ -83,6 +83,7 @@ function CreateLive() {
     } 
     
     const token = localStorage.getItem("token");
+    const userName = localStorage.getItem("userName");
 
     const addRoomRequestDto = {
       roomTitle : title_ref.current.value,
@@ -100,8 +101,8 @@ function CreateLive() {
     })
     .then((response) => {
       console.log("res ===> ", response);
+      navigate('/facechatlist'); 
       // navigate(`live/${userName}`);
-      navigate('/facechatlist');
       window.scrollTo(0, 0);
     })
     .catch((error) => {

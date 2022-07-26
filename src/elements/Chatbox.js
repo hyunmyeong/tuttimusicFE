@@ -108,8 +108,10 @@ const Chatbox = (props) => {
                 };
 
                 console.log(chatMessage);
+                if (userData.message) {
                 stompClient.send("/app/message/"+props.streamer, {}, JSON.stringify(chatMessage));
                 setUserData({...userData,"message": ""});
+                }
             }
             
     }
@@ -146,11 +148,11 @@ const Chatbox = (props) => {
                                         {chat.senderName === userData.username && 
                                         <div className='message-flex-wrap self'>
                                             <div className="message-header">
-                                                <img 
+                                                {/* <img 
                                                 className='chat-profile' 
                                                 src={chat.profileImage} 
                                                 alt={chat.senderName}/>
-                                                <div className="chat-name self">{chat.senderName}</div>
+                                                <div className="chat-name self">{chat.senderName}</div> */}
                                                 
                                             </div>
                                             <div className="message-data">{chat.message}</div>
@@ -177,11 +179,11 @@ const Chatbox = (props) => {
                                     {chat.senderName === userData.username && 
                                     <div className='message-flex-wrap self'>
                                         <div className="message-header">
-                                            <img 
+                                            {/* <img 
                                             className='chat-profile' 
                                             src={chat.profileImage} 
                                             alt={chat.senderName}/>
-                                            <div className="chat-name self">{chat.senderName}</div>
+                                            <div className="chat-name self">{chat.senderName}</div> */}
                                             
                                         </div>
                                         <div className="message-data">{chat.message}</div>
