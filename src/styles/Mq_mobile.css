@@ -88,16 +88,7 @@
     font-size: 14px;
   }
   
-  .page-video-list {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 0px;
-    gap: 0;
-    width: 100%;
-  }
+  
 
   .mypage-video-card{
     display: flex;
@@ -820,6 +811,10 @@
     padding: 0px;
     gap: 0;
     width: 100%;
+  }
+
+  .page-video-list {
+    justify-content: space-between;
   }
   
   .page-card {

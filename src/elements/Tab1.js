@@ -84,7 +84,7 @@ function Tab1(props) {
               <BeatLoader color={"grey"} loading={loading} size={10} />
             </div>
           ) : (
-            <div className='page-video-list'>
+            <div className='body-like-list page-video-list'>
               {
                 likeVideoList && likeVideoList.map((song, Index) => {
                   return (
@@ -190,7 +190,7 @@ function Tab1(props) {
               <BeatLoader color={"grey"} loading={loading} size={10} />
             </div>
           ) : (
-            <div className='page-video-list'>
+            <div className='body-like-list page-video-list'>
               {
                 uploadVideoList && uploadVideoList.map((song, index) => {
                   return (
