@@ -145,34 +145,34 @@ console.log("clickGenre ==> ", clickGenre)
 
       <div className='signup-title-box'>
         <p className='signup-title'>회원 정보 수정</p>
-        <p className='signup-subtitle'>장르, 소개글, 인스타그램 주소와 유튜브 주소만 수정 가능합니다.</p>
+        <p className='signup-subtitle'>닉네임은 수정할 수 없습니다.</p>
       </div>
 
-      <div className='signup-info-box myedit-info'>
+      <div className='signup-info-box'>
         <div className='signup-info '>
 
           {/* 닉네임  */}
-          <div className='signup-pw-box'>
+          <div className='signup-box'>
             
-            <div className='signup-pw-title-box'>
+          <label className='signup-label'>
               <p className='signup-pw-title'>닉네임</p>
-            </div>
+            </label>
 
-            <div className='signup-email-content'>
+          
               <input className='signup-pw-input'
                 type="text" 
                 value={userInfo.artist}
                 readOnly/>
-            </div>
+          
 
           </div>
 
           {/* 프로필 이미지  */}
-          <div className='signup-profile-img-box'>
+          <div className='signup-box'>
 
-            <div className='profile-title-box'>
+          <label className='signup-label'>
               <p className='profile-title'>프로필 이미지</p>
-            </div>
+            </label>
 
             <div className='profile-img-form'>
               <img src={preview} className='profile-img-circle'/>
@@ -183,11 +183,11 @@ console.log("clickGenre ==> ", clickGenre)
           </div>
 
           {/* 선호 장르  */}
-          <div className='signup-genre-box'>
+          <div className='signup-box'>
 
-            <div className='signup-genre-title-box'>
+          <label className='signup-label'>
               <p className='signup-genre-title'>선호 장르</p>
-            </div>
+            </label>
 
             <div className='genre-container'>
               <div className='genre-boxes'>
@@ -213,11 +213,11 @@ console.log("clickGenre ==> ", clickGenre)
           </div>
 
           {/* 소개글  */}
-          <div className='signup-pw-box'>
+          <div className='signup-box'>
 
-            <div className='signup-pw-title-box'>
+          <label className='signup-label' for="introduce">
               <p className='signup-pw-title'>소개글</p>
-            </div>
+            </label>
             
             <input className='signup-pw-input'
               onChange={(e)=>{
@@ -225,16 +225,17 @@ console.log("clickGenre ==> ", clickGenre)
                 }}
               type="text"
               placeholder='소개글을 입력하세요.'
+              id="introduce"
               defaultValue={userInfo.profileText}/>
 
           </div>
 
           {/* 인스타  */}
-          <div className='signup-pw-box'>
+          <div className='signup-box'>
 
-            <div className='signup-pw-title-box'>
+          <label className='signup-label' for="insta">
               <p className='signup-pw-title'>Instagram</p>
-            </div>
+            </label>
 
             <input className='signup-pw-input'
               onChange={(e)=>{
@@ -242,16 +243,17 @@ console.log("clickGenre ==> ", clickGenre)
                 }}
               type="text"
               placeholder='URL을 입력해주세요.'
+              id="insta"
               defaultValue={userInfo.instagramUrl}/>
 
           </div>
 
           {/* 유튜브  */}
-          <div className='signup-pw-box'>
+          <div className='signup-box'>
 
-            <div className='signup-pw-title-box'>
+          <label className='signup-label' for="youtube">
               <p className='signup-pw-title'>Youtube</p>
-            </div>
+            </label>
 
             <input className='signup-pw-input'
               onChange={(e)=>{
@@ -259,6 +261,7 @@ console.log("clickGenre ==> ", clickGenre)
                 }}
               type="text"
               placeholder='URL을 입력해주세요.'
+              id="youtube"
               defaultValue={userInfo.youtubeUrl}/>
 
           </div>

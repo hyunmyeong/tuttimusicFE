@@ -65,13 +65,13 @@ useEffect(()=>{
         <div className='tab-body'>
             {list&&list.map((song, Index)=>{
                 return(
-                    <div className='main-card'>
+                    <div className='main-card tab-card'>
                         <img 
                         src={song.albumImageUrl} 
                         className='main-album-art'
                         alt={song.title}
                         onClick={() => {navigate(`/detail/${song.feedId}`)}}/>
-                        <div className="main-card-text">
+                        <div className="main-card-text page-card-text">
                             <p className="main-card-title"
                             onClick={() => {navigate(`/detail/${song.feedId}`)}}>
                             {song.title}

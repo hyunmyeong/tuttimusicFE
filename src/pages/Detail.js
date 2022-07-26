@@ -11,6 +11,7 @@ import axios from "axios";
 import EditComment from "../elements/EditComment";
 import EditDelete from "../elements/EditDelete";
 import { IconContext } from "react-icons";
+import { useMediaQuery } from "react-responsive";
 
 function Detail() {
   const [loading, setLoading] = useState(true);
@@ -18,6 +19,11 @@ function Detail() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   let params = useParams();
+
+  
+  const isMobile = useMediaQuery({
+    query : "(max-width:480px)"
+  })
 
   // console.log(moment.utc("2019-12-04 12:00:24").local().startOf('seconds').fromNow())
   // console.log(moment("2022-07-01T16:08:54+09:00").startOf('hour').fromNow())
@@ -107,7 +113,76 @@ function Detail() {
   
   return (
     <div className="detail-container">
-{/* MUSIC DETAIL AREA */}      
+      {isMobile ? 
+      <>
+      {/* isMobile true start */}
+      <div>모바일</div>
+      {/* MUSIC DETAIL AREA */}      
+      {loading? (
+        <div className="spinner-wrap">
+          <BeatLoader color={"grey"} loading={loading} size={10}/>
+        </div>
+      ):(
+      <>
+        <section className="music-detail">
+            <img
+            className="detail-album-art" 
+            alt="better off alone"
+            src={detail.albumImageUrl}
+            />
+           
+     
+          <div className="detail-info-wrap">
+            <div className="flex-wrap between">
+              <p className="detail-info-title">{detail.title}</p>
+            </div> 
+            <div className="flex-wrap">
+              {userName === detail.artist ?  
+              <EditDelete detail={detail} token={token} id={params.id}/>
+              : null}
+            </div>
+          </div>
+            <Waveform 
+              songUrl={detail.songUrl} 
+              title={detail.title}
+              detail={detail}
+              token={token}
+              loading={loading}/>
+
+<div 
+            className="detail-artist-profile"
+            onClick={()=>{ detail.artist === localStorage.getItem("userName") ? navigate("/mypage") :
+              navigate(`/userpage/${detail.artist}`)
+            }}>
+              <img 
+              className="detail-artist-img"
+              alt={detail.artist}
+              src={detail.profileUrl}
+              />
+              <p className="detail-artist">
+              {detail.artist}
+              </p>
+            </div>
+            
+            
+            <p className="detail-song-detail">
+              {showText}
+            </p>
+            <p className="detail-more-detail" onClick={()=> setShow(!show)}>
+              {(commenter.length > textLimit.current) && (show ? '[닫기]' : '...[더보기]')}
+            </p>
+            
+       
+        </section>
+      </>
+
+      )}
+      {/* isMobile true end */}
+      </> 
+      : 
+      <>
+       {/* isMobile false start */}
+       {/* MUSIC DETAIL AREA */}      
       {loading? (
         <div className="spinner-wrap">
           <BeatLoader color={"grey"} loading={loading} size={10}/>
@@ -195,6 +270,9 @@ function Detail() {
       </>
 
       )}
+       {/* isMobile false end */}
+      </>}
+
         <div className="divider"></div>
 {/* COMMENT AREA */}
       {loading? (
@@ -233,7 +311,7 @@ function Detail() {
               />}
 
               {token ? <button
-                className="primary btn btn-primary"
+                className="primary btn btn-primary mobile-button"
                 onClick={() => {
                   addNewComment();
                   setMyComment("");
