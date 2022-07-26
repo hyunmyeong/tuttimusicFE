@@ -12,8 +12,10 @@ function FaceChatList() {
     const navigate = useNavigate();
 
     const [loading, setLoading] = useState(true);
-    const token = localStorage.getItem("token");
     const [roomList, setRoomList] = useState(null);
+
+    const token = localStorage.getItem("token");
+    const userName = localStorage.getItem("userName");
 
     useEffect(()=>{
     setLoading(true);
@@ -38,6 +40,19 @@ function FaceChatList() {
     window.scrollTo(0,0);
 
     },[])
+
+    // useEffect(()=>{
+    //     const userList = []
+    //     roomList?.map((live, index)=>{
+    //         userList.push(live.artist)
+    //     })
+    //     console.log(userList)
+    //     userList?.map((user, index)=>{
+    //         if (user===userName) {
+    //             navigate(`/live/`+userName)
+    //         } 
+    //     })
+    // },[roomList])
 
 
     const enterRoom=(params)=>{
@@ -90,7 +105,6 @@ function FaceChatList() {
                                     alt={live.roomTitle}
                                     />
                                     </div>
-                               
                                 <div className="facechat-live-info">
                                     <div className="facechat-live-pofileimg">
                                         <img 

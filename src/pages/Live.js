@@ -20,6 +20,7 @@ function Live() {
   
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
+  const [activate, setActivate] = useState(true);
 
   const userProfileUrl = localStorage.getItem("userProfileUrl");
   const userName = localStorage.getItem("userName");
@@ -35,7 +36,11 @@ function Live() {
     })
     .then((response)=>{
       console.log(response.data.liveRoomListDto);
-      setData(response.data.liveRoomListDto);      
+      setData(response.data.liveRoomListDto);
+      // if (!data) {
+        
+      //   navigate('/facechatlist')
+      // }      
     })
     .catch((error)=>{
       console.log(error)
