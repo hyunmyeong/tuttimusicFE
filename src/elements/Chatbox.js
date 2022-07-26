@@ -12,8 +12,7 @@ let stompClient = null;
 const Chatbox = (props) => {
     const scrollToBottom = useScrollToBottom();
     console.log(props)
-    const currentTime = moment().format();
-    const [privateChats, setPrivateChats] = useState(new Map());     
+    const currentTime = moment().format();    
     const [publicChats1, setPublicChats1] = useState([]); 
     const [publicChats, setPublicChats] = useState([]); 
     const [tab,setTab] =useState("CHATROOM");
@@ -52,8 +51,9 @@ const Chatbox = (props) => {
         setUserData({...userData,"connected": true, "master": props.streamer, "username": props.subscriber });
         console.log(userData);
         userJoin();
-        stompClient.subscribe('/chatroom/public'+props.streamer, onMessageReceived);
         
+        stompClient.subscribe('/chatroom/public'+props.streamer, onMessageReceived);
+        stompClient.subscribe('/app/subscribe/'+props.streamer, onMessageReceived);
     }
 
     const userJoin=()=>{

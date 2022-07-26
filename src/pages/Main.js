@@ -18,7 +18,16 @@ function Main() {
 
   useEffect(()=>{
     const token= localStorage.getItem("token");
-    dispatch(getMainLists(token));
+    dispatch(getMainLists(token))
+    .then((response) => {
+      console.log(response)
+      if (response.type === "GET/getMainLists/rejected") {
+        localStorage.clear();
+        navigate("/");
+        window.location.reload();
+      }
+    })
+
     setTimeout(()=> {
       setLoading(false);
     },200)
@@ -69,9 +78,24 @@ function Main() {
     arrows: true,
     // variableWidth: true,
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    prevArrow: <SamplePrevArrow />,
     // autoplay: true,
     // autoplaySpeed: 3500,
+    responsive: [
+      {
+        breakpoint: 480,
+        settings: {
+          dots: false,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          arrows: true,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
+        }
+      }
+    ]
   };
 
   // slider settings ->video
@@ -84,9 +108,24 @@ function Main() {
     arrows: true,
     // variableWidth: true,
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    prevArrow: <SamplePrevArrow />,
     // autoplay: true,
     // autoplaySpeed: 3500,
+    responsive: [
+      {
+        breakpoint: 480,
+        settings: {
+          dots: false,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          arrows: true,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
+        }
+      }
+    ]
   };
 
 
@@ -94,6 +133,10 @@ function Main() {
     <div className="main-container">
       <section className="main-top">
         <div className="main-top-header">
+          <img 
+          src="img/main_banner1.png" 
+          className="main-banner"
+          />
         </div>
       </section>
       <section className="main-content">

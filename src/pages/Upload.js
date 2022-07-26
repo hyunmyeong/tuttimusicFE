@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import styled from 'styled-components';
 
@@ -9,6 +9,8 @@ import axios from 'axios';
 
 import {SERVER_URL} from "../redux/modules/songSlice";
 
+import Modal from '../elements/Modal';
+
 
 function Upload() {
 
@@ -17,6 +19,17 @@ function Upload() {
   const color_ref = useRef(null);
   const title_ref = useRef(null);
   const description_ref = useRef(null);
+
+  //모달
+  const [alert, setAlert] = useState("")
+  const [modalOpen, setModalOpen] = useState(false);
+  const openModal = () => {
+        setModalOpen(true);
+        };
+  const closeModal = () => {
+        setModalOpen(false);
+        };
+
 
   const [selectGenre, setSelectGenre] = React.useState("장르를 선택해 주세요.");
   const [genreState, setGenreState] = React.useState(false);
@@ -115,14 +128,20 @@ const [submit, setSubmit] = React.useState(false);
     setSubmit(true);
 
     if (title_ref.current.value === "") {
-      return window.alert("곡명을 채워 주세요.")
+      setAlert("곡명을 채워 주세요.")
+      openModal()
     } else if (description_ref.current.value === "") {
-      return window.alert ("소개글을 채워 주세요.")
+      setAlert ("소개글을 채워 주세요.")
+      openModal()
     } else if (selectGenre === "장르를 선택해 주세요.") {
-      return window.alert ("장르를 선택해 주세요.")
+      setAlert ("장르를 선택해 주세요.")
+      openModal()
     } else if (musicName === null) {
-      return window.alert ("파일을 첨부해 주세요.")
+      setAlert ("파일을 첨부해 주세요.")
+      openModal()
     }
+    
+    else {
     
 
     const token = localStorage.getItem("token");
@@ -149,15 +168,17 @@ const [submit, setSubmit] = React.useState(false);
     .then((response) => {
       setSubmit(false);
       console.log("res ===> ", response);
-      alert("피드가 등록되었습니다.");
+      setAlert("피드가 등록되었습니다.");
+      openModal()
       navigate("/musicfeed")
       window.scrollTo(0, 0);
     })
     .catch((error) => {
       console.log("err ===> ", error);
-      alert("피드 등록에 실패했습니다.")
+      setAlert("피드 등록에 실패했습니다.")
+      openModal()
     });
-  }
+  }}
 
   return (
 
@@ -221,12 +242,13 @@ const [submit, setSubmit] = React.useState(false);
 
         <label className="upload-label">
           <span className="upload-label-span">컬러</span>
+          <div className="upload-mobile-color">
           <input type="text" className="upload-input" id="upload-input-color" onChange={ColorChange} ref={color_ref} placeholder="HEX 코드(#000000)를 입력하시거나 오른쪽 버튼을 눌러 색상을 골라주세요."/>
           <UploadColor color={color} onClick={() => setColorState(!colorState)}></UploadColor>
+          </div>
         </label>
 
         {colorState ? 
-        
         <HexColorPicker 
         className="hex-color"
         color={color} 
@@ -258,6 +280,7 @@ const [submit, setSubmit] = React.useState(false);
 
       </div>
       </div>
+      <Modal open={modalOpen} close={closeModal} alert={alert}/>
       </UpLoad>
   )
 }
@@ -281,21 +304,36 @@ align-items: center;
 `
 
 let UploadImagePreview = styled.div`
-width: 290px;
+  width: 290px;
   height: 290px;
   background-color: #E8E8E8;
   border-radius: 10px;
   background-image:url(${(props) => props.previewImg});
   background-size:cover;
   background-position: 50% 50%;
+
+  
+  @media only screen and (max-width: 480px) {
+  width: 50%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  }
 `
 
 let UploadColor = styled.div`
   width: 60px;
   height: 60px;
   background-color:${(props) => props.color};
-  margin-left: 20px;
+  
   border-radius: 10px;
+
+  @media only screen and (max-width: 480px) {
+  width: 50px;
+  height: 50px;
+  margin-left:0;
+  aspect-ratio: 1 / 1;
+  }
+
 `
 
 

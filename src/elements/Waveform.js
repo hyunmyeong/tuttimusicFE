@@ -26,6 +26,7 @@ function Waveform(props) {
   const [volume, setVolume] = useState(0.5);
   const [currentTime, setCurrentTime] = useState(0);
   const [total, setTotal] = useState(null);
+  const [show, setShow] = useState(false);
   // console.log(props.songUrl);
 
   // create new WaveSurfer
@@ -59,6 +60,7 @@ function Waveform(props) {
       if (wavesurfer.current) {
         wavesurfer.current.setVolume(volume);
         setVolume(volume);
+        setShow(true);
       }
     })
     
@@ -74,6 +76,7 @@ function Waveform(props) {
     //     console.log(currentTime);
     // }
     // })
+
     wavesurfer.current.on("finish", function() {
       console.log("finished playing!")
     })
@@ -88,18 +91,19 @@ const playerInfo = useSelector((state)=> state.Player.player);
     state.Player.player?.volume,
     state.Player.player?.currentTime,
   ])
-  console.log( _time);
-  
+  console.log( playerInfo);
 
 useEffect(()=>{
   setPlaying(_playing);
-  setVolume(_volume);
-  
-},[playerInfo])
+  wavesurfer.current?.playPause();
+},[_playing])
 
 useEffect(()=>{
-  wavesurfer.current?.playPause();
-},[playing])
+  if (_volume) {
+    setVolume(_volume);
+    wavesurfer.current?.setVolume(_volume);
+  }
+},[_volume])
 
 
 useEffect(()=>{
@@ -121,13 +125,13 @@ useEffect(()=>{
     if (newVolume) {
       setVolume(newVolume);
       dispatch(playerVolume(newVolume))
-      wavesurfer.current.setVolume(newVolume || 1);
+      wavesurfer.current?.setVolume(newVolume);
     }
   }
 
   const onPlayTimeChange = () =>{
     setTimeout(()=> {
-    let _currentTime = wavesurfer.current.getCurrentTime();
+    let _currentTime = wavesurfer.current?.getCurrentTime();
     setCurrentTime(_currentTime);
     console.log(_currentTime);
     dispatch(playerTime(_currentTime));
@@ -161,6 +165,7 @@ useEffect(()=>{
       </div>
     ):(
     <>
+      {show?
       <div className="detail-info-wrap mgtop50">
           <div className="wave-left-wrap">        
           <WaveFlexWrap className="flex-wrap wave-flex-wrap" color={props.detail.color}>
@@ -210,8 +215,8 @@ useEffect(()=>{
                 max="1"
                 step="0.025"
                 onChange={onvolumechange}
-                defaultValue={volume}
-                value={volume}
+                defaultValue="0.5"
+                value={volume? parseFloat(volume):"0.5"}
               />       
             </Controls>
         </div> 
@@ -219,6 +224,12 @@ useEffect(()=>{
         <span><BiPlus/></span> 플레이리스트 추가
         </button> */}
       </div>
+      :
+      <div className="spinner-wrap">
+      <BeatLoader color={"grey"} size={10}/>
+      </div>
+      }
+      
 
       <div className="detail-wavefom">
 

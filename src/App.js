@@ -140,6 +140,7 @@ function App() {
       eventSource.close();
       console.log("eventsource closed");
     };
+    
   }, []);
 
   React.useEffect(() => {
