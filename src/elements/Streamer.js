@@ -216,11 +216,9 @@ class Streamers extends Component {
         })
         .then((response)=>{
         console.log(response);
-        
+        window.location.reload();
         if (mySession) {
             mySession.disconnect();
-            window.location.reload();
-        }
 
         // Empty all properties...
         this.OV = null;
@@ -236,6 +234,7 @@ class Streamers extends Component {
         });
         console.log(this.state);
         
+        }
 
         })
         .catch((error)=>{
