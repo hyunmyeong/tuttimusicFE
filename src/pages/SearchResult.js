@@ -57,7 +57,7 @@ function SearchResult() {
       {data?
       <>
         <p className="search-head"><span className="bold">
-        '{keyword}'</span>에 대한 {type}: {subtype}으로 검색한 결과입니다.
+        '{keyword}'</span>에 대한 {type} : {subtype}으로 검색한 결과입니다.
         </p>
         
         <p 
@@ -75,7 +75,7 @@ function SearchResult() {
             {data.map((song,index)=>{
             return(
             <div 
-            className="feed-card"
+            className="feed-card tab-card search-card"
             onClick={()=>{
               navigate('/detail/'+song.id)
             }}>
@@ -84,7 +84,7 @@ function SearchResult() {
               className="main-album-art" 
               src={song.albumImageUrl}
               />
-              <div className="main-card-text">
+              <div className="main-card-text page-card-text">
                 <p className="main-card-title">
                 {song.title}
                 </p>
@@ -98,17 +98,17 @@ function SearchResult() {
             }
         </section>
         :
-        <section className="feed-list">
+        <section className="feed-list tab-body">
             {data.map((song,index)=>{
             return(
             <div 
-            className="video-card"
+            className="mypage-video-card"
             onClick={()=>{
               navigate('/detail/'+song.id)
             }}>
               <img
               alt={song.title}
-              className="main-thumbnail" 
+              className="mypage-main-thumbnail" 
               src={song.albumImageUrl}
               />
               <div className="main-card-text">
@@ -153,12 +153,12 @@ function SearchResult() {
       </div> 
       {musicTitle&&musicTitle.length > 0 ?
       <>
-        <section className="feed-list">
+        <section className="feed-list tab-body">
           
           {list1.map((song,index)=>{
           return(
           <div 
-          className="feed-card"
+          className="feed-card tab-card search-card"
           onClick={()=>{
             navigate('/detail/'+song.id)
           }}>
@@ -167,7 +167,7 @@ function SearchResult() {
             className="main-album-art" 
             src={song.albumImageUrl}
             />
-            <div className="main-card-text">
+            <div className="main-card-text page-card-text">
               <p className="main-card-title">
               {song.title}
               </p>
@@ -211,11 +211,11 @@ function SearchResult() {
       </div> 
       {musicArtist&&musicArtist.length > 0 ?
         <>
-          <section className="feed-list">
+          <section className="feed-list tab-body">
             {list2.map((song,index)=>{
             return(
             <div 
-            className="feed-card"
+            className="feed-card tab-card search-card"
             onClick={()=>{
               navigate('/detail/'+song.id)
             }}>
@@ -224,7 +224,7 @@ function SearchResult() {
               className="main-album-art" 
               src={song.albumImageUrl}
               />
-              <div className="main-card-text">
+              <div className="main-card-text page-card-text">
                 <p className="main-card-title">
                 {song.title}
                 </p>
@@ -270,17 +270,17 @@ function SearchResult() {
       </div> 
       {videoTitle&&videoTitle.length > 0 ?
       <>
-        <section className="feed-list">
+        <section className="feed-list tab-body">
           {list3.map((song,index)=>{
           return(
           <div 
-          className="video-card"
+          className="mypage-video-card"
           onClick={()=>{
-            navigate('/detail/'+song.id)
+            navigate('/detail/video/'+song.id)
           }}>
             <img
             alt={song.title}
-            className="main-thumbnail" 
+            className="mypage-main-thumbnail" 
             src={song.albumImageUrl}
             />
             <div className="main-card-text">
@@ -327,20 +327,20 @@ function SearchResult() {
       </div> 
       {videoArtist&&videoArtist.length > 0 ?
         <>
-          <section className="feed-list">
+          <section className="feed-list tab-body">
             {list4.map((song,index)=>{
             return(
             <div 
-            className="video-card"
+            className="mypage-video-card"
             onClick={()=>{
-              navigate('/detail/'+song.id)
+              navigate('/detail/video/'+song.id)
             }}>
               <img
               alt={song.title}
-              className="main-thumbnail" 
+              className="mypage-main-thumbnail" 
               src={song.albumImageUrl}
               />
-              <div className="main-card-text">
+              <div className="main-card-text page-card-text">
                 <p className="main-card-title">
                 {song.title}
                 </p>

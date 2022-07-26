@@ -257,34 +257,37 @@ const SignUp = () => {
                 <div className='signup-info'>
 
                     {/* 이메일 부분 */}
-                    <div className='signup-email-box'>
+                    <div className='signup-box'>
 
-                        <div className='signup-email-title-box'>
+                        <label className='signup-label' for="email">
                             <p className='signup-email-title'>이메일<span id="signup-dot">*</span></p>
+                        </label>
+
+                        <div className='signup-input-button'>
+                <input className='signup-email-input'
+                  onChange={(e) => {
+                    setEmail(e.target.value)
+                  }}
+                  type="text"
+                  placeholder="이메일을 입력하세요"
+                  id="email"
+                  name="email"
+                  value={email}
+                />
+                            <button className='secondary signup-button' onClick={emailCheck}>인증</button>
                         </div>
-                        
-                        <div className='signup-email-content'>
-                            <input className='signup-email-input'
-                                    onChange={(e)=>{
-                                        setEmail(e.target.value)
-                                    }}
-                                    type="text" 
-                                    placeholder="실제 사용 중인 이메일을 입력하세요"
-                                    name="email"
-                                    value={email}
-                            />
-                            <button className='secondary signup-button' onClick={emailCheck}>인증</button><br/>
-                        </div>
-                        
+
+                            
+                            
                     </div>
                     
                     
                     {/* 비밀번호 부분 */}
-                    <div className='signup-pw-box'>
+                    <div className='signup-box'>
 
-                        <div className='signup-pw-title-box'>
+                    <label className='signup-label' for="password">
                             <p className='signup-pw-title'>비밀번호<span id="signup-dot">*</span></p>
-                        </div>
+                        </label>
 
                         <div className='signup-pw-content'>
                             <input className='signup-pw-input'
@@ -294,6 +297,7 @@ const SignUp = () => {
                                 type="password" 
                                 placeholder="비밀번호를 입력하세요"
                                 name="password"
+                                id="password"
                                 />
                             <div className='signup-pw-check'>
                                 <p className='pw-check'>비밀번호 규칙 : 8~20글자 영문+숫자 조합</p>
@@ -303,11 +307,11 @@ const SignUp = () => {
                     </div>
 
                     {/* 비밀번호 확인 부분*/}
-                    <div className='signup-pw-box'>
+                    <div className='signup-box'>
 
-                        <div className='signup-pw-title-box'>
+                    <label className='signup-label' for="checkpassword">
                             <p className='signup-pw-title'>비밀번호 확인<span id="signup-dot">*</span></p>
-                        </div>
+                        </label>
 
                         <div className='signup-pw-content'>
                             <input className='signup-pw-input'
@@ -317,19 +321,20 @@ const SignUp = () => {
                                 type="password" 
                                 placeholder="비밀번호를 입력하세요"
                                 name="password"
+                                id="checkpassword"
                                 />
                         </div>    
                     </div>
 
 
                     {/* 닉네임 부분 */}
-                    <div className='signup-email-box'>
+                    <div className='signup-box'>
 
-                        <div className='signup-email-title-box'>
+                    <label className='signup-label' for="artist">
                             <p className='signup-email-title'>닉네임<span id="signup-dot">*</span></p>
-                        </div>
+                        </label>
                         
-                        <div className='signup-email-content'>
+                        <div className='signup-input-button'>
                             <input className='signup-email-input'
                                     onChange={(e)=>{
                                         setArtist(e.target.value)
@@ -337,18 +342,19 @@ const SignUp = () => {
                                     type="text" 
                                     placeholder="닉네임을 입력하세요"
                                     name="artist"
+                                    id="artist"
                                     value={artist}
                             />
-                            <button className='secondary signup-button' onClick={(artistCheck)}>중복 확인</button><br/>
-                        </div>
+                            <button className='secondary signup-button' onClick={(artistCheck)}>중복 확인</button></div>
+                    
                         
                     </div>
                     
                     {/* 이미지 업로드 부분 */}
-                    <div className='signup-profile-img-box'>
-                        <div className='profile-title-box'>
-                            <p className='profile-title'>프로필 이미지<span id="signup-dot">*</span></p>
-                        </div>
+                    <div className='signup-box'>
+                    <label className='signup-label'>
+                            <p className='profile-title'>프로필 이미지</p>
+                        </label>
                         <div className='profile-img-form'>
                             <img src={preview} className='profile-img-circle'/>
                             <label className="secondary profile-img-button" htmlFor="image">이미지 업로드</label>
@@ -358,10 +364,10 @@ const SignUp = () => {
                     </div>
 
                     {/* 선호 장르 부분 */}
-                    <div className='signup-genre-box'>
-                        <div className='signup-genre-title-box'>
+                    <div className='signup-box'>
+                    <label className='signup-label'>
                             <p className='signup-genre-title'>선호 장르<span id="signup-dot">*</span></p>
-                        </div>
+                        </label>
 
                         <div className='genre-container'>
                             <div className='genre-boxes'>
@@ -389,10 +395,10 @@ const SignUp = () => {
                     </div>
                     
                     {/* 소개글 부분 */}
-                    <div className='signup-pw-box'>
-                        <div className='signup-pw-title-box'>
+                    <div className='signup-box'>
+                    <label className='signup-label' for="introduce">
                             <p className='signup-pw-title'>소개글<span id="signup-dot">*</span></p>
-                        </div>
+                        </label>
                         
                         <input className='signup-pw-input'
                                 onChange={(e)=>{
@@ -400,14 +406,15 @@ const SignUp = () => {
                                 }}   
                                 type="text" 
                                 placeholder="소개글을 입력하세요"
+                                id="introduce"
                                 />
                     </div>
                     
                     {/* 인스타 주소 */}
-                    <div className='signup-pw-box'>
-                        <div className='signup-pw-title-box'>
+                    <div className='signup-box'>
+                    <label className='signup-label' for="insta">
                             <p className='signup-pw-title'>Instagram</p>
-                        </div>
+                        </label>
                         
                         <input className='signup-pw-input'
                                 onChange={(e)=>{
@@ -415,14 +422,15 @@ const SignUp = () => {
                                 }}   
                                 type="text" 
                                 placeholder="URL을 입력하세요"
+                                id="insta"
                                 />
                     </div>
 
                     {/* 유튜브 주소 */}
-                    <div className='signup-pw-box'>
-                        <div className='signup-pw-title-box'>
+                    <div className='signup-box'>
+                    <label className='signup-label' for="youtube">
                             <p className='signup-pw-title'>Youtube</p>
-                        </div>
+                        </label>
                         
                         <input className='signup-pw-input'
                                 onChange={(e)=>{
@@ -430,6 +438,7 @@ const SignUp = () => {
                                 }}   
                                 type="text" 
                                 placeholder="URL을 입력하세요"
+                                id="youtube"
                                 />
                     </div>
 

@@ -1011,13 +1011,8 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 60px 0px;
-  gap: 50px;
-
   max-width: 1280px;
   width: 100%;
-  
-
   margin : 80px auto;
 }
 
@@ -1026,12 +1021,8 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   flex-direction: column;
   align-items: flex-start;
   padding: 0px;
-  gap: 60px;
-
-  margin-bottom: 0px;
-
-  width: 200px;
-
+  gap:16px;
+  margin-bottom: 60px;
 }
 
 .signup-title {
@@ -1039,9 +1030,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   line-height: 43px;
   font-style: normal;
   font-weight: bold;
-
-  margin-top: -80px;
-
   color: #000000;
 }
 
@@ -1050,11 +1038,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   line-height: 19px;
   font-style: normal;
   font-weight: 400;
-
   width: 500px;
-
-  margin-top: -50px;
-
   color: #7E7E7E;
 
 }
@@ -1063,25 +1047,35 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 70px;
+  padding: 50px 150px 0 70px;
   gap: 171px;
-
   width: 1280px;
   height: 1420px;
-
-  background-color: #f5f5f5;
-  border-radius: 15px;
 }
 
 .signup-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0px 75px 0px 0px;
   gap: 50px;
-
-  width: 1140px;
+  width: 100%;
   height: 1280px;
+}
+
+.signup-box {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.signup-label {
+  width:220px;
+
+}
+
+.signup-input-button {
+  display: flex;
+  flex-direction: row;
 }
 
 .signup-email-box {
@@ -1153,7 +1147,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   height:60px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   width: 120px;
   border-radius: 10px;
   font-style: normal;
@@ -1199,16 +1192,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   color: #000000;
 }
 
-.signup-pw-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
-  gap: 10px;
-
-  width: 840px;
-  height: 89px;
-}
 
 .signup-pw-input {
   display: flex;
@@ -1216,7 +1199,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   align-items: flex-start;
   padding: 25px 30px;
   gap: 10px;
-  margin-left: -80px;
   width: 820px;
   height: 60px;
   background: #E8E8E8;
@@ -1230,13 +1212,11 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  padding: 0px 10px 0px 30px;
+  padding:10px 0px;
   gap: 10px;
 
   width: 350px;
   height: 19px;
-
-  margin-left: -10px;
 }
 
 .pw-check {
@@ -1249,7 +1229,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   line-height: 19px;
 
   margin-top: 0px;
-  margin-left: -90px;
 
   color: #7E7E7E;
 }
@@ -1295,9 +1274,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   align-items: flex-end;
   padding: 0px;
   gap: 40px;
-
-  margin-left: -10px;
-
   width: 840px;
   height: 200px;
 }
@@ -1376,25 +1352,16 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 .genre-container {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
-  gap: 10px;
-
-  margin-left: -25px;
-
-  width: 840px;
-  height: 202px;
+  width: 820px;
 }
 
 .genre-boxes {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   padding: 0px;
-  gap: 10px;
-
-  width: 810px;
+  width: 820px;
   height: 173px;
 }
 
@@ -1405,10 +1372,8 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   align-items: flex-start;
   padding: 0px;
   gap: 46px;
-
-  width: 810px;
+  width: 820px;
   height: 51px;
-
   flex-wrap: wrap;
 }
 

@@ -64,7 +64,7 @@ function Tab4() {
         :list&&list.length === 0 ? 
         <p className='no-content'>팔로잉하는 아티스트가 없어요 😭</p>
         : 
-        <div className='tab-body'>
+        <div className='tab-body tab-following-body'>
         {list&&list.map((song, Index)=>{
             return(
                 <div className='body-following-card'
