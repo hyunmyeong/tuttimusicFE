@@ -19,6 +19,8 @@ import { useDispatch } from "react-redux";
 import { followAnArtist } from "../redux/modules/songSlice"
 import { style } from 'wavesurfer.js';
 
+import { useMediaQuery } from "react-responsive";
+
 function UserPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -40,6 +42,11 @@ function UserPage() {
   const token = localStorage.getItem("token");
 
   const [loading, setLoading] = useState(true);
+
+  const isMobile = useMediaQuery({
+    query : "(max-width:480px)"
+  })
+
 
   useEffect(()=>{
     setLoading(true);
@@ -89,48 +96,100 @@ function UserPage() {
     <div className='mypage-container'>
 
       {/* Frame 59  회원정보 부분*/}
-      <div className='mypage-header'>
 
-        <img 
-        className='header-porfile-img' 
-        src={userInfoDto.profileImage}
-        alt={userInfoDto.artist}/>
-        <div className='header-profile-info'>
-          <div className='header-artist'>
-            <div className='row-wrap'>
-            <p className='header-artist-name'>{userInfoDto.artist}
-            </p>
-            {/* <Button 
+      {isMobile ?
+        <>
+          {/* imMobile true start */}
+          <div className='mobile-mypage-header'>
+            <div className='mobile-header-left'>
+
+              <div className='mobile-header-profile-img-circle'>
+                <img
+                  className='mobile-header-porfile-img'
+                  src={userInfoDto.profileImage}
+                  alt={userInfoDto.artist} />
+              </div>
+              <div className='mobile-header-follow-container'>
+                <div className='mobile-header-follow'>
+                  <div className='mobile-follow-follower'>
+                    <p>팔로워</p>
+                  </div>
+                  <div className='mobile-follow-follower-count'>
+                    <p>{userInfoDto.followerCount}</p>
+                  </div>
+                </div>
+                <div className='mobile-header-follow'>
+                  <div className='mobile-follow-follower'>
+                    <p>팔로잉</p>
+                  </div>
+                  <div className='mobile-follow-follower-count'>
+                    <p>{userInfoDto.followingCount}</p>
+                  </div>
+                </div>
+
+
+                {/* navigate 함수로 myedit 페이지로 갈 때, userInfoDto에 담아져있는 데이터를 state로 가져감 */}
+
+
+              </div>
+            </div>
+
+            <div className='mobile-header-right'>
+              <div className='mobile-header-artist'>
+                <p className='mobile-header-artist-name'>{userInfoDto.artist}</p>
+                <p className='mobile-header-artist-info'>{userInfoDto.profileText}
+                <div className='header-sns'>
+                  {userInfoDto.youtubeUrl ? <FaYoutube className='sns-icon sns-youtube' onClick={() => { window.open(userInfoDto.youtubeUrl) }} /> : null}
+                  {userInfoDto.instagramUrl ? <RiInstagramFill className='sns-icon sns-instagram' onClick={() => { window.open(userInfoDto.instagramUrl) }} /> : null}
+                </div>
+                </p>
+              </div>
+              <div className='mobile-user-button'>
+              <button 
+            className='primary mobile-follow-follower-button'
             isFollow ={isFollow}
             onClick={()=>{
               FollowThisArtist()
             }}            
             >
             {isFollow===false?
-            "Follow"
-            : "Following"
+            <div className='icon-separate'><BsPersonPlus className='follow-icon'/><p className='mobile-follow-follower-button-text'>팔로우</p></div>
+            : <div className='icon-separate'><BsPersonCheck className='follow-icon'/><p className='mobile-follow-follower-button-text'>팔로잉</p></div>
             }
-            </Button>   */}
+            </button>
             </div>
-            <p className='header-artist-info'>{userInfoDto.profileText}</p>  
-            {/* <div className='header-sns'>
-            <FaYoutube className='sns-icon'/><p>{userInfoDto.youtubeUrl}</p>
-            <RiInstagramFill className='sns-icon'/><p>{userInfoDto.instagramUrl}</p>
-            </div>   */}
-            <div className='header-sns'>
-              {userInfoDto.youtubeUrl ? <FaYoutube className='sns-icon' onClick={()=>{window.open(userInfoDto.youtubeUrl)}}/> : null}
-              {userInfoDto.instagramUrl ? <RiInstagramFill className='sns-icon' onClick={()=>{window.open(userInfoDto.instagramUrl)}}/> : null}
             </div>
-            
           </div>
+          {/* imMobile true end */}
+        </>
+        :
+        <>
+          {/* imMobile false start */}
+          <div className='mypage-header'>
 
-          <div className='header-follow-container'>
-            <div className='header-follow'>
+            <img
+              className='header-porfile-img'
+              src={userInfoDto.profileImage}
+              alt={userInfoDto.artist} />
+
+            <div className='header-profile-info'>
+              <div className='header-artist'>
+                <p className='header-artist-name'>{userInfoDto.artist}</p>
+                <p className='header-artist-info'>{userInfoDto.profileText}</p>
+
+                <div className='header-sns'>
+                  {userInfoDto.youtubeUrl ? <FaYoutube className='sns-icon sns-youtube' onClick={() => { window.open(userInfoDto.youtubeUrl) }} /> : null}
+                  {userInfoDto.instagramUrl ? <RiInstagramFill className='sns-icon sns-instagram' onClick={() => { window.open(userInfoDto.instagramUrl) }} /> : null}
+                </div>
+              </div>
+
+              <div className='header-follow-container'>
+                <div className='header-follow'>
                   <div className='follow-follower'>
                     <p>팔로워</p>
                   </div>
                   <div className='follow-follower-count'>
-                    <p>{count}</p>
+                    <p>{userInfoDto.followerCount}</p>
                   </div>
                   <div className='follow-follower'>
                     <p>팔로잉</p>
@@ -138,9 +197,10 @@ function UserPage() {
                   <div className='follow-follower-count'>
                     <p>{userInfoDto.followingCount}</p>
                   </div>
-            </div>
+                </div>
 
-            <button 
+                {/* navigate 함수로 myedit 페이지로 갈 때, userInfoDto에 담아져있는 데이터를 state로 가져감 */}
+                <button 
             className='primary follow-follower-button'
             isFollow ={isFollow}
             onClick={()=>{
@@ -152,10 +212,15 @@ function UserPage() {
             : <div className='icon-separate'><BsPersonCheck className='follow-follower-icon'/><p className='follow-follower-button-text'>팔로잉</p></div>
             }
             </button>
-          </div>
-        </div>
 
-      </div>
+              </div>
+
+            </div>
+
+          </div>
+          {/* imMobile false end */}
+        </>}
+
 
       <div className='mypage-body'>
         <div className='body-bar'>

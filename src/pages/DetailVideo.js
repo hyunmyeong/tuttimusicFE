@@ -234,7 +234,7 @@ function DetailVideo() {
               />}
 
               {token ? <button
-                className="primary btn btn-primary"
+                className="primary btn btn-primary mobile-button"
                 onClick={() => {
                   addNewComment();
                   setMyComment("");
