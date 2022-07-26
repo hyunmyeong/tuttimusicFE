@@ -3,6 +3,8 @@ import './styles/Mq_mobile.css';
 
 import React, {useState} from "react";
 import { Routes, Route} from "react-router-dom";
+import RouteChangeTracker from './elements/RouteChangeTracker';
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Detail from "./pages/Detail";
@@ -28,6 +30,8 @@ import Player from './components/Player';
 
 
 function App() {
+
+  RouteChangeTracker();
 
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [artist, setArtist] = useState(localStorage.getItem("userName"));
