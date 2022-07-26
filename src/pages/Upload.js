@@ -1,23 +1,17 @@
 import React, { useRef, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import styled from 'styled-components';
-
 import { HexColorPicker } from "react-colorful";
-
 import { FaMusic } from "react-icons/fa"
 import axios from 'axios';
-
 import {SERVER_URL} from "../redux/modules/songSlice";
-
 import Modal from '../elements/Modal';
-
 import imageCompression from 'browser-image-compression'; 
 
 
 function Upload() {
 
   const navigate = useNavigate();
-
   const color_ref = useRef(null);
   const title_ref = useRef(null);
   const description_ref = useRef(null);
@@ -32,7 +26,6 @@ function Upload() {
         setModalOpen(false);
         };
 
-
   const [selectGenre, setSelectGenre] = React.useState("장르를 선택해 주세요.");
   const [genreState, setGenreState] = React.useState(false);
   
@@ -40,7 +33,6 @@ function Upload() {
 
   const genreOpenClose = () => {
     setGenreState(!genreState);
-
   }
 
   const GenreSelect = () => {
@@ -76,14 +68,11 @@ function Upload() {
   const [previewImg, setPreviewImg] = React.useState(null);
   const [imgName, setImgName] = React.useState(null);
   const [imgFile, setImgFile] = React.useState(null);
-  const [file, setFile] = React.useState(null);
-
 
   const onLoadImage = async(e) => {
     let render = new FileReader()
     setImgName(e.target.files[0].name);
-    // setImgFile(e.target.files[0])
-    handleFileOnChange(e.target.files[0])
+    imgSizeOpt(e.target.files[0])
 
     if(e.target.files[0]) {
       render.readAsDataURL(e.target.files[0])
@@ -96,29 +85,21 @@ function Upload() {
         setPreviewImg(previewImgUrl);
       }
     }
-
   }
 
-  const handleFileOnChange = async (img) => {
+  const imgSizeOpt = async (img) => {
     
     console.log(img)
     // 이미지 resize 옵션 설정 (최대 width을 100px로 지정)
     const options = { 
       maxSizeMB: 1, 
-      maxWidthOrHeight: 400
+      maxWidthOrHeight: 350,
     }
     
     try {
       const compressedFile = await imageCompression(img, options);
       setImgFile(compressedFile);
       console.log(imgFile)
-      
-      // // resize된 이미지의 url을 받아 fileUrl에 저장
-      // const promise = imageCompression.getDataUrlFromFile(compressedFile);
-      // promise.then(result => {
-      //   setImgFile(result);
-      //   console.log("resized img:", imgFile)
-      // })
     } catch (error) {
       console.log(error);
     }
@@ -141,10 +122,7 @@ function Upload() {
     
     setMusicName(e.target.files[0].name);
     setMusicFile(e.target.files[0]);
-
   }
-
-
 
 const [submit, setSubmit] = React.useState(false);
 
@@ -172,7 +150,6 @@ const [submit, setSubmit] = React.useState(false);
     
     else {
     
-
     const token = localStorage.getItem("token");
     console.log(imgFile)
     const file = new File([imgFile], musicName.slice(0,-4)+".png");

@@ -1,13 +1,9 @@
 import React, {useState} from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
 import styled from 'styled-components';
-
-import { BsDot } from "react-icons/bs"
-
 import Modal from '../elements/Modal';
-
+import imageCompression from 'browser-image-compression'; 
 
 const SignUp = () => {
 
@@ -37,10 +33,6 @@ const SignUp = () => {
         setModalOpen(false);
         };
     
-
-
-
-
     //이메일 체크
     const checkEmail = (email) => {
         const regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
@@ -64,12 +56,11 @@ const SignUp = () => {
     //  이미지 올리고 미리보기
     const fileChange = (e) => {
         let render = new FileReader()
-        setImage(e.target.files[0])
+        imgSizeOpt(e.target.files[0])
 
         if (e.target.files[0]) {
             render.readAsDataURL(e.target.files[0])
         }
-
         render.onload = () => {
             const previewImgUrl = render.result
 
@@ -77,10 +68,22 @@ const SignUp = () => {
                 setPreview(previewImgUrl)
             }
         }
+        console.log(e.target.files[0])  
+    }
 
-        console.log(e.target.files[0])
-
-        
+    const imgSizeOpt = async (img) => {
+    console.log(img)
+    const options = { 
+        maxSizeMB: 0.5, 
+        maxWidthOrHeight: 250,
+    }
+    
+    try {
+        const compressedFile = await imageCompression(img, options);
+        setImage(compressedFile);
+    } catch (error) {
+        console.log(error);
+    }
     }
 
 
@@ -113,7 +116,7 @@ const SignUp = () => {
                 openModal()
                 // setEmail("")
             })
-    }
+            }
 
     }
 
@@ -139,10 +142,7 @@ const SignUp = () => {
                 // setArtist("")
             })
         }
-
-        
     }
-
 
     const signupCheck = () => {
         const nullList = [null, null, null, null]
@@ -178,6 +178,10 @@ const SignUp = () => {
         }
         else {
 
+        console.log(image)
+        const file = new File([image], artist+".png");
+        console.log(file)    
+
         //signupdata로 하나로 만들기 + form데이터 형식으로 보내기
         let signupdata = {
             email : email,
@@ -191,12 +195,9 @@ const SignUp = () => {
         }
         console.log(signupdata)
 
-
         let formData = new FormData();
-            formData.append("file", image)
+            formData.append("file", file)
             formData.append("signupData", new Blob([JSON.stringify(signupdata)], {type: "application/json"}))
-
-
 
         axios
             .post("https://seyeolpersonnal.shop/user/signup", formData)
@@ -210,41 +211,38 @@ const SignUp = () => {
                 console.log(error)
                 setAlert("이메일 인증 전입니다. 메일함을 확인해 주세요!")
                 openModal()
-            })   
-            
-            
-    
+            })
     }}
 
     const [genre, setGenre] = useState([null, null, null, null]);
     const [clickGenre, setClickGenre] = useState([false, false, false, false, false, false]);
     
-  const genrePick = (name, index) => {
-    // indexOf 함수는 해당 배열에서 특정 값을 찾을 때 인덱스 숫자로 위치를 알려주고 없으면 -1을 반환
-    // genre 배열에서 null값이 없어서 -1을 반환할 때 name(장르 이름)으로 가득 찬 상태이므로 알림창 띄우기
-    if (genre.indexOf(null) === -1 &&  genre.indexOf(name) === -1) {
-      setAlert("장르는 최대 4개까지 선택 가능합니다.")
-      openModal()
-    } else if (genre.indexOf(name) === -1) {
-      genre.pop();
-      genre.unshift(name);
-      console.log("genre", genre);
-    } else {
-      genre.splice(genre.indexOf(name), 1);
-      genre.push(null);
-      console.log("genre", genre);
-    }
+    const genrePick = (name, index) => {
+        // indexOf 함수는 해당 배열에서 특정 값을 찾을 때 인덱스 숫자로 위치를 알려주고 없으면 -1을 반환
+        // genre 배열에서 null값이 없어서 -1을 반환할 때 name(장르 이름)으로 가득 찬 상태이므로 알림창 띄우기
+        if (genre.indexOf(null) === -1 &&  genre.indexOf(name) === -1) {
+        setAlert("장르는 최대 4개까지 선택 가능합니다.")
+        openModal()
+        } else if (genre.indexOf(name) === -1) {
+        genre.pop();
+        genre.unshift(name);
+        console.log("genre", genre);
+        } else {
+        genre.splice(genre.indexOf(name), 1);
+        genre.push(null);
+        console.log("genre", genre);
+        }
 
     // genre가 null값의 배열이므로 마지막 null을 지우고 맨 앞에 name(장르 이름)을 넣는 형태
 
-    setClickGenre([
-      ...clickGenre.slice(0, index),
-      !clickGenre[index],
-      ...clickGenre.slice(index+1),
-    ]);
-    console.log("clickGenre ==> ", clickGenre)
+        setClickGenre([
+        ...clickGenre.slice(0, index),
+        !clickGenre[index],
+        ...clickGenre.slice(index+1),
+        ]);
+        console.log("clickGenre ==> ", clickGenre)
 
-  }
+    }
 
 
     return (
@@ -264,21 +262,18 @@ const SignUp = () => {
                         </label>
 
                         <div className='signup-input-button'>
-                <input className='signup-email-input'
-                  onChange={(e) => {
-                    setEmail(e.target.value)
-                  }}
-                  type="text"
-                  placeholder="이메일을 입력하세요"
-                  id="email"
-                  name="email"
-                  value={email}
-                />
+                            <input className='signup-email-input'
+                            onChange={(e) => {
+                                setEmail(e.target.value)
+                            }}
+                            type="text"
+                            placeholder="이메일을 입력하세요"
+                            id="email"
+                            name="email"
+                            value={email}
+                            />
                             <button className='secondary signup-button' onClick={emailCheck}>인증</button>
                         </div>
-
-                            
-                            
                     </div>
                     
                     
@@ -326,10 +321,8 @@ const SignUp = () => {
                         </div>    
                     </div>
 
-
                     {/* 닉네임 부분 */}
                     <div className='signup-box'>
-
                     <label className='signup-label' for="artist">
                             <p className='signup-email-title'>닉네임<span id="signup-dot">*</span></p>
                         </label>
@@ -346,8 +339,7 @@ const SignUp = () => {
                                     value={artist}
                             />
                             <button className='secondary signup-button' onClick={(artistCheck)}>중복 확인</button></div>
-                    
-                        
+
                     </div>
                     
                     {/* 이미지 업로드 부분 */}
@@ -433,16 +425,14 @@ const SignUp = () => {
                         </label>
                         
                         <input className='signup-pw-input'
-                                onChange={(e)=>{
-                                    setYoutube(e.target.value)
-                                }}   
-                                type="text" 
-                                placeholder="URL을 입력하세요"
-                                id="youtube"
-                                />
+                            onChange={(e)=>{
+                                setYoutube(e.target.value)
+                            }}   
+                            type="text" 
+                            placeholder="URL을 입력하세요"
+                            id="youtube"
+                        />
                     </div>
-
-                    
                 </div>
         </div>
             <button className='primary signup-button-box' 

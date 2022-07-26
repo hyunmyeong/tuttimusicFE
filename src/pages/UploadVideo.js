@@ -1,22 +1,17 @@
 import React, { useRef, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import styled from 'styled-components';
-
 import { HexColorPicker } from "react-colorful";
-
 import { FaMusic } from "react-icons/fa"
 import axios from 'axios';
-
 import {SERVER_URL} from "../redux/modules/songSlice";
-
 import Modal from '../elements/Modal';
-
+import imageCompression from 'browser-image-compression'; 
 
 
 function UploadVideo() {
 
   const navigate = useNavigate();
-
   const color_ref = useRef(null);
   const title_ref = useRef(null);
   const description_ref = useRef(null);
@@ -38,7 +33,6 @@ function UploadVideo() {
 
   const genreOpenClose = () => {
     setGenreState(!genreState);
-
   }
 
   const GenreSelect = () => {
@@ -73,13 +67,13 @@ function UploadVideo() {
 
   const [previewImg, setPreviewImg] = React.useState(null);
   const [imgName, setImgName] = React.useState(null);
-  const [imgFile, setImgFlie] = React.useState(null);
+  const [imgFile, setImgFile] = React.useState(null);
 
 
   const onLoadImage = (e) => {
     let render = new FileReader()
     setImgName(e.target.files[0].name);
-    setImgFlie(e.target.files[0]);
+    imgSizeOpt(e.target.files[0])
 
     if(e.target.files[0]) {
       render.readAsDataURL(e.target.files[0])
@@ -91,10 +85,25 @@ function UploadVideo() {
       if(previewImgUrl) {
         setPreviewImg(previewImgUrl);
       }
-    }
-
-    
+    }    
   }
+
+  const imgSizeOpt = async (img) => {
+    console.log(img)
+    const options = { 
+      maxSizeMB: 1, 
+      maxWidthOrHeight: 400
+    }
+    
+    try {
+      const compressedFile = await imageCompression(img, options);
+      setImgFile(compressedFile);
+      console.log(imgFile)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
 
   const [color, setColor] = React.useState("#545454");
   const [colorState, setColorState] = React.useState(false);
@@ -108,14 +117,11 @@ function UploadVideo() {
 
   const [musicName, setMusicName] = React.useState(null);
   const [musicFile, setMusicFile] = React.useState(null);
+
   const onLoadMusic = (e) => {
-    
     setMusicName(e.target.files[0].name);
     setMusicFile(e.target.files[0]);
-
   }
-
-
 
   const [submit, setSubmit] = React.useState(false);
 
@@ -144,7 +150,9 @@ function UploadVideo() {
     else {
     
     const token = localStorage.getItem("token");
-
+    console.log(imgFile)
+    const file = new File([imgFile], musicName.slice(0,-4)+".png");
+    console.log(file)
 
     const feedRequestDto = {
       title : title_ref.current.value,
@@ -160,7 +168,7 @@ function UploadVideo() {
     const formData = new FormData();
     formData.append("feedRequestDto", new Blob([JSON.stringify(feedRequestDto)], {type: "application/json"}))
     formData.append("song", musicFile)
-    formData.append("albumImage", imgFile)
+    formData.append("albumImage", file)
 
 
 
@@ -280,9 +288,6 @@ function UploadVideo() {
 
           <button className="primary upload-button" onClick={uploadMusic}>업로드</button>
         
-
-
-
       </div>
       </div>
       <Modal open={modalOpen} close={closeModal} alert={alert}/>
