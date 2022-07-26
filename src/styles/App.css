@@ -1008,7 +1008,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
   max-width: 1280px;
   width: 100%;
-  
 
   margin : 80px auto;
 }
@@ -1069,11 +1068,21 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0px 75px 0px 0px;
   gap: 50px;
 
   width: 1140px;
   height: 1280px;
+}
+
+.signup-box {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.signup-label {
+  width:220px;
+
 }
 
 .signup-email-box {
@@ -1145,7 +1154,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   height:60px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   width: 120px;
   border-radius: 10px;
   font-style: normal;
@@ -1191,16 +1199,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   color: #000000;
 }
 
-.signup-pw-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
-  gap: 10px;
-
-  width: 840px;
-  height: 89px;
-}
 
 .signup-pw-input {
   display: flex;
@@ -1208,7 +1206,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   align-items: flex-start;
   padding: 25px 30px;
   gap: 10px;
-  margin-left: -80px;
   width: 820px;
   height: 60px;
   background: #E8E8E8;
@@ -1222,13 +1219,11 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  padding: 0px 10px 0px 30px;
+  padding:10px 0px;
   gap: 10px;
 
   width: 350px;
   height: 19px;
-
-  margin-left: -10px;
 }
 
 .pw-check {
@@ -1241,7 +1236,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   line-height: 19px;
 
   margin-top: 0px;
-  margin-left: -90px;
 
   color: #7E7E7E;
 }
@@ -1287,9 +1281,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   align-items: flex-end;
   padding: 0px;
   gap: 40px;
-
-  margin-left: -10px;
-
   width: 840px;
   height: 200px;
 }
@@ -1368,25 +1359,16 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 .genre-container {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
-  gap: 10px;
-
-  margin-left: -25px;
-
-  width: 840px;
-  height: 202px;
+  width: 820px;
 }
 
 .genre-boxes {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   padding: 0px;
-  gap: 10px;
-
-  width: 810px;
+  width: 820px;
   height: 173px;
 }
 
@@ -1397,8 +1379,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   align-items: flex-start;
   padding: 0px;
   gap: 46px;
-
-  width: 810px;
+  width: 820px;
   height: 51px;
 
   flex-wrap: wrap;
