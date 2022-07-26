@@ -58,6 +58,23 @@ function Navbar() {
   const [searchState, setSearchState] = useState(false);
 
 
+
+  useEffect(() => {
+    if (toggleState === true) {
+      document.body.style.cssText = `
+      position: fixed; 
+      top: -${window.scrollY}px;
+      overflow-y: scroll;
+      width: 100%;`;
+      return () => {
+        const scrollY = document.body.style.top;
+        document.body.style.cssText = '';
+        window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+      };
+    }
+  },[toggleState])
+
+
   return (
     <>
     <NavBar toggle={toggleState} search={searchState}>
@@ -130,6 +147,8 @@ function Navbar() {
               </div>}
           </div>
       </div>
+
+
 {/* 모바일 버전 nav */}
       <div className="nav-mobile-wrap">
         <img
@@ -145,7 +164,7 @@ function Navbar() {
           />
             <IoMenu
               id="menu-mobile-icon"
-              onClick={() => { setToggleState(true) }} />
+              onClick={() => {setToggleState(true)}} />
 
 
           </div>
