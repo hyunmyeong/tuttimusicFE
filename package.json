@@ -16,6 +16,7 @@
     "react": "^18.2.0",
     "react-colorful": "^5.5.1",
     "react-dom": "^18.2.0",
+    "react-ga": "^3.3.1",
     "react-icons": "^4.4.0",
     "react-intersection-observer": "^9.3.5",
     "react-range": "^1.8.13",
@@ -35,7 +36,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "set HTTPS=true&&set SSL_CRT_FILE=C:/Windows/System32/cert.crt&&set SSL_KEY_FILE=C:/Windows/System32/cert.key&&react-scripts start",
+    "start": "react-scrips start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
