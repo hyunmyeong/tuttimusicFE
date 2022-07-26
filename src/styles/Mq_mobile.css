@@ -69,6 +69,12 @@
   
   
   /* MAIN PAGE  */
+
+  .main-banner{
+    width: 100%;
+    margin: 0 auto;
+    width:100%;
+  }
   
   .main-list {
     margin-bottom: 80px;
@@ -1957,9 +1963,7 @@
   }
 
   .logo {
-    width: 120px;
-    font-size: 30px;
-    font-weight: bold;
+    width: 56px;
     cursor: pointer;
   }
   
