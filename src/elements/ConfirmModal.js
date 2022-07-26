@@ -11,7 +11,7 @@ function ConfirmModal(props) {
             {open ? (
                 <section>
                         <main>{alert}</main>
-                    <footer>
+                    <footer className='confirm-footer'>
                         <button className='modal-delete-button' onClick={clickDelete}>확인</button>
                         <button className="modal-close-button" onClick={close}>취소</button>
                     </footer>

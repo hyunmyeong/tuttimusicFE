@@ -2848,6 +2848,10 @@ input[type=radio] {
   padding: 12px 16px;
   text-align: center;
 }
+
+.confirm-footer {
+  display: flex;
+}
 .modal-delete-button {
   margin: 0 10px;
   padding: 12px 24px;
