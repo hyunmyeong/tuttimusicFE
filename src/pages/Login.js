@@ -67,8 +67,8 @@ const Login = (props) => {
                 localStorage.setItem("token", token);
                 localStorage.setItem("userName", artist);
                 localStorage.setItem("userProfileUrl", profileUrl);
-                // navigate("/")
-                // window.location.reload();
+                navigate("/")
+                window.location.reload();
             })
             .catch((error) => {
                 console.log(error)
