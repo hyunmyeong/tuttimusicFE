@@ -9,6 +9,7 @@ import "../styles/slick.css";
 import "../styles/slick-theme.css";
 
 import BeatLoader from "react-spinners/BeatLoader";
+import Footer from "../components/Footer";
 
 
 function Main() {
@@ -130,7 +131,8 @@ function Main() {
 
 
   return (
-    <div className="main-container">
+    <>
+      <div className="main-container">
       <section className="main-top">
         <div className="main-top-header">
           <img 
@@ -356,6 +358,8 @@ function Main() {
         
       </section>
     </div>
+    <Footer/>
+    </>
   )
 }
 

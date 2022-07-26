@@ -42,6 +42,11 @@ const PlayerSlice = createSlice({
       state.player = new_list;
     },
 
+    hidePlayer: (state,action) => {
+      const new_list = {...current(state), display: false};
+      state.player = new_list;
+    },
+
 
   },
   extraReducers: {
@@ -53,5 +58,5 @@ const PlayerSlice = createSlice({
 
 })
 
-export const {playerPlay, addASong, playerVolume, playerTime, showPlayer} = PlayerSlice.actions;
+export const {playerPlay, addASong, playerVolume, playerTime, showPlayer, hidePlayer} = PlayerSlice.actions;
 export default PlayerSlice.reducer;

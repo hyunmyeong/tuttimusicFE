@@ -2676,7 +2676,7 @@ input[type=radio] {
   width: 100%;
   max-width: var(--container-width);
   margin: 5px auto;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .player-block {
@@ -2758,6 +2758,11 @@ input[type=radio] {
   word-wrap:break-word; 
   line-height: 18px;
   color:#848484;
+}
+
+.close-icon{
+  font-size: 30px;
+  cursor: pointer;
 }
 
   /* PLAYER END */

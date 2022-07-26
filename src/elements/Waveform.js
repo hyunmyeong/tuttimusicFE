@@ -81,7 +81,8 @@ function Waveform(props) {
       console.log("finished playing!")
     })
 
-    return() => wavesurfer.current.destroy();
+    return() => 
+    wavesurfer.current.destroy();
 
 }, [props.songUrl]);
 

@@ -6,7 +6,6 @@ import { Routes, Route} from "react-router-dom";
 import RouteChangeTracker from './elements/RouteChangeTracker';
 
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import Detail from "./pages/Detail";
 import DetailVideo from './pages/DetailVideo';
 import Edit from "./pages/Edit";
@@ -183,7 +182,6 @@ function App() {
           </Routes>
         </div>
       <Player/>
-      <Footer/>
     </div>
   );
 }
