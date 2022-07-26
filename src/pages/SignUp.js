@@ -230,20 +230,23 @@ const SignUp = () => {
                         <label className='signup-label' for="email">
                             <p className='signup-email-title'>이메일<span id="signup-dot">*</span></p>
                         </label>
-                        
-                            <input className='signup-email-input'
-                                    onChange={(e)=>{
-                                        setEmail(e.target.value)
-                                    }}
-                                    type="text" 
-                                    placeholder="실제 사용 중인 이메일을 입력하세요"
-                                    id="email"
-                                    name="email"
-                                    value={email}
-                            />
-                            <button className='secondary signup-button' onClick={emailCheck}>인증</button><br/>
-                       
-                        
+
+                        <div className='signup-input-button'>
+                <input className='signup-email-input'
+                  onChange={(e) => {
+                    setEmail(e.target.value)
+                  }}
+                  type="text"
+                  placeholder="이메일을 입력하세요"
+                  id="email"
+                  name="email"
+                  value={email}
+                />
+                            <button className='secondary signup-button' onClick={emailCheck}>인증</button>
+                        </div>
+
+                            
+                            
                     </div>
                     
                     
@@ -299,7 +302,7 @@ const SignUp = () => {
                             <p className='signup-email-title'>닉네임<span id="signup-dot">*</span></p>
                         </label>
                         
-
+                        <div className='signup-input-button'>
                             <input className='signup-email-input'
                                     onChange={(e)=>{
                                         setArtist(e.target.value)
@@ -310,7 +313,7 @@ const SignUp = () => {
                                     id="artist"
                                     value={artist}
                             />
-                            <button className='secondary signup-button' onClick={(artistCheck)}>중복 확인</button><br/>
+                            <button className='secondary signup-button' onClick={(artistCheck)}>중복 확인</button></div>
                     
                         
                     </div>
