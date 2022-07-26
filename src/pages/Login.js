@@ -6,6 +6,8 @@ import Modal from '../elements/Modal';
 
 import { useMediaQuery } from "react-responsive";
 
+import NotFound from './NotFound';
+
 const Login = (props) => {
 
     const navigate = useNavigate();
@@ -17,6 +19,7 @@ const Login = (props) => {
       query : "(max-width:480px)"
     })
 
+    
 
     //모달
     const [alert, setAlert] = useState("")
@@ -87,6 +90,11 @@ const Login = (props) => {
     }
 }
 
+if (localStorage.getItem("token")) {
+  return (
+    <NotFound/>
+  )
+}
 
 
 

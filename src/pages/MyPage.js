@@ -13,6 +13,7 @@ import Tab3 from '../elements/Tab3';
 import Tab4 from '../elements/Tab4';
 import Tab5 from '../elements/Tab5';
 import Tab6 from '../elements/Tab6';
+import NotFound from './NotFound';
 
 import BeatLoader from "react-spinners/BeatLoader";
 import { useNavigate } from 'react-router-dom';
@@ -80,6 +81,12 @@ function MyPage() {
   },[])
 
   console.log(data)
+
+  if (!localStorage.getItem("token")) {
+    return (
+      <NotFound/>
+    )
+  }
   
 
   return (

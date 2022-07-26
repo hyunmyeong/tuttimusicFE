@@ -8,6 +8,8 @@ import { BsDot } from "react-icons/bs"
 
 import Modal from '../elements/Modal';
 
+import NotFound from './NotFound';
+
 
 const SignUp = () => {
 
@@ -245,6 +247,13 @@ const SignUp = () => {
     console.log("clickGenre ==> ", clickGenre)
 
   }
+
+  if (localStorage.getItem("token")) {
+    return (
+      <NotFound/>
+    )
+  }
+  
 
 
     return (
