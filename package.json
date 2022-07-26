@@ -16,6 +16,7 @@
     "react": "^18.2.0",
     "react-colorful": "^5.5.1",
     "react-dom": "^18.2.0",
+    "react-ga": "^3.3.1",
     "react-icons": "^4.4.0",
     "react-intersection-observer": "^9.3.5",
     "react-range": "^1.8.13",
