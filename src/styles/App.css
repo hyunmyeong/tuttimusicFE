@@ -83,7 +83,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .main-top-header {
-  
   display: flex;
   justify-content: center;
   background-color: #2C2C31;
@@ -481,6 +480,10 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 .comment-input::placeholder{
   font-size: 18px;
+}
+
+.no-comment {
+  cursor: default;
 }
 
 .all-comments{

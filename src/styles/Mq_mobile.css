@@ -408,6 +408,7 @@
     font-size: 13px;
   }
 
+
   .mobile-button {
     height:50px;
     font-size: 14px;
@@ -524,12 +525,8 @@
   }
   
   .dropdown-box {
-    position: absolute;
-    top:38px;
-    border: 1px solid black;
-    background: white;
-    padding: 0;
-    margin: 0;
+    top:43px;
+    right:0;
   }
   
   /* DETAIL END */

@@ -243,7 +243,7 @@ function DetailVideo() {
               </button> 
               :
                 <button
-                  className="primary btn btn-primary">
+                  className="primary btn btn-primary mobile-button">
                   등록
                 </button>}
 
