@@ -5,6 +5,8 @@ import UserVideoComponent from './UserVideoComponent';
 import BeatLoader from "react-spinners/BeatLoader";
 import {withRouter} from '../elements/withRouter';
 
+import Modal from '../elements/Modal';
+
 const OPENVIDU_SERVER_URL = 'https://' + "rnrn.shop" ;
 const OPENVIDU_SERVER_SECRET = 'qlalfqjsgh';
 
@@ -24,35 +26,45 @@ class Streamers extends Component {
             subscribers: [],
             streamers: [],
             havePermissions: false,
+            modalOpen: false,
+            alert: '라이브 시작 알림을 팔로워들에게 전달했어요!',
+            nextStep: false,
         };
 
         this.joinSession = this.joinSession.bind(this);
         this.leaveSession = this.leaveSession.bind(this);
         this.switchCamera = this.switchCamera.bind(this);
         this.handleChangeSessionId = this.handleChangeSessionId.bind(this);
-        this.handleMainVideoStream = this.handleMainVideoStream.bind(this);
-        this.onbeforeunload = this.onbeforeunload.bind(this);
         this.giveAccess = this.giveAccess.bind(this);
         this.navigator = this.navigator.bind(this);
+        this.openModal = this.openModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
     }
 
     componentDidMount() {
-        window.addEventListener('beforeunload', this.onbeforeunload);
+        this.giveAccess();
         this.joinSession();
     } 
 
     componentWillUnmount() {
-        window.removeEventListener('beforeunload', this.onbeforeunload);
+        this.leaveSession();
     }
 
     navigator(){
         this.props.navigate('/facechatlist')
     }
 
-    onbeforeunload(event) {
-        if(window.confirm("방을 나가시면 라이브가 종료됩니다. 라이브를 종료하시겠어요?")) {
-            this.leaveSession();
-        };
+    openModal() {
+        this.setState({
+            modalOpen: true,
+        });
+    }
+
+    closeModal(){
+        this.setState({
+            modalOpen: false,
+            nextStep: true,
+        });
     }
 
     handleChangeSessionId(e) {
@@ -72,9 +84,12 @@ class Streamers extends Component {
     giveAccess() {
         const permissions = navigator.mediaDevices.getUserMedia({audio: true, video: true})
         
-        permissions.then((stream) => {
-            alert('방송을 시작합니다!');
-            this.joinSession();
+        permissions.then((stream) => {           
+            this.openModal();   
+            if (this.state.nextStep===true) {
+                this.joinSession();
+            }         
+            
         })
     }
 
@@ -204,6 +219,7 @@ class Streamers extends Component {
         
         if (mySession) {
             mySession.disconnect();
+            window.location.reload();
         }
 
         // Empty all properties...
@@ -220,14 +236,11 @@ class Streamers extends Component {
         });
         console.log(this.state);
         
-        this.navigator()
 
         })
         .catch((error)=>{
         console.log(error)
         })
-
-        // --- 7) Leave the session by calling 'disconnect' method over the Session object ---
 
         const mySession = this.state.session;
     }
@@ -271,6 +284,8 @@ class Streamers extends Component {
     render() {
         
         return (
+            <>
+            <Modal open={this.state.modalOpen} close={this.closeModal} alert={this.state.alert}/>
             <div className="container">
                 {this.state.session === undefined ? (
                 <div className="spinner-wrap">
@@ -279,17 +294,14 @@ class Streamers extends Component {
                 ) : null}
 
                 {this.state.session !== undefined ? (
-                    <div id="session">
-                            {/* <button
-                                className="btn-live"
-                                onClick={this.giveAccess}
-                            >
-                            방송 시작하기
-                            </button> */}
+                    <div id="session">                            
                             <button
                                 className="btn-live"
                                 id="buttonLeaveSession"
-                                onClick={this.leaveSession}
+                                onClick={()=>{
+                                    this.leaveSession()
+                                    this.navigator()
+                                }}
                             >
                             방송 끝내기
                             </button>
@@ -311,8 +323,9 @@ class Streamers extends Component {
                     </div>
                 ) : <p>No subscribers</p>}
             </div>
-        );
-    }
+            </>
+            );            
+        }
 
 
     getToken() {

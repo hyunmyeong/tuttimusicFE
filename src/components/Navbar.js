@@ -68,14 +68,6 @@ function Navbar() {
         onClick={()=>{
           navigate('/')
         }}/>
-        <div className="nav">
-          <ul>
-            <li onClick={()=>{
-
-              navigate('/')
-            }}>
-            tutti
-          </div>
           <div className="nav">
 
             <ul>
@@ -137,7 +129,6 @@ function Navbar() {
 
               </div>}
           </div>
-        </div>
       </div>
 {/* 모바일 버전 nav */}
       <div className="nav-mobile-wrap">

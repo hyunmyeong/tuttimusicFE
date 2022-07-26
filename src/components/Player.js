@@ -83,8 +83,10 @@ function Player() {
   },[_playing])
 
   useEffect(()=>{
+    if (_volume) {
     setVolume(_volume);
     wavesurfer.current?.setVolume(_volume);
+    }
   },[_volume])
   
   useEffect(()=>{
@@ -151,7 +153,8 @@ function Player() {
             max="1"
             step="0.025"
             onChange={onvolumechange}
-            value={volume}
+            defaultValue="0.5"
+            value={volume? parseFloat(volume):"0.5"}
           />       
         </Controls>
       </div>
