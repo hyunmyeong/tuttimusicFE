@@ -5,12 +5,12 @@ import { useSelector, useDispatch } from "react-redux";
 import {FaVolumeUp, FaVolumeOff, FaVolumeDown, FaPlay} from "react-icons/fa";
 import {ImPlay3} from "react-icons/im";
 import {IoMdPause} from "react-icons/io";
-
+import {IoCloseOutline} from "react-icons/io5";
 import { IconContext } from "react-icons";
 import styled from "styled-components";
 
 import WaveSurfer from "wavesurfer.js";
-import {playerPlay, playerVolume, playerTime} from "../redux/modules/playerSlice";
+import {playerPlay, playerVolume, playerTime, hidePlayer} from "../redux/modules/playerSlice";
 
 
 function Player() {
@@ -79,7 +79,10 @@ function Player() {
 
   useEffect(()=>{
     setPlaying(_playing);
-    wavesurfer.current?.playPause();
+    if (_display===true) {
+      wavesurfer.current?.playPause();
+    }
+    
   },[_playing])
 
   useEffect(()=>{
@@ -120,6 +123,10 @@ function Player() {
     }
   }
 
+  const closePlayer = () =>{
+    dispatch(hidePlayer())
+    wavesurfer.current.destroy();
+  }
 
   return (
     <PlayerContainer display={display}>
@@ -157,22 +164,28 @@ function Player() {
             value={volume? parseFloat(volume):"0.5"}
           />       
         </Controls>
-      </div>
-      {detail?
-      (
-      <div className="player-block-songinfo">
-        <img 
-        className="player-songinfo-img"
-        src={detail.albumImageUrl}
-        alt={detail.musicTitle}
-        />
-        <div className="player-songinfo-text">
-          <p className="player-title">{detail.title}</p>
-          <p className="player-artist">{detail.artist}</p>
         </div>
-      </div>
-      )
-      : null}
+        {detail?
+        (
+        <div className="player-block-songinfo">
+          <img 
+          className="player-songinfo-img"
+          src={detail.albumImageUrl}
+          alt={detail.musicTitle}
+          />
+          <div className="player-songinfo-text">
+            <p className="player-title">{detail.title}</p>
+            <p className="player-artist">{detail.artist}</p>
+          </div>
+        </div>
+        )
+        : null}
+        <div>
+          <IconContext.Provider value={{ className: "close-icon" }}>
+            <IoCloseOutline 
+            onClick={closePlayer}/>
+          </IconContext.Provider>
+        </div>
       </div>
     </PlayerContainer>
   )

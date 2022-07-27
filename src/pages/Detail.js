@@ -3,14 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import {getSongDetail,postComment, SERVER_URL, likeSong} from "../redux/modules/songSlice"
 import BeatLoader from "react-spinners/BeatLoader";
-import {BsCheckCircle} from "react-icons/bs";
-import {MdEdit} from "react-icons/md";
 import moment from "moment";
 import Waveform from '../elements/Waveform';
-import axios from "axios";
 import EditComment from "../elements/EditComment";
 import EditDelete from "../elements/EditDelete";
-import { IconContext } from "react-icons";
 import { useMediaQuery } from "react-responsive";
 
 function Detail() {

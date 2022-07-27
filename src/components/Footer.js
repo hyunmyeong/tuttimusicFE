@@ -7,9 +7,22 @@ function Footer() {
       <div className="footer-box">
       <div className="footer-logo">tutti</div>
       </div>
-      <div className="footer-box">
+      <div className="footer-box footer-left">
       <div className="footer-about">
-        <div className="footer-about-about">about</div>
+        {/* <div className="footer-about-about">about</div> */}
+        <a 
+        className="footer-about-about"
+        href="https://fluoridated-shell-c1f.notion.site/87239be82548471fb8e70efedbd35b5d">
+          개인정보처리방침</a>
+        <a 
+        className="footer-about-about"
+        href="https://fluoridated-shell-c1f.notion.site/e88337be613f4069a30b367254d0d71b">
+          이용약관</a>
+        <a 
+        className="footer-about-about"
+        href="https://fluoridated-shell-c1f.notion.site/aad2793ef4fc4e8295cefefb58430077">
+        Q & A</a>
+
         {/* <div className="footer-ul">
         <ul> 
           <li>FE</li>
