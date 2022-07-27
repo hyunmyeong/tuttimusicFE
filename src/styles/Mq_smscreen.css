@@ -1265,7 +1265,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .login-title {
-    width: 89px;
+    width: 69px;
     /* height: 51px; */
     font-family: 'Mont';
     font-style: normal;
@@ -1328,7 +1328,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     padding: 0px;
     gap: 10px;
     width: 157px;
-    /* height: 18px; */
+    margin-top: -30px;
 }
 
 .login-tutti-first {
@@ -1356,7 +1356,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     padding: 0px;
     gap: 7px;
     width: 153px;
-    height: 46px;
+    height: 50px;
     border-radius: 10px;
     font-style: normal;
     font-weight: 400;
@@ -1365,6 +1365,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     outline: none;
     border: none;
     cursor: pointer;
+    margin-top: -30px;
 }
 
 
