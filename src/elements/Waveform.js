@@ -249,7 +249,20 @@ useEffect(()=>{
 let WaveFlexWrap = styled.div`
 .play-button {
   background-color: ${(props) => props.color};
+  transition: 0.1s;
+
+&:hover { 
+  border-color: ${(props) => props.color};
+  color: #fff; 
+  animation: pulse 0.8s;
+  box-shadow: 0 0 0 16px transparent;
 }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 ${(props) => props.color} }
+}
+
 `
 
 let Controls = styled.div`

@@ -12,6 +12,10 @@ function Footer() {
         {/* <div className="footer-about-about">about</div> */}
         <a 
         className="footer-about-about"
+        href="https://fluoridated-shell-c1f.notion.site/About-tutti-78df41db1a2c4e08949891dcdb8098a7">
+          About</a>
+        <a 
+        className="footer-about-about"
         href="https://fluoridated-shell-c1f.notion.site/87239be82548471fb8e70efedbd35b5d">
           개인정보처리방침</a>
         <a 
