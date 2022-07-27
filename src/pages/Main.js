@@ -10,12 +10,20 @@ import "../styles/slick-theme.css";
 
 import BeatLoader from "react-spinners/BeatLoader";
 import Footer from "../components/Footer";
+import ImageUrl from "../elements/ImageSrc";
+
+import { useMediaQuery } from "react-responsive";
 
 
 function Main() {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const isMobile = useMediaQuery({
+    query : "(max-width:480px)"
+  })
+
 
   useEffect(()=>{
     const token= localStorage.getItem("token");
@@ -129,16 +137,45 @@ function Main() {
     ]
   };
 
+  //slider setting banner
+
+  let settings3 = {
+    dots: false,
+    // fade:true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 800,
+    autoplaySpeed: 3500,
+    arrows: false,
+  };
+
 
   return (
     <>
       <div className="main-container">
       <section className="main-top">
+        
         <div className="main-top-header">
+          <Slider {...settings3}>
+          <div className="banner-wrap banner-tutti">
           <img 
-          src="img/main_banner1.png" 
+          src=
+          {isMobile ? `${ImageUrl.banner_tutti_mobile}` : `${ImageUrl.banner_tutti_web}`}
           className="main-banner"
           />
+          </div>
+          <div className="banner-wrap banner-event">
+          <img 
+          src=
+          {isMobile ? `${ImageUrl.banner_event_mobile}` : `${ImageUrl.banner_event_web}`}
+          className="main-banner"
+          onClick={() => window.open('https://fluoridated-shell-c1f.notion.site/72aead2f89784bebb436f1f253251fb2','_blank')}
+          />
+          </div>
+          </Slider>
+          
         </div>
       </section>
       <section className="main-content">
