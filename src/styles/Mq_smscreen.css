@@ -106,16 +106,16 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 } */
 
-/* .main-album-art {
+.main-album-art {
     width: var(--card-size);
     height: var(--card-size);
     object-fit: cover;
     border-radius:8px;
     margin-right: 0;
-    margin-bottom: 16px;
+    margin-bottom: 5px;
     background-color: #7e7e7e;
     cursor: pointer;
-} */
+}
 
 .main-thumbnail {
     width: var(--video-size);
@@ -134,8 +134,8 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 .main-card-text {
     width: var(--card-size);
     margin-left: 0px;
-    margin-top: 0px;
-    margin-bottom: 10px;
+    /* margin-top: 10px; */
+    /* margin-bottom: 10px; */
 }
 
 .main-card-title {
@@ -508,7 +508,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .header-artist-name {
-    font-size: 19px;
+    font-size: 20px;
     font-style: normal;
     font-weight: bold;
     margin-top: 0px;
@@ -516,7 +516,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .header-artist-info {
-    font-size: 12px;
+    font-size: 14px;
     color: #7e7e7e;
     margin-top: -20px;
     width:400px;
@@ -532,8 +532,8 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .sns-icon {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     margin-top: 5px;
     margin-right: -10px;
 }
@@ -564,11 +564,11 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     align-items: flex-start;
     padding: 0px;
     gap: 9px;
-    width: 82px;
+    width: 85px;
     height: 22px;
     font-style: normal;
     font-weight: 400;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 22px;
     color: #7E7E7E;
 }
@@ -578,7 +578,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     font-weight: 400;
     font-size: 13px;
     line-height: 22px;
-    margin-right: 14px;
+    margin-right: 16px;
     color: #000000;
 }
 
@@ -758,7 +758,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     object-fit: cover;
     border-radius:8px;
     margin-right: 0;
-    margin-bottom: 16px;
+    margin-bottom: 0px;
     background-color: #7e7e7e;
     cursor: pointer;
 }
@@ -786,7 +786,8 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 .main-card-text {
     width: var(--card-size);
     margin-right: 0px;
-    margin-top: -10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 .main-card-title {
@@ -1882,6 +1883,7 @@ input[type=radio] {
     list-style: none;
     padding: 20px;
     margin-top: 10px;
+    margin-right: 90px;
     text-align: center;
     border-radius: 10px;
     color: #fff;
