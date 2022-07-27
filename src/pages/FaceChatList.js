@@ -85,7 +85,7 @@ function FaceChatList() {
                 <div className="facechat-list-container">
                     <div className="facechat-live-list">
                     {
-                    roomList.map((live, index) => {
+                    roomList?.map((live, index) => {
                         return (
                             <div 
                             className="facechat-live-box"
