@@ -4,6 +4,8 @@ import { useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Modal from '../elements/Modal';
 import imageCompression from 'browser-image-compression'; 
+import NotFound from './NotFound';
+
 
 const SignUp = () => {
 
@@ -251,6 +253,13 @@ const SignUp = () => {
         console.log("clickGenre ==> ", clickGenre)
 
     }
+
+  if (localStorage.getItem("token")) {
+    return (
+      <NotFound/>
+    )
+  }
+  
 
 
     return (

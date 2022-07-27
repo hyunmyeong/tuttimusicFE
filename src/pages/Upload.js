@@ -8,6 +8,8 @@ import {SERVER_URL} from "../redux/modules/songSlice";
 import Modal from '../elements/Modal';
 import imageCompression from 'browser-image-compression'; 
 
+import NotFound from './NotFound';
+
 
 function Upload() {
 
@@ -188,6 +190,12 @@ const [submit, setSubmit] = React.useState(false);
       openModal()
     });
   }}
+
+  if (!localStorage.getItem("token")) {
+    return (
+      <NotFound/>
+    )
+  }
 
   return (
 

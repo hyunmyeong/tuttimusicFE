@@ -9,6 +9,8 @@ import {SERVER_URL} from "../redux/modules/songSlice";
 
 import Modal from '../elements/Modal';
 
+import NotFound from './NotFound';
+
 function CreateLive() {
 
   const navigate = useNavigate();
@@ -108,6 +110,12 @@ function CreateLive() {
       console.log("err ===> ", error);
       navigate('/facechatlist');
     });
+  }
+
+  if (!localStorage.getItem("token")) {
+    return (
+      <NotFound/>
+    )
   }
 
   return (

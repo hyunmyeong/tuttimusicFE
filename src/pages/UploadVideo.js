@@ -7,6 +7,7 @@ import axios from 'axios';
 import {SERVER_URL} from "../redux/modules/songSlice";
 import Modal from '../elements/Modal';
 import imageCompression from 'browser-image-compression'; 
+import NotFound from './NotFound';
 
 
 function UploadVideo() {
@@ -191,6 +192,12 @@ function UploadVideo() {
       openModal()
     });
   }
+}
+
+if (!localStorage.getItem("token")) {
+  return (
+    <NotFound/>
+  )
 }
 
   return (

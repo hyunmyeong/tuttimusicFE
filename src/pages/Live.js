@@ -8,6 +8,8 @@ import Subscribers from '../elements/Subscribers';
 import Chatbox from "../elements/Chatbox";
 import {usePrompt} from '../elements/Blocker';
 
+import NotFound from "./NotFound";
+
 
 function Live() {
   usePrompt('현재 페이지를 벗어나면 라이브가 종료됩니다. 😭', true);
@@ -54,6 +56,12 @@ function Live() {
   },[])
 
   console.log(data)
+
+  if (!localStorage.getItem("token")) {
+    return (
+      <NotFound/>
+    )
+  }
 
   return (
   <div className="live-wrap">  
