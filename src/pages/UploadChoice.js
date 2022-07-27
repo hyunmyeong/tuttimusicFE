@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from "react-router-dom";
-
 import { FaMicrophone } from "react-icons/fa";
 import { BsFillFileEarmarkPlayFill } from "react-icons/bs";
-
 import NotFound from './NotFound';
+import SEO from '../components/SEO';
 
 function UploadChoice() {
 
@@ -19,6 +18,7 @@ function UploadChoice() {
 
   return (
     <div className="choice-wrap">
+      <SEO pageTitle={"upload"}/>
       <div className="choice-title">업로드</div>
       <div className="choice-title-sub">업로드 유형을 선택해 주세요.</div> 
       <div className="choice-button-wrap">

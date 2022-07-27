@@ -43,7 +43,6 @@ class Streamers extends Component {
 
     componentDidMount() {
         this.giveAccess();
-        this.joinSession();
     } 
 
     componentWillUnmount() {
@@ -86,9 +85,8 @@ class Streamers extends Component {
         
         permissions.then((stream) => {           
             this.openModal();   
-            if (this.state.nextStep===true) {
-                this.joinSession();
-            }         
+            this.joinSession();
+                    
             
         })
     }

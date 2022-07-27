@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Modal from '../elements/Modal';
 import imageCompression from 'browser-image-compression'; 
 import NotFound from './NotFound';
-
+import SEO from '../components/SEO';
 
 const SignUp = () => {
 
@@ -264,6 +264,7 @@ const SignUp = () => {
 
     return (
         <div className='signup-container'>
+            <SEO pageTitle={window.location.pathname.substring(1)}/>
             <div className='signup-title-box'>
                 <p className='signup-title'>회원가입</p>
                 <p className='signup-subtitle'>tutti 회원이 되어 주세요!</p>

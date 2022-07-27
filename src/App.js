@@ -27,7 +27,7 @@ import FaceChatList from './pages/FaceChatList';
 import NotFound from './pages/NotFound';
 import EmailCheck from './pages/EmailCheck';
 import Player from './components/Player';
-
+import SEO from './components/SEO';
 
 function App() {
 
@@ -128,7 +128,9 @@ function App() {
 
 
   return (
+
     <div className="App">
+      <SEO/>
       <Navbar/>
         <div className="background">
           <Routes>
