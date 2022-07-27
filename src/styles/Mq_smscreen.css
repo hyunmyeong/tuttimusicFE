@@ -85,6 +85,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 .main-list-subtitle {
     font-size: 12px;
+    margin-bottom: 30px;
 }
 
 .main-card {
