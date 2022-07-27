@@ -8,7 +8,7 @@ import {SERVER_URL} from "../redux/modules/songSlice";
 import Modal from '../elements/Modal';
 import imageCompression from 'browser-image-compression'; 
 import NotFound from './NotFound';
-
+import SEO from '../components/SEO';
 
 function UploadVideo() {
 
@@ -201,9 +201,8 @@ if (!localStorage.getItem("token")) {
 }
 
   return (
-
-    
     <UpLoad>
+      <SEO pageTitle={"video upload"}/>
       <div className="upload-wrap">
       <p className="upload-title">영상 업로드</p>
       <p className="upload-subtitle">당신의 음악을 세상에 들려주세요!</p>
