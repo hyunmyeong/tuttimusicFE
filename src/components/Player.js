@@ -186,7 +186,7 @@ function Player() {
         </div>
         )
         : null}
-        <div>
+        <div className="player-close">
           <IconContext.Provider value={{ className: "close-icon" }}>
             <IoCloseOutline 
             onClick={closePlayer}/>

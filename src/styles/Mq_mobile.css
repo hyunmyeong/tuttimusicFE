@@ -2375,8 +2375,9 @@
     flex-direction: row;
     align-items: center;
     width: 100%;
+    height: 100%;
     max-width: 100%;
-    margin: 5px auto;
+    margin: 0;
     justify-content: space-between;
   }
   
@@ -2389,18 +2390,20 @@
   }
   
   .player-block-songinfo {
-    margin:10px 30px 10px 10px;
+    margin:0;
     display: flex;
     flex-direction: row;
+    width:70%;
   }
   .player-songinfo-img{
-    width: 42x;
+    width: 42px;
     height: 42px;
-    object-fit: contain;
+    object-fit: cover;
     margin-right: 13px;
   }
   
   .player-songinfo-text{
+    width:70%;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -2408,12 +2411,13 @@
   }
   
   .sidemg{
-    margin: 0 20px;
+    margin: 0;
   }
   
   .player-play{
+    width:10%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
   }
   
   .sm-play-button{
@@ -2421,7 +2425,7 @@
     width: 40px;
     background-color: transparent;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
   }
   
   .sm-play-icon{
@@ -2429,13 +2433,12 @@
   }
   
   .player-title {
+    width:100%;
     font-size: 15px;
-  
     white-space: nowrap;
-    
     overflow: hidden;
     text-overflow: ellipsis;
-    display: -webkit-box;
+    display: block;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     word-wrap:break-word; 
@@ -2443,18 +2446,27 @@
   }
   
   .player-artist {
+    width:100%;
     font-size: 15px;
   
     white-space: nowrap;
     
     overflow: hidden;
     text-overflow: ellipsis;
-    display: -webkit-box;
+    display: block;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     word-wrap:break-word; 
     line-height: 18px;
     color:#848484;
+  }
+
+  .player-close {
+    width:10%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }
   
     /* PLAYER END */
