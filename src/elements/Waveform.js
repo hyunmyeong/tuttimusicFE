@@ -15,6 +15,8 @@ import {playerPlay, addASong, playerVolume, playerTime, showPlayer} from "../red
 
 import {Range, getTrackBackground} from "react-range";
 
+import {IoMdPlay} from "react-icons/io";
+
 
 function Waveform(props) {
 
@@ -176,7 +178,7 @@ useEffect(()=>{
             <button 
               className="play-button btn"
               onClick={handlePlayPause}>
-              {!playing ? <ImPlay3 id="play-btn" /> : <IoMdPause/> }
+              {!playing ? <IoMdPlay id="play-btn" /> : <IoMdPause/> }
             </button>
           </WaveFlexWrap>
           <div className="flex-wrap">
@@ -207,7 +209,7 @@ useEffect(()=>{
           <div className="flex-wrap wave-right-wrap">
             <Controls className="controls" color={props.detail.color}>
               {volume > 0.01 && volume < 0.5 ? <FaVolumeDown id="volume-icon"/> 
-              : volume > 0.5? <FaVolumeUp id="volume-icon"/>
+              : volume >= 0.5? <FaVolumeUp id="volume-icon"/>
               : <FaVolumeOff id="volume-icon"/>}
               <input
                 className="volume-control"

@@ -14,6 +14,8 @@ import {playerPlay, playerVolume, playerTime, hidePlayer} from "../redux/modules
 
 import { useMediaQuery } from "react-responsive";
 
+import {IoMdPlay} from "react-icons/io";
+
 
 function Player() {
   const dispatch = useDispatch();
@@ -142,7 +144,7 @@ function Player() {
           className="sidemg sm-play-button"
           onClick={handlePlayPause}>
           <IconContext.Provider value={{ className: "sm-play-icon" }}>
-          {!playing ? <ImPlay3 id="play-btn" /> : <IoMdPause/> }
+          {!playing ? <IoMdPlay id="play-btn" /> : <IoMdPause/> }
           </IconContext.Provider>  
         </button>
         <div className="player-block-waveform">
@@ -154,7 +156,7 @@ function Player() {
         </div>
         <Controls className="controls" color={"#8A51FB"}>
           {volume > 0.01 && volume < 0.5 ? <FaVolumeDown id="volume-icon"/> 
-          : volume > 0.5? <FaVolumeUp id="volume-icon"/>
+          : volume >= 0.5? <FaVolumeUp id="volume-icon"/>
           : <FaVolumeOff id="volume-icon"/>}
           <input
             className="volume-control"
