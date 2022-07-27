@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import '../styles/App.css';
-
+import styled from 'styled-components';
 
 import { FaYoutube } from 'react-icons/fa';
 import { RiInstagramFill } from 'react-icons/ri';
@@ -207,12 +207,12 @@ function MyPage() {
       
       <div className='mypage-body'>
         <div className='body-bar'>
-            <p className='body-bar-menu' onClick={()=>{setTab(0)}}>전체</p>
-            <p className='body-bar-menu'  onClick={()=>{setTab(1)}}>관심음악</p>
-            <p className='body-bar-menu' onClick={()=>{setTab(2)}}>관심영상</p>
-            <p className='body-bar-menu' onClick={()=>{setTab(3)}}>팔로잉</p>
-            <p className='body-bar-menu' onClick={()=>{setTab(4)}}>업로드음악</p>
-            <p className='body-bar-menu' onClick={()=>{setTab(5)}}>업로드영상</p>
+            <P0 className='body-bar-menu' onClick={()=>{setTab(0)}} tab={tab}>전체</P0>
+            <P1 className='body-bar-menu' onClick={()=>{setTab(1)}} tab={tab}>관심음악</P1>
+            <P2 className='body-bar-menu' onClick={()=>{setTab(2)}} tab={tab}>관심영상</P2>
+            <P3 className='body-bar-menu' onClick={()=>{setTab(3)}} tab={tab}>팔로잉</P3>
+            <P4 className='body-bar-menu' onClick={()=>{setTab(4)}} tab={tab}>업로드음악</P4>
+            <P5 className='body-bar-menu' onClick={()=>{setTab(5)}} tab={tab}>업로드영상</P5>
             {/* <TabContent tab={tab}/> */}
         </div> 
 
@@ -263,3 +263,40 @@ function MyPage() {
 
 
 export default MyPage;
+
+const P0= styled.div`
+  padding: 15px 5px; 
+  border-bottom: ${props => (props.tab===0 ? '2px solid #8A51FB' : 'none')};
+  color: ${props => (props.tab===0 ? ' #8A51FB' : '#545454')};
+`
+
+const P1= styled.div`
+  padding: 15px 5px; 
+  border-bottom: ${props => (props.tab===1 ? '2px solid #8A51FB' : 'none')};
+  color: ${props => (props.tab===1 ? ' #8A51FB' : '#545454')};
+`
+
+const P2= styled.div`
+  padding:15px 5px; 
+  border-bottom: ${props => (props.tab===2 ? '2px solid #8A51FB' : 'none')};
+  color: ${props => (props.tab===2 ? ' #8A51FB' : '#545454')};
+`
+
+const P3= styled.div`
+  padding: 15px 5px; 
+  border-bottom: ${props => (props.tab===3 ? '2px solid #8A51FB' : 'none')};
+  color: ${props => (props.tab===3 ? ' #8A51FB' : '#545454')};
+`
+
+const P4= styled.div`
+  padding: 15px 5px;   
+  border-bottom: ${props => (props.tab===4 ? '2px solid #8A51FB' : 'none')};
+  color: ${props => (props.tab===4 ? ' #8A51FB' : '#545454')};
+`
+
+const P5= styled.div`
+  padding:15px 5px; 
+  border-bottom: ${props => (props.tab===5 ? '2px solid #8A51FB' : 'none')};
+  color: ${props => (props.tab===5 ? ' #8A51FB' : '#545454')};
+`
+

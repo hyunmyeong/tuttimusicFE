@@ -1,4 +1,5 @@
 import React from 'react';
+import ImageUrl from '../elements/ImageSrc';
 
 function Footer() {
   return (
@@ -7,7 +8,7 @@ function Footer() {
       <div className="footer-box">
         <img
         className="logo" 
-        src="https://file-bucket-seyeol.s3.ap-northeast-2.amazonaws.com/tutti%EB%A1%9C%EA%B3%A0+%EA%B2%80%EC%9D%80%EC%83%89.png"
+        src={ImageUrl.logo_b}
         />
       </div>
       <div className="footer-box footer-left">
