@@ -1050,7 +1050,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   padding: 50px 150px 0 70px;
   gap: 171px;
   width: 1280px;
-  height: 1420px;
 }
 
 .signup-info {
@@ -1059,7 +1058,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   align-items: flex-start;
   gap: 50px;
   width: 100%;
-  height: 1280px;
+  margin-bottom: 30px;
 }
 
 .signup-box {
@@ -1455,6 +1454,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 .checkbox-flex{
   display: flex;
   align-items: center;
+  margin: 20px auto 0 auto;
 }
 
 .checkbox-signup{
@@ -1467,8 +1467,16 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .agree-text{
-  font-size:17px;
+  font-size:18px;
 }
+
+.linked-text{
+  text-decoration: none;
+  color:var(--primary-color);
+  margin: 0 5px;
+}
+
+
 
 /* SIGNUP PAGE END */
 

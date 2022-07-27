@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Modal from '../elements/Modal';
 import imageCompression from 'browser-image-compression'; 
@@ -253,7 +253,6 @@ const SignUp = () => {
             </div>
             <div className='signup-info-box'>
                 <div className='signup-info'>
-
                     {/* 이메일 부분 */}
                     <div className='signup-box'>
 
@@ -274,9 +273,8 @@ const SignUp = () => {
                             />
                             <button className='secondary signup-button' onClick={emailCheck}>인증</button>
                         </div>
-                    </div>
-                    
-                    
+                    </div>        
+
                     {/* 비밀번호 부분 */}
                     <div className='signup-box'>
 
@@ -442,15 +440,31 @@ const SignUp = () => {
                                 type="checkbox"
                                 id="youtube"
                             />
-                            <p className='agree-text'>개인정보 수집 및 <span a href='/feed'>이용약관</span>에 대한 안내에 동의합니다.</p>
+                            <p className='agree-text'>
+                            
+                                <a 
+                                className='linked-text'
+                                target="_blank" 
+                                href="https://fluoridated-shell-c1f.notion.site/87239be82548471fb8e70efedbd35b5d">
+                                    개인정보처리방침</a>
+                                및 
+                                <a 
+                                className='linked-text'
+                                target="_blank" 
+                                href="https://fluoridated-shell-c1f.notion.site/e88337be613f4069a30b367254d0d71b">
+                                    이용약관</a>
+                                에 대한 안내에 동의합니다.</p>
                         </div>
                         
                     </div>
+                    <button 
+                    className='primary signup-button-box' 
+                    onClick={(signupCheck)}>회원가입</button>
+                    <Modal open={modalOpen} close={closeModal} alert={alert}/>
                 </div>
-        </div>
-            <button className='primary signup-button-box' 
-                onClick={(signupCheck)}>회원가입</button>
-            <Modal open={modalOpen} close={closeModal} alert={alert}/>
+            </div>
+
+            
         </div>
     )
 }   
