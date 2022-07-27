@@ -2361,7 +2361,7 @@
     flex-direction: row;
     align-items: center;
     width: 100%;
-    max-width: var(--container-width);
+    max-width: 100%;
     margin: 5px auto;
     justify-content: space-between;
   }
@@ -2371,11 +2371,7 @@
   }
   
   .player-block-waveform{
-    min-width: 700px;
-    height: 35px;
-    align-items: center;
-    margin: 0 auto 0 auto;
-  
+    display: none;
   }
   
   .player-block-songinfo {
@@ -2415,7 +2411,7 @@
   }
   
   .sm-play-icon{
-    font-size: 27px;
+    font-size: 37px;
   }
   
   .player-title {
