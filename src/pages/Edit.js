@@ -2,18 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import styled from 'styled-components';
-
 import { HexColorPicker } from "react-colorful";
-
 import { FaMusic } from "react-icons/fa"
 import axios from 'axios';
-
 import {SERVER_URL} from "../redux/modules/songSlice";
-
 import Modal from '../elements/Modal';
-
 import NotFound from './NotFound';
-
+import SEO from '../components/SEO';
 
 function Edit() {
 
@@ -116,9 +111,8 @@ function Edit() {
   }
 
   return (
-
-    
     <UpLoad>
+      <SEO pageTitle={"edit"}/>
       <div className="upload-wrap">
       <p className="upload-title">업로드 수정</p>
       <p className="upload-subtitle">수정 시, 곡명과 소개글, 컬러 수정만 가능합니다.</p>

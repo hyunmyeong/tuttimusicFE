@@ -19,6 +19,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 import { useNavigate } from 'react-router-dom';
 
 import { useMediaQuery } from "react-responsive";
+import SEO from '../components/SEO';
 
 
 function MyPage() {
@@ -94,7 +95,7 @@ function MyPage() {
 
     // Frame 61 전체 영역
     <div className='mypage-container'>
-
+      <SEO pageTitle={window.location.pathname.substring(1)}/>
       {/* Frame 59  회원정보 부분*/}
 
       {isMobile ?

@@ -64,6 +64,10 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   color:#8A51FB;
 }
 
+a {
+  border: none;
+  outline: none;
+}
 
 /* MAIN PAGE  */
 .main-container {
@@ -84,9 +88,23 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 .main-top-header {
   display: flex;
-  justify-content: center;
-  background-color: #2C2C31;
   width: 100%;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.banner-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.banner-tutti {
+  background-color: #2d2c32;
+}
+
+.banner-event {
+  background-color: #e8e4fd;
 }
 
 .main-banner{
@@ -640,10 +658,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   align-items: center;
 }
 
-.heart{
-  font-size: 25px;
-  margin-top:5px;
-}
 
 .wave-left-wrap {
   display: flex;
@@ -2304,7 +2318,7 @@ input[type=radio] {
 
 .Footer {
   width: 100%;
-  height: 300px;
+  height: 200px;
   background-color: #D9D9D9;
   color: #4E4E4E;
   display: flex;
@@ -2339,9 +2353,10 @@ input[type=radio] {
 
 .footer-about {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
+  gap: 10px;
 }
 
 .footer-about-about {
@@ -2732,7 +2747,7 @@ input[type=radio] {
   flex-direction: row;
 }
 .player-songinfo-img{
-  width: 42x;
+  width: 42px;
   height: 42px;
   object-fit: contain;
   margin-right: 13px;
@@ -2762,9 +2777,6 @@ input[type=radio] {
   align-items: center;
 }
 
-.sm-play-icon{
-  font-size: 27px;
-}
 
 .player-title {
   font-size: 15px;
@@ -2936,3 +2948,26 @@ input[type=radio] {
 }
 
 /* MODAL END */
+
+/* EFFECTS  */
+
+.sm-play-icon{
+  font-size: 27px;
+
+}
+
+.sm-play-icon:hover,
+.sm-play-icon:focus {
+  transform: scale(1.1);
+}
+
+
+.heart{
+  font-size: 25px;
+  margin-top:5px;
+}
+
+.heart:hover,
+.heart:focus {
+
+}

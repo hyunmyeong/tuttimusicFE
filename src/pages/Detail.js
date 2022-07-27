@@ -8,6 +8,7 @@ import Waveform from '../elements/Waveform';
 import EditComment from "../elements/EditComment";
 import EditDelete from "../elements/EditDelete";
 import { useMediaQuery } from "react-responsive";
+import SEO from '../components/SEO';
 
 function Detail() {
   const [loading, setLoading] = useState(true);
@@ -109,6 +110,7 @@ function Detail() {
   
   return (
     <div className="detail-container">
+      <SEO pageTitle={"Song"}/>
       {isMobile ? 
       <>
       {/* isMobile true start */}

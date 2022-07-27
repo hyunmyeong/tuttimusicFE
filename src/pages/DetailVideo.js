@@ -11,6 +11,7 @@ import moment from "moment";
 import axios from "axios";
 import EditComment from "../elements/EditComment";
 import EditDelete from "../elements/EditDelete";
+import SEO from '../components/SEO';
 
 function DetailVideo() {
   const [loading, setLoading] = useState(true);
@@ -128,6 +129,7 @@ function DetailVideo() {
   
   return (
     <div className="detail-container">
+      <SEO pageTitle={"Video"}/>
 {/* MUSIC DETAIL AREA */}      
       {loading? (
         <div className="spinner-wrap">
