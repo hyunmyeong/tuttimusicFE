@@ -15,7 +15,7 @@ const SignUp = () => {
     const [artist, setArtist] = useState("");
     const [password, setPassword] = useState("");
     const [passwordCheck, setPasswordCheck] = useState("");
-    const [image, setImage] = useState("");
+    const [image, setImage] = useState(null);
     const [profileText, setProfileText] = useState("");
     const [preview, setPreview] = useState(null);
     
@@ -24,6 +24,7 @@ const SignUp = () => {
     const [insta, setInsta] = useState(null);
     const [youtube, setYoutube] = useState(null);
     const [check, setCheck] = useState(false);
+    const [file, setFile] = useState(null);
     console.log(check)
     const genreNames = ["발라드", "어쿠스틱", "R&B", "힙합", "댄스", "연주곡"]
 
@@ -60,7 +61,10 @@ const SignUp = () => {
     //  이미지 올리고 미리보기
     const fileChange = (e) => {
         let render = new FileReader()
-        imgSizeOpt(e.target.files[0])
+        if (e.target.files[0]) {
+            imgSizeOpt(e.target.files[0])
+        }
+        
 
         if (e.target.files[0]) {
             render.readAsDataURL(e.target.files[0])
@@ -187,9 +191,12 @@ const SignUp = () => {
         }
 
         else {
-
         console.log(image)
-        const file = new File([image], artist+".png");
+        if (image!==null) {
+            const _file = new File([image], artist+".png")
+            setFile(_file)
+        }
+        
         console.log(file)    
 
         //signupdata로 하나로 만들기 + form데이터 형식으로 보내기
