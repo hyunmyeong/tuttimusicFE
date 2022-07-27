@@ -85,6 +85,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 .main-list-subtitle {
     font-size: 12px;
+    margin-bottom: 30px;
 }
 
 .main-card {
@@ -540,6 +541,20 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 .sns-youtube {
     color: #c4302b;
+}
+.insta-icon {
+  width:28px;
+  height: 28px;
+  overflow: hidden;
+  border-radius: 30%;
+  margin-top:4px;
+}
+
+.sns-instagram {
+  width: 40px;
+  height: 40px;
+  margin-top:-5.55px;
+  margin-left:-6px;
 }
 
 .header-follow-container {
@@ -1792,17 +1807,20 @@ input[type=radio] {
     cursor: pointer;
 }
 
+.nav {
+  width:22%;
+}
+
 .nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .nav ul li {
-    width: 50px;
-    float: left;
-    margin-right: 40px;
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .search {
