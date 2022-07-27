@@ -1,4 +1,4 @@
-@media only screen and (max-width : 1920px) {
+@media only screen and (min-width : 481px) and (max-width : 1920px) {
 *,
 *::before,
 *::after {
@@ -88,7 +88,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 .video-card {
     padding: 10px 0px;  
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 /* .mypage-video-card{
@@ -139,7 +139,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .main-card-artist{
-    font-size: 12px;
+    font-size: 11px;
 }
 
 /* MAIN PAGE END */
@@ -170,7 +170,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .feed-list {
-    gap:17px; 
+    gap:9px; 
     padding: 0px 10px 0px 15px;
 }
 
@@ -765,7 +765,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 .mypage-main-thumbnail {
     width: 100%;
-    height: 171px;
+    height: 131px;
     object-fit: cover;
     border-radius:8px;
     background-color: #7e7e7e;
@@ -774,7 +774,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 .main-card-text {
     width: var(--card-size);
-    margin-right: 35px;
+    margin-right: 0px;
     margin-top: 10px;
 }
 
@@ -817,7 +817,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     flex-direction: row;
     align-items: flex-start;
     padding: 0px;
-    gap: 28px;
+    gap: 15px;
     width: var(--smscreen-width);
 }
 
@@ -1092,7 +1092,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     padding: 0px;
     gap: 40px;
     width: 840px;
-    /* height: 200px; */
+    height: 160px;
 }
 
 .profile-img-circle {
@@ -1101,6 +1101,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     border-radius: 50%;
     object-fit: cover;
     background: #D9D9D9;
+    margin-bottom: 5px;
 }
 
 .profile-img-button {
@@ -1118,6 +1119,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     font-size: 14px;
     line-height: 23px;
     cursor: pointer;
+    /* margin-bottom: 40px; */
 }
 
 .img-button {
@@ -1162,7 +1164,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     gap: 7px;
     /* margin-left: -25px; */
     width: 840px;
-    height: 202px;
+    height: 130px;
 }
 
 .genre-boxes {
