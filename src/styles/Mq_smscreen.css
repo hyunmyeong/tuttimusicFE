@@ -101,16 +101,16 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 } */
 
-/* .main-album-art {
+.main-album-art {
     width: var(--card-size);
     height: var(--card-size);
     object-fit: cover;
     border-radius:8px;
     margin-right: 0;
-    margin-bottom: 16px;
+    margin-bottom: 5px;
     background-color: #7e7e7e;
     cursor: pointer;
-} */
+}
 
 .main-thumbnail {
     width: var(--video-size);
@@ -129,8 +129,8 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 .main-card-text {
     width: var(--card-size);
     margin-left: 0px;
-    margin-top: 0px;
-    margin-bottom: 10px;
+    /* margin-top: 10px; */
+    /* margin-bottom: 10px; */
 }
 
 .main-card-title {
@@ -756,7 +756,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     object-fit: cover;
     border-radius:8px;
     margin-right: 0;
-    margin-bottom: 16px;
+    margin-bottom: 0px;
     background-color: #7e7e7e;
     cursor: pointer;
 }
@@ -784,7 +784,8 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 .main-card-text {
     width: var(--card-size);
     margin-right: 0px;
-    margin-top: -10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 .main-card-title {
@@ -1880,6 +1881,7 @@ input[type=radio] {
     list-style: none;
     padding: 20px;
     margin-top: 10px;
+    margin-right: 90px;
     text-align: center;
     border-radius: 10px;
     color: #fff;
