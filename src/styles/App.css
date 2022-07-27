@@ -2200,6 +2200,11 @@ input[type=radio] {
   margin-right: 40px;
 }
 
+.logo1 {
+  width: 90px;
+  cursor: pointer;
+}
+
 .nav ul {
   list-style: none;
   margin: 0;
@@ -2985,7 +2990,11 @@ input[type=radio] {
 .upload-button:hover,
 .upload-button:focus,
 .live-chat-user-button:hover,
-.live-chat-user-button:focus {
+.live-chat-user-button:focus,
+.signup-button-box:hover,
+.signup-button-box:focus,
+.login-button:hover,
+.login-button:focus {
   color: #fff; 
   animation: pulse1 0.8s;
   box-shadow: 0 0 0 23px transparent;

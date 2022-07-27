@@ -12,8 +12,6 @@ import { BsDashLg } from "react-icons/bs";
 import { BsXLg } from "react-icons/bs";
 import { VscArrowLeft } from "react-icons/vsc";
 
-
-
 import { searchMusic } from "../redux/modules/songSlice";
 
 function Navbar() {
