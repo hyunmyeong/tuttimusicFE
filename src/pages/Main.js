@@ -238,16 +238,18 @@ function Main() {
             {genreList&&genreList.map((song,index) =>{
               return(
                 <div 
-                className="main-card"
+                className="main-card genre-card"
                 onClick={()=>{
                   navigate('/detail/'+song.id)
                 }}>
+                  <div className="musicfeed-album-box">
                   <img
                   alt={song.title}
-                  className="main-album-art" 
+                  className="main-album-art musicfeed-album-art" 
                   src={song.albumImageUrl}
                   />
-                  <div className="main-card-text">
+                  </div>
+                  <div className="main-card-text musicfeed-card-text">
                     <p className="main-card-title">
                     {song.title}
                     </p>

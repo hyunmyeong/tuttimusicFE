@@ -186,6 +186,17 @@
     cursor: pointer;
   }
 
+  .genre-card {
+    display: flex;
+    flex-direction: column;
+    width: 32.5%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding:0;
+    margin-bottom: 10px;
+  }
+
   .musicfeed-album-box {
     aspect-ratio: 1 / 1;
     overflow: hidden;
@@ -443,13 +454,16 @@
     flex-direction: row;
     width:100%;
     align-items:center;
+   
   }
   
   .row-wrap-left{
     display: flex;
     flex-direction: row;
     width:100%;
-    gap: 20px;
+    gap: 1%;
+    padding:0 20px;
+    flex-wrap:wrap;
   }
   
   .flex-between{
