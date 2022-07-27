@@ -249,7 +249,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 .mobile-button {
     height:46px;
     font-size: 14px;
-    padding:0;
+    padding: 0px;
     line-height: 50px;
     width: 92px;
 }
