@@ -5,12 +5,17 @@ import { useNavigate } from "react-router-dom";
 import { FaMicrophone } from "react-icons/fa";
 import { BsFillFileEarmarkPlayFill } from "react-icons/bs";
 
-
-
+import NotFound from './NotFound';
 
 function UploadChoice() {
 
   const navigate = useNavigate();
+
+  if (!localStorage.getItem("token")) {
+    return (
+      <NotFound/>
+    )
+  }
 
   return (
     <div className="choice-wrap">
