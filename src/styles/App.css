@@ -2900,6 +2900,7 @@ input[type=radio] {
 
 .confirm-footer {
   display: flex;
+  justify-content: center;
 }
 .modal-delete-button {
   margin: 0 10px;
