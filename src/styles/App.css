@@ -2205,16 +2205,19 @@ input[type=radio] {
   cursor: pointer;
 }
 
+.nav {
+  width:22%;
+}
+
 .nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .nav ul li {
-  width: 50px;
-  float: left;
-  margin-right: 40px;
   cursor: pointer;
 }
 
