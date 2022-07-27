@@ -69,6 +69,11 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 /* MAIN PAGE */
 
+
+.main-banner{
+    max-width: 950px;
+}
+
 .main-content {
     max-width: var(--smscreen-width);
 }
@@ -163,10 +168,11 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .category {
-    width:184.1px;
-    height: 50px;
+    width:178px;
+    height: 42px;
+
     gap: 10px;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .feed-list {
@@ -621,7 +627,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 30px;
     width: var(--smscreen-width);
     min-height: 60vh;
 }
@@ -630,8 +635,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    padding: 25px 20px;
-    gap: 61px;
 }
 
 .body-bar-menu {
@@ -643,7 +646,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 61px;
     width: var(--smscreen-width);
 }
 
@@ -747,7 +749,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     padding: 0px;  
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 }
 
 .main-album-art {
