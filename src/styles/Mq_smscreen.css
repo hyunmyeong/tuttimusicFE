@@ -49,11 +49,11 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     color: #fff;
     font-size: 15px;
     background-color: var(--primary-button);
-    /* align-items: flex-start; */
+    align-items: flex-start;
     padding: 10px 35px;
     height: 46px;
-    /* line-height: 30px; */
-    /* outline:none; */
+    line-height: 30px;
+    outline:none;
 }
 
 .primary {
@@ -245,6 +245,15 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 .music-video video {
     width:982px;
 }
+
+.mobile-button {
+    height:46px;
+    font-size: 14px;
+    padding:0;
+    line-height: 50px;
+    width: 92px;
+}
+
 
 /* COMMENT */
 
