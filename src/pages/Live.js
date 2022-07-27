@@ -9,7 +9,7 @@ import Chatbox from "../elements/Chatbox";
 import {usePrompt} from '../elements/Blocker';
 
 import NotFound from "./NotFound";
-
+import SEO from '../components/SEO';
 
 function Live() {
   usePrompt('현재 페이지를 벗어나면 라이브가 종료됩니다. 😭', true);
@@ -65,6 +65,7 @@ function Live() {
 
   return (
   <div className="live-wrap">  
+  <SEO pageTitle={"live"}/>
   {loading? (
       <div className="spinner-wrap">
         <BeatLoader color={"grey"} loading={loading} size={10}/>

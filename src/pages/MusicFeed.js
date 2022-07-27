@@ -1,14 +1,10 @@
 import React, { useCallback, useEffect, useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
 import {getMusicFeed} from "../redux/modules/songSlice";
-
 import BeatLoader from "react-spinners/BeatLoader";
-
 import { useInView } from 'react-intersection-observer';
-
-
+import SEO from '../components/SEO';
 
 function MusicFeed() {
   const [loading, setLoading] = useState(true);
@@ -132,6 +128,7 @@ function MusicFeed() {
 
   return (
     <div className="musicfeed-container">
+      <SEO pageTitle={window.location.pathname.substring(1)}/>
       <section className="feed-category">
         <p className="genre-text">
           유형

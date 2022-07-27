@@ -5,11 +5,18 @@ function Footer() {
     <div className="Footer">
     <div className="footer-wrap">
       <div className="footer-box">
-      <div className="footer-logo">tutti</div>
+        <img
+        className="logo" 
+        src="https://file-bucket-seyeol.s3.ap-northeast-2.amazonaws.com/tutti%EB%A1%9C%EA%B3%A0+%EA%B2%80%EC%9D%80%EC%83%89.png"
+        />
       </div>
       <div className="footer-box footer-left">
       <div className="footer-about">
         {/* <div className="footer-about-about">about</div> */}
+        <a 
+        className="footer-about-about"
+        href="https://fluoridated-shell-c1f.notion.site/About-tutti-78df41db1a2c4e08949891dcdb8098a7">
+          About</a>
         <a 
         className="footer-about-about"
         href="https://fluoridated-shell-c1f.notion.site/87239be82548471fb8e70efedbd35b5d">
