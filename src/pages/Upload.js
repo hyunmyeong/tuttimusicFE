@@ -7,9 +7,8 @@ import axios from 'axios';
 import {SERVER_URL} from "../redux/modules/songSlice";
 import Modal from '../elements/Modal';
 import imageCompression from 'browser-image-compression'; 
-
 import NotFound from './NotFound';
-
+import SEO from '../components/SEO';
 
 function Upload() {
 
@@ -198,9 +197,8 @@ const [submit, setSubmit] = React.useState(false);
   }
 
   return (
-
-    
     <UpLoad>
+      <SEO pageTitle={"song upload"}/>
       <div className="upload-wrap">
       <p className="upload-title">곡 업로드</p>
       <p className="upload-subtitle">당신의 음악을 세상에 들려주세요!</p>

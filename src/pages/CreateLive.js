@@ -1,15 +1,11 @@
 import React, {useRef, useEffect,useState} from 'react';
-
 import styled from 'styled-components';
-
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
 import {SERVER_URL} from "../redux/modules/songSlice";
-
 import Modal from '../elements/Modal';
-
 import NotFound from './NotFound';
+import SEO from '../components/SEO';
 
 function CreateLive() {
 
@@ -118,8 +114,11 @@ function CreateLive() {
     )
   }
 
+  console.log(window.location.pathname)
+
   return (
     <CreateLiveWrap>
+      <SEO pageTitle={window.location.pathname.substring(1)}/>
       <div className="upload-wrap">
       <p className="upload-title">라이브 시작하기</p>
       <p className="upload-subtitle">당신의 음악을 라이브로 들려주세요!</p>

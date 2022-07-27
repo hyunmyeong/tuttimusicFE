@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from "react";
-import { useSelector, useDispatch, shallowEqual } from "react-redux";
+import { useSelector, useDispatch} from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import {getMainLists} from "../redux/modules/songSlice"
@@ -10,7 +10,7 @@ import "../styles/slick-theme.css";
 
 import BeatLoader from "react-spinners/BeatLoader";
 import Footer from "../components/Footer";
-
+import SEO from '../components/SEO';
 
 function Main() {
   const [loading, setLoading] = useState(true);
@@ -133,6 +133,7 @@ function Main() {
   return (
     <>
       <div className="main-container">
+        <SEO pageTitle={"main"}/>
       <section className="main-top">
         <div className="main-top-header">
           <img 

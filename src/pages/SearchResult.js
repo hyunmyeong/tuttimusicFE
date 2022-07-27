@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import {useLocation} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import SEO from '../components/SEO';
 
 function SearchResult() {
   const navigate = useNavigate();
@@ -54,6 +55,7 @@ function SearchResult() {
   return (
     
     <div className="musicfeed-container">
+      <SEO pageTitle={"search"}/>
       {data?
       <>
         <p className="search-head"><span className="bold">

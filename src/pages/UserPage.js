@@ -18,6 +18,7 @@ import Tab6 from '../elements/Tab6';
 import { useDispatch } from "react-redux";
 import { followAnArtist } from "../redux/modules/songSlice"
 import { style } from 'wavesurfer.js';
+import SEO from '../components/SEO';
 
 import { useMediaQuery } from "react-responsive";
 
@@ -94,7 +95,7 @@ function UserPage() {
   return (
     // Frame 61 전체 영역
     <div className='mypage-container'>
-
+      <SEO pageTitle={"artist"}/>
       {/* Frame 59  회원정보 부분*/}
 
       {isMobile ?
