@@ -131,6 +131,9 @@ useEffect(()=>{
   }
 
   const onPlayTimeChange = () =>{
+    if(playing===false) {
+      handlePlayPause()
+    }
     setTimeout(()=> {
     let _currentTime = wavesurfer.current?.getCurrentTime();
     setCurrentTime(_currentTime);

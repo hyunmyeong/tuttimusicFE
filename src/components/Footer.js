@@ -5,7 +5,10 @@ function Footer() {
     <div className="Footer">
     <div className="footer-wrap">
       <div className="footer-box">
-      <div className="footer-logo">tutti</div>
+        <img
+        className="logo" 
+        src="https://file-bucket-seyeol.s3.ap-northeast-2.amazonaws.com/tutti%EB%A1%9C%EA%B3%A0+%EA%B2%80%EC%9D%80%EC%83%89.png"
+        />
       </div>
       <div className="footer-box footer-left">
       <div className="footer-about">
