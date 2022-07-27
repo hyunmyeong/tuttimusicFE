@@ -7,6 +7,7 @@ import Modal from '../elements/Modal';
 import { useMediaQuery } from "react-responsive";
 
 import NotFound from './NotFound';
+import SEO from '../components/SEO';
 
 const Login = (props) => {
 
@@ -104,6 +105,7 @@ if (localStorage.getItem("token")) {
 
     return (
         <div className='login-container'>
+            <SEO pageTitle={window.location.pathname.substring(1)}/>
             <p className='login-title'>tutti</p>
             <div className='login-info-container'>
                 <div className='login-info-box'>

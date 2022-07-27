@@ -1,12 +1,12 @@
 import './styles/App.css';
 import './styles/Mq_mobile.css';
+import './styles/Mq_smscreen.css';
 
 import React, {useState} from "react";
 import { Routes, Route} from "react-router-dom";
 import RouteChangeTracker from './elements/RouteChangeTracker';
 
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import Detail from "./pages/Detail";
 import DetailVideo from './pages/DetailVideo';
 import Edit from "./pages/Edit";
@@ -27,7 +27,7 @@ import FaceChatList from './pages/FaceChatList';
 import NotFound from './pages/NotFound';
 import EmailCheck from './pages/EmailCheck';
 import Player from './components/Player';
-
+import SEO from './components/SEO';
 
 function App() {
 
@@ -128,7 +128,9 @@ function App() {
 
 
   return (
+
     <div className="App">
+      <SEO/>
       <Navbar/>
         <div className="background">
           <Routes>
@@ -157,7 +159,6 @@ function App() {
           </Routes>
         </div>
       <Player/>
-      <Footer/>
     </div>
   );
 }

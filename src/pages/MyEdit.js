@@ -2,8 +2,8 @@ import axios from 'axios';
 import React, {useEffect, useState} from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-
 import Modal from '../elements/Modal';
+import SEO from '../components/SEO';
 
 function MyEdit() {
 
@@ -28,7 +28,6 @@ function MyEdit() {
   const closeModal = () => {
         setModalOpen(false);
         if (alert === "수정이 완료되었습니다.") {
-          openModal()
           navigate('/mypage')
         }
         };
@@ -142,7 +141,7 @@ console.log("clickGenre ==> ", clickGenre)
 
   return (
     <div className='signup-container'>
-
+      <SEO pageTitle={window.location.pathname.substring(1)}/>
       <div className='signup-title-box'>
         <p className='signup-title'>회원 정보 수정</p>
         <p className='signup-subtitle'>닉네임은 수정할 수 없습니다.</p>

@@ -81,7 +81,8 @@ function Waveform(props) {
       console.log("finished playing!")
     })
 
-    return() => wavesurfer.current.destroy();
+    return() => 
+    wavesurfer.current.destroy();
 
 }, [props.songUrl]);
 
@@ -130,6 +131,9 @@ useEffect(()=>{
   }
 
   const onPlayTimeChange = () =>{
+    if(playing===false) {
+      handlePlayPause()
+    }
     setTimeout(()=> {
     let _currentTime = wavesurfer.current?.getCurrentTime();
     setCurrentTime(_currentTime);
@@ -248,7 +252,20 @@ useEffect(()=>{
 let WaveFlexWrap = styled.div`
 .play-button {
   background-color: ${(props) => props.color};
+  transition: 0.1s;
+
+&:hover { 
+  border-color: ${(props) => props.color};
+  color: #fff; 
+  animation: pulse 0.8s;
+  box-shadow: 0 0 0 16px transparent;
 }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 ${(props) => props.color} }
+}
+
 `
 
 let Controls = styled.div`

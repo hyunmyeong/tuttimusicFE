@@ -6,7 +6,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 import { BsBroadcast } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import styled from 'styled-components';
-
+import SEO from '../components/SEO';
 
 function FaceChatList() {
     const navigate = useNavigate();
@@ -63,6 +63,7 @@ function FaceChatList() {
 
     return(
         <div>
+            <SEO pageTitle={window.location.pathname.substring(1)}/>
             <div className="facechat-list">
                 <div className='facechat-header'>
                     <div className="facechat-list-title">
@@ -84,7 +85,7 @@ function FaceChatList() {
                 <div className="facechat-list-container">
                     <div className="facechat-live-list">
                     {
-                    roomList.map((live, index) => {
+                    roomList?.map((live, index) => {
                         return (
                             <div 
                             className="facechat-live-box"
