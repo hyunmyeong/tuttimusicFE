@@ -303,7 +303,7 @@ a {
 /* DETAIL  */
 .detail-container{
   max-width: var(--container-width);
-  margin: 50px auto 100px auto;
+  margin: 50px auto 170px auto;
   position: relative;
   min-height: 80vh;
 }
@@ -615,6 +615,10 @@ a {
   cursor: pointer;
 }
 
+.dropdown-menu:hover{
+  transform: scale(1.02);
+}
+
 .dropdown-menu:first-child{
   padding-bottom: 0px !important;
 }
@@ -630,6 +634,7 @@ a {
   background: white;
   padding: 0;
   margin: 0;
+  z-index: 99;
 }
 
 /* DETAIL END */
@@ -1187,7 +1192,7 @@ a {
   border-radius: 10px;
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
   outline: none;
   border: none;
   cursor: pointer;
@@ -1496,15 +1501,15 @@ a {
 
 .checkbox-signup{
   display: inline-block;
-	width: 20px;
-	height: 20px;
+	width: 18px;
+	height: 18px;
 	border: 1px solid #bcbcbc;
 	cursor: pointer;
-  margin-right: 15px;
+  margin-right: 10px;
 }
 
 .agree-text{
-  font-size:18px;
+  font-size:16px;
 }
 
 .linked-text{
@@ -2198,7 +2203,7 @@ input[type=radio] {
 .nav-wrap {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   width: 1280px;
 }
@@ -2206,7 +2211,6 @@ input[type=radio] {
 .logo {
   width: 80px;
   cursor: pointer;
-  margin-right: 40px;
 }
 
 .logo1 {
@@ -2253,7 +2257,7 @@ input[type=radio] {
 }
 
 .user-box {
-  width: 390px;
+  width: 250px;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -2327,7 +2331,8 @@ input[type=radio] {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: 100px;
+  margin-left: 20px;
+  margin-right: 20px;
   font-size: 16px;
 }
 
@@ -2906,7 +2911,7 @@ input[type=radio] {
 }
 .modal > section {
   width: 90%;
-  max-width: 450px;
+  max-width: 370px;
   margin: 0 auto;
   border-radius: 10px;
   background-color: #fff;
@@ -2915,14 +2920,14 @@ input[type=radio] {
   overflow: hidden;
 }
 .modal > section > main {
-  padding: 40px 20px ;
+  padding: 60px 20px 10px 20px ;
   /* border-bottom: 1px solid #dee2e6; */
-  font-size: 22px;
+  font-size: 18px;
   text-align: center;
   color: #000;
 }
 .modal > section > footer {
-  padding: 12px 16px;
+  padding: 40px 16px;
   text-align: center;
 }
 
@@ -3009,13 +3014,17 @@ input[type=radio] {
 .login-button:focus {
   color: #fff; 
   animation: pulse1 0.8s;
-  box-shadow: 0 0 0 23px transparent;
+  box-shadow: 0 0 0 20px transparent;
 }
 
 .upload-label-button:hover,
-.upload-label-button:focus{
-  animation: pulse1 0.8s;
-  box-shadow: 0 0 0 23px transparent;
+.upload-label-button:focus,
+.signup-button:focus,
+.signup-button:hover,
+.profile-img-button:hover,
+.profile-img-button:focus{
+  animation: pulse1 0.7s;
+  box-shadow: 0 0 0 20px transparent;
 }
 
 @keyframes pulse1 {
@@ -3024,7 +3033,7 @@ input[type=radio] {
 
 .category:hover,
 .category:focus {
-  animation: pulse1 0.8s;
+  animation: pulse1 0.7s;
   box-shadow: 0 0 0 18px transparent;
 }
 
