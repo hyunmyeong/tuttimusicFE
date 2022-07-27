@@ -128,7 +128,9 @@ export const followAnArtist = createAsyncThunk("POST/followAnArtist", async (pro
   .post(`${SERVER_URL}/follow?artist=${props.artist}`,{}, {
     headers: {Authorization:props.token? props.token:""}
   })
-  .then((response) => response.data.data);
+  .then((response) => 
+  console.log(response.data));
+  
   return props;
 })
 

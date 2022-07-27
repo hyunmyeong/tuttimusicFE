@@ -57,14 +57,13 @@ const myinfoEdit = () => {
 
   let formData = new FormData();
 
-  if (image !== null ) {
-    formData.append("file", image)
-  }
+  formData.append("file", image)
+  
 
-  else {
-      formData.append("updateData", new Blob([JSON.stringify(updateData)], {type: "application/json"}))
+  
+  formData.append("updateData", new Blob([JSON.stringify(updateData)], {type: "application/json"}))
 
-console.log("formData", formData);
+  console.log("formData", formData);
 
 
   axios
@@ -83,7 +82,7 @@ console.log("formData", formData);
     openModal()
     
   })
-}}
+}
 
   
 
