@@ -137,12 +137,13 @@ export const followAnArtist = createAsyncThunk("POST/followAnArtist", async (pro
 const SongSlice = createSlice({
   name: "Song",
   initialState: {
-
+    
     list: [{}],
 
   },
 
   reducers: {
+
 
   },
   extraReducers: {
@@ -261,8 +262,6 @@ const SongSlice = createSlice({
     },
     [followAnArtist.fulfilled]: (state, action) =>{
       console.log("POST FULFILLED");
-      console.log(action.payload);
-      console.log(current(state))
     },
     [followAnArtist.rejected]: (state, action) =>{
       console.log("POST REJECTED");

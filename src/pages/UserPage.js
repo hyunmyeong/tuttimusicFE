@@ -15,12 +15,12 @@ import Tab4 from '../elements/Tab4';
 import Tab5 from '../elements/Tab5';
 import Tab6 from '../elements/Tab6';
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { followAnArtist } from "../redux/modules/songSlice"
 import { style } from 'wavesurfer.js';
 import SEO from '../components/SEO';
-
 import { useMediaQuery } from "react-responsive";
+import {getCount, addCount, subtractCount} from "../redux/modules/userSlice"
 
 function UserPage() {
   const navigate = useNavigate();
@@ -66,6 +66,8 @@ function UserPage() {
       setIsFollow(response.data.isFollow)
       console.log(response.data.data.userInfoDto.followerCount)
       setCount(response.data.data.userInfoDto.followerCount)
+      dispatch(getCount(response.data.data.userInfoDto.followerCount))
+
     })
     .catch((error)=>{
       console.log(error)
@@ -77,20 +79,34 @@ function UserPage() {
     window.scrollTo(0,0);
   },[params.artist])
 
+const new_count = useSelector((state) => state.User.artist?.followerCount)
+  console.log(new_count)
+
+  useEffect(()=>{
+      setCount(new_count);
+      console.log(count);
+  },[new_count])
+
   const FollowThisArtist =()=>{
+   
+    if (isFollow===false) {
+      console.log(count)
+      dispatch(addCount(count));
+    } else {
+      console.log(count)
+      dispatch(subtractCount(count));
+    }
+    setIsFollow(!isFollow);
+    
     const data = {
       token: token,
       artist: userInfoDto.artist,
     }
     dispatch(followAnArtist(data));
-    if (isFollow===false) {
-      setCount(count+1)
-    } else {
-      setCount(count-1)
-    }
-    setIsFollow(!isFollow);
 
   }
+
+console.log(count)
 
   return (
     // Frame 61 전체 영역
@@ -116,7 +132,7 @@ function UserPage() {
                     <p>팔로워</p>
                   </div>
                   <div className='mobile-follow-follower-count'>
-                    <p>{userInfoDto.followerCount}</p>
+                    <p>{count}</p>
                   </div>
                 </div>
                 <div className='mobile-header-follow'>
@@ -190,7 +206,7 @@ function UserPage() {
                     <p>팔로워</p>
                   </div>
                   <div className='follow-follower-count'>
-                    <p>{userInfoDto.followerCount}</p>
+                    <p>{count}</p>
                   </div>
                   <div className='follow-follower'>
                     <p>팔로잉</p>
