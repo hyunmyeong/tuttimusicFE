@@ -2732,7 +2732,7 @@ input[type=radio] {
   flex-direction: row;
 }
 .player-songinfo-img{
-  width: 42x;
+  width: 42px;
   height: 42px;
   object-fit: contain;
   margin-right: 13px;
