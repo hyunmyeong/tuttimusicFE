@@ -8,6 +8,7 @@ import { useMediaQuery } from "react-responsive";
 
 import NotFound from './NotFound';
 import SEO from '../components/SEO';
+import ImageUrl from '../elements/ImageSrc';
 
 const Login = (props) => {
 
@@ -106,7 +107,11 @@ if (localStorage.getItem("token")) {
     return (
         <div className='login-container'>
             <SEO pageTitle={window.location.pathname.substring(1)}/>
-            <p className='login-title'>tutti</p>
+            <img
+            className="logo1" 
+            src={ImageUrl.logo_b}
+            />
+            {/* <p className='login-title'>tutti</p> */}
             <div className='login-info-container'>
                 <div className='login-info-box'>
                     <div className='login-info-input'>

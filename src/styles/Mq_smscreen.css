@@ -973,7 +973,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     border-radius: 10px;
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
     outline: none;
     border: none;
     cursor: pointer;
@@ -1351,14 +1351,14 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     align-items: flex-start;
     padding: 0px;
     gap: 10px;
-    width: 157px;
+    width: 170px;
     margin-top: -30px;
 }
 
 .login-tutti-first {
     font-style: normal;
     font-weight: 400;
-    font-size: 11px;
+    font-size: 12px;
     line-height: 14px;
 }
 
@@ -1384,7 +1384,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     border-radius: 10px;
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 15px;
     outline: none;
     border: none;
