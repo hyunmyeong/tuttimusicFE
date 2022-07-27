@@ -165,19 +165,18 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .categories{
-    gap: 8px;
+    gap: 11px;
 }
 
 .category {
-    width:178px;
-    height: 42px;
+    width:180px;
+    height: 45px;
 
-    gap: 10px;
     font-size: 14px;
 }
 
 .feed-list {
-    gap:9px; 
+    gap:12px; 
     padding: 0px 10px 0px 15px;
 }
 
