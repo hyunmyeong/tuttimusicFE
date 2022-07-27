@@ -502,7 +502,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .header-artist-name {
-    font-size: 19px;
+    font-size: 20px;
     font-style: normal;
     font-weight: bold;
     margin-top: 0px;
@@ -510,7 +510,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .header-artist-info {
-    font-size: 12px;
+    font-size: 14px;
     color: #7e7e7e;
     margin-top: -20px;
     width:400px;
@@ -526,8 +526,8 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .sns-icon {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     margin-top: 5px;
     margin-right: -10px;
 }
@@ -558,11 +558,11 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     align-items: flex-start;
     padding: 0px;
     gap: 9px;
-    width: 82px;
+    width: 85px;
     height: 22px;
     font-style: normal;
     font-weight: 400;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 22px;
     color: #7E7E7E;
 }
@@ -572,7 +572,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     font-weight: 400;
     font-size: 13px;
     line-height: 22px;
-    margin-right: 14px;
+    margin-right: 16px;
     color: #000000;
 }
 
