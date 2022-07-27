@@ -47,10 +47,10 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 .btn-primary{
     border-radius: 10px;
     color: #fff;
-    font-size: 18px;
+    font-size: 15px;
     background-color: var(--primary-button);
-    align-items: center;
-    padding: 11px 35px;
+    align-items: flex-start;
+    padding: 10px 35px;
     height: 46px;
     line-height: 30px;
     outline:none;
@@ -83,12 +83,12 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .main-card {
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 .video-card {
     padding: 10px 0px;  
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 /* .mypage-video-card{
@@ -128,10 +128,13 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 .main-card-text {
     width: var(--card-size);
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 10px;
 }
 
 .main-card-title {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 16px;
 }
 
@@ -167,7 +170,8 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .feed-list {
-    gap:30px; 
+    gap:9px; 
+    padding: 0px 10px 0px 15px;
 }
 
 
@@ -241,6 +245,15 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 .music-video video {
     width:982px;
 }
+
+.mobile-button {
+    height:46px;
+    font-size: 14px;
+    padding: 0px;
+    line-height: 50px;
+    width: 92px;
+}
+
 
 /* COMMENT */
 
@@ -405,8 +418,8 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .play-button {
-    width: 28px;
-    height: 28px;
+    width: 34px;
+    height: 34px;
     color: #fff;
     background-color: black;
     border-radius:50%;
@@ -427,7 +440,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .heart{
-    font-size: 20px;
+    font-size: 25px;
     margin-top:5px;
 }
 
@@ -750,7 +763,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 .main-thumbnail {
     width: var(--video-size);
-    height: 171px;
+    height: 131px;
     object-fit: cover;
     border-radius:8px;
     margin-right: 0;
@@ -761,7 +774,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 .mypage-main-thumbnail {
     width: 100%;
-    height: 171px;
+    height: 131px;
     object-fit: cover;
     border-radius:8px;
     background-color: #7e7e7e;
@@ -770,7 +783,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 .main-card-text {
     width: var(--card-size);
-    margin-right: 35px;
+    margin-right: 0px;
     margin-top: 10px;
 }
 
@@ -813,7 +826,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     flex-direction: row;
     align-items: flex-start;
     padding: 0px;
-    gap: 28px;
+    gap: 15px;
     width: var(--smscreen-width);
 }
 
@@ -886,7 +899,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     align-items: flex-start;
     padding: 0px;
     gap: 50px;
-    width: 874px;
+    width: 840px;
     /* height: 984px; */
 }
 
@@ -937,7 +950,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     align-items: flex-start;
     padding: 15px 30px;
     gap: 10px;
-    width: 536px;
+    width: 540px;
     height: 46px;
     background: #E8E8E8;
     border-radius: 10px;
@@ -949,12 +962,11 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 .signup-button {
     display: flex;
-    width:110px;
+    width:120px;
     height:46px;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    width: 120px;
     border-radius: 10px;
     font-style: normal;
     font-weight: 400;
@@ -963,6 +975,12 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     border: none;
     cursor: pointer;
 }
+
+.signup-label {
+    font-size: 30px;
+    /* width: 200px; */
+}
+
 
 .signup-pw-box {
     display: flex;
@@ -981,11 +999,12 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     align-items: flex-start;
     padding: 0px;
     gap: 6px;
-    width: 95px;
+    width: 90px;
 }
 
+
 .signup-pw-title {
-    width: 150px;
+    width: 92px;
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
@@ -1000,8 +1019,9 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     align-items: flex-start;
     padding: 0px;
     gap: 8px;
-    width: 840px;
+    width: 850px;
     height: 68px;
+    margin: 0px 0px 0px 5px;
 }
 
 .signup-pw-input {
@@ -1010,8 +1030,9 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     align-items: flex-start;
     padding: 25px 30px;
     gap: 10px;
-    margin-left: -30px;
-    width: 670px;
+    margin-left: 10px;
+    /* width: 800px; */
+    max-width: 680px;
     height: 46px;
     background: #E8E8E8;
     border-radius: 10px;
@@ -1024,7 +1045,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    padding: 0px 0px 0px 30px;
+    padding: 0px 5px 0px 70px;
     gap: 10px;
     width: 350px;
     height: 19px;
@@ -1080,7 +1101,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     padding: 0px;
     gap: 40px;
     width: 840px;
-    /* height: 200px; */
+    height: 160px;
 }
 
 .profile-img-circle {
@@ -1089,6 +1110,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     border-radius: 50%;
     object-fit: cover;
     background: #D9D9D9;
+    margin-bottom: 5px;
 }
 
 .profile-img-button {
@@ -1098,14 +1120,15 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     align-items: center;
     padding: 11px 23px;
     gap: 10px;
-    width: 138px;
-    /* height: 46px; */
+    width: 130px;
+    height: 46px;
     border-radius: 10px;
     font-style: normal;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 23px;
     cursor: pointer;
+    /* margin-bottom: 40px; */
 }
 
 .img-button {
@@ -1150,7 +1173,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     gap: 7px;
     /* margin-left: -25px; */
     width: 840px;
-    height: 202px;
+    height: 130px;
 }
 
 .genre-boxes {
@@ -1203,6 +1226,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     gap: 7px;
     width: 178px;
     height: 19px;
+    margin-top: -70px;
 }
 
 .genre-info-comment {
@@ -1242,6 +1266,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 
 
+
 /* SIGNUP PAGE END */
 
 
@@ -1261,7 +1286,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .login-title {
-    width: 89px;
+    width: 69px;
     /* height: 51px; */
     font-family: 'Mont';
     font-style: normal;
@@ -1309,7 +1334,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     padding: 15px 30px;
     gap: 10px;
     width: 460px;
-    /* height: 60px; */
+    height: 46px;
     background: #E8E8E8;
     border-radius: 10px;
     outline: none;
@@ -1324,7 +1349,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     padding: 0px;
     gap: 10px;
     width: 157px;
-    /* height: 18px; */
+    margin-top: -30px;
 }
 
 .login-tutti-first {
@@ -1352,7 +1377,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     padding: 0px;
     gap: 7px;
     width: 153px;
-    height: 46px;
+    height: 50px;
     border-radius: 10px;
     font-style: normal;
     font-weight: 400;
@@ -1361,6 +1386,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     outline: none;
     border: none;
     cursor: pointer;
+    margin-top: -30px;
 }
 
 
@@ -1757,7 +1783,7 @@ input[type=radio] {
 }
 
 .logo {
-    width: 120px;
+    width: 69px;
     font-size: 30px;
     font-weight: bold;
     cursor: pointer;
@@ -2113,304 +2139,7 @@ input[type=radio] {
 /* FACECHATLIST END */
 
 
-/* LIVESTART */
-
-/* .live-wrap {
-    width:100%;
-    display:flex;
-    justify-content: center;
-    min-height: 100vh;
-}
-
-.live-box {
-    display:flex;
-    flex-direction: row;
-    gap:5px;
-}
-
-.live-view {
-    width:600px;
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-.live-info {
-    display: flex;
-    flex-direction: row;
-    padding-bottom: 40px;
-    margin-bottom: 20px;
-}
-
-#live-info-image {
-    width: 47px;
-    height:47px;
-    border-radius: 80px;
-    background-color:#D9D9D9;
-    margin-right:20px;
-    object-fit: cover;
-}
-
-.live-info-user {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin-right: 100px;
-}
-
-#live-info-user-name {
-    font-size: 10px;
-}
-
-#live-info-user-live {
-    font-size: 8px;
-    background-color:#8A51FB;
-    padding:6px 12px;
-    color:#fff;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.live-info-title {
-    display:flex;
-    flex-direction: column;
-}
-
-#live-info-title-main {
-    font-size: 12px;
-    margin-bottom: 20px;
-}
-
-#live-info-title-sub {
-    font-size: 8px;
-}
-
-.live-chat {
-    display: flex;
-    flex-direction:column;
-    width:300px;
-    max-height: 900px;
-}
-
-#live-chat-title {
-    font-size: 13px;
-    margin: 20px 0 20px 10px;
-}
-
-.live-chat-box {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    padding: 10px;
-    gap: 5px;
-}
-
-#live-chat-user-input {
-    width:215px;
-    background-color: #E8E8E8;
-    border:none;
-    outline: none;
-    padding: 15px 30px;
-    border-radius: 10px;
-    font-size: 13px;
-}
-
-#live-chat-user-button {
-    width:120px;
-    height: 60px;
-    border:none;
-    outline:none;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 16px;
-    padding: 0;
-}
-
-.live-chat-list {
-    display: flex;
-    flex-direction: column;
-    min-height:700px;
-    overflow: auto;
-}
-
-.scroll-bottom {
-    height:700px;
-    width: 386px;
-}
-
-.live-chat-list-box {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 25px;
-    height:485px;
-}
-
-.chat-profile {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    background-color:#D9D9D9;
-}
-
-.live-chat-list-info-wrap {
-    margin-left: 10px;
-}
-
-.live-chat-list-info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-} */
-
-
-/* LIVESTART END */
-
-
-/* LIVECHATROOM */
-
-/* .chat-area {
-    flex-direction: row;
-    height: 100%;
-    
-}
-
-.chat-content {
-    overflow: auto;
-    flex-direction: row;
-    height: 100%;
-}
-
-.chat-name {
-    font-size: 17px;
-    margin: 0px 10px;
-}
-
-.chat-name.self {
-    color:#000;
-    margin: 0px 10px;
-}
-
-.live-chat-list-time {
-    font-size: 14px;
-    color: #BCBCBC;
-}
-
-#live-chat-list-text {
-    font-size: 15px;
-    color:#434343;
-}
-    
-.live-chat-user-input {
-    width:273px;
-    background-color: #E8E8E8;
-    border:none;
-    outline: none;
-    padding: 15px 30px;
-    border-radius: 10px;
-    font-size: 15px;
-}
-
-.live-chat-user-button {
-    width:60px;
-    height: 60px;
-    background-color:#8A51FB;
-    color:#fff;
-    border:none;
-    outline:none;
-    border-radius: 10px;
-    text-align: center;
-    font-size: 15px;
-}
-
-.message{
-    padding:5px;
-    width: auto;
-    display: flex;
-    flex-direction: row;
-    margin: 10px 5px;
-}
-
-.message.self{
-    justify-content: end;
-    padding: 0;
-    margin: 10px 5px;
-}
-
-.chat-messages{
-    max-width: 100%;
-    padding: 0;
-    margin: 0;
-    max-height: 65vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-.message-header{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.message-flex-wrap{
-    display: flex;
-    flex-direction: column;
-    background-color: #F7F7FA;
-    padding: 10px 20px;
-    border-radius: 10px;
-    max-width: 300px;
-}
-
-.message-flex-wrap.self{
-    
-    background-color: #F0EEFF;
-}
-
-.message-data{
-    padding: 5px;
-    white-space: normal;
-    max-width: 300px;
-    word-wrap:break-word;
-    table-layout: fixed;
-}
-
-.welcome-message{
-    margin: 5px auto 10px auto;
-    font-weight: 500;
-}
-
-.send{
-    margin-left: 2px;
-    font-size: 20px;
-}
-
-.live-box-left{
-    display: flex;
-    flex-direction: column;
-}
-
-.btn-live{
-    padding: 10px 20px;
-    border-radius: 10px;
-    margin: 15px;
-    background-color: var(--secondary-color);
-    border: none;
-    outline: none;
-    font-size: 15px;
-    font-weight: 500;
-}
-
-.font20{
-    font-size: 20px;
-    line-height: 30px;
-} */
-
-
-
-/* LIVECHATROOM END */
-
-
 /* PLAYER */
-
 
 
 
@@ -2420,7 +2149,6 @@ input[type=radio] {
 /* NOTFOUND  */
 
 .not-wrap {
-    width: 283px;
     margin:180px auto;
     display: flex;
     flex-direction: column;

@@ -70,7 +70,7 @@ function DetailVideo() {
   console.log(commenter)
 
   const [show, setShow] = useState(false);
-  const textLimit = useRef(150);
+  const textLimit = useRef(100);
 
   const showText = useMemo(() => {
     const shortText = commenter?.slice(0, textLimit.current);

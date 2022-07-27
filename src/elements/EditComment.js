@@ -139,7 +139,7 @@ function EditComment(props) {
         }}
         />
         <button 
-        className="btn btn-primary"
+        className="btn btn-primary mobile-button"
         onClick={()=>{
           SaveEditedComment()
         }}>
