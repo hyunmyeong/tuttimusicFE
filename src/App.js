@@ -1,5 +1,6 @@
 import './styles/App.css';
 import './styles/Mq_mobile.css';
+import './styles/Mq_smscreen.css';
 
 import React, {useState} from "react";
 import { Routes, Route} from "react-router-dom";
