@@ -542,6 +542,20 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 .sns-youtube {
     color: #c4302b;
 }
+.insta-icon {
+  width:28px;
+  height: 28px;
+  overflow: hidden;
+  border-radius: 30%;
+  margin-top:4px;
+}
+
+.sns-instagram {
+  width: 40px;
+  height: 40px;
+  margin-top:-5.55px;
+  margin-left:-6px;
+}
 
 .header-follow-container {
     width: 173px;
