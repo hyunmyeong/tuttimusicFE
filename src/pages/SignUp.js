@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useRef, useState} from 'react'
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -16,11 +16,13 @@ const SignUp = () => {
     const [image, setImage] = useState("");
     const [profileText, setProfileText] = useState("");
     const [preview, setPreview] = useState(null);
+    
     //초기값을 null로 해야 사각형이 안나옴!
-
+    
     const [insta, setInsta] = useState(null);
     const [youtube, setYoutube] = useState(null);
-
+    const [check, setCheck] = useState(false);
+    console.log(check)
     const genreNames = ["발라드", "어쿠스틱", "R&B", "힙합", "댄스", "연주곡"]
 
     //모달
@@ -176,6 +178,12 @@ const SignUp = () => {
             setAlert("비밀번호가 서로 달라요!")
             openModal()
         }
+
+        else if (check===false) {
+            setAlert("개인정보처리방침 및 이용약관에 대한 안내에 동의해주세요!")
+            openModal()
+        }
+
         else {
 
         console.log(image)
@@ -438,7 +446,10 @@ const SignUp = () => {
                             <input    
                                 className="checkbox-signup"         
                                 type="checkbox"
-                                id="youtube"
+                                id="agree-ckeck"
+                                onChange={(e)=>{
+                                    setCheck(e.target.checked)
+                                }}
                             />
                             <p className='agree-text'>
                             
