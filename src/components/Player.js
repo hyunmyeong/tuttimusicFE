@@ -12,12 +12,18 @@ import styled from "styled-components";
 import WaveSurfer from "wavesurfer.js";
 import {playerPlay, playerVolume, playerTime, hidePlayer} from "../redux/modules/playerSlice";
 
+import { useMediaQuery } from "react-responsive";
+
 
 function Player() {
   const dispatch = useDispatch();
 
   const waveformRef = useRef(null);
   const wavesurfer = useRef(null);
+
+  const isMobile = useMediaQuery({
+    query : "(max-width:480px)"
+  })
 
   const formWaveSurferOptions = ref => ({
     container: ref,
@@ -180,7 +186,7 @@ function Player() {
         </div>
         )
         : null}
-        <div>
+        <div className="player-close">
           <IconContext.Provider value={{ className: "close-icon" }}>
             <IoCloseOutline 
             onClick={closePlayer}/>
@@ -243,6 +249,10 @@ input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   margin-top: -5px; 
 }
+
+@media only screen and (max-width: 480px) {
+    display: none;
+  }
 
 
 `

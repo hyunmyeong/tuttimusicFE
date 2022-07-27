@@ -64,6 +64,10 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
   color:#8A51FB;
 }
 
+a {
+  border: none;
+  outline: none;
+}
 
 /* MAIN PAGE  */
 .main-container {
@@ -84,9 +88,23 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 
 .main-top-header {
   display: flex;
-  justify-content: center;
-  background-color: #2C2C31;
   width: 100%;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.banner-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.banner-tutti {
+  background-color: #2d2c32;
+}
+
+.banner-event {
+  background-color: #e8e4fd;
 }
 
 .main-banner{
