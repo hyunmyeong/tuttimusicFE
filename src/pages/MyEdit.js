@@ -28,7 +28,6 @@ function MyEdit() {
   const closeModal = () => {
         setModalOpen(false);
         if (alert === "수정이 완료되었습니다.") {
-          openModal()
           navigate('/mypage')
         }
         };
