@@ -11,6 +11,8 @@ import {SERVER_URL} from "../redux/modules/songSlice";
 
 import Modal from '../elements/Modal';
 
+import NotFound from './NotFound';
+
 
 
 function UploadVideo() {
@@ -183,6 +185,12 @@ function UploadVideo() {
       openModal()
     });
   }
+}
+
+if (!localStorage.getItem("token")) {
+  return (
+    <NotFound/>
+  )
 }
 
   return (

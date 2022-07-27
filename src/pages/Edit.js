@@ -12,6 +12,8 @@ import {SERVER_URL} from "../redux/modules/songSlice";
 
 import Modal from '../elements/Modal';
 
+import NotFound from './NotFound';
+
 
 function Edit() {
 
@@ -106,6 +108,12 @@ function Edit() {
       openModal()
     });
   }}
+
+  if (!localStorage.getItem("token")) {
+    return (
+      <NotFound/>
+    )
+  }
 
   return (
 

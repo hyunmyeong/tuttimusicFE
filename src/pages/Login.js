@@ -4,6 +4,10 @@ import axios from 'axios';
 
 import Modal from '../elements/Modal';
 
+import { useMediaQuery } from "react-responsive";
+
+import NotFound from './NotFound';
+
 const Login = (props) => {
 
     const navigate = useNavigate();
@@ -11,6 +15,11 @@ const Login = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const isMobile = useMediaQuery({
+      query : "(max-width:480px)"
+    })
+
+    
 
     //모달
     const [alert, setAlert] = useState("")
@@ -67,8 +76,11 @@ const Login = (props) => {
                 localStorage.setItem("token", token);
                 localStorage.setItem("userName", artist);
                 localStorage.setItem("userProfileUrl", profileUrl);
-                // navigate("/")
-                // window.location.reload();
+                navigate("/")
+                if (!isMobile) {
+                  window.location.reload();
+                }
+                
             })
             .catch((error) => {
                 console.log(error)
@@ -78,6 +90,11 @@ const Login = (props) => {
     }
 }
 
+if (localStorage.getItem("token")) {
+  return (
+    <NotFound/>
+  )
+}
 
 
 

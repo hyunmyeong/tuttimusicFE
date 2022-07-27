@@ -116,7 +116,7 @@ function Detail() {
       {isMobile ? 
       <>
       {/* isMobile true start */}
-      <div>모바일</div>
+
       {/* MUSIC DETAIL AREA */}      
       {loading? (
         <div className="spinner-wrap">
@@ -304,7 +304,7 @@ function Detail() {
               /> 
               : 
               <input
-                className="comment-input"
+                className="comment-input no-comment"
                 type="text"
                 placeholder="로그인 시 댓글 작성할 수 있습니다."
                 readOnly
@@ -320,7 +320,7 @@ function Detail() {
               </button> 
               :
                 <button
-                  className="primary btn btn-primary">
+                  className="primary btn btn-primary mobile-button">
                   등록
                 </button>}
 
