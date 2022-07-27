@@ -160,7 +160,7 @@ console.log(count)
                   {userInfoDto.instagramUrl ? 
                   <div className="insta-icon">
                   <img 
-                  src={process.env.PUBLIC_URL + '/img/Instagram_icon.png'} className='sns-icon sns-instagram' onClick={() => { window.open(userInfoDto.instagramUrl) }} />
+                  src={process.env.PUBLIC_URL + '/img/instagram_icon.png'} className='sns-icon sns-instagram' onClick={() => { window.open(userInfoDto.instagramUrl) }} />
                   </div>
                    : null}
                 </div>
