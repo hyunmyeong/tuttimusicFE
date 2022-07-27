@@ -94,12 +94,51 @@ function Main() {
     // autoplaySpeed: 3500,
     responsive: [
       {
-        breakpoint: 480,
+        breakpoint: 950,
+        settings: {
+          dots: false,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          arrows: true,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
+        }
+      },
+      {
+        breakpoint: 700,
+        settings: {
+          dots: false,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          arrows: true,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
+        }
+      },
+      {
+        breakpoint: 620,
         settings: {
           dots: false,
           infinite: true,
           speed: 500,
           slidesToShow: 3,
+          slidesToScroll: 1,
+          arrows: true,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          dots: false,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 2,
           slidesToScroll: 1,
           arrows: true,
           nextArrow: <SampleNextArrow />,

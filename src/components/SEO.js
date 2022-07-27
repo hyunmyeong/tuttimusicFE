@@ -16,6 +16,13 @@ function SEO({pageTitle}) {
       <meta name="og:type" content="website" />
       <meta name="og:description" content="함께하는 음악 생활, tutti. 당신의 음악을 세상에 들려주세요." />
       <meta name="og:image" content="https://file-bucket-seyeol.s3.ap-northeast-2.amazonaws.com/tutti%EC%84%9C%EB%B9%84%EC%8A%A4+%EB%9F%B0%EC%B9%AD+%EA%B2%80%EC%9D%80%EC%83%89+%EB%B0%94%ED%83%95+%ED%95%B8%EB%93%9C%ED%8F%B0%EC%9A%A9.jpg" />
+
+      <meta property="og:title" content="tutti music & streaming" /> 
+      <meta property="og:url" content="https://tuttimusic.shop" />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content="https://file-bucket-seyeol.s3.ap-northeast-2.amazonaws.com/%EB%AA%A8%EB%B0%94%EC%9D%BC+%EB%B0%B0%EB%84%88+%EB%A6%AC%EB%89%B4%EC%96%BC2.jpg" /> 
+      <meta property="og:description" content="함께하는 음악 생활, tutti. 당신의 음악을 세상에 들려주세요." /> 
+    
     </Helmet>
   )
 }
