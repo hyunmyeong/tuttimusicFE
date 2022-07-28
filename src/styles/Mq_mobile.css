@@ -20,7 +20,7 @@
   
     /* 앨범 커버 이미지 비율 1:1 */
     --card-size: 140px;
-    --video-size: 250px;
+    --video-size: 350px;
     --feed-size: 190px;
   }
   
@@ -111,6 +111,7 @@
   }
   
   .main-thumbnail {
+    width: var(--video-size);
     margin-bottom: 13px;
   }
   
