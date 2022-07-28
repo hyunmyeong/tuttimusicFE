@@ -1836,7 +1836,7 @@ input[type=radio] {
     list-style: none;
     padding: 20px;
     margin-top: 10px;
-    margin-right: 90px;
+    /* margin-right: 90px; */
     text-align: center;
     border-radius: 10px;
     color: #fff;
