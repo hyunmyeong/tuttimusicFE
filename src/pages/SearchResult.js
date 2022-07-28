@@ -38,17 +38,14 @@ function SearchResult() {
       })
 
     const moreResultsClick =(props)=> {
-      console.log(props)
       axios
       .get(`https://seyeolpersonnal.shop/search/more?category=${props}&keyword=${keyword}`, {
         headers: {Authorization:token? token:""}
       })
       .then((response)=>{
         setData(response.data.results)
-        console.log(response.data.results)
       })
       .catch((error)=>{
-        console.log(error)
       })
     }
 

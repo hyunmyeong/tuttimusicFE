@@ -31,7 +31,6 @@ function Main() {
     const token= localStorage.getItem("token");
     dispatch(getMainLists(token))
     .then((response) => {
-      console.log(response)
       if (response.type === "GET/getMainLists/rejected") {
         localStorage.clear();
         navigate("/");
@@ -53,9 +52,6 @@ function Main() {
     state.Song.videoList
   ])
 
-  console.log(genreList);
-  console.log(latestList);
-  console.log(videoList);
   
   // slider
   function SamplePrevArrow(props) {
@@ -87,11 +83,8 @@ function Main() {
     slidesToShow: 6,
     slidesToScroll: 1,
     arrows: true,
-    // variableWidth: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    // autoplay: true,
-    // autoplaySpeed: 3500,
     responsive: [
       {
         breakpoint: 950,
@@ -156,11 +149,8 @@ function Main() {
     slidesToShow: 4,
     slidesToScroll: 1,
     arrows: true,
-    // variableWidth: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-    // autoplay: true,
-    // autoplaySpeed: 3500,
     responsive: [
       {
         breakpoint: 480,
@@ -182,7 +172,6 @@ function Main() {
 
   let settings3 = {
     dots: false,
-    // fade:true,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -303,7 +292,6 @@ function Main() {
             장르 음악
           </p>
           <p className="main-list-subtitle">
-            {/* {loading ? null : genreList[0].genre} */}
             {genreList&&genreList ? genreList[0].genre : null}
           </p>
           </div>

@@ -25,7 +25,6 @@ const SignUp = () => {
     const [youtube, setYoutube] = useState(null);
     const [check, setCheck] = useState(false);
     const [file, setFile] = useState(null);
-    console.log(check)
     const genreNames = ["발라드", "어쿠스틱", "R&B", "힙합", "댄스", "연주곡"]
 
     //모달
@@ -76,11 +75,9 @@ const SignUp = () => {
                 setPreview(previewImgUrl)
             }
         }
-        console.log(e.target.files[0])  
     }
 
     const imgSizeOpt = async (img) => {
-    console.log(img)
     const options = { 
         maxSizeMB: 0.5, 
         maxWidthOrHeight: 250,
@@ -90,7 +87,6 @@ const SignUp = () => {
         const compressedFile = await imageCompression(img, options);
         setImage(compressedFile);
     } catch (error) {
-        console.log(error);
     }
     }
 
@@ -114,7 +110,6 @@ const SignUp = () => {
         axios
             .post("https://seyeolpersonnal.shop/user/email",emailList)
             .then((response) => {
-                console.log(response)
                 if(response) {
                     setAlert("인증 메일이 발송되었습니다. 메일함을 확인해 주세요!")
                     openModal()
@@ -122,11 +117,9 @@ const SignUp = () => {
                 }
             })
             .catch((error) => {
-                console.log(error)
                 setAlert("중복된 이메일입니다!")
                 openModal()
                 return;
-                // setEmail("")
             })
             }
 
@@ -142,17 +135,14 @@ const SignUp = () => {
             axios
             .post("https://seyeolpersonnal.shop/user/artist",{artist : artist})
             .then((response) => {
-                console.log(response)
                 if(response) {
                     setAlert("사용 가능한 닉네임입니다!")
                     openModal()
                 }    
             })
             .catch((error) => {
-                console.log(error)
                 setAlert("중복된 닉네임입니다!")
                 openModal()
-                // setArtist("")
             })
         }
     }
@@ -172,7 +162,6 @@ const SignUp = () => {
             return;
         }
 
-        // const nullList = [null, null, null, null]
 
         else if (genre.toString() === nullList.toString()) {
             setAlert("장르를 최소 1개 선택해 주세요!")
@@ -201,13 +190,10 @@ const SignUp = () => {
         }
 
         else {
-        console.log(image)
         if (image!==null) {
             const _file = new File([image], artist+".png")
             setFile(_file)
-        }
-        
-        console.log(file)    
+        }  
 
         //signupdata로 하나로 만들기 + form데이터 형식으로 보내기
         let signupdata = {
@@ -220,7 +206,6 @@ const SignUp = () => {
             youtubeUrl : youtube,
             genreSelected : clickGenre
         }
-        console.log(signupdata)
 
         let formData = new FormData();
             formData.append("file", file)
@@ -229,13 +214,11 @@ const SignUp = () => {
         axios
             .post("https://seyeolpersonnal.shop/user/signup", formData)
             .then((response) => {
-                console.log(response)
                 setAlert("가입이 완료되었어요!")
                 openModal()
                 navigate('/login')
             })
             .catch((error) => {
-                console.log(error)
                 setAlert("이메일 인증 전입니다. 메일함을 확인해 주세요!")
                 openModal()
             })
@@ -254,11 +237,9 @@ const SignUp = () => {
         } else if (genre.indexOf(name) === -1) {
         genre.pop();
         genre.unshift(name);
-        console.log("genre", genre);
         } else {
         genre.splice(genre.indexOf(name), 1);
         genre.push(null);
-        console.log("genre", genre);
         }
 
     // genre가 null값의 배열이므로 마지막 null을 지우고 맨 앞에 name(장르 이름)을 넣는 형태
@@ -268,7 +249,6 @@ const SignUp = () => {
         !clickGenre[index],
         ...clickGenre.slice(index+1),
         ]);
-        console.log("clickGenre ==> ", clickGenre)
 
     }
 

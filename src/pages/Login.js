@@ -47,7 +47,6 @@ const Login = (props) => {
 
     const loginCheck = () => {
         if (email === "" && password === "") {
-            // return window.alert("모든 항목을 입력하세요")
             setAlert("모든 항목을 입력하세요!")
             openModal()
             return;
@@ -75,7 +74,6 @@ const Login = (props) => {
                 password : password,
             })
             .then((response) => {
-                console.log(response)
                 const token = response.headers.authorization;
                 const artist = response.data.artist;
                 const profileUrl = response.data.profileUrl;
@@ -84,7 +82,6 @@ const Login = (props) => {
                 localStorage.setItem("userProfileUrl", profileUrl);
                 navigate("/")
 
-                // window.location.reload();
 
                 if (!isMobile) {
                   window.location.reload();
@@ -93,7 +90,6 @@ const Login = (props) => {
 
             })
             .catch((error) => {
-                console.log(error)
                 setAlert("로그인 정보를 확인해주세요")
                 openModal()
             })
@@ -115,7 +111,6 @@ if (localStorage.getItem("token")) {
             className="logo1" 
             src={ImageUrl.logo_b}
             />
-            {/* <p className='login-title'>tutti</p> */}
             <div className='login-info-container'>
                 <div className='login-info-box'>
                     <div className='login-info-input'>

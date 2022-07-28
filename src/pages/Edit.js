@@ -74,7 +74,6 @@ function Edit() {
 
     const token = localStorage.getItem("token");
 
-    console.log("토큰", token)
 
 
     const editList = {
@@ -83,7 +82,6 @@ function Edit() {
       color : color
     }
 
-    console.log("현재 리스트", editList)
 
 
     axios.put(`${SERVER_URL}/feeds/${params.id}`, editList,{
@@ -91,14 +89,12 @@ function Edit() {
         Authorization: token ? token : ""}
     })
     .then((response) => {
-      console.log("res ===> ", response);
       setAlert("피드 수정을 완료했습니다.");
       openModal()
       window.scrollTo(0, 0);
     })
 
     .catch((error) => {
-      console.log("err ===> ", error);
       setAlert("수정에 실패했습니다.");
       openModal()
     });
@@ -139,7 +135,6 @@ function Edit() {
 
           <div className="upload-select-box">
               <div className="upload-selected">
-                {/* <div className="selected" > */}
                 {selectGenre}
                   
               </div>
