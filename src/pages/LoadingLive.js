@@ -8,9 +8,9 @@ function LoadingLive() {
   const userName = localStorage.getItem("userName");
 
   React.useEffect(() => {
-    setTimeout(()=> {
-      navigate(`/live/${userName}`);
-    },2000)
+    // setTimeout(()=> {
+    //   navigate(`/live/${userName}`);
+    // },2000)
   },[])
   return (
     <>

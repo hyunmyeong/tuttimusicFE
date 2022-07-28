@@ -1912,6 +1912,13 @@ a {
   flex-direction: column;
 }
 
+.empty-live {
+  margin: 140px auto;
+  text-align: center;
+  font-size: 15px;
+  line-height: 25px;
+}
+
 /* FACECHATLIST PAGE END */
 
 /* UploadChoice start */
@@ -2988,7 +2995,7 @@ input[type=radio] {
 }
 
 .loading-title {
-  font-size: 60px;
+  font-size: 40px;
   color: var(--primary-color);
 }
 /* LoadingLive end */
