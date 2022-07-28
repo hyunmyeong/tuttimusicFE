@@ -260,7 +260,7 @@ function Detail() {
               {showText}
             </p>
             <p className="detail-more-detail" onClick={()=> setShow(!show)}>
-              {(commenter.length > textLimit.current) && (show ? '[닫기]' : '...[더보기]')}
+              {(commenter.length > textLimit.current) && (show ? '닫기' : '...더보기')}
             </p>
             
           </div>

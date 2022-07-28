@@ -236,11 +236,18 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .detail-song-detail{
-    font-size: 11px;
+    font-size: 14px;
     color: #7E7E7E; 
     margin-top: 63px;
     margin-bottom: 34px;
     line-height: 17px;
+}
+
+.detail-more-detail{
+    cursor: pointer;
+    font-size: 13px;
+    color: #BCBCBC;
+    margin: 0;
 }
 
 .music-video-title {
