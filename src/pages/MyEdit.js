@@ -13,7 +13,6 @@ function MyEdit() {
   const {state} = useLocation();
   const userInfo = state;
 
-  // console.log(userInfo);
 
   const [userInfoDto, setUserInfoDto] = useState();
   const [image, setImage] = useState(null);
@@ -51,8 +50,6 @@ const myinfoEdit = () => {
     genre : genre,
     genreSelected : clickGenre
   }
-  console.log(updateData)
-  console.log("image",image);
 
 
   let formData = new FormData();
@@ -63,7 +60,6 @@ const myinfoEdit = () => {
   
   formData.append("updateData", new Blob([JSON.stringify(updateData)], {type: "application/json"}))
 
-  console.log("formData", formData);
 
 
   axios
@@ -71,13 +67,11 @@ const myinfoEdit = () => {
     headers: {Authorization:token? token:""}
   })
   .then((response) => {
-    console.log(response)
     setAlert("수정이 완료되었습니다.")
     openModal()
     // navigate('/mypage')
   })
   .catch((error) => {
-    console.log(error)
     setAlert("수정되지 않았습니다.")
     openModal()
     
@@ -103,8 +97,7 @@ const myinfoEdit = () => {
     if (previewImgUrl) {
       setPreview(previewImgUrl)
     }
-    }
-    console.log(e.target.files[0])   
+    } 
 }
 
 const [genre, setGenre] = useState(userInfo.genre);
@@ -120,11 +113,9 @@ if (genre.indexOf(null) === -1 &&  genre.indexOf(name) === -1) {
 } else if (genre.indexOf(name) === -1) {
   genre.pop();
   genre.unshift(name);
-  console.log("genre", genre);
 } else {
   genre.splice(genre.indexOf(name), 1);
   genre.push(null);
-  console.log("genre", genre);
 }
 
 // genre가 null값의 배열이므로 마지막 null을 지우고 맨 앞에 name(장르 이름)을 넣는 형태
@@ -134,7 +125,6 @@ setClickGenre([
   !clickGenre[index],
   ...clickGenre.slice(index+1),
 ]);
-console.log("clickGenre ==> ", clickGenre)
 
 }
 

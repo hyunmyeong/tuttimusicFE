@@ -18,7 +18,6 @@ function Live() {
 
   //PARAMS=STREAMER'S NAME
   let params = useParams();
-  console.log(params);
   
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
@@ -29,7 +28,6 @@ function Live() {
   const token = localStorage.getItem("token");
 
   useEffect(()=>{
-    console.log(token);
     setLoading(true);
 
     axios
@@ -37,15 +35,12 @@ function Live() {
       headers: {Authorization:token? token:""}
     })
     .then((response)=>{
-      console.log(response.data.liveRoomListDto);
+
       setData(response.data.liveRoomListDto);
-      // if (!data) {
-        
-      //   navigate('/facechatlist')
-      // }      
+     
     })
     .catch((error)=>{
-      console.log(error)
+
     })
 
     setTimeout(()=> {
@@ -55,7 +50,7 @@ function Live() {
 
   },[])
 
-  console.log(data)
+
 
   if (!localStorage.getItem("token")) {
     return (

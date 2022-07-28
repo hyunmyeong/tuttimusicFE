@@ -22,8 +22,6 @@ function Detail() {
     query : "(max-width:480px)"
   })
 
-  // console.log(moment.utc("2019-12-04 12:00:24").local().startOf('seconds').fromNow())
-  // console.log(moment("2022-07-01T16:08:54+09:00").startOf('hour').fromNow())
   const currentTime = moment().format()
 
   useEffect(()=>{
@@ -45,9 +43,6 @@ function Detail() {
   const detail = useSelector((state)=> state.Song.detail);
   const commentsList = useSelector((state)=> state.Song.comments);
   
-  // console.log(detail);
-  // console.log(commentsList);
-  
 
   //get user info from local storage
   const userName = localStorage.getItem("userName");
@@ -56,7 +51,6 @@ function Detail() {
   //add a comment
   const [myComment, setMyComment] = useState(null);
   
-  // console.log(myComment);
 
   const addNewComment = () => {
     dispatch(postComment({
@@ -91,7 +85,6 @@ function Detail() {
 
   //description 
   const commenter = detail?.description
-  console.log(commenter)
 
   const [show, setShow] = useState(false);
   const textLimit = useRef(100);
@@ -221,9 +214,6 @@ function Detail() {
               <EditDelete detail={detail} token={token} id={params.id}/>
               : null}
             </div>
-            {/* <button className="add-playlist btn">
-            <span><BiPlus/></span> 플레이리스트 추가
-            </button> */}
           </div>
             <Waveform 
               songUrl={detail.songUrl} 
@@ -232,29 +222,7 @@ function Detail() {
               token={token}
               loading={loading}/>
             
-            {/* <div className="flex-wrap">
-              {detail.flag===false? 
-              <IconContext.Provider value={{ className: "heart" }}>
-                <div>
-                <FaRegHeart
-                onClick={
-                ClickEmptyHeart
-                }/> 
-                </div>
-              </IconContext.Provider>
-              : 
-              <IconContext.Provider value={{ color: "red", className: "heart" }}>
-                <div>
-                <FaHeart
-                onClick={
-                  ClickFilledHeart
-                }              
-                  />
-                </div>
-              </IconContext.Provider>
-              }
-              <p className="detail-like">{detail.likeCount}</p>
-            </div> */}
+
             
             <p className="detail-song-detail">
               {showText}

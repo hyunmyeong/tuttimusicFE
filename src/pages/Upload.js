@@ -90,7 +90,6 @@ function Upload() {
 
   const imgSizeOpt = async (img) => {
     
-    console.log(img)
     // 이미지 resize 옵션 설정 (최대 width을 100px로 지정)
     const options = { 
       maxSizeMB: 1, 
@@ -100,9 +99,7 @@ function Upload() {
     try {
       const compressedFile = await imageCompression(img, options);
       setImgFile(compressedFile);
-      console.log(imgFile)
     } catch (error) {
-      console.log(error);
     }
   }
 
@@ -112,8 +109,6 @@ function Upload() {
   const [colorRef, setColorRef] = React.useState("#545454");
 
   const ColorChange = () => {
-    console.log("colorRef ===>", color_ref.current.value);
-    console.log("color ===>", color);
     setColor(color_ref.current.value);
   }
 
@@ -138,23 +133,25 @@ const [submit, setSubmit] = React.useState(false);
     if (title_ref.current.value === "") {
       setAlert("곡명을 채워 주세요.")
       openModal()
+      return;
     } else if (description_ref.current.value === "") {
       setAlert ("소개글을 채워 주세요.")
       openModal()
+      return;
     } else if (selectGenre === "장르를 선택해 주세요.") {
       setAlert ("장르를 선택해 주세요.")
       openModal()
+      return;
     } else if (musicName === null) {
       setAlert ("파일을 첨부해 주세요.")
       openModal()
+      return;
     }
     
     else {
     
     const token = localStorage.getItem("token");
-    console.log(imgFile)
     const file = new File([imgFile], musicName.slice(0,-4)+".png");
-    console.log(file)
       
     const feedRequestDto = {
       title : title_ref.current.value,
@@ -177,14 +174,12 @@ const [submit, setSubmit] = React.useState(false);
     })
     .then((response) => {
       setSubmit(false);
-      console.log("res ===> ", response);
       setAlert("피드가 등록되었습니다.");
       openModal()
       navigate("/musicfeed")
       window.scrollTo(0, 0);
     })
     .catch((error) => {
-      console.log("err ===> ", error);
       setAlert("피드 등록에 실패했습니다.")
       openModal()
     });

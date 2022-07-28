@@ -20,8 +20,6 @@ function Navbar() {
 
   const token = localStorage.getItem("token");
 
-  console.log("토큰 ==>", token)
-
   const [toggleState, setToggleState] = React.useState(false);
 
   const userProfileUrl = localStorage.getItem("userProfileUrl");

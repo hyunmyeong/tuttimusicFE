@@ -31,27 +31,9 @@ function MusicFeed() {
   },[])
 
   const allList = useSelector((state) => state.Song.allList);
-  console.log(allList);
-
-  // const ClickType =(type)=>{
-  //   setGenre(null);
-  //   if (type ==="오디오"){
-  //     setType("audio");
-  //   } else{
-  //     setType("video");
-  //   }
-  //   console.log(type);
-  //     const data2= {
-  //       token: token,
-  //       type: _type,
-  //       genre: null,
-  //     }
-  //     dispatch(getMusicFeed(data2))
-  //   }
 
   const ClickGenre =(genre)=>{
     setGenre(genre);
-    console.log(genre);
       const data3= {
         token: token,
         type: _type,
@@ -60,10 +42,6 @@ function MusicFeed() {
       dispatch(getMusicFeed(data3))
     }
 
-  // const typeList =[
-  //   {type: "오디오"},
-  //   {type: "영상"},
-  // ]
   const genreList = [
     {genre: "발라드"},
     {genre: "어쿠스틱"},
@@ -75,24 +53,6 @@ function MusicFeed() {
 
   return (
     <div className="musicfeed-container">
-       {/* <section className="feed-category">
-        <p className="genre-text">
-          유형
-        </p>
-        <div className="categories">
-          {typeList.map((type,index)=>{
-            return (
-            <div 
-            className="category"
-            onClick={()=>{
-              ClickType(type.type)
-            }}>
-            {type.type}
-          </div>
-            )
-          })}
-        </div>
-      </section> */}
       <section className="feed-category">
         <p className="genre-text">
           장르

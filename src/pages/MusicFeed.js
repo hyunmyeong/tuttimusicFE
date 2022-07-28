@@ -33,7 +33,6 @@ function MusicFeed() {
       page:page,
       limit:24,
     }
-    console.log(data);
     dispatch(getMusicFeed(data));
     setTimeout(()=> {
       setLoading(false);
@@ -43,7 +42,6 @@ function MusicFeed() {
 
 
   const allList = useSelector((state) => state.Song.allList);
-  console.log(allList)
   const [totalList, setTotalList] = useState(null)
 
   useEffect(() => {
@@ -51,9 +49,7 @@ function MusicFeed() {
       setTotalList(allList);
     }
     if (inView && !isLoding) {
-      // setPage(page + 1)
       setLimit((prev)=> prev + 18)
-      console.log(limit)
       const data= {
         token:token,
         type: _type,
@@ -62,46 +58,10 @@ function MusicFeed() {
         limit:limit,
       }
       dispatch(getMusicFeed(data))
-      console.log(page)
-      // setTotalList(totalList, allList)
-      console.log("추가된 리스트", totalList)
     }
   }, [inView])
 
 
-
-  //    const ClickType =(props)=>{
-  //     setGenre(null);
-  //     setTotalList(null)
-    // if (props ==="오디오"){
-    //   setType("audio");
-    // } 
-    // if (props ==="영상"){
-    //   setType("video");
-    // } 
-
-    
-  //   console.log(_type);
-  //     const data2= {
-  //       token: token,
-  //       type: props,
-  //       genre: "",
-  //       page:1,
-  //       limit:12,
-  //     }
-  //     dispatch(getMusicFeed(data2))
-  //   }
-
-  // const ClickGenre =(props)=>{
-  //   const data3= {
-  //     token: token,
-  //     type: _type,
-  //     genre: props,
-  //     page:1,
-  //     limit:12,
-  //   }
-  //   dispatch(getMusicFeed(data3))
-  // }
 
   const typeList =[
     {type: "오디오", eng: "audio"},
@@ -141,7 +101,6 @@ function MusicFeed() {
             className={`category ${index === typeBtn ? `click-category` : ''}`}
             onClick={()=>{
               setType(type.eng)
-              // ClickType(type.eng)
               setGenre(null)
               setPage(1)
               setTypeBtn(index)
@@ -166,7 +125,6 @@ function MusicFeed() {
             onClick={()=>{
               setGenre(genre.postGenre)
               setPage(1)
-              // ClickGenre(genre.postGenre)
               setGenreBtn(index)
             }}>
             {genre.genre}

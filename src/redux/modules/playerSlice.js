@@ -21,7 +21,6 @@ const PlayerSlice = createSlice({
     },
     
     addASong: (state,action) => {
-      console.log(current(state.player));
       const new_list2 = {...current(state.player), currentSong:action.payload};
       state.player = new_list2;
     },
@@ -32,7 +31,6 @@ const PlayerSlice = createSlice({
     },
 
     playerVolume: (state,action) => {
-      console.log(action.payload);
       const new_list = {...current(state.player), volume:action.payload};
       state.player = new_list;
     },

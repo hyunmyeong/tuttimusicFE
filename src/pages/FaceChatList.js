@@ -27,13 +27,11 @@ function FaceChatList() {
     headers: {Authorization: token ? token : ""}
     })
     .then((response) => {
-    console.log(response.data.results);
     setRoomList(response.data.results);
     
     window.scrollTo(0, 0);
     })
     .catch((error) => {
-    console.log(error);
     });
 
     setTimeout(()=> {
@@ -43,18 +41,7 @@ function FaceChatList() {
 
     },[])
 
-    // useEffect(()=>{
-    //     const userList = []
-    //     roomList?.map((live, index)=>{
-    //         userList.push(live.artist)
-    //     })
-    //     console.log(userList)
-    //     userList?.map((user, index)=>{
-    //         if (user===userName) {
-    //             navigate(`/live/`+userName)
-    //         } 
-    //     })
-    // },[roomList])
+
 
     const [alert, setAlert] = useState("")
     const [modalOpen, setModalOpen] = useState(false);
@@ -74,7 +61,7 @@ function FaceChatList() {
       } 
     }
     
-    console.log(roomList);
+
 
     return(
         <div>

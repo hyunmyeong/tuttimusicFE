@@ -56,7 +56,6 @@ function UserPage() {
       headers: {Authorization:token? token:""}
     })
     .then((response)=>{
-      console.log(response.data.data);
       setUploadVideoList(response.data.data.uploadVideoList)
       setLikeVideoList(response.data.data.likeVideoList)
       setFollowingList(response.data.data.followingList)
@@ -64,13 +63,11 @@ function UserPage() {
       setUserInfoDto(response.data.data.userInfoDto)
       setLikeList(response.data.data.likeList)
       setIsFollow(response.data.isFollow)
-      console.log(response.data.data.userInfoDto.followerCount)
       setCount(response.data.data.userInfoDto.followerCount)
       dispatch(getCount(response.data.data.userInfoDto.followerCount))
 
     })
     .catch((error)=>{
-      console.log(error)
     })
 
     setTimeout(()=> {
@@ -80,20 +77,16 @@ function UserPage() {
   },[params.artist])
 
 const new_count = useSelector((state) => state.User.artist?.followerCount)
-  console.log(new_count)
 
   useEffect(()=>{
       setCount(new_count);
-      console.log(count);
   },[new_count])
 
   const FollowThisArtist =()=>{
    
     if (isFollow===false) {
-      console.log(count)
       dispatch(addCount(count));
     } else {
-      console.log(count)
       dispatch(subtractCount(count));
     }
     setIsFollow(!isFollow);
@@ -106,13 +99,12 @@ const new_count = useSelector((state) => state.User.artist?.followerCount)
 
   }
 
-console.log(count)
 
   return (
-    // Frame 61 전체 영역
+    // 전체 영역
     <div className='mypage-container'>
       <SEO pageTitle={"artist"}/>
-      {/* Frame 59  회원정보 부분*/}
+      {/* 회원정보 부분*/}
 
       {isMobile ?
         <>

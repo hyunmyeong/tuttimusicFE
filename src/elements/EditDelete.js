@@ -25,12 +25,10 @@ function EditDelete(props) {
         Authorization: token ? token : ""}
     })
     .then((response) => {
-      console.log("res ===> ", response);
       navigate("/musicfeed");
       window.scrollTo(0, 0);
     })
     .catch((error) => {
-      console.log("err ===> ", error);
     });
   };
 
@@ -55,22 +53,6 @@ function EditDelete(props) {
   //delete this post
   const GoDelete = () => { 
     openConfirm()
-  // if(alert("삭제하시겠습니까?")) {
-    // axios.delete(`${SERVER_URL}/feeds/${id}`,{
-    //   headers: {
-    //     Authorization: token ? token : ""}
-    // })
-    // .then((response) => {
-    //   console.log("res ===> ", response);
-    // })
-    // .catch((error) => {
-    //   console.log("err ===> ", error);
-    // });
-    // setAlert("삭제되었습니다.");
-    // openModal()
-    // navigate("/musicfeed");
-    // window.scrollTo(0, 0);
-  // } 
   }
   return (
     <EditDeleteWrap>

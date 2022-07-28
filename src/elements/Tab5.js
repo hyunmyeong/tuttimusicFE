@@ -24,10 +24,8 @@ useEffect(()=>{
     })
     .then((response)=>{
         setList(response.data.data)
-        console.log(response.data.data)
     })
     .catch((error)=>{
-        console.log(error)
     })
 
     } else {
@@ -37,10 +35,8 @@ useEffect(()=>{
     })
     .then((response)=>{
         setList(response.data.data)
-        console.log(response.data.data)
     })
     .catch((error)=>{
-        console.log(error)
     })
   }
 
@@ -51,7 +47,6 @@ useEffect(()=>{
 },[])
 
 
-    console.log(list)
 
     return( 
         <>

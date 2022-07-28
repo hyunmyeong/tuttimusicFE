@@ -13,7 +13,6 @@ function Footer() {
       </div>
       <div className="footer-box footer-left">
       <div className="footer-about">
-        {/* <div className="footer-about-about">about</div> */}
         <a 
         className="footer-about-about"
         target="blank"
@@ -34,22 +33,7 @@ function Footer() {
         target="blank"
         href="https://fluoridated-shell-c1f.notion.site/aad2793ef4fc4e8295cefefb58430077">
         Q & A</a>
-
-        {/* <div className="footer-ul">
-        <ul> 
-          <li>FE</li>
-          <li>권지은</li>
-          <li>김현명</li>
-          <li>이가연</li>
-        </ul>
-        <ul>
-          <li>BE</li>
-          <li>김도엽</li>
-          <li>김민지</li>
-          <li>김창규</li>
-          <li>박세열</li>
-        </ul>
-        </div> */}
+        
         </div>
       </div>
 

@@ -48,33 +48,23 @@ function App() {
 
   React.useEffect(() => {
 
-    console.log("매번 실행되는지");
 
     if (token) {
-      console.log("토큰이 있을 때 new Event");
         
         eventSource = new EventSource(`https://seyeolpersonnal.shop/subscribe/${artist}`); //구독
   
         msetEventSource(eventSource);
-        console.log("eventSource", eventSource);
-        console.log("eventSource 시간 ==> ", date);
 
         eventSource.addEventListener('open', function(e) {
-          console.log("connection opened");
-          console.log("connection opened 시간 ==> ", date);
         })
 
         eventSource.addEventListener('message', function(e) {
-          console.log("result", e.data);
-          console.log("result 시간 ==> ", date);
           setData(old => [...old, e.data]);
           setValue(e.data);
-          console.log("value ==>" , value.content);
         })
       
         eventSource.addEventListener('live', function (e){
           let liveData = JSON.parse(e.data);
-          console.log(liveData);
 
           (async () => {
             // 브라우저 알림
@@ -111,9 +101,7 @@ function App() {
         }) 
 
         eventSource.addEventListener('error', function(e) {
-          console.log(e.target.readyState);
           if (e.target.readyState === EventSource.CLOSED) {
-            console.log("eventsource closed (" + e.target.readyState + ")");
           }
         })
   
@@ -121,7 +109,6 @@ function App() {
 
     return () => {
       eventSource.close();
-      console.log("eventsource closed");
     };
     
   }, []);

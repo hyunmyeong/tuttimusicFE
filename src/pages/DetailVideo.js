@@ -20,8 +20,6 @@ function DetailVideo() {
   const navigate = useNavigate();
   let params = useParams();
 
-  // console.log(moment.utc("2019-12-04 12:00:24").local().startOf('seconds').fromNow())
-  // console.log(moment("2022-07-01T16:08:54+09:00").startOf('hour').fromNow())
   const currentTime = moment().format()
 
   useEffect(()=>{
@@ -42,8 +40,6 @@ function DetailVideo() {
   //get lists from songslice
   const detail = useSelector((state)=> state.Song.detail);
   const commentsList = useSelector((state)=> state.Song.comments);
-  console.log(detail);
-  console.log(commentsList);
 
   //get user info from local storage
   const userName = localStorage.getItem("userName");
@@ -52,7 +48,6 @@ function DetailVideo() {
   //add a comment
   const [myComment, setMyComment] = useState(null);
   
-  console.log(myComment);
 
   const addNewComment = () => {
     dispatch(postComment({
@@ -67,7 +62,6 @@ function DetailVideo() {
 
   //description 
   const commenter = detail?.description
-  console.log(commenter)
 
   const [show, setShow] = useState(false);
   const textLimit = useRef(100);
@@ -99,10 +93,8 @@ function DetailVideo() {
         Authorization: token ? token : ""}
     })
     .then((response) => {
-      console.log("res ===> ", response);
     })
     .catch((error) => {
-      console.log("err ===> ", error);
     });
     alert("삭제되었습니다.");
     navigate("/musicfeed");

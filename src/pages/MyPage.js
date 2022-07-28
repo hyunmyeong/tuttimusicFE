@@ -42,15 +42,12 @@ function MyPage() {
   })
 
 
-  console.log(userInfoDto);
-
 
   const token = localStorage.getItem("token");
 
   const [loading, setLoading] = useState(true);
 
   useEffect(()=>{
-    console.log(token)
 
     setLoading(true);
     
@@ -67,21 +64,17 @@ function MyPage() {
       setLikeList(response.data.data.likeList)
       setLikeVideoList(response.data.data.likeVideoList)
 
-      console.log(response.data.data.userInfoDto)
       
     })
     .catch((error)=>{
-      console.log(error)
     })
 
-    console.log(1)
     setTimeout(()=> {
       setLoading(false);
     },300)
     window.scrollTo(0,0);
   },[])
 
-  console.log(data)
 
   if (!localStorage.getItem("token")) {
     return (
@@ -93,10 +86,10 @@ function MyPage() {
   return (
 
 
-    // Frame 61 전체 영역
+    //전체 영역
     <div className='mypage-container'>
       <SEO pageTitle={window.location.pathname.substring(1)}/>
-      {/* Frame 59  회원정보 부분*/}
+      {/* 회원정보 부분*/}
 
       {isMobile ?
         <>
@@ -219,7 +212,6 @@ function MyPage() {
             <P3 className='body-bar-menu' onClick={()=>{setTab(3)}} tab={tab}>팔로잉</P3>
             <P4 className='body-bar-menu' onClick={()=>{setTab(4)}} tab={tab}>업로드음악</P4>
             <P5 className='body-bar-menu' onClick={()=>{setTab(5)}} tab={tab}>업로드영상</P5>
-            {/* <TabContent tab={tab}/> */}
         </div> 
 
         <div className='body-contents'>
@@ -243,28 +235,6 @@ function MyPage() {
   )
 }
 
-
-// function TabContent({tab}) {
-//   if (tab == 0) {
-//     return(
-//       <>
-//       <LikeList/> 
-//       <FollowingList/>
-//       <UploadList/>
-//       </>
-//     )
-    
-//   } 
-//   if (tab == 1) {
-//     return <LikeList/> 
-//   } 
-//   if (tab == 2) {
-//     return <FollowingList/>
-//   }
-//   if (tab == 3) {
-//     return <UploadList/>
-//   }
-// }
 
 
 
