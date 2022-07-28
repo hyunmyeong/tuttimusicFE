@@ -42,7 +42,6 @@ function FaceChatList() {
     },[])
 
 
-
     const [alert, setAlert] = useState("")
     const [modalOpen, setModalOpen] = useState(false);
     const openModal = () => {
@@ -88,53 +87,54 @@ function FaceChatList() {
                 ):(
 
                   <>
-                  {!roomList === [] ? 
-                  <div className="facechat-list-container">
-                  <div className="facechat-live-list">
-                  {
-                  roomList?.map((live, index) => {
-                      return (
-                          <div 
-                          className="facechat-live-box"
-                          onClick={()=>{
-                              enterRoom(live.artist)
-                          }}
-                          >
-                              
-                                  <Live
-                                  id="live-info-user-live"
-                                  className='live-absolute'>
-                                      LIVE
-                                  </Live>
-                                  <div className="musicfeed-thumbnail-box facechat-card">
-                                  <img 
-                                  className='main-thumbnail musicfeed-thumbnail'
-                                  src={live.thumbnailImageUrl} 
-                                  alt={live.roomTitle}
-                                  />
-                                  </div>
-                              <div className="facechat-live-info">
-                                  <div className="facechat-live-pofileimg">
-                                      <img 
-                                      className='facechat-live-pofileimg'
-                                      src={live.profileImageUrl} 
-                                      alt={live.artist}
-                                      />
-                                  </div>
-                                  <div className="facechat-info-box">
-                                      <p className="facechat-info-title">{live.roomTitle}</p>
-                                      <p className="facechat-info-artist">{live.artist}</p>
-                                  </div>
-                              </div>
-                          </div>
-                      )
-                  })
+                  {roomList&&roomList.length === 0 ? 
+  <div className="empty-live">🎤 현재 라이브 중인 방이 없네요 🎤 <br/>
+                  라이브를 시작해 보세요! 
+                  </div> : 
+                                    <div className="facechat-list-container">
+                                    <div className="facechat-live-list">
+                                    {
+                                    roomList?.map((live, index) => {
+                                        return (
+                                            <div 
+                                            className="facechat-live-box"
+                                            onClick={()=>{
+                                                enterRoom(live.artist)
+                                            }}
+                                            >
+                                                
+                                                    <Live
+                                                    id="live-info-user-live"
+                                                    className='live-absolute'>
+                                                        LIVE
+                                                    </Live>
+                                                    <div className="musicfeed-thumbnail-box facechat-card">
+                                                    <img 
+                                                    className='main-thumbnail musicfeed-thumbnail'
+                                                    src={live.thumbnailImageUrl} 
+                                                    alt={live.roomTitle}
+                                                    />
+                                                    </div>
+                                                <div className="facechat-live-info">
+                                                    <div className="facechat-live-pofileimg">
+                                                        <img 
+                                                        className='facechat-live-pofileimg'
+                                                        src={live.profileImageUrl} 
+                                                        alt={live.artist}
+                                                        />
+                                                    </div>
+                                                    <div className="facechat-info-box">
+                                                        <p className="facechat-info-title">{live.roomTitle}</p>
+                                                        <p className="facechat-info-artist">{live.artist}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                                    }
+                                    </div>
+                                </div>  
                   }
-                  </div>
-              </div>   
-                  : <div className="empty-live">🎤 현재 라이브 중인 방이 없네요 🎤 <br/>
-                  라이브를 시작해 보세요!
-                  </div>}
                   </>
                 
                 )}            
