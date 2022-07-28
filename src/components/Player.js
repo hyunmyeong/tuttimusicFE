@@ -36,9 +36,7 @@ function Player() {
     barRadius: 0,
     responsive: true,
     height: 35,
-    //normalize by the maximum peak instead of 1.0
     normalize: true,
-    //improve rendering speed of large waveforms
     partialRender: true
   });
 
@@ -59,7 +57,6 @@ function Player() {
     state.Player.player?.currentTime,
   ])
 
-  console.log(_volume)
     
   useEffect(()=>{
     setDisplay(_display);
@@ -77,7 +74,7 @@ function Player() {
       })
 
       wavesurfer.current.on("finish", function() {
-        console.log("finished playing!")
+        
       })
   
       return() => wavesurfer.current.destroy();
@@ -207,7 +204,6 @@ const PlayerContainer = styled.div`
   height: 70px;
   position: fixed;
   bottom: 0;
-  /* background: linear-gradient(280deg, #f0f0f0, var(--secondary-color)); */
   background: linear-gradient(var(--secondary-color), 10%, #fff );
   z-index:999;
   display: ${(props) => props.display ? 'block' : 'none'};

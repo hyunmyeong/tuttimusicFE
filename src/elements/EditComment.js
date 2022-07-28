@@ -10,7 +10,6 @@ import Modal from '../elements/Modal'
 import ConfirmModal from './ConfirmModal';
 
 function EditComment(props) {
-  // console.log(props)
   const comment = props.comment
   const username = props.username
   const dispatch = useDispatch();
@@ -49,14 +48,6 @@ function EditComment(props) {
   //delete a comment
   const DeleteComment=(id)=>{
     openConfirm()
-    console.log(id);
-  //   if(window.confirm("정말로 삭제하시겠습니까?")) {
-  //   dispatch(deleteComment({
-  //     token: props.token,
-  //     feedid: props.feedid,
-  //     commentid: comment.id,
-  //   }))
-  // }
   }
 
   
