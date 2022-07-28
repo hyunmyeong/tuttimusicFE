@@ -417,7 +417,15 @@ a {
   margin-top: 63px;
   margin-bottom: 34px;
   white-space: pre-wrap;
+  
+  /* overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  word-wrap:break-word;  */
   line-height: 22px;
+  /* height: 66px; */
 }
 
 .detail-more-detail{
