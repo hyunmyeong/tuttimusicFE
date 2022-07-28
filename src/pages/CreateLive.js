@@ -75,9 +75,11 @@ function CreateLive() {
     if (title_ref.current.value === "") {
       setAlert("라이브 제목을 채워 주세요.")
       openModal()
+      return;
     } else if (description_ref.current.value === "") {
       setAlert ("소개글을 채워 주세요.")
       openModal()
+      return;
     } 
     
     const token = localStorage.getItem("token");
@@ -104,7 +106,6 @@ function CreateLive() {
     })
     .catch((error) => {
       console.log("err ===> ", error);
-      navigate('/facechatlist');
     });
   }
 

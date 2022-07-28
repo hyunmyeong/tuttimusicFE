@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 import styled from 'styled-components';
 import SEO from '../components/SEO';
 
+import Modal from '../elements/Modal';
+
 function FaceChatList() {
     const navigate = useNavigate();
 
@@ -54,9 +56,22 @@ function FaceChatList() {
     //     })
     // },[roomList])
 
-
+    const [alert, setAlert] = useState("")
+    const [modalOpen, setModalOpen] = useState(false);
+    const openModal = () => {
+          setModalOpen(true);
+          };
+    const closeModal = () => {
+          setModalOpen(false);
+          };
+  
     const enterRoom=(params)=>{
+      if (!token) {
+        setAlert("로그인을 하고 입장해 주세요!");
+        openModal();
+      } else {
         navigate(`/live/`+params)
+      } 
     }
     
     console.log(roomList);
@@ -127,6 +142,7 @@ function FaceChatList() {
                 </div>   
                 )}            
             </div>
+            <Modal open={modalOpen} close={closeModal} alert={alert}/>
         </div>
     )
 }

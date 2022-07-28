@@ -1003,16 +1003,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     color: #000000;
 }
 
-.signup-pw-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 8px;
-    width: 850px;
-    height: 68px;
-    margin: 0px 0px 0px 5px;
-}
+
 
 .signup-pw-input {
     display: flex;
@@ -1030,27 +1021,9 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     font-size:13px;
 }
 
-.signup-pw-check {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px 5px 0px 70px;
-    gap: 10px;
-    width: 350px;
-    height: 19px;
-    margin-left: 50px;
-}
 
 .pw-check {
-    width: 300px;
-    /* height: 19px; */
-    font-style: normal;
-    font-weight: 400;
     font-size: 12px;
-    line-height: 10px;
-    margin-top: 0px;
-    margin-left: -90px;
-    color: #7E7E7E;
 }
 
 .signup-profile-img-box {
@@ -1989,12 +1962,13 @@ input[type=radio] {
     flex-wrap: wrap;
 }
 
+
 .facechat-live-box {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 12px;
+    gap: 0;
 }
 
 /* .live-box-thumbnail {
@@ -2007,11 +1981,10 @@ input[type=radio] {
 .facechat-live-info {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     padding: 0px;
     gap: 10px;
     width: 69px;
-    height: 32px;
 }
 
 .relative {
@@ -2025,8 +1998,8 @@ input[type=radio] {
 }
 
 .facechat-live-pofileimg {
-    width: 32px;
-    height: 32px;
+    width: 42px;
+    height: 42px;
     border-radius: 50px 50px;
     object-fit: cover;
 }
@@ -2042,7 +2015,7 @@ input[type=radio] {
 
 .facechat-info-title {
     font-weight: 500;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 15px;
     margin-top: 0px;
     color: #000000;
@@ -2050,7 +2023,7 @@ input[type=radio] {
 
 .facechat-info-artist {
     font-weight: 400;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 13px;
     color: #7E7E7E;
 }
