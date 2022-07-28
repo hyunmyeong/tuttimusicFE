@@ -114,7 +114,7 @@ function Main() {
           speed: 500,
           slidesToShow: 4,
           slidesToScroll: 1,
-          // arrows: true,
+          arrows: true,
           nextArrow: <SampleNextArrow />,
           prevArrow: <SamplePrevArrow />,
         }
@@ -124,12 +124,11 @@ function Main() {
         settings: {
           dots: false,
           infinite: true,
-          speed: 500,
+          speed: 2500,
           slidesToShow: 3,
           slidesToScroll: 3,
-          // arrows: true,
+          arrows: true,
           autoplay: true,
-          autoplaySpeed: 2000,
           nextArrow: <SampleNextArrow />,
           prevArrow: <SamplePrevArrow />,
         }
@@ -139,12 +138,11 @@ function Main() {
         settings: {
           dots: false,
           infinite: true,
-          speed: 500,
+          speed: 2500,
           slidesToShow: 3,
           slidesToScroll: 3,
           arrows: true,
           autoplay: true,
-          autoplaySpeed: 2000,
           nextArrow: <SampleNextArrow />,
           prevArrow: <SamplePrevArrow />,
         }

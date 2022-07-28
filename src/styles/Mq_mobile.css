@@ -121,6 +121,9 @@
     aspect-ratio: 16 / 9;
     margin-bottom: 10px;
   }
+  .main-card{
+    width: var(--card-size);
+  }
   
   .main-card-text {
     width: var(--card-size);
