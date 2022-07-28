@@ -68,6 +68,9 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 a {
   border: none;
   outline: none;
+  text-decoration: none;
+  color:#000;
+  cursor: pointer;
 }
 
 /* MAIN PAGE  */
