@@ -490,6 +490,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     height: 92px;
     border-radius: 50%;
     object-fit:cover;
+    aspect-ratio:1;
     background-color: #D9D9D9;
 }
 
@@ -1637,6 +1638,7 @@ input[type=radio] {
     width: 1060px;
     display: flex;
     align-items: flex-end;
+    justify-content: space-between;
 }
 
 .upload-label-button {
@@ -1646,7 +1648,7 @@ input[type=radio] {
     border-radius: 10px;
     font-size: 12px;
     text-align: center;
-    margin-left: 40px;
+    margin-left: 0px;
     cursor: pointer;
     padding: 14px;
 }
@@ -2037,14 +2039,6 @@ input[type=radio] {
     display: flex;
     align-items: center;
     flex-direction: column;
-}
-
-.live-image-box {
-  justify-content: space-between;
-}
-
-.live-label-button {
-  margin-left:0;
 }
 
 

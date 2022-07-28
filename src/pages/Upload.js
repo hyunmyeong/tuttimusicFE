@@ -128,7 +128,6 @@ const [submit, setSubmit] = React.useState(false);
       return;
     }
 
-    setSubmit(true);
 
     if (title_ref.current.value === "") {
       setAlert("곡명을 채워 주세요.")
@@ -148,7 +147,7 @@ const [submit, setSubmit] = React.useState(false);
       return;
     }
     
-    else {
+  
     
     const token = localStorage.getItem("token");
     const file = new File([imgFile], musicName.slice(0,-4)+".png");
@@ -173,7 +172,7 @@ const [submit, setSubmit] = React.useState(false);
         Authorization: token ? token : ""}
     })
     .then((response) => {
-      setSubmit(false);
+      setSubmit(true);
       setAlert("피드가 등록되었습니다.");
       openModal()
       navigate("/musicfeed")
@@ -183,7 +182,8 @@ const [submit, setSubmit] = React.useState(false);
       setAlert("피드 등록에 실패했습니다.")
       openModal()
     });
-  }}
+  }
+
 
   if (!localStorage.getItem("token")) {
     return (

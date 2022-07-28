@@ -144,9 +144,9 @@ function CreateLive() {
         <label className="upload-label">
           <span className="upload-label-span">썸네일</span>
           </label>
-          <div className="upload-image-box live-image-box">
+          <div className="upload-image-box">
           <UploadImagePreview previewImg={previewImg}></UploadImagePreview>
-          <label className="secondary upload-label-button live-label-button" for="upload-image">이미지 업로드</label>
+          <label className="secondary upload-label-button" for="upload-image">이미지 업로드</label>
           <input type="file" id="upload-image" accept='image/*' onChange={onLoadImage} />
           </div>
           </div>

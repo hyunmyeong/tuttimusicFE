@@ -2217,7 +2217,7 @@ input[type=radio] {
 }
 
 .nav {
-  width:24.22%;
+  width:30.86%;
 }
 
 .nav ul {
@@ -2233,7 +2233,7 @@ input[type=radio] {
 }
 
 .search {
-  width:39.06%;
+  width:35.16%;
   position: relative;
 }
 
@@ -2256,7 +2256,7 @@ input[type=radio] {
 }
 
 .user-box {
-  width: 30.47%;
+  width: 32.42%;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;

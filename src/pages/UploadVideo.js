@@ -127,8 +127,6 @@ function UploadVideo() {
       return;
     }
 
-    setSubmit(true);
-
     if (title_ref.current.value === "") {
       setAlert("곡명을 채워 주세요.")
       openModal()
@@ -147,7 +145,7 @@ function UploadVideo() {
       return;
     }
 
-    else {
+  
     
     const token = localStorage.getItem("token");
     const file = new File([imgFile], musicName.slice(0,-4)+".png");
@@ -175,7 +173,7 @@ function UploadVideo() {
         Authorization: token ? token : ""}
     })
     .then((response) => {
-      setSubmit(false);
+      setSubmit(true);
       setAlert("피드가 등록되었습니다.");
       openModal()
       navigate("/musicfeed")
@@ -185,7 +183,7 @@ function UploadVideo() {
       setAlert("피드 등록에 실패했습니다.")
       openModal()
     });
-  }
+  
 }
 
 if (!localStorage.getItem("token")) {
@@ -328,6 +326,11 @@ let UploadImagePreview = styled.div`
   aspect-ratio: 16 / 9;
   }
 
+  @media only screen and (min-width: 481px)and (max-width: 1920px) {
+  width: 460px;
+  height: 250px;
+  }
+
 `
 
 let UploadColor = styled.div`
@@ -338,15 +341,15 @@ let UploadColor = styled.div`
   border-radius: 10px;
 
   @media only screen and (max-width: 480px) {
-  width: 46px;
-  height: 46px;
+  width: 50px;
+  height: 50px;
   margin-left:0;
   aspect-ratio: 1 / 1;
   }
 
   @media only screen and (min-width: 481px)and (max-width: 1920px) {
-  width: 50px;
-  height: 50px;
+  width: 46px;
+  height: 46px;
   margin-left:0;
   aspect-ratio: 1 / 1;
   }
