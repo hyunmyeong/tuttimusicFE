@@ -128,7 +128,6 @@ function Main() {
           slidesToShow: 3,
           slidesToScroll: 3,
           arrows: true,
-          autoplay: true,
           nextArrow: <SampleNextArrow />,
           prevArrow: <SamplePrevArrow />,
         }
@@ -142,7 +141,6 @@ function Main() {
           slidesToShow: 3,
           slidesToScroll: 3,
           arrows: true,
-          autoplay: true,
           nextArrow: <SampleNextArrow />,
           prevArrow: <SamplePrevArrow />,
         }
