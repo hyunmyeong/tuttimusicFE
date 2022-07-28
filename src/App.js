@@ -28,6 +28,7 @@ import NotFound from './pages/NotFound';
 import EmailCheck from './pages/EmailCheck';
 import Player from './components/Player';
 import SEO from './components/SEO';
+import LoadingLive from './pages/LoadingLive';
 
 function App() {
 
@@ -149,10 +150,12 @@ function App() {
             <Route path="/edit/:id" element={<Edit />}></Route>
             <Route path="/live/:artist" element={<Live />}></Route>
             <Route path="/createlive" element={ <CreateLive />}></Route>
+            <Route path="/loading/:artist" element={<LoadingLive/>}></Route>
             <Route path="/search" element={<SearchResult />}></Route>
             <Route path="/facechatlist" element={<FaceChatList/>}></Route>
 
             <Route path="/emailcheck" element={<EmailCheck/>}></Route>
+
 
             <Route path="*" element={<NotFound />}></Route>
 

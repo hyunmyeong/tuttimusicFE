@@ -22,6 +22,7 @@ function CreateLive() {
   const [alert, setAlert] = useState("")
 
   const [modalOpen, setModalOpen] = useState(false);
+  
 
   const openModal = () => {
         setModalOpen(true);
@@ -101,7 +102,7 @@ function CreateLive() {
     })
     .then((response) => {
       console.log("res ===> ", response);
-      navigate('/facechatlist'); 
+      navigate(`/loading/${userName}`); 
       window.scrollTo(0, 0);
     })
     .catch((error) => {
@@ -147,9 +148,9 @@ function CreateLive() {
         <label className="upload-label">
           <span className="upload-label-span">썸네일</span>
           </label>
-          <div className="upload-image-box">
+          <div className="upload-image-box live-image-box">
           <UploadImagePreview previewImg={previewImg}></UploadImagePreview>
-          <label className="secondary upload-label-button" for="upload-image">이미지 업로드</label>
+          <label className="secondary upload-label-button live-label-button" for="upload-image">이미지 업로드</label>
           <input type="file" id="upload-image" accept='image/*' onChange={onLoadImage} />
           </div>
           </div>
@@ -187,6 +188,12 @@ let UploadImagePreview = styled.div`
   background-image:url(${(props) => props.previewImg});
   background-size:cover;
   background-position: 50% 50%;
+
+  @media only screen and (min-width: 481px)and (max-width: 1920px) {
+  width: 460px;
+  height: 250px;
+  }
+
   
   @media only screen and (max-width: 480px) {
   width: 60%;
