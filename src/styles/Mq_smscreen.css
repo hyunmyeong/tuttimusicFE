@@ -236,11 +236,18 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .detail-song-detail{
-    font-size: 11px;
+    font-size: 14px;
     color: #7E7E7E; 
     margin-top: 63px;
     margin-bottom: 34px;
     line-height: 17px;
+}
+
+.detail-more-detail{
+    cursor: pointer;
+    font-size: 13px;
+    color: #BCBCBC;
+    margin: 0;
 }
 
 .music-video-title {
@@ -334,12 +341,12 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .comment-writer{
-    font-size: 13px;
+    font-size: 14px;
     margin: 0 0 10px 0;
 }
 
 .comment-text{
-    font-size: 11px;
+    font-size: 13px;
     color: #434343;
     margin:0;
 }
@@ -1829,7 +1836,7 @@ input[type=radio] {
     list-style: none;
     padding: 20px;
     margin-top: 10px;
-    margin-right: 90px;
+    /* margin-right: 90px; */
     text-align: center;
     border-radius: 10px;
     color: #fff;
