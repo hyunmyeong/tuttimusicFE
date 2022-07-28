@@ -138,15 +138,19 @@ const [submit, setSubmit] = React.useState(false);
     if (title_ref.current.value === "") {
       setAlert("곡명을 채워 주세요.")
       openModal()
+      return;
     } else if (description_ref.current.value === "") {
       setAlert ("소개글을 채워 주세요.")
       openModal()
+      return;
     } else if (selectGenre === "장르를 선택해 주세요.") {
       setAlert ("장르를 선택해 주세요.")
       openModal()
+      return;
     } else if (musicName === null) {
       setAlert ("파일을 첨부해 주세요.")
       openModal()
+      return;
     }
     
     else {

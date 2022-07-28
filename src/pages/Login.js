@@ -50,18 +50,22 @@ const Login = (props) => {
             // return window.alert("모든 항목을 입력하세요")
             setAlert("모든 항목을 입력하세요!")
             openModal()
+            return;
         }
         else if (email === "") {
             setAlert("아이디를 입력하세요")
             openModal()
+            return;
         }
         else if (checkEmail(email) === false) {
             setAlert("이메일 형식을 확인하세요")
             openModal()
+            return;
         }
         else if (password === "") {
             setAlert("비밀번호를 입력하세요")
             openModal()
+            return;
         }
         else {
 

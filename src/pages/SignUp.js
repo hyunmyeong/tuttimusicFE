@@ -100,11 +100,13 @@ const SignUp = () => {
         if (email === "") {
             setAlert("이메일을 입력하세요!");
             openModal()
+            return;
         }
       //이메일 양식이 다를 때
         else if (checkEmail(email) === false) {
             setAlert("이메일 양식을 확인하세요!")
             openModal()
+            return;
         }
         else {
         let emailList = {email : email}
@@ -116,12 +118,14 @@ const SignUp = () => {
                 if(response) {
                     setAlert("인증 메일이 발송되었습니다. 메일함을 확인해 주세요!")
                     openModal()
+                    return;
                 }
             })
             .catch((error) => {
                 console.log(error)
                 setAlert("중복된 이메일입니다!")
                 openModal()
+                return;
                 // setEmail("")
             })
             }
@@ -133,6 +137,7 @@ const SignUp = () => {
         if (artist === "") {
             setAlert("닉네임을 입력하세요!")
             openModal()
+            return;
         } else {
             axios
             .post("https://seyeolpersonnal.shop/user/artist",{artist : artist})
@@ -164,6 +169,7 @@ const SignUp = () => {
         ) {
             setAlert("모든 항목을 입력하세요!"); 
             openModal()   
+            return;
         }
 
         // const nullList = [null, null, null, null]
@@ -171,23 +177,27 @@ const SignUp = () => {
         else if (genre.toString() === nullList.toString()) {
             setAlert("장르를 최소 1개 선택해 주세요!")
             openModal()
+            return;
         }
 
       //비밀번호 양식이 다를 때
         else if (checkPw(password) === false || checkPw(passwordCheck) === false) {
             setAlert("비밀번호는 8~20글자 영문+숫자 조합입니다!")
             openModal()
+            return;
         }
 
       //비밀번호가 서로 다를 때
         else if (password !== passwordCheck) {
             setAlert("비밀번호가 서로 달라요!")
             openModal()
+            return;
         }
 
         else if (check===false) {
             setAlert("개인정보처리방침 및 이용약관에 대한 안내에 동의해주세요!")
             openModal()
+            return;
         }
 
         else {
