@@ -139,7 +139,7 @@ function App() {
             <Route path="/createlive" element={ <CreateLive />}></Route>
             <Route path="/loading/:artist" element={<LoadingLive/>}></Route>
             <Route path="/search" element={<SearchResult />}></Route>
-            <Route path="/facechatlist" element={<FaceChatList/>}></Route>
+            <Route path="/livelist" element={<FaceChatList/>}></Route>
 
             <Route path="/emailcheck" element={<EmailCheck/>}></Route>
 
