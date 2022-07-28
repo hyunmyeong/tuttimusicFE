@@ -88,7 +88,12 @@ function Live() {
         alt={data.artist}
         />
           <div className="live-info-user">
-            <div id="live-info-user-name">{data.artist}</div>
+            <div id="live-info-user-name">
+            <a
+            href={`/userpage/${data.artist}`}
+            target="_blank"
+            rel="noopener noreferrer">{data.artist}</a>
+            </div>
             <div id="live-user-live">LIVE</div>
           </div>
           <div className="live-info-title">
