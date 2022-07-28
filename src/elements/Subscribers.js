@@ -51,7 +51,7 @@ class Subscribers extends Component {
     }
 
     navigator(){
-        this.props.navigate('/facechatlist')
+        this.props.navigate('/livelist')
     }
 
     handleChangeSessionId(e) {

@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import UserVideoComponent from './UserVideoComponent';
 import BeatLoader from "react-spinners/BeatLoader";
 import {withRouter} from '../elements/withRouter';
+import {usePrompt} from '../elements/Blocker';
 
 import Modal from '../elements/Modal';
 
@@ -43,14 +44,15 @@ class Streamers extends Component {
 
     componentDidMount() {
         this.giveAccess();
+        
     } 
 
     componentWillUnmount() {
         this.leaveSession();
     }
-
+    
     navigator(){
-        this.props.navigate('/facechatlist')
+        this.props.navigate('/livelist')
     }
 
     openModal() {

@@ -12,7 +12,7 @@ import NotFound from "./NotFound";
 import SEO from '../components/SEO';
 
 function Live() {
-  usePrompt('현재 페이지를 벗어나면 라이브가 종료됩니다. 😭', true);
+  
 
   const navigate = useNavigate();
 
@@ -22,6 +22,7 @@ function Live() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
   const [activate, setActivate] = useState(true);
+  const [message, setMessage] = useState("현재 페이지를 벗어나면 라이브가 종료됩니다. 😭");
 
   const userProfileUrl = localStorage.getItem("userProfileUrl");
   const userName = localStorage.getItem("userName");
@@ -35,9 +36,10 @@ function Live() {
       headers: {Authorization:token? token:""}
     })
     .then((response)=>{
-
       setData(response.data.liveRoomListDto);
-     
+      if(params.artist!==userName) {
+      setMessage("정말 라이브 방을 나가시겠어요? 😭")
+      }
     })
     .catch((error)=>{
 
@@ -49,14 +51,17 @@ function Live() {
     window.scrollTo(0,0);
 
   },[])
+  
 
-
+  usePrompt(message, true);
 
   if (!localStorage.getItem("token")) {
     return (
       <NotFound/>
     )
   }
+
+  console.log(params.artist)
 
   return (
   <div className="live-wrap">  
@@ -69,7 +74,7 @@ function Live() {
       <div className="live-box">
       <div className="live-box-left">
         <div className="live-view">
-          {data.artist===userName?
+          {data?.artist===userName?
           <Streamer session={`session${data.id}`} streamer={data.artist}/>
           :
           <Subscribers session={`session${data.id}`} subscriber={userName}/>
