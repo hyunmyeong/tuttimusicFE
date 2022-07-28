@@ -56,8 +56,6 @@ function CreateLive() {
   const [colorRef, setColorRef] = useState("#545454");
 
   const ColorChange = () => {
-    console.log("colorRef ===>", color_ref.current.value);
-    console.log("color ===>", color);
     setColor(color_ref.current.value);
   }
 
@@ -90,7 +88,7 @@ function CreateLive() {
       roomTitle : title_ref.current.value,
       description : description_ref.current.value,
     }
-    console.log(imgFile)
+
     const formData = new FormData();
     formData.append("addRoomRequestDto", new Blob([JSON.stringify(addRoomRequestDto)], {type: "application/json"}))
     formData.append("thumbNailImage", imgFile)
@@ -101,7 +99,7 @@ function CreateLive() {
         Authorization: token ? token : ""}
     })
     .then((response) => {
-      console.log("res ===> ", response);
+
       navigate(`/loading/${userName}`); 
       window.scrollTo(0, 0);
     })
@@ -115,8 +113,6 @@ function CreateLive() {
       <NotFound/>
     )
   }
-
-  console.log(window.location.pathname)
 
   return (
     <CreateLiveWrap>
