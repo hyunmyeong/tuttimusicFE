@@ -281,6 +281,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     width: 46px;
     height: 46px;
     border-radius: 50%;
+    aspect-ratio: 1;
     object-fit: cover;
 }
 
@@ -1539,7 +1540,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     margin: 0;
     margin-top: 12px;
     margin-bottom: 60px;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .upload-form {
@@ -1559,7 +1560,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 .upload-label-span {
     display: block;
     width: 140px;
-    font-size: 15px;
+    font-size: 17px;
 }
 
 .upload-input {
@@ -2036,6 +2037,14 @@ input[type=radio] {
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.live-image-box {
+  justify-content: space-between;
+}
+
+.live-label-button {
+  margin-left:0;
 }
 
 
