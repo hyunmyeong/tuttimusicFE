@@ -130,7 +130,7 @@ function Navbar() {
               <div className="login-state">
                 <div className="user-upload" onClick={() => { navigate('upload') }}> 곡 업로드 </div>
                 <UserImage className="user-image" userProfileUrl={userProfileUrl}></UserImage>
-                <div className="user-name" onClick={() => { setToggleState(!toggleState) }}>가나다라마바사아자차카타파하</div>
+                <div className="user-name" onClick={() => { setToggleState(!toggleState) }}>{userName}</div>
                 <FaCaretDown id="down-icon" onClick={() => { setToggleState(!toggleState) }} />
               </div>
               :
