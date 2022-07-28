@@ -1843,9 +1843,8 @@ a {
   align-items: flex-start;
   padding: 0px;
   gap: 14px;
-
   width: 90px;
-  height: 42px;
+  margin-top: -10px;
 }
 
 .relative {
@@ -2476,6 +2475,7 @@ input[type=radio] {
   position: absolute;
   top: 10px;
   left: 10px;
+  z-index: 22;
 }
 
 #live-user-live {
