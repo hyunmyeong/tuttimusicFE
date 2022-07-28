@@ -341,12 +341,12 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .comment-writer{
-    font-size: 13px;
+    font-size: 14px;
     margin: 0 0 10px 0;
 }
 
 .comment-text{
-    font-size: 11px;
+    font-size: 13px;
     color: #434343;
     margin:0;
 }
