@@ -79,10 +79,14 @@ const Login = (props) => {
                 localStorage.setItem("userName", artist);
                 localStorage.setItem("userProfileUrl", profileUrl);
                 navigate("/")
+
+                // window.location.reload();
+
                 if (!isMobile) {
                   window.location.reload();
                 }
                 
+
             })
             .catch((error) => {
                 console.log(error)
