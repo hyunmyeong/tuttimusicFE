@@ -4,6 +4,7 @@ import SockJS from 'sockjs-client';
 import moment from "moment";
 import BeatLoader from "react-spinners/BeatLoader";
 import {IoPaperPlane} from "react-icons/io5";
+import {FaUser} from "react-icons/fa";
 import { IconContext } from "react-icons";
 import ScrollToBottom, { useScrollToBottom } from 'react-scroll-to-bottom';
 
@@ -15,6 +16,7 @@ const Chatbox = (props) => {
     const currentTime = moment().format();    
     const [publicChats1, setPublicChats1] = useState([]); 
     const [publicChats, setPublicChats] = useState([]); 
+    const [viewCount,setViewCount] = useState(0);
     const [tab,setTab] =useState("CHATROOM");
     const [userData, setUserData] = useState({
         master: '',
@@ -116,6 +118,21 @@ const Chatbox = (props) => {
             
     }
 
+    console.log(publicChats[0]?.count);
+    let _length = publicChats?.length ;
+    console.log(_length);
+    let _viewCount =publicChats[_length-1]?.count
+
+    useEffect(()=>{
+        if (_viewCount){
+            setViewCount(_viewCount);
+        }
+        
+
+    },[_viewCount])
+
+    console.log(viewCount);
+
     return (
     <div>
         
@@ -123,7 +140,13 @@ const Chatbox = (props) => {
         <div>
             {/* CHATROOM */}
             {tab==="CHATROOM" && <div className="chat-content">
-            <div id="live-chat-title">실시간 채팅</div>
+            <div className="chat-header">
+                <p id="live-chat-title">실시간 채팅</p> 
+                <FaUser/>
+                <p className='viewCount'>{viewCount}</p>
+                
+            </div>
+            
                 <div className="live-chat-list">
                     <p className="welcome-message">welcome to {props.streamer}'s live music! 😊🎵 </p>
                     

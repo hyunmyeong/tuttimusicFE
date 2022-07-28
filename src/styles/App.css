@@ -2419,6 +2419,14 @@ input[type=radio] {
 
 
 /* Live start */
+
+.viewCount{
+  font-size: 19px;
+  font-weight: 500;
+  display: inline;
+  margin-left: 3px;
+}
+
 .live-wrap {
   width:100%;
   display:flex;
@@ -2509,9 +2517,15 @@ input[type=radio] {
   max-height: 900px;
 }
 
+.chat-header{
+  margin: 20px 5px 12px 5px;
+}
+
 #live-chat-title {
   font-size: 20px;
   margin: 20px 0 20px 0px;
+  display: inline;
+  margin-right: 10px;
 }
 
 .live-chat-box {
@@ -2702,7 +2716,7 @@ input[type=radio] {
 }
 
 .welcome-message{
-  margin: 5px auto 10px auto;
+  margin: 5px auto 20px auto;
   font-weight: 500;
 }
 
