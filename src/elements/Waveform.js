@@ -29,7 +29,7 @@ function Waveform(props) {
   const [currentTime, setCurrentTime] = useState(0);
   const [total, setTotal] = useState(null);
   const [show, setShow] = useState(false);
-  // console.log(props.songUrl);
+
 
   // create new WaveSurfer
   // https://wavesurfer-js.org/docs/methods.html
@@ -53,7 +53,6 @@ function Waveform(props) {
   useEffect(()=>{
     setPlaying(false);
     const options = formWaveSurferOptions(waveformRef.current);
-    console.log(waveformRef.current);
     wavesurfer.current = WaveSurfer.create(options);
     
     wavesurfer.current.load(props.songUrl);
@@ -69,18 +68,8 @@ function Waveform(props) {
     dispatch(showPlayer());
     dispatch(addASong(props.songUrl));
     
-    // wavesurfer.current.on('audioprocess', function() {
-    //   if (wavesurfer.current.isPlaying()) {
-    //     let totalTime = Math.round(wavesurfer.current.getDuration());
-    //     let currentTime = Math.round(wavesurfer.current.getCurrentTime());
-    //     setTotal(totalTime);
-    //     setCurrent(currentTime);
-    //     console.log(currentTime);
-    // }
-    // })
 
     wavesurfer.current.on("finish", function() {
-      console.log("finished playing!")
     })
 
     return() => 
@@ -94,7 +83,6 @@ const playerInfo = useSelector((state)=> state.Player.player);
     state.Player.player?.volume,
     state.Player.player?.currentTime,
   ])
-  console.log( playerInfo);
 
 useEffect(()=>{
   setPlaying(_playing);
@@ -139,7 +127,6 @@ useEffect(()=>{
     setTimeout(()=> {
     let _currentTime = wavesurfer.current?.getCurrentTime();
     setCurrentTime(_currentTime);
-    console.log(_currentTime);
     dispatch(playerTime(_currentTime));
     },300);
   }
@@ -226,9 +213,6 @@ useEffect(()=>{
               />       
             </Controls>
         </div> 
-        {/* <button className="add-playlist btn">
-        <span><BiPlus/></span> 플레이리스트 추가
-        </button> */}
       </div>
       :
       <div className="spinner-wrap">

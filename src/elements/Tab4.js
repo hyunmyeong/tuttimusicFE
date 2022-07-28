@@ -27,10 +27,8 @@ function Tab4() {
         })
         .then((response)=>{
             setList(response.data.data)
-            console.log(response.data.data)
         })
         .catch((error)=>{
-            console.log(error)
         })
     
         } else {
@@ -40,10 +38,8 @@ function Tab4() {
         })
         .then((response)=>{
             setList(response.data.data)
-            console.log(response.data.data)
         })
         .catch((error)=>{
-            console.log(error)
         })
       }
     
@@ -53,7 +49,6 @@ function Tab4() {
         window.scrollTo(0,0);
     },[])
 
-    console.log(list)
 
     return( 
         <>
