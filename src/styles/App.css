@@ -2125,18 +2125,17 @@ input[type=radio] {
 }
 
 #upload-input-color {
-  width: 770px;
+  width: 750px;
 }
 
 .upload-color-wrap {
   position: relative;
 }
 
-.upload-color {
-  width: 60px;
-  height: 60px;
-  margin-left: 20px;
-  border-radius: 10px;
+.upload-mobile-color {
+  width: 850px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .hex-color {

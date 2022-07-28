@@ -124,7 +124,7 @@ function Main() {
         settings: {
           dots: false,
           infinite: true,
-          speed: 2500,
+          speed: 500,
           slidesToShow: 3,
           slidesToScroll: 3,
           arrows: true,
@@ -138,7 +138,7 @@ function Main() {
         settings: {
           dots: false,
           infinite: true,
-          speed: 2500,
+          speed: 500,
           slidesToShow: 3,
           slidesToScroll: 3,
           arrows: true,
