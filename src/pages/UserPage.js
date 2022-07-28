@@ -158,11 +158,8 @@ console.log(count)
                 <div className='header-sns'>
                   {userInfoDto.youtubeUrl ? <FaYoutube className='sns-icon sns-youtube' onClick={() => { window.open(userInfoDto.youtubeUrl) }} /> : null}
                   {userInfoDto.instagramUrl ? 
-                  <div className="insta-icon">
-                  <img 
-                  src={process.env.PUBLIC_URL + '/public/img/instagram_icon.png'} className='sns-icon sns-instagram' onClick={() => { window.open(userInfoDto.instagramUrl) }} />
-                  </div>
-                   : null}
+                  <RiInstagramFill className='sns-icon sns-instagram' onClick={() => { window.open(userInfoDto.instagramUrl) }} />
+                  : null}
                 </div>
                 </p>
               </div>
@@ -202,11 +199,8 @@ console.log(count)
                 <div className='header-sns'>
                   {userInfoDto.youtubeUrl ? <FaYoutube className='sns-icon sns-youtube' onClick={() => { window.open(userInfoDto.youtubeUrl) }} /> : null}
                   {userInfoDto.instagramUrl ? 
-                  <div className="insta-icon">
-                  <img 
-                  src={process.env.PUBLIC_URL + '/img/Instagram_icon.png'} className='sns-icon sns-instagram' onClick={() => { window.open(userInfoDto.instagramUrl) }} />
-                  </div>
-                   : null}
+                  <RiInstagramFill className='sns-icon sns-instagram' onClick={() => { window.open(userInfoDto.instagramUrl) }} />
+                  : null}
                 </div>
               </div>
 

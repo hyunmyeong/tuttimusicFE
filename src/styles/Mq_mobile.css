@@ -698,21 +698,7 @@
   .sns-youtube {
     color: #c4302b;
   }
-
-  .insta-icon {
-    width:28px;
-    height: 28px;
-    overflow: hidden;
-    border-radius: 30%;
-    margin-top:4px;
-  }
   
-  .sns-instagram {
-    width: 40px;
-    height: 40px;
-    margin-top:-5.55px;
-    margin-left:-6px;
-  }
 
   .mobile-header-profile-info{
     display: flex;
