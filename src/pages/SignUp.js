@@ -240,6 +240,7 @@ const SignUp = () => {
         if (genre.indexOf(null) === -1 &&  genre.indexOf(name) === -1) {
         setAlert("장르는 최대 4개까지 선택 가능합니다.")
         openModal()
+        return;
         } else if (genre.indexOf(name) === -1) {
         genre.pop();
         genre.unshift(name);
