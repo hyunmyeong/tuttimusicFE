@@ -1583,7 +1583,7 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 }
 
 .upload-input {
-    width: 644px;
+    width: 632px;
     height: 46px;
     background-color: #E8E8E8;
     border: none;
@@ -1700,7 +1700,7 @@ input[type=radio] {
 }
 
 #upload-input-color {
-    width: 554px;
+    width: 574px;
 }
 
 .upload-mobile-color {
@@ -1740,10 +1740,6 @@ input[type=radio] {
 
 #upload-music {
     display: none;
-}
-
-#upload-input-music {
-    padding: 0 70px;
 }
 
 .upload-button {
