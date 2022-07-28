@@ -343,8 +343,8 @@ let UploadColor = styled.div`
   border-radius: 10px;
 
   @media only screen and (min-width: 481px)and (max-width: 1920px) {
-  width: 50px;
-  height: 50px;
+  width: 46px;
+  height: 46px;
   margin-left:0;
   aspect-ratio: 1 / 1;
   }
