@@ -3049,3 +3049,15 @@ input[type=radio] {
   box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
   transform: translateY(-0.25em);
 } */
+
+
+@media only screen and (max-width: 970px) {
+  .footer-about {
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+  }
+}
