@@ -11,7 +11,7 @@ import {FaVolumeUp, FaVolumeOff, FaVolumeDown, FaRegHeart, FaHeart} from "react-
 import BeatLoader from "react-spinners/BeatLoader";
 
 import styled from "styled-components";
-import {playerPlay, addASong, playerVolume, playerTime, showPlayer} from "../redux/modules/playerSlice";
+import {playerPlay, addASong, playerVolume, playerTime, showPlayer, musicEnd} from "../redux/modules/playerSlice";
 
 import {Range, getTrackBackground} from "react-range";
 
@@ -90,6 +90,8 @@ const closeModal = () => {
     
 
     wavesurfer.current.on("finish", function() {
+      dispatch(musicEnd(true));
+      setPlaying(false);
     })
 
     return() => 
@@ -98,15 +100,18 @@ const closeModal = () => {
 }, [props.songUrl]);
 
 const playerInfo = useSelector((state)=> state.Player.player);
-  const [ _playing, _volume, _time] = useSelector((state) => [
+  const [ _playing, _volume, _time, allStop] = useSelector((state) => [
     state.Player.player?.isPlaying,
     state.Player.player?.volume,
     state.Player.player?.currentTime,
+    state.Player.player?.allStop,
   ])
 
 useEffect(()=>{
   setPlaying(_playing);
-  wavesurfer.current?.playPause();
+  if (allStop===false) {
+    wavesurfer.current?.playPause();
+  }
 },[_playing])
 
 useEffect(()=>{
@@ -119,13 +124,19 @@ useEffect(()=>{
 
 useEffect(()=>{
   setCurrentTime(_time&&_time);
-  if (_time>0) {
+  if (_time>0.2) {
     wavesurfer.current?.play(_time)
   }
 },[_time])
 
+useEffect(()=>{
+  if (allStop&&allStop===true) {
+    setPlaying(false);
+  }
+},[allStop])
 
   const handlePlayPause = () => {
+    console.log(playing)
     dispatch(playerPlay(playing));
   };
 

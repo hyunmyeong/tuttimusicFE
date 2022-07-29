@@ -130,8 +130,10 @@ const Chatbox = (props) => {
         }
         
 
-    },[_viewCount])    
-
+    },[_viewCount])   
+    
+    console.log(publicChats);
+    
     return (
     <div>
         

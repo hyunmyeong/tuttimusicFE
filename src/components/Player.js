@@ -10,7 +10,7 @@ import { IconContext } from "react-icons";
 import styled from "styled-components";
 
 import WaveSurfer from "wavesurfer.js";
-import {playerPlay, playerVolume, playerTime, hidePlayer} from "../redux/modules/playerSlice";
+import {playerPlay, playerVolume, playerTime, hidePlayer, musicEnd} from "../redux/modules/playerSlice";
 
 import { useMediaQuery } from "react-responsive";
 
@@ -49,12 +49,13 @@ function Player() {
   const detail = useSelector((state)=> state.Song.detail);
 
   const playerInfo = useSelector((state)=> state.Player.player);
-  const [_display, _song, _playing, _volume, _time] = useSelector((state) => [
+  const [_display, _song, _playing, _volume, _time, allStop] = useSelector((state) => [
     state.Player.player?.display,
     state.Player.player?.currentSong,
     state.Player.player?.isPlaying,
     state.Player.player?.volume,
     state.Player.player?.currentTime,
+    state.Player.player?.allStop,
   ])
 
     
@@ -74,7 +75,8 @@ function Player() {
       })
 
       wavesurfer.current.on("finish", function() {
-        
+        dispatch(musicEnd(true));
+        setPlaying(false);
       })
   
       return() => wavesurfer.current.destroy();
@@ -84,7 +86,7 @@ function Player() {
 
   useEffect(()=>{
     setPlaying(_playing);
-    if (_display===true) {
+    if (_display===true&&allStop===false) {
       wavesurfer.current?.playPause();
     }
     
@@ -99,10 +101,16 @@ function Player() {
   
   useEffect(()=>{
     setCurrentTime(_time);
-    if (_time>0) {
+    if (_time>0.2) {
       wavesurfer.current?.play(_time)
     }
   },[_time])
+
+  useEffect(()=>{
+    if (allStop&&allStop===true) {
+      setPlaying(false);
+    }
+  },[allStop])
 
   const handlePlayPause = () => {
     dispatch(playerPlay(playing));
@@ -132,6 +140,8 @@ function Player() {
     dispatch(hidePlayer())
     wavesurfer.current.destroy();
   }
+
+  console.log(_playing)
 
   return (
     <PlayerContainer display={display}>
