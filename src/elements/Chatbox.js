@@ -13,7 +13,7 @@ let stompClient = null;
 const Chatbox = (props) => {
     const scrollToBottom = useScrollToBottom();
     console.log(props)
-    const currentTime = moment().format();    
+    const currentTime = moment().format('LT');    
     const [publicChats1, setPublicChats1] = useState([]); 
     const [publicChats, setPublicChats] = useState([]); 
     const [viewCount,setViewCount] = useState(0);
@@ -23,7 +23,7 @@ const Chatbox = (props) => {
         username: '',
         receivername: '',
         connected: false,
-        message: ''    
+        message: '', 
     });
 
     useEffect(()=>{
@@ -100,6 +100,7 @@ const Chatbox = (props) => {
     // AFTER SENDING MESSAGE TO SERVER, INITIALIZE "MESSAGE" VALUE 
     // TO CLEAR THE INPUT BOX AND GET READY FOR THE NEXT MESSAGE
     const sendValue=()=>{
+
             if (stompClient) {
             let chatMessage = {
                 date: currentTime,
@@ -129,9 +130,7 @@ const Chatbox = (props) => {
         }
         
 
-    },[_viewCount])
-
-    console.log(viewCount);
+    },[_viewCount])    
 
     return (
     <div>
@@ -186,30 +185,36 @@ const Chatbox = (props) => {
                         {publicChats&&publicChats.map((chat,index)=>(
                             <li className={`message ${chat.senderName === userData.username && "self"}`} key={index}>                               
                                     {chat.senderName !== userData.username && 
-                                    <div className='message-flex-wrap'>
-                                        <div className="message-header">
-                                            <img 
-                                            className='chat-profile' 
-                                            src={chat.profileImage} 
-                                            alt={chat.senderName} />
-                                            <div className="chat-name">{chat.senderName}</div>
-                                            
+                                    <div className='flex-column'>
+                                        <div className='message-flex-wrap'>
+                                            <div className="message-header">
+                                                <img 
+                                                className='chat-profile' 
+                                                src={chat.profileImage} 
+                                                alt={chat.senderName} />
+                                                <div className="chat-name">{chat.senderName}</div>
+                                                
+                                            </div>
+                                            <div className="message-data">{chat.message}</div>
                                         </div>
-                                        <div className="message-data">{chat.message}</div>
+                                        <p className='chatTime'>{chat.date}</p>
                                     </div>
                                     }
                                     
                                     {chat.senderName === userData.username && 
-                                    <div className='message-flex-wrap self'>
-                                        <div className="message-header">
-                                            {/* <img 
-                                            className='chat-profile' 
-                                            src={chat.profileImage} 
-                                            alt={chat.senderName}/>
-                                            <div className="chat-name self">{chat.senderName}</div> */}
-                                            
+                                    <div className="flex-column">
+                                        <div className='message-flex-wrap self'>
+                                            <div className="message-header">
+                                                {/* <img 
+                                                className='chat-profile' 
+                                                src={chat.profileImage} 
+                                                alt={chat.senderName}/>
+                                                <div className="chat-name self">{chat.senderName}</div> */}
+                                                
+                                            </div>
+                                            <div className="message-data">{chat.message}</div>
                                         </div>
-                                        <div className="message-data">{chat.message}</div>
+                                        <p className='chatTime self'>{chat.date}</p>
                                     </div>
                                     }
                             </li>
