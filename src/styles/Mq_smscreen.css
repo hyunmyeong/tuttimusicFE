@@ -1290,8 +1290,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     padding: 0px;
     gap: 46px;
     width: 460px;
-    height: 234px;
-
 }
 
 .login-info-box {
@@ -1374,6 +1372,12 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     border: none;
     cursor: pointer;
     margin-top: -30px;
+}
+
+.kakao {
+  color:#3A1D1D;
+  background-color:#F7E600;
+  margin-top: 0px;
 }
 
 
