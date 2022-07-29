@@ -5,6 +5,7 @@ import {getMusicFeed} from "../redux/modules/songSlice";
 import BeatLoader from "react-spinners/BeatLoader";
 import { useInView } from 'react-intersection-observer';
 import SEO from '../components/SEO';
+import ToButton from "../elements/ToButton";
 
 function MusicFeed() {
   const [loading, setLoading] = useState(true);
@@ -85,6 +86,7 @@ function MusicFeed() {
 
   const [typeBtn, setTypeBtn] = useState(0);
   const [genreBtn, setGenreBtn] = useState(false);
+
 
   return (
     <div className="musicfeed-container">
@@ -204,7 +206,7 @@ function MusicFeed() {
       }
       <div ref={ref}></div>
       </section>
-    
+      <ToButton/>
     </div>
   )
 }

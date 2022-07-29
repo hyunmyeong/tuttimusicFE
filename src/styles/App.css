@@ -302,6 +302,19 @@ a {
   color:#8A51FB;
 }
 
+.scroll-container{
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+  z-index: 1;
+}
+
+#top{
+  width: 80px;
+  height: 80px;
+}
+
+
 /* MUSIC FEED END */
 
 /* DETAIL  */
