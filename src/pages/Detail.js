@@ -121,11 +121,12 @@ function Detail() {
             alt="better off alone"
             src={detail.albumImageUrl}
             />
-           
-     
+          
+    
           <div className="detail-info-wrap">
             <div className="flex-wrap between">
               <p className="detail-info-title">{detail.title}</p>
+              <p className="detial-genre genre-color">{detail.genre}</p>
             </div> 
             <div className="flex-wrap">
               {userName === detail.artist ?  
@@ -138,9 +139,10 @@ function Detail() {
               title={detail.title}
               detail={detail}
               token={token}
-              loading={loading}/>
-
-<div 
+              loading={loading}
+              />
+              
+          <div 
             className="detail-artist-profile"
             onClick={()=>{ detail.artist === localStorage.getItem("userName") ? navigate("/mypage") :
               navigate(`/userpage/${detail.artist}`)
@@ -208,6 +210,7 @@ function Detail() {
           <div className="detail-info-wrap">
             <div className="flex-wrap between">
               <p className="detail-info-title">{detail.title}</p>
+              <p className="detial-genre genre-color">{detail.genre}</p>
             </div> 
             <div className="flex-wrap">
               {userName === detail.artist ?  
