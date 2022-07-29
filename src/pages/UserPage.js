@@ -42,8 +42,11 @@ function UserPage() {
   const [count, setCount] = useState(null);
 
   const token = localStorage.getItem("token");
+  const userName = localStorage.getItem("userName");
 
   const [loading, setLoading] = useState(true);
+
+
 
   const isMobile = useMediaQuery({
     query : "(max-width:480px)"
@@ -68,6 +71,12 @@ function UserPage() {
 
 
   useEffect(()=>{
+
+    if(params.artist === userName) {
+      navigate("/mypage");
+      return;
+    }
+
     setLoading(true);
     axios
     .get("https://seyeolpersonnal.shop/user/profile/"+params.artist, {
