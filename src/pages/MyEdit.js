@@ -44,13 +44,11 @@ function MyEdit() {
   const [checkName, setCheckName] = useState(false);
   const [NewName, setNewName] = useState("");
 
-
-
   const artistCheck = () => {
     const artist = artist_ref.current.value;
 
     if (artist === "") {
-        setAlert("닉네임을 입력하세요!")
+        setAlert("닉네임을 입력하세요.")
         openModal()
         return;
     } else if (artist === userInfo.artist) {
@@ -63,19 +61,16 @@ function MyEdit() {
         .then((response) => {
             if(response) {
                 setNewName(artist)
-                setAlert("사용 가능한 닉네임입니다!")
+                setAlert("사용 가능한 닉네임입니다.")
                 openModal()
             }    
         })
         .catch((error) => {
-            setAlert("중복된 닉네임입니다!")
+            setAlert("중복된 닉네임입니다.")
             openModal()
         })
     }
 }
-
-
-
 
 const myinfoEdit = () => {
   const artist = artist_ref.current.value;
@@ -83,7 +78,7 @@ const myinfoEdit = () => {
 
   if (NewName !== artist) {
     if (artist !== userInfo.artist) {
-      setAlert("변경된 닉네임 중복 확인해 주세요!")
+      setAlert("변경된 닉네임 중복 확인해 주세요.")
       openModal();
       return;
     }  
@@ -104,12 +99,7 @@ const myinfoEdit = () => {
 
   formData.append("file", image)
   
-
-  
   formData.append("updateData", new Blob([JSON.stringify(updateData)], {type: "application/json"}))
-
-
-
 
     axios
       .put("https://seyeolpersonnal.shop/user/mypage", formData, {
@@ -132,10 +122,6 @@ const myinfoEdit = () => {
   
 
 }
-
-  
-
-
 
   // 이미지 올리고 미리보기
   const fileChange = (e) => {
