@@ -305,13 +305,14 @@ a {
 .scroll-container{
   position: fixed;
   right: 5%;
+  top: 50%;
   bottom: 5%;
   z-index: 1;
 }
 
 #top{
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
 }
 
 
@@ -1410,7 +1411,7 @@ a {
 .genre-container {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction:row;
   width: 820px;
 }
 
@@ -1428,7 +1429,7 @@ a {
   justify-content: space-between;
   align-items: flex-start;
   padding: 0px;
-  gap: 46px;
+  gap: 20px;
   width: 820px;
   height: 51px;
   flex-wrap: wrap;
@@ -1440,9 +1441,10 @@ a {
   align-items: center;
   padding: 16px 30px;
   gap: 10px;
+  margin: 0px;
 
-  width: 200px;
-  height: 51px;
+  width: 230px;
+  height: 60px;
 
   background: #DADADA;
   border-radius: 10px;
@@ -1467,6 +1469,7 @@ a {
   align-items: flex-start;
   padding: 0px 10px 0px 30px;
   gap: 10px;
+  margin-top: -10px;
 
   width: 232px;
   height: 19px;

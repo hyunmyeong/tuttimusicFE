@@ -376,6 +376,7 @@ const SignUp = () => {
                         </label>
 
                         <div className='genre-container'>
+                            
                             <div className='genre-boxes'>
                                 <GenreBox className='genre-box' clickGenre={clickGenre}>
                                     {
@@ -394,9 +395,13 @@ const SignUp = () => {
                                     }
                                 </GenreBox>
                             </div>
+                            
+                            
                             <div className='genre-info'>
                                 <p className='genre-info-comment'>최대 4개까지 선택 가능합니다.</p>
                             </div>
+                            
+                            
                         </div>
                     </div>
                     
