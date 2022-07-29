@@ -14,6 +14,7 @@ import Tab3 from '../elements/Tab3';
 import Tab4 from '../elements/Tab4';
 import Tab5 from '../elements/Tab5';
 import Tab6 from '../elements/Tab6';
+import Modal from '../elements/Modal';
 
 import { useDispatch, useSelector } from "react-redux";
 import { followAnArtist } from "../redux/modules/songSlice"
@@ -47,6 +48,23 @@ function UserPage() {
   const isMobile = useMediaQuery({
     query : "(max-width:480px)"
   })
+
+  const alert = "로그인 후 팔로우 할 수 있습니다.";
+  const [modalOpen, setModalOpen] = useState(false);
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const LoginFollow = () => {
+    if (!token) {
+      return openModal();
+    } else {
+      FollowThisArtist()
+    }
+  }
 
 
   useEffect(()=>{
@@ -216,9 +234,7 @@ const new_count = useSelector((state) => state.User.artist?.followerCount)
                 <button 
             className='primary follow-follower-button'
             isFollow ={isFollow}
-            onClick={()=>{
-              FollowThisArtist()
-            }}            
+            onClick={LoginFollow}            
             >
             {isFollow===false?
             <div className='icon-separate'><BsPersonPlus className='follow-follower-icon'/><p className='follow-follower-button-text'>팔로우</p></div>
@@ -263,6 +279,7 @@ const new_count = useSelector((state) => state.User.artist?.followerCount)
           }
         </div>
       </div>
+      <Modal open={modalOpen} close={closeModal} alert={alert}/>
     </div>
   )
 }
