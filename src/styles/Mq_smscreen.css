@@ -223,6 +223,11 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     font-size: 20px;
 }
 
+.detail-genre {
+    font-size: 14px;
+    /* color: #7A7C85; */
+}
+
 .detail-comment-title{
     font-size: 15px;
     padding-bottom: 30px;

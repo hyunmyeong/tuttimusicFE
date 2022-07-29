@@ -359,7 +359,7 @@ a {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  height: 40px;
+  height: 50px;
   width: 100%;
 }
 
@@ -373,6 +373,15 @@ a {
   padding-bottom: 5px;
 }
 
+.detail-genre {
+  font-size: 16px;
+  /* color: #7A7C85; */
+}
+
+.genre-color {
+  color: #7A7C85;
+}
+
 .detail-comment-title{
   font-size: 20px;
   padding-bottom: 35px;
@@ -381,11 +390,14 @@ a {
 .flex-wrap{
   display: flex;
   align-items: center;
-  gap:5px;
+  gap:0px;
 }
 
 .between{
   justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
 }
 
 .small-button{
