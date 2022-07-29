@@ -57,6 +57,7 @@ function MyPage() {
   useEffect(()=> {
     if (localStorage.getItem("check")) {
       setAlert("프로필을 설정해 주세요!");
+      localStorage.removeItem("check");
       openModal();
     }
   },[])
