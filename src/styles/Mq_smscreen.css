@@ -223,6 +223,11 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     font-size: 20px;
 }
 
+.detail-genre {
+    font-size: 14px;
+    /* color: #7A7C85; */
+}
+
 .detail-comment-title{
     font-size: 15px;
     padding-bottom: 30px;
@@ -254,6 +259,22 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     font-size: 20px;
     margin-top:30px;
 }
+
+.music-video-genre {
+    margin-top:40px;
+    margin-bottom:20px;
+    margin-left: 0px;
+    font-size: 15px;
+    align-items:flex-start;
+}
+
+.video-genre {
+    color: #7A7C85;
+    font-size: 14px;
+    margin-left: 10px;
+    font-weight: lighter;
+}
+
 
 .music-video video {
     width:982px;

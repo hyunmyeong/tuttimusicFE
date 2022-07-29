@@ -40,6 +40,7 @@ function DetailVideo() {
   //get lists from songslice
   const detail = useSelector((state)=> state.Song.detail);
   const commentsList = useSelector((state)=> state.Song.comments);
+  console.log(detail.genre)
 
   //get user info from local storage
   const userName = localStorage.getItem("userName");
@@ -135,7 +136,10 @@ function DetailVideo() {
         브라우저가 video 태그를 지원하지 않습니다.
       </video>
       <div class="music-video-title-wrap">
-      <div className="music-video-title">{detail.title}</div>
+      <div className="music-video-title">
+        <span>{detail.title}</span>
+        <span className="music-video-genre video-genre">{detail.genre}</span>
+      </div>
       <div className="music-video-edit-box">
       {userName === detail.artist ?  
           <EditDelete detail={detail} token={token} id={params.id}/>
