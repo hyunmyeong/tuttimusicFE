@@ -1417,6 +1417,40 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     margin-bottom: 35px;
 }
 
+.result-name-artist {
+  margin: 0;
+}
+.search-flex-artist {
+  margin-top:0px;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.result-artist-list {
+  gap:22.5px;
+}
+
+.result-more-artist-list {
+  gap: 40px 22.5px;
+}
+
+.result-artist-card {
+  width:121px;
+}
+
+.result-artist-title {
+  width: 100%;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  text-align: center;
+}
+
 
 /* SEARCH PAGE END */
 

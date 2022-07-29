@@ -154,7 +154,7 @@ function SearchResult() {
         {data.map((artist,index)=>{
         return(
         <div 
-        className="body-following-card"
+        className="body-following-card result-artist-card"
         onClick={()=>{
           navigate('/userpage/'+artist.artist)
         }}>
@@ -163,7 +163,7 @@ function SearchResult() {
           className="body-circle" 
           src={artist.profileUrl}
           />
-            <p className="body-title">
+            <p className="body-title result-artist-title">
             {artist.artist}
             </p>
         </div>
