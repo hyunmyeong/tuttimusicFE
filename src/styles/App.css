@@ -205,6 +205,7 @@ a {
   border-radius:8px;
   background-color: #7e7e7e;
   cursor: pointer;
+  margin-bottom: 16px;
 }
 
 .main-card-text {
@@ -1688,7 +1689,6 @@ a {
 }
 .more-results{
   color: grey;
-  margin-right: 10px;
   cursor: pointer;
   font-weight: 400;
 }
@@ -1699,6 +1699,24 @@ a {
   font-weight: 400;
   margin-bottom: 35px;
 }
+.result-name-artist {
+  margin: 0;
+}
+.search-flex-artist {
+  margin-top:0px;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.result-artist-list {
+  gap:29px;
+}
+
+.result-more-artist-list {
+  gap: 80px 29px;
+}
+
+
 /* SEARCH PAGE END */
 
 

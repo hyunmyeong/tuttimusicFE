@@ -196,7 +196,8 @@ const SongSlice = createSlice({
     [likeSong.rejected]: (state, action) => {
     },
     [searchMusic.fulfilled]: (state, action) => {
-      
+
+      state.result_artist = action.payload.artistList;
       state.result_musicArtist = action.payload.musicArtist;
       state.result_musicTitle = action.payload.musicTitle;
       state.result_videoArtist = action.payload.videoArtist;
