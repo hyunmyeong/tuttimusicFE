@@ -1558,10 +1558,7 @@ a {
   align-items: center;
   padding: 0px;
   gap: 60px;
-
   width: 600px;
-  height: 306px;
-
 }
 
 .login-info-box {
@@ -1649,6 +1646,37 @@ a {
   outline: none;
   border: none;
   cursor: pointer;
+}
+
+.login-line-wrap {
+  width:100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color:#7a7c85;
+}
+
+.login-line {
+  display: inline-block;
+  height:1px;
+  width:45%;
+  background-color: #7a7c85;
+}
+
+.kakao {
+  color:#3A1D1D;
+  background-color:#F7E600;
+}
+
+.kakao>a {
+  display: flex;
+  align-items: center;
+  gap:10px;
+}
+
+#kakao-icon {
+  font-size: 20px;
+
 }
 
 /* LOGIN PAGE END */
