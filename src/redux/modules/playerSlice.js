@@ -11,6 +11,7 @@ const PlayerSlice = createSlice({
     isPlaying: false,
     volume: 0.5,
     currentTime: 0,
+    allStop: false,
   },
 
   reducers: {
@@ -26,7 +27,9 @@ const PlayerSlice = createSlice({
     },
 
     playerPlay: (state,action) => {
-      const new_list = {...current(state.player), isPlaying:!action.payload};
+      console.log(current(state.player))
+      console.log(action.payload)
+      const new_list = {...current(state.player), isPlaying:!action.payload, allStop: false};
       state.player = new_list;
     },
 
@@ -36,7 +39,7 @@ const PlayerSlice = createSlice({
     },
 
     playerTime: (state,action) => {
-      const new_list = {...current(state.player), currentTime:action.payload};
+      const new_list = {...current(state.player), currentTime:action.payload, allStop: false};
       state.player = new_list;
     },
 
@@ -44,6 +47,11 @@ const PlayerSlice = createSlice({
       const new_list = {...current(state), display: false};
       state.player = new_list;
     },
+
+    musicEnd: (state,action)=>{
+      const new_list = {...current(state.player), allStop: true, currentTime: 0.1, isPlaying:false };
+      state.player = new_list;
+    }
 
 
   },
@@ -56,5 +64,5 @@ const PlayerSlice = createSlice({
 
 })
 
-export const {playerPlay, addASong, playerVolume, playerTime, showPlayer, hidePlayer} = PlayerSlice.actions;
+export const {playerPlay, addASong, playerVolume, playerTime, showPlayer, hidePlayer, musicEnd} = PlayerSlice.actions;
 export default PlayerSlice.reducer;
