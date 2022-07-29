@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Modal from '../elements/Modal';
@@ -38,12 +38,60 @@ function MyEdit() {
 
   const genreNames = ["발라드", "어쿠스틱", "R&B", "힙합", "댄스", "연주곡"]
 
+  const artist_ref= useRef(null);
+
+  const [myName, setMyName] = useState(false);
+  const [checkName, setCheckName] = useState(false);
+  const [NewName, setNewName] = useState("");
+
+
+
+  const artistCheck = () => {
+    const artist = artist_ref.current.value;
+
+    if (artist === "") {
+        setAlert("닉네임을 입력하세요!")
+        openModal()
+        return;
+    } else if (artist === userInfo.artist) {
+      setAlert("현재 닉네임입니다.")
+      openModal()
+        return;
+    } else {
+        axios
+        .post("https://seyeolpersonnal.shop/user/artist",{artist : artist})
+        .then((response) => {
+            if(response) {
+                setNewName(artist)
+                setAlert("사용 가능한 닉네임입니다!")
+                openModal()
+            }    
+        })
+        .catch((error) => {
+            setAlert("중복된 닉네임입니다!")
+            openModal()
+        })
+    }
+}
+
+
 
 
 const myinfoEdit = () => {
+  const artist = artist_ref.current.value;
   const token = localStorage.getItem("token");
 
+  if (NewName !== artist) {
+    if (artist !== userInfo.artist) {
+      setAlert("변경된 닉네임 중복 확인해 주세요!")
+      openModal();
+      return;
+    }  
+  }
+
+  
   const updateData = {
+    artist : artist,
     profileText : profileText,
     instagramUrl : insta,
     youtubeUrl : youtube,
@@ -62,20 +110,27 @@ const myinfoEdit = () => {
 
 
 
-  axios
-  .put("https://seyeolpersonnal.shop/user/mypage", formData, {
-    headers: {Authorization:token? token:""}
-  })
-  .then((response) => {
-    setAlert("수정이 완료되었습니다.")
-    openModal()
-    // navigate('/mypage')
-  })
-  .catch((error) => {
-    setAlert("수정되지 않았습니다.")
-    openModal()
-    
-  })
+
+    axios
+      .put("https://seyeolpersonnal.shop/user/mypage", formData, {
+        headers: { Authorization: token ? token : "" }
+      })
+      .then((response) => {
+        console.log(response);
+        const artist = response.data.data.artist;
+        const profileImage = response.data.data.profileImage;
+        localStorage.setItem("userName", artist);
+        localStorage.setItem("userProfileUrl", profileImage);
+        setAlert("수정이 완료되었습니다.")
+        openModal()
+      })
+      .catch((error) => {
+        setAlert("수정되지 않았습니다.")
+        openModal()
+
+      })
+  
+
 }
 
   
@@ -134,7 +189,7 @@ setClickGenre([
       <SEO pageTitle={window.location.pathname.substring(1)}/>
       <div className='signup-title-box'>
         <p className='signup-title'>회원 정보 수정</p>
-        <p className='signup-subtitle'>닉네임은 수정할 수 없습니다.</p>
+        <p className='signup-subtitle'>회원 정보를 수정해 주세요!</p>
       </div>
 
       <div className='signup-info-box'>
@@ -147,11 +202,15 @@ setClickGenre([
               <p className='signup-pw-title'>닉네임</p>
             </label>
 
-          
-              <input className='signup-pw-input'
-                type="text" 
-                value={userInfo.artist}
-                readOnly/>
+          <div className='signup-input-button'>
+              <input className='signup-email-input'
+                type="text"
+                ref={artist_ref}
+              placeholder="닉네임을 입력하세요" 
+                defaultValue={userInfo.artist}
+                />
+                <button className='secondary signup-button' onClick={(artistCheck)}>중복 확인</button>
+                </div>
           
 
           </div>

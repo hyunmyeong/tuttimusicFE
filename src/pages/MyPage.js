@@ -21,6 +21,8 @@ import { useNavigate } from 'react-router-dom';
 import { useMediaQuery } from "react-responsive";
 import SEO from '../components/SEO';
 
+import Modal from '../elements/Modal';
+
 
 function MyPage() {
 
@@ -40,6 +42,24 @@ function MyPage() {
   const isMobile = useMediaQuery({
     query : "(max-width:480px)"
   })
+
+  const [alert, setAlert] = useState("")
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+        setModalOpen(true);
+        };
+  const closeModal = () => {
+        setModalOpen(false);
+        };
+
+
+  useEffect(()=> {
+    if (localStorage.getItem("check")) {
+      setAlert("프로필을 설정해 주세요!");
+      openModal();
+    }
+  },[])
 
 
 
@@ -231,6 +251,7 @@ function MyPage() {
           }
         </div>
       </div>
+      <Modal open={modalOpen} close={closeModal} alert={alert}/>
     </div>
   )
 }

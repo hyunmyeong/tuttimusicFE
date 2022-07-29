@@ -217,6 +217,7 @@ const SignUp = () => {
                 setAlert("가입이 완료되었어요!")
                 openModal()
                 navigate('/login')
+                window.scrollTo(0, 0);
             })
             .catch((error) => {
                 setAlert("이메일 인증 전입니다. 메일함을 확인해 주세요!")

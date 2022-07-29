@@ -29,6 +29,7 @@ import EmailCheck from './pages/EmailCheck';
 import Player from './components/Player';
 import SEO from './components/SEO';
 import LoadingLive from './pages/LoadingLive';
+import KakaoLogin from './elements/kakaoLogin';
 
 function App() {
 
@@ -142,8 +143,8 @@ function App() {
             <Route path="/livelist" element={<FaceChatList/>}></Route>
 
             <Route path="/emailcheck" element={<EmailCheck/>}></Route>
-
-
+            
+            <Route path="/oauth/callback/kakao" element={<KakaoLogin/>}/>
             <Route path="*" element={<NotFound />}></Route>
 
           </Routes>

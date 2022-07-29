@@ -9,6 +9,13 @@ import { useMediaQuery } from "react-responsive";
 import NotFound from './NotFound';
 import SEO from '../components/SEO';
 import ImageUrl from '../elements/ImageSrc';
+import { RiKakaoTalkFill } from "react-icons/ri";
+import { ImBubble } from "react-icons/im";
+
+import {KAKAO_AUTH_URL} from '../elements/OAuth';
+
+
+
 
 const Login = (props) => {
 
@@ -117,6 +124,7 @@ if (localStorage.getItem("token")) {
 
                         {/* 이메일 부분 */}
                     <input className='login-email-input'
+                        type="email"
                         onChange={(e)=>{
                             setEmail(e.target.value)
                         }}
@@ -146,6 +154,12 @@ if (localStorage.getItem("token")) {
                     </div>
                 </div>
             <button className='primary login-button' onClick={loginCheck}>로그인</button>
+            <div className='login-line-wrap'>
+            <span className='login-line'></span>
+            <span className='login-or'>또는</span>
+            <span className='login-line'></span>
+            </div>
+            <button className='login-button kakao'><a href={KAKAO_AUTH_URL}><ImBubble id="kakao-icon"/>카카오 로그인</a></button>
             <Modal open={modalOpen} close={closeModal} alert={alert}/>
             </div>
         </div>  
