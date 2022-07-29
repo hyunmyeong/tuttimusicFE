@@ -417,15 +417,7 @@ a {
   margin-top: 63px;
   margin-bottom: 34px;
   white-space: pre-wrap;
-  
-  /* overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  word-wrap:break-word;  */
   line-height: 22px;
-  /* height: 66px; */
 }
 
 .detail-more-detail{
@@ -680,13 +672,6 @@ a {
 
 /* MYPAGE */
 .mypage-container {
-  /* display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 50px 0px;
-  gap: 40px;
-  width: 1280px;
-  height: 1459px; */
 
   max-width: 1280px;
   width: 100%;
@@ -761,10 +746,6 @@ a {
   gap: 18px;
   margin-top: -35px;
 
-  /* display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center; */
 }
 
 .sns-icon {
@@ -856,7 +837,6 @@ a {
 
 .icon-separate {
   display: flex;
-  /* flex-direction: row; */
   justify-content: flex-start;
   align-items: center;
 
@@ -1317,11 +1297,6 @@ a {
   height: 200px;
   border-radius: 50%;
 
-  /* background-size: cover;
-  background-position: center center;
-
-  align-items: flex-start; */
-
   object-fit: cover;
 
   background: #D9D9D9;
@@ -1528,7 +1503,6 @@ a {
 
   max-width: 1280px;
   width: 100%;
-  /* width: 600px; */
   height: 567px;
   
   margin : 0px auto 500px;
@@ -2727,11 +2701,6 @@ input[type=radio] {
   font-weight: 500;
 }
 
-/* video {
-  height: 497px !important;
-  object-fit: cover !important;
-  object-position:;
-} */
 
 .send{
   margin: 4px 0 0 3px;
@@ -2929,13 +2898,11 @@ input[type=radio] {
   margin: 0 auto;
   border-radius: 10px;
   background-color: #fff;
-  /* 팝업이 열릴때 스르륵 열리는 효과 */
   animation: modal-show 0.3s;
   overflow: hidden;
 }
 .modal > section > main {
   padding: 60px 20px 10px 20px ;
-  /* border-bottom: 1px solid #dee2e6; */
   font-size: 18px;
   text-align: center;
   color: #000;
@@ -2972,7 +2939,6 @@ input[type=radio] {
 .modal.openModal {
   display: flex;
   align-items: center;
-  /* 팝업이 열릴때 스르륵 열리는 효과 */
   animation: modal-bg-show 0.3s;
 }
 @keyframes modal-show {
@@ -3086,11 +3052,6 @@ input[type=radio] {
   0% { box-shadow: 0 0 0 0 rgb(202, 194, 255)  }
 }
 
-/* .raise:hover,
-.raise:focus {
-  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
-  transform: translateY(-0.25em);
-} */
 
 
 @media only screen and (max-width: 970px) {
