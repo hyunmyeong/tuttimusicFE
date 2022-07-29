@@ -488,6 +488,7 @@ a {
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .comment-input{
@@ -554,6 +555,7 @@ a {
 .comment-writer{
   font-size: 17px;
   margin: 0 0 10px 0;
+  cursor: pointer;
 }
 
 .comment-text{

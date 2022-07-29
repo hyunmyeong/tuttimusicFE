@@ -1,4 +1,5 @@
 import React, {useRef, useState} from "react";
+import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import {MdDelete} from "react-icons/md";
 import {deleteComment, editAComment} from "../redux/modules/songSlice";
@@ -10,6 +11,8 @@ import Modal from '../elements/Modal'
 import ConfirmModal from './ConfirmModal';
 
 function EditComment(props) {
+  const navigate = useNavigate();
+
   const comment = props.comment
   const username = props.username
   const dispatch = useDispatch();
@@ -70,7 +73,10 @@ function EditComment(props) {
 <div className="column-wrap">
     {editing === false?
         <>
-          <p className="comment-writer">
+          <p className="comment-writer"
+          onClick={()=>{
+            navigate(`/userpage/${comment.artist}`)
+            }}>
           {comment.artist}
           <span className="spantime">
             {moment(`${comment.modifiedAt}`).startOf('minute').fromNow()}
