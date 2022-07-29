@@ -5,6 +5,7 @@ import {getMusicFeed} from "../redux/modules/songSlice";
 import BeatLoader from "react-spinners/BeatLoader";
 import { useInView } from 'react-intersection-observer';
 import SEO from '../components/SEO';
+import ToButton from "../elements/ToButton";
 
 function MusicFeed() {
   const [loading, setLoading] = useState(true);
@@ -85,6 +86,44 @@ function MusicFeed() {
 
   const [typeBtn, setTypeBtn] = useState(0);
   const [genreBtn, setGenreBtn] = useState(false);
+
+
+  // scroll-top
+  // const TopButton = () => {
+  //   const [showButton, setShowButton] = useState(false);
+
+  //   const scrollToTop = () => {
+  //     window.scroll({
+  //       top: 0,
+  //       behavior: "smooth"
+  //     })
+  //   }
+
+  //   useEffect(() => {
+  //     const handleShowButton = () => {
+  //       if (window.scrollY > 500) {
+  //         setShowButton(true)
+  //       } 
+  //       else {
+  //         setShowButton(false)
+  //       }
+  //     }
+
+  //     console.log(window.scrollY)
+  //     window.addEventListener("scroll", handleShowButton)
+  //     return () => {
+  //       window.removeEventListener("scroll", handleShowButton)
+  //     }
+  //   }, [])
+
+  //   // return showButton && (
+  //   //   <div className="scroll-container">
+  //   //     <button id="top" type="button" onClick={scrollToTop}>Top</button>
+  //   //   </div>
+  //   // )
+  // }
+
+
 
   return (
     <div className="musicfeed-container">
@@ -204,7 +243,7 @@ function MusicFeed() {
       }
       <div ref={ref}></div>
       </section>
-    
+      <ToButton/>
     </div>
   )
 }
