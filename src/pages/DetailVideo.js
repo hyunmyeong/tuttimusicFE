@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import {getSongDetail,postComment, SERVER_URL, likeSong} from "../redux/modules/songSlice"
 import {FaRegHeart, FaHeart} from "react-icons/fa";
+import { IconContext } from "react-icons";
 import {MdDelete} from "react-icons/md"
 import BeatLoader from "react-spinners/BeatLoader";
 import {BsCheckCircle} from "react-icons/bs";
@@ -154,11 +155,17 @@ function DetailVideo() {
               onClick={
                 ClickEmptyHeart
               }/> 
-              : <FaHeart
+              : 
+              <>
+              <IconContext.Provider value={{ color:detail.color}}>
+              <FaHeart
               onClick={
                 ClickFilledHeart
               }
-              />}
+              />
+              </IconContext.Provider>
+              </>}
+
               <p className="detail-like">{detail.likeCount}</p>
             </div>
         <section className="music-detail">
@@ -167,7 +174,10 @@ function DetailVideo() {
         
         
           <div className="left-column">
-            <div className="detail-artist-profile">
+            <div className="detail-artist-profile"
+              onClick={()=>{
+              navigate(`/userpage/${detail.artist}`)
+              }}>
               <img 
               className="detail-artist-img"
               alt={detail.artist}
@@ -254,6 +264,9 @@ function DetailVideo() {
                   className="detail-artist-img-sm"
                   alt={comment.artist}
                   src={comment.profileUrl}
+                  onClick={()=>{
+                    navigate(`/userpage/${comment.artist}`)
+                    }}
                   />
                   <div className="column-wrap">
                     <EditComment comment={comment} token={token} feedid={detail.id} username={userName}/>

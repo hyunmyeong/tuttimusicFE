@@ -53,7 +53,7 @@ function FaceChatList() {
   
     const enterRoom=(params)=>{
       if (!token) {
-        setAlert("로그인을 하고 입장해 주세요!");
+        setAlert("로그인 후 입장해 주세요!");
         openModal();
       } else {
         navigate(`/live/`+params)

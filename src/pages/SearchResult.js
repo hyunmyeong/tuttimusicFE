@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import {useLocation} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import {SERVER_URL} from "../redux/modules/songSlice";
 import SEO from '../components/SEO';
 
 function SearchResult() {
@@ -23,6 +24,8 @@ function SearchResult() {
     const musicTitle = useSelector((state)=> state.Song.result_musicTitle)
     const videoArtist = useSelector((state)=> state.Song.result_videoArtist)
     const videoTitle = useSelector((state)=> state.Song.result_videoTitle)
+    const searchArtist = useSelector((state)=> state.Song.result_artist)
+    console.log(searchArtist);
 
     const list1= musicTitle?.filter((item, index) => {
         return index <6;
@@ -38,15 +41,28 @@ function SearchResult() {
       })
 
     const moreResultsClick =(props)=> {
-      axios
-      .get(`https://seyeolpersonnal.shop/search/more?category=${props}&keyword=${keyword}`, {
-        headers: {Authorization:token? token:""}
-      })
-      .then((response)=>{
-        setData(response.data.results)
-      })
-      .catch((error)=>{
-      })
+      if (props === "moreArtist") {
+        axios
+        .get(`${SERVER_URL}/search/moreArtist?keyword=${keyword}`, {
+          headers: {Authorization:token? token:""}
+        })
+        .then((response)=>{
+          setData(response.data.results)
+        })
+        .catch((error)=>{
+        })
+      } else {
+        axios
+        .get(`${SERVER_URL}/search/more?category=${props}&keyword=${keyword}`, {
+          headers: {Authorization:token? token:""}
+        })
+        .then((response)=>{
+          setData(response.data.results)
+        })
+        .catch((error)=>{
+        })
+      }
+
     }
 
   return (
@@ -55,10 +71,19 @@ function SearchResult() {
       <SEO pageTitle={"search"}/>
       {data?
       <>
-        <p className="search-head"><span className="bold">
+      {type === "아티스트" ? 
+      <>
+      <p className="search-head"><span className="bold">
+        '{keyword}'</span>에 대한 {type} 검색 결과입니다.
+        </p>
+      </> 
+      : 
+      <>
+      <p className="search-head"><span className="bold">
         '{keyword}'</span>에 대한 {type} : {subtype}으로 검색한 결과입니다.
         </p>
-        
+      </>
+      }
         <p 
         className="more-results right-text"
         onClick={()=>{
@@ -96,7 +121,7 @@ function SearchResult() {
             })
             }
         </section>
-        :
+        : type === "영상"?
         <section className="feed-list tab-body">
             {data.map((song,index)=>{
             return(
@@ -123,17 +148,103 @@ function SearchResult() {
             })
             }
           </section>
+        : type === "아티스트" ? 
+        <section className="body-like-list result-more-artist-list">
+          
+        {data.map((artist,index)=>{
+        return(
+        <div 
+        className="body-following-card result-artist-card"
+        onClick={()=>{
+          navigate('/userpage/'+artist.artist)
+        }}>
+          <img
+          alt={artist.artist}
+          className="body-circle" 
+          src={artist.profileUrl}
+          />
+            <p className="body-title result-artist-title">
+            {artist.artist}
+            </p>
+        </div>
+        )
+        })
         }
+      </section> :
+      null}
       </>
       :
       <>
       <p className="search-head"><span className="bold">
         '{keyword}'</span>에 대한 검색 결과입니다.
       </p>
+
+      {/* 아티스트 */}
+
+      <div className="search-flex search-flex-artist">
+      <p className="result-name result-name-artist">
+        아티스트
+      </p>
+        {searchArtist&&searchArtist.length > 6 ?
+        <p 
+        className="more-results"
+        onClick={()=>{
+          moreResultsClick("moreArtist")
+          setType("아티스트")
+          setSubtype("곡명")
+        }}
+        >
+          더보기
+        </p>
+        : null}
+      </div> 
+      {searchArtist&&searchArtist.length > 0 ?
+      <>
+        <section className="body-like-list result-artist-list">
+          
+          {searchArtist.map((artist,index)=>{
+          return(
+          <div 
+          className="body-following-card"
+          onClick={()=>{
+            navigate('/userpage/'+artist.artist)
+          }}>
+            <img
+            alt={artist.artist}
+            className="body-circle" 
+            src={artist.profileUrl}
+            />
+              <p className="body-title">
+              {artist.artist}
+              </p>
+          </div>
+          )
+          })
+          }
+        </section> 
+        
+      </>
+      :
+      <>
+        <section className="feed-list">
+        <p className="result-none">
+          매칭하는 아티스트가 없어요.
+        </p>
+        </section>
+      </>
+      }
+
+
+
+      {/* 오디오 */}
+
       <p className="result-name">
         곡
       </p>
       <div className="search-flex">
+
+        {/* 오디오 - 곡명으로 검색 */}
+
         <p className="result-sub-name">
           곡명으로 검색
         </p>
@@ -191,6 +302,8 @@ function SearchResult() {
       </>
       }
 
+      {/* 오디오 - 아티스트명으로 검색 */}
+
       <div className="search-flex">
         <p className="result-sub-name">
           아티스트명으로 검색
@@ -247,10 +360,12 @@ function SearchResult() {
         </>
         }
 
+      {/* 비디오 */}
       <p className="result-name">
         영상
       </p>
       <div className="search-flex">
+      {/* 비디오 - 곡명으로 검색 */}
         <p className="result-sub-name">
           곡명으로 검색
         </p>
@@ -307,6 +422,7 @@ function SearchResult() {
       </>
       }
 
+      {/* 비디오 - 곡명으로 검색 */}
     <div className="search-flex">
         <p className="result-sub-name">
           아티스트명으로 검색

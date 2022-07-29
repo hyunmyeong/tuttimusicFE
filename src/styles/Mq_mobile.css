@@ -1467,6 +1467,20 @@
   .more-results{
     margin-right:0;
   }
+
+
+  .result-artist-title {
+    width: 100%;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    text-align: center;
+  }
   
   /* SEARCH PAGE END */
   

@@ -193,7 +193,7 @@ function Detail() {
             />
             <div 
             className="detail-artist-profile"
-            onClick={()=>{ detail.artist === localStorage.getItem("userName") ? navigate("/mypage") :
+            onClick={()=>{
               navigate(`/userpage/${detail.artist}`)
             }}>
               <img 
@@ -302,6 +302,9 @@ function Detail() {
                   className="detail-artist-img-sm"
                   alt={comment.artist}
                   src={comment.profileUrl}
+                  onClick={()=>{
+                    navigate(`/userpage/${comment.artist}`)
+                    }}
                   />
                   <div className="column-wrap">
                     <EditComment comment={comment} token={token} feedid={detail.id} username={userName}/>

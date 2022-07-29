@@ -17,6 +17,10 @@ import {Range, getTrackBackground} from "react-range";
 
 import {IoMdPlay} from "react-icons/io";
 
+import Modal from "./Modal";
+
+
+
 
 function Waveform(props) {
 
@@ -29,6 +33,22 @@ function Waveform(props) {
   const [currentTime, setCurrentTime] = useState(0);
   const [total, setTotal] = useState(null);
   const [show, setShow] = useState(false);
+
+  const token = localStorage.getItem("token");
+
+  const alert = "로그인 후 하트를 누를 수 있습니다.";
+
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+    };
+const closeModal = () => {
+    setModalOpen(false);
+    };
+
+
+
 
 
   // create new WaveSurfer
@@ -132,6 +152,9 @@ useEffect(()=>{
   }
 
   const ClickEmptyHeart =()=>{
+    if (!token) {
+      openModal();
+    }
     dispatch(likeSong({
       token: props.token,
       feedid: props.detail.id,
@@ -231,6 +254,8 @@ useEffect(()=>{
       </div>
     </>
     )}
+
+<Modal open={modalOpen} close={closeModal} alert={alert}/>
     </>
   )
 }
