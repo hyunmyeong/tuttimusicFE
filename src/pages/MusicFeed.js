@@ -88,43 +88,6 @@ function MusicFeed() {
   const [genreBtn, setGenreBtn] = useState(false);
 
 
-  // scroll-top
-  // const TopButton = () => {
-  //   const [showButton, setShowButton] = useState(false);
-
-  //   const scrollToTop = () => {
-  //     window.scroll({
-  //       top: 0,
-  //       behavior: "smooth"
-  //     })
-  //   }
-
-  //   useEffect(() => {
-  //     const handleShowButton = () => {
-  //       if (window.scrollY > 500) {
-  //         setShowButton(true)
-  //       } 
-  //       else {
-  //         setShowButton(false)
-  //       }
-  //     }
-
-  //     console.log(window.scrollY)
-  //     window.addEventListener("scroll", handleShowButton)
-  //     return () => {
-  //       window.removeEventListener("scroll", handleShowButton)
-  //     }
-  //   }, [])
-
-  //   // return showButton && (
-  //   //   <div className="scroll-container">
-  //   //     <button id="top" type="button" onClick={scrollToTop}>Top</button>
-  //   //   </div>
-  //   // )
-  // }
-
-
-
   return (
     <div className="musicfeed-container">
       <SEO pageTitle={window.location.pathname.substring(1)}/>
