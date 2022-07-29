@@ -1429,7 +1429,7 @@ a {
   justify-content: space-between;
   align-items: flex-start;
   padding: 0px;
-  gap: 46px;
+  gap: 20px;
   width: 820px;
   height: 51px;
   flex-wrap: wrap;
@@ -1469,6 +1469,7 @@ a {
   align-items: flex-start;
   padding: 0px 10px 0px 30px;
   gap: 10px;
+  margin-top: -10px;
 
   width: 232px;
   height: 19px;
