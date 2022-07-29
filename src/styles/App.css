@@ -467,6 +467,21 @@ a {
   font-weight: bold;
 }
 
+.music-video-genre {
+  margin-top:40px;
+  margin-bottom:20px;
+  margin-left: 0px;
+  font-size: 15px;
+  align-items:flex-start;
+}
+
+.video-genre {
+  color: #7A7C85;
+  font-size: 15px;
+  margin-left: 10px;
+  font-weight: lighter;
+}
+
 .music-video video {
   width:1280px;
 }
