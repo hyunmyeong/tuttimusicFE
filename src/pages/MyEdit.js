@@ -312,28 +312,34 @@ setClickGenre([
 
 const GenreBox = styled.div`
     .genre0{
-        background-color:${(props) => (props.clickGenre[0] ? '#545454' : '#DADADA')};
-        color:${(props) => (props.clickGenre[0] ? '#fff' : '#000')};
+        background-color:${(props) => (props.clickGenre[0] ? '#E7E4FD' : '#DADADA')};
+        color:${(props) => (props.clickGenre[0] ? '#8A51FB' : '#000')};
+        border: ${(props) => (props.clickGenre[0] ? '1px solid #8A51FB' : 'none')};
     }
     .genre1{
-        background-color:${(props) => (props.clickGenre[1] ? '#545454' : '#DADADA')};
-        color:${(props) => (props.clickGenre[1] ? '#fff' : '#000')};
+        background-color:${(props) => (props.clickGenre[1] ? '#E7E4FD' : '#DADADA')};
+        color:${(props) => (props.clickGenre[1] ? '#8A51FB' : '#000')};
+        border: ${(props) => (props.clickGenre[1] ? '1px solid #8A51FB' : 'none')};
     }
     .genre2{
-        background-color:${(props) => (props.clickGenre[2] ? '#545454' : '#DADADA')};
-        color:${(props) => (props.clickGenre[2] ? '#fff' : '#000')};
+        background-color:${(props) => (props.clickGenre[2] ? '#E7E4FD' : '#DADADA')};
+        color:${(props) => (props.clickGenre[2] ? '#8A51FB' : '#000')};
+        border: ${(props) => (props.clickGenre[2] ? '1px solid #8A51FB' : 'none')};
     }
     .genre3{
-        background-color:${(props) => (props.clickGenre[3] ? '#545454' : '#DADADA')};
-        color:${(props) => (props.clickGenre[3] ? '#fff' : '#000')};
+        background-color:${(props) => (props.clickGenre[3] ? '#E7E4FD' : '#DADADA')};
+        color:${(props) => (props.clickGenre[3] ? '#8A51FB' : '#000')};
+        border: ${(props) => (props.clickGenre[3] ? '1px solid #8A51FB' : 'none')};
     }
     .genre4{
-        background-color:${(props) => (props.clickGenre[4] ? '#545454' : '#DADADA')};
-        color:${(props) => (props.clickGenre[4] ? '#fff' : '#000')};
+        background-color:${(props) => (props.clickGenre[4] ? '#E7E4FD' : '#DADADA')};
+        color:${(props) => (props.clickGenre[4] ? '#8A51FB' : '#000')};
+        border: ${(props) => (props.clickGenre[4] ? '1px solid #8A51FB' : 'none')};
     }
     .genre5{
-        background-color:${(props) => (props.clickGenre[5] ? '#545454' : '#DADADA')};
-        color:${(props) => (props.clickGenre[5] ? '#fff' : '#000')};
+        background-color:${(props) => (props.clickGenre[5] ? '#E7E4FD' : '#DADADA')};
+        color:${(props) => (props.clickGenre[5] ? '#8A51FB' : '#000')};
+        border: ${(props) => (props.clickGenre[5] ? '1px solid #8A51FB' : 'none')};
     }
 `
 
