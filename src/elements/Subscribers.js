@@ -96,7 +96,7 @@ class Subscribers extends Component {
             this.setState({
             spinner:false,
         });
-        },1000)
+        },2000)
         
     }
 
