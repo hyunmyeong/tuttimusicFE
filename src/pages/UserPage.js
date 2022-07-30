@@ -72,11 +72,6 @@ function UserPage() {
 
   useEffect(()=>{
 
-    if(params.artist === userName) {
-      navigate("/mypage");
-      return;
-    }
-
     setLoading(true);
     axios
     .get("https://seyeolpersonnal.shop/user/profile/"+params.artist, {

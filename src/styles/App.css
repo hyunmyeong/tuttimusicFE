@@ -2323,7 +2323,7 @@ input[type=radio] {
 }
 
 .logo {
-  width: 20px;
+  width: 69px;
   cursor: pointer;
 }
 
@@ -2333,7 +2333,7 @@ input[type=radio] {
 }
 
 .nav {
-  width:30.86%;
+  width:27.03%;
 }
 
 .nav ul {
@@ -3208,8 +3208,14 @@ input[type=radio] {
 }
 
 .loading-title {
-  font-size: 40px;
-  color: var(--primary-color);
+  font-size: 36px;
+  color: #000;
+  margin-bottom: 16px;
+}
+
+.loading-sub-title {
+  font-size: 16px;
+  color: #7A7C85;
 }
 /* LoadingLive end */
 

@@ -133,7 +133,7 @@ function Main() {
           speed: 500,
           slidesToShow: 3,
           slidesToScroll: 3,
-          arrows: true,
+          arrows: false,
           nextArrow: <SampleNextArrow />,
           prevArrow: <SamplePrevArrow />,
         }
@@ -229,7 +229,7 @@ function Main() {
                 }}>
                   <img
                   alt={song.title}
-                  className="main-album-art" 
+                  className="main-album-art mobile-album-art" 
                   src={song.albumImageUrl}
                   srcset={song.albumImageUrl+" 100w"}
                   sizes="30vw"
@@ -268,7 +268,7 @@ function Main() {
                 }}>
                   <img
                   alt={song.title}
-                  className="main-album-art" 
+                  className="main-album-art mobile-album-art" 
                   src={song.albumImageUrl}
                   />
                   <div className="main-card-text">
@@ -312,7 +312,7 @@ function Main() {
                   <div className="musicfeed-album-box">
                   <img
                   alt={song.title}
-                  className="main-album-art musicfeed-album-art" 
+                  className="main-album-art musicfeed-album-art mobile-album-art" 
                   src={song.albumImageUrl}
                   />
                   </div>
@@ -340,7 +340,7 @@ function Main() {
                 }}>
                   <img
                   alt={song.title}
-                  className="main-album-art" 
+                  className="main-album-art mobile-album-art" 
                   src={song.albumImageUrl}
                   />
                   <div className="main-card-text">

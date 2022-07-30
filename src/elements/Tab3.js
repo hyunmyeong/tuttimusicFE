@@ -49,6 +49,14 @@ useEffect(()=>{
     window.scrollTo(0,0);
     },[])
 
+    const SameName = (artist) => {
+      if(artist === localStorage.getItem("userName")) {
+        navigate("/mypage");
+      } else {
+        navigate(`/userpage/${artist}`);
+      }
+    }
+
 
 
     return( 
@@ -75,7 +83,7 @@ useEffect(()=>{
                         {song.title}
                         </p>
                         <p className="main-card-artist"
-                        onClick={() => {navigate(`/userpage/${song.artist}`)}}>
+                        onClick={() => SameName(song.artist)}>
                         {song.artist}
                         </p>
                     </div>
