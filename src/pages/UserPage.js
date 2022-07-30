@@ -72,11 +72,6 @@ function UserPage() {
 
   useEffect(()=>{
 
-    if(params.artist === userName) {
-      navigate("/mypage");
-      return;
-    }
-
     setLoading(true);
     axios
     .get("https://seyeolpersonnal.shop/user/profile/"+params.artist, {
@@ -184,7 +179,7 @@ const new_count = useSelector((state) => state.User.artist?.followerCount)
               </div>
               <div className='mobile-user-button'>
               <button 
-            className='primary mobile-follow-follower-button'
+            className={isFollow===false? 'primary mobile-follow-follower-button' : 'mobile-follow-follower-button background-change'}
             isFollow ={isFollow}
             onClick={()=>{
               FollowThisArtist()
@@ -192,7 +187,7 @@ const new_count = useSelector((state) => state.User.artist?.followerCount)
             >
             {isFollow===false?
             <div className='icon-separate'><BsPersonPlus className='follow-icon'/><p className='mobile-follow-follower-button-text'>팔로우</p></div>
-            : <div className='icon-separate'><BsPersonCheck className='follow-icon'/><p className='mobile-follow-follower-button-text'>팔로잉</p></div>
+            : <div className='icon-separate'><BsPersonCheck className='follow-icon change-color'/><p className='mobile-follow-follower-button-text change-color'>팔로잉</p></div>
             }
             </button>
             </div>
@@ -241,13 +236,13 @@ const new_count = useSelector((state) => state.User.artist?.followerCount)
 
                 {/* navigate 함수로 myedit 페이지로 갈 때, userInfoDto에 담아져있는 데이터를 state로 가져감 */}
                 <button 
-            className='primary follow-follower-button'
+            className={isFollow===false? 'follow-follower-button' : 'follow-follower-button background-change'}
             isFollow ={isFollow}
             onClick={LoginFollow}            
             >
             {isFollow===false?
             <div className='icon-separate'><BsPersonPlus className='follow-follower-icon'/><p className='follow-follower-button-text'>팔로우</p></div>
-            : <div className='icon-separate'><BsPersonCheck className='follow-follower-icon'/><p className='follow-follower-button-text'>팔로잉</p></div>
+            : <div className='icon-separate'><BsPersonCheck className='follow-follower-icon change-color'/><p className='follow-follower-button-text change-color'>팔로잉</p></div>
             }
             </button>
 

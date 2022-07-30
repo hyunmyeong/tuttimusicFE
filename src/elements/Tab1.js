@@ -27,9 +27,12 @@ function Tab1(props) {
 
   // artist 클릭 시 새로고침 하면서 navigate 하는 함수
 
-  const ClickArtist = (artist) => {
-    navigate(`/userpage/${artist}`);
-    window.location.reload();
+  const SameName = (artist) => {
+    if(artist === localStorage.getItem("userName")) {
+      navigate("/mypage");
+    } else {
+      navigate(`/userpage/${artist}`);
+    }
   }
 
 
@@ -61,7 +64,7 @@ function Tab1(props) {
                           {song.title}
                         </p>
                         <p className="main-card-artist page-card-artist"
-                          onClick={() => {navigate(`/userpage/${song.artist}`)}}>
+                          onClick={() => SameName(song.artist)}>
                           {song.artist}
                         </p>
                       </div>
@@ -100,7 +103,7 @@ function Tab1(props) {
                           {song.title}
                         </p>
                         <p className="main-card-artist"
-                        onClick={() => {navigate(`/userpage/${song.artist}`)}}>
+                        onClick={() => SameName(song.artist)}>
                           {song.artist}
                         </p>
                       </div>
@@ -131,9 +134,9 @@ function Tab1(props) {
                         src={song.profileImage}
                         className='body-circle'
                         alt={song.artist} 
-                        onClick={() => {navigate(`/userpage/${song.artist}`)}}/>
+                        onClick={() => SameName(song.artist)}/>
                       <p className='body-title'
-                      onClick={() => {navigate(`/userpage/${song.artist}`)}}>{song.artist}</p>
+                      onClick={() => SameName(song.artist)}>{song.artist}</p>
                     </div>
                   )
                 })

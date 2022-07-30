@@ -68,15 +68,21 @@ function EditComment(props) {
     setDropdown(false); 
   }
 
+  const SameName = (artist) => {
+    if(artist === localStorage.getItem("userName")) {
+      navigate("/mypage");
+    } else {
+      navigate(`/userpage/${artist}`);
+    }
+  }
+
 
   return (
 <div className="column-wrap">
     {editing === false?
         <>
           <p className="comment-writer"
-          onClick={()=>{
-            navigate(`/userpage/${comment.artist}`)
-            }}>
+          onClick={()=>SameName(comment.artist)}>
           {comment.artist}
           <span className="spantime">
             {moment(`${comment.modifiedAt}`).startOf('minute').fromNow()}

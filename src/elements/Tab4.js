@@ -49,6 +49,14 @@ function Tab4() {
         window.scrollTo(0,0);
     },[])
 
+    const SameName = (artist) => {
+      if(artist === localStorage.getItem("userName")) {
+        navigate("/mypage");
+      } else {
+        navigate(`/userpage/${artist}`);
+      }
+    }
+
 
     return( 
         <>
@@ -63,7 +71,7 @@ function Tab4() {
         {list&&list.map((song, Index)=>{
             return(
                 <div className='body-following-card'
-                onClick={() => {navigate(`/userpage/${song.artist}`)}}>
+                onClick={() => SameName(song.artist)}>
                     <img 
                     src={song.profileImage} 
                     className='body-circle'

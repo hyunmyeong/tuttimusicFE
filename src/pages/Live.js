@@ -90,7 +90,8 @@ function Live() {
           <div className="live-info-user">
             <div id="live-info-user-name">
             <a
-            href={`/userpage/${data.artist}`}
+            href={userName === data.artist ? 
+            `mypage` : `/userpage/${data.artist}`}
             target="_blank"
             rel="noopener noreferrer">{data.artist}</a>
             </div>

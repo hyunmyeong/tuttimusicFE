@@ -99,6 +99,14 @@ function Detail() {
     return commenter;
   })
 
+  const SameName = (artist) => {
+    if(artist === localStorage.getItem("userName")) {
+      navigate("/mypage");
+    } else {
+      navigate(`/userpage/${artist}`);
+    }
+  }
+
 
   
   return (
@@ -144,9 +152,7 @@ function Detail() {
               
           <div 
             className="detail-artist-profile"
-            onClick={()=>{ detail.artist === localStorage.getItem("userName") ? navigate("/mypage") :
-              navigate(`/userpage/${detail.artist}`)
-            }}>
+            onClick={()=>SameName(detail.artist)}>
               <img 
               className="detail-artist-img"
               alt={detail.artist}
@@ -193,9 +199,7 @@ function Detail() {
             />
             <div 
             className="detail-artist-profile"
-            onClick={()=>{
-              navigate(`/userpage/${detail.artist}`)
-            }}>
+            onClick={()=>SameName(detail.artist)}>
               <img 
               className="detail-artist-img"
               alt={detail.artist}
@@ -302,9 +306,7 @@ function Detail() {
                   className="detail-artist-img-sm"
                   alt={comment.artist}
                   src={comment.profileUrl}
-                  onClick={()=>{
-                    navigate(`/userpage/${comment.artist}`)
-                    }}
+                  onClick={()=>SameName(detail.artist)}
                   />
                   <div className="column-wrap">
                     <EditComment comment={comment} token={token} feedid={detail.id} username={userName}/>

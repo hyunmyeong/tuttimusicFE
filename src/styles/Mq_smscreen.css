@@ -599,7 +599,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
 .follow-follower-icon {
     width: 18px;
     height: 18px;
-    color: #FFFFFF;
     margin-left: 5px;
 }
 
@@ -616,7 +615,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     margin-top: 40px;
     border-radius: 10px;
     outline: none;
-    border: none;
 }
 
 .icon-separate {
@@ -632,8 +630,6 @@ font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, '
     font-weight: 400;
     font-size: 13px;
     line-height: 17px;
-    color: #FFFFFF;
-    cursor: pointer;
 }
 
 .mypage-body {

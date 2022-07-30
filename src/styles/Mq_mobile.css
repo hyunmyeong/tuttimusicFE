@@ -113,6 +113,12 @@
   .main-album-art {
     margin-bottom: 13px;
   }
+
+  .mobile-album-art {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+  }
   
   .main-thumbnail {
     width: 100%;
@@ -142,7 +148,7 @@
   .main-card-artist{
     font-size: 12px;
   }
-  
+
   /* MAIN PAGE END */
   
   /* MUSIC FEED */
@@ -751,7 +757,6 @@
   .follow-icon {
     width:17px;
     height:17px;
-    color:#fff;
     margin-right: 5px;
   }
   
@@ -760,7 +765,7 @@
     height: 40px;
     border-radius: 10px;
     outline: none;
-    border: none;
+    /* border: none; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2580,6 +2585,21 @@
 
   /* MODAL END */
   
+  /* LoadingLive start */
+
+.loading-wrap {
+  width:100%;
+}
+
+.loading-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.loading-sub-title {
+  font-size: 14px;
+}
+/* LoadingLive end */
   
   }
 
