@@ -2788,7 +2788,7 @@ input[type=radio] {
 
 .video-cam {
   color: #FFFF;
-  font-size: 24px;
+  font-size: 23px;
 }
 
 .video-cam.active {
@@ -2797,7 +2797,7 @@ input[type=radio] {
 
 .video-mic{
   color: #FFFF;
-  font-size: 25px;
+  font-size: 24px;
 }
 
 .video-mic.active {
@@ -2807,12 +2807,17 @@ input[type=radio] {
 
 .video-change {
   color: var(--primary-color);
-  font-size: 26px;
+  font-size: 25px;
 }
 
 .video-exit {
   color: #fff;
-  font-size: 27px;
+  font-size: 24px;
+}
+
+.video-exit:hover,
+.video-exit:focus {
+  transform: scale(1.03);
 }
 
 .whiteText{

@@ -7,9 +7,12 @@ import Modal from '../elements/Modal';
 import NotFound from './NotFound';
 import SEO from '../components/SEO';
 
-function CreateLive() {
+import { useDispatch } from "react-redux";
+import {checkSession} from "../redux/modules/videoSlice";
 
+function CreateLive() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const color_ref = useRef(null);
   const title_ref = useRef(null);
@@ -22,6 +25,10 @@ function CreateLive() {
   const [alert, setAlert] = useState("")
 
   const [modalOpen, setModalOpen] = useState(false);
+
+  useEffect(()=>{
+    dispatch(checkSession(false));
+  },[]);
   
 
   const openModal = () => {

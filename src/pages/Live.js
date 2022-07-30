@@ -11,10 +11,12 @@ import {usePrompt} from '../elements/Blocker';
 import NotFound from "./NotFound";
 import SEO from '../components/SEO';
 
-function Live() {
-  
+import { useDispatch } from "react-redux";
+import {checkSession} from "../redux/modules/videoSlice";
 
+function Live() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   //PARAMS=STREAMER'S NAME
   let params = useParams();
@@ -30,6 +32,7 @@ function Live() {
 
   useEffect(()=>{
     setLoading(true);
+    dispatch(checkSession(true));
 
     axios
     .get(`https://seyeolpersonnal.shop/chatRoom/${params.artist}`, {

@@ -6,10 +6,10 @@ export function useBlocker(blocker, when = true) {
   const navigate = useNavigate();
 	const { navigator } = useContext(NavigationContext);
 
-	useEffect(() => {
+	useEffect((e) => {
     //false 이면 출력
 		if(!when) 
-    {return;}
+    {return}
     
 		
     //true 이면 unblock 출력
