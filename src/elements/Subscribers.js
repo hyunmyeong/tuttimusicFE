@@ -4,6 +4,9 @@ import React, { Component } from 'react';
 import UserVideoComponent from './UserVideoComponent';
 import BeatLoader from "react-spinners/BeatLoader";
 import {withRouter} from '../elements/withRouter';
+import styled from "styled-components";
+import {FaVolumeUp, FaVolumeOff, FaVolumeDown, FaVideo} from "react-icons/fa";
+import { IconContext } from "react-icons";
 
 const OPENVIDU_SERVER_URL = 'https://' + "rnrn.shop" ;
 
@@ -22,6 +25,10 @@ class Subscribers extends Component {
             mainStreamManager: undefined,
             publisher: undefined,
             subscribers: [],
+            streamSound: true,
+            volume: 0.5,
+            spinner:true,
+            
         };
 
         this.joinSession = this.joinSession.bind(this);
@@ -32,11 +39,15 @@ class Subscribers extends Component {
         this.handleMainVideoStream = this.handleMainVideoStream.bind(this);
         this.onbeforeunload = this.onbeforeunload.bind(this);
         this.navigator = this.navigator.bind(this);
+        // this.muteAudio = this.muteAudio.bind(this);  
+        this.handleVolume = this.handleVolume.bind(this); 
+        this.showSpinner = this.showSpinner.bind(this);        
     }
 
     componentDidMount() {
         window.addEventListener('beforeunload', this.onbeforeunload);
         this.joinSession();
+        this.showSpinner();
     } 
 
     componentWillUnmount() {
@@ -48,6 +59,45 @@ class Subscribers extends Component {
             this.leaveSession();
         };
         this.leaveSession();
+    }
+
+    // muteAudio(){
+    //     if(this.state.streamSound===true) {
+            
+    //         this.setState({
+    //         // sound: false,
+    //         volume: 0.3
+    //     });
+    //     }
+
+    //     if(this.state.streamSound===false) {
+    //         this.setState({
+    //         sound: true,
+    //     });
+    //     let b = this.state.subscribers[0]
+    //     b.subscribeToAudio(true)
+    //     } 
+        
+    // } 
+
+    handleVolume(e){
+        console.log(e.target.value)
+        let newVolume = +e.target.value
+        
+        if (newVolume){
+            this.setState({
+            volume: newVolume,
+        });
+        }
+    }
+
+    showSpinner(){
+        setTimeout(() =>{
+            this.setState({
+            spinner:false,
+        });
+        },1000)
+        
     }
 
     navigator(){
@@ -245,38 +295,61 @@ class Subscribers extends Component {
         
         return (
             <div className="container">
-                {this.state.session === undefined ? (
-                <div className="spinner-wrap">
-                <BeatLoader color={"grey"} loading={true} size={10}/>
+                {this.state.spinner===true ? (
+                <div className="spinner-wrap-solid">
+                <div className="mgbottom15">
+                    <IconContext.Provider value={{ className: "video-cam active" }}>
+                        <FaVideo/>
+                    </IconContext.Provider>
+                </div>
+                <BeatLoader color={"#8A51FB"} loading={true} size={10}/>
                 </div>
                 ) : null}
 
-                {this.state.session !== undefined ? (
+                {this.state.subscribers.length >0 ? (
                     <div id="session">
+                        <div className="flex-column">
                             {this.state.subscribers.map((sub, i) => (
                                 <div id="main-video" className="col-md-6">                                    
-                                    <UserVideoComponent streamManager={sub} />
+                                    <UserVideoComponent streamManager={sub} volume={this.state.volume}/>
                                 </div>
                             ))}                       
+                        
+                            <div className="video-control-box">
+                            <Controls className="controls" >
+                                {this.state.volume > 0.01 && this.state.volume < 0.5 ? <FaVolumeDown id="volume-icon"/> 
+                                : this.state.volume >= 0.5? <FaVolumeUp id="volume-icon"/>
+                                : <FaVolumeOff id="volume-icon"/>}
+                                <input                                 
+                                type="range" 
+                                id="volume-range"
+                                min="0.01"
+                                max="1"
+                                step="0.05"
+                                onChange={this.handleVolume}
+                                value={this.state.volume}
+                                />  
+                            </Controls>   
+                            </div> 
+                        </div>
                     </div>
-                ) : null}
 
-                {this.state.subscribers.length === 0 ? (
-                    <div className="session-finished">
+                ) : 
+                <div className="session-finished">
                         <p className="font20"> 
                             방송이 종료되었어요. <br/>
                             다른 라이브 방송을 보러 가볼까요? 😋
                         </p>
                         <button
-                            className="btn-live"
+                            className="btn-live3"
                             id="buttonLeaveSession"
                             onClick={this.leaveSession}
                         >
                         라이브 목록으로 나가기
                         </button>
                     </div>
-                ): null}
-
+                }
+                
 
             </div>
         );
@@ -352,3 +425,47 @@ class Subscribers extends Component {
 }
 
 export default withRouter(Subscribers);
+
+
+
+let Controls = styled.div`
+display: flex;
+align-items: center;
+justify-content: flex-end;
+margin: 30px 3px 0px 3px;
+
+    #volume-icon {
+    color: #8A51FB;
+    }
+    input[type=range] {
+    width:100px;
+    -webkit-appearance: none;
+    margin-left:5px;
+    }
+
+    input[type=range]:focus {
+    outline: none;
+    }
+    /*webkit (Chrome)의 경우*/
+    input[type=range]::-webkit-slider-runnable-track {
+    width: 100px;
+    height: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: #8A51FB;
+    }
+    input[type=range]::-webkit-slider-thumb {
+    border: 1px solid #8A51FB;
+    border-radius: 20px;
+    height: 20px;
+    width: 20px;
+    background: #ffffff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -5px; 
+    }
+
+
+
+`

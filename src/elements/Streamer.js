@@ -4,7 +4,12 @@ import React, { Component } from 'react';
 import UserVideoComponent from './UserVideoComponent';
 import BeatLoader from "react-spinners/BeatLoader";
 import {withRouter} from '../elements/withRouter';
-import {usePrompt} from '../elements/Blocker';
+import { IconContext } from "react-icons";
+import {FaVideo, FaVideoSlash} from "react-icons/fa";
+import {MdCameraswitch} from "react-icons/md";
+import {BiExit} from "react-icons/bi";
+import {BsMicFill, BsMicMuteFill} from "react-icons/bs";
+
 
 import Modal from '../elements/Modal';
 
@@ -30,6 +35,8 @@ class Streamers extends Component {
             modalOpen: false,
             alert: '라이브 시작 알림을 팔로워들에게 전달했어요!',
             nextStep: false,
+            sound: true,
+            camera: true,
         };
 
         this.joinSession = this.joinSession.bind(this);
@@ -40,6 +47,8 @@ class Streamers extends Component {
         this.navigator = this.navigator.bind(this);
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
+        this.muteAudio = this.muteAudio.bind(this);
+        this.muteVideo = this.muteVideo.bind(this);
     }
 
     componentDidMount() {
@@ -49,6 +58,44 @@ class Streamers extends Component {
 
     componentWillUnmount() {
         this.leaveSession();
+    }
+
+
+    muteAudio(){
+        
+        if(this.state.sound===true) {
+            this.setState({
+            sound: false,
+        });
+        let a = this.state.publisher
+        a.publishAudio(false)
+        }
+
+        if(this.state.sound===false) {
+            this.setState({
+            sound: true,
+        });
+        let a = this.state.publisher
+        a.publishAudio(true)
+        }
+        
+    }
+
+    muteVideo(){
+        if(this.state.camera===true) {
+            this.setState({
+            camera: false,
+        });
+        let a = this.state.publisher
+        a.publishVideo(false)
+        }
+        if(this.state.camera===false) {
+            this.setState({
+            camera: true,
+        });
+        let a = this.state.publisher
+        a.publishVideo(true)
+        }
     }
     
     navigator(){
@@ -294,31 +341,89 @@ class Streamers extends Component {
 
                 {this.state.session !== undefined ? (
                     <div id="session">                            
-                            <button
-                                className="btn-live"
-                                id="buttonLeaveSession"
-                                onClick={()=>{
-                                    this.leaveSession()
-                                    this.navigator()
-                                }}
-                            >
-                            방송 끝내기
-                            </button>
                             
-                            <button
-                                className="btn-live"
-                                id="buttonSwitchCamera"
-                                onClick={this.switchCamera}
-                            >
-                            카메라 바꾸기
-                            </button>
 
                         {this.state.mainStreamManager !== undefined ? (
-                            <div id="main-video" className="col-md-6">
+                            <div className="flex-column">
+                                <div id="main-video" className="col-md-6">
                                 <UserVideoComponent streamManager={this.state.mainStreamManager} />
                                 
                             </div>
-                        ) :  <p>No mainStreamManager</p>}                           
+                            <div className="video-control-box">                           
+                                <div className="video-flex">
+                                    <div className="flex-item">
+                                        {this.state.camera===true?
+                                        <IconContext.Provider value={{ className: "video-cam active" }}>
+                                        <button
+                                            className="btn-live active"
+                                            onClick={this.muteVideo}
+                                        >
+                                        <FaVideo/>
+                                        </button>
+                                        </IconContext.Provider>
+                                        :
+                                        <IconContext.Provider value={{ className: "video-cam" }}>
+                                        <button
+                                            className="btn-live"
+                                            onClick={this.muteVideo}
+                                        >
+                                        <FaVideoSlash/>
+                                        </button>
+                                        </IconContext.Provider>
+                                        }
+                                        
+
+                                        {this.state.sound===true?
+                                        <IconContext.Provider value={{ className: "video-mic active" }}>
+                                        <button
+                                            className="btn-live active"
+                                            onClick={this.muteAudio}
+                                        >
+                                        <BsMicFill/>
+                                        </button>
+                                        </IconContext.Provider>
+                                        :
+                                        <IconContext.Provider value={{ className: "video-mic" }}>
+                                        <button
+                                            className="btn-live"
+                                            onClick={this.muteAudio}
+                                        >
+                                        <BsMicMuteFill/>
+                                        </button>
+                                        </IconContext.Provider>
+                                        }                                     
+                                        
+                                        <IconContext.Provider value={{ className: "video-change" }}>
+                                        <button
+                                            className="btn-live active"
+                                            id="buttonSwitchCamera"
+                                            onClick={this.switchCamera}
+                                        >
+                                        <MdCameraswitch/>
+                                        </button>  
+                                        </IconContext.Provider>                                  
+                                    </div>                            
+                                    <div className="flex-item">
+                                        
+                                        <IconContext.Provider value={{ className: "video-exit" }}>
+                                        <button
+                                            className="btn-live2"
+                                            id="buttonLeaveSession"
+                                            onClick={()=>{
+                                                this.leaveSession()
+                                                this.navigator() 
+                                            }}
+                                        >
+                                        <BiExit/> <p className='whiteText'>방송 종료</p>
+                                        </button>
+                                        </IconContext.Provider>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        ) :  <p>No mainStreamManager</p>}  
+
+                                                 
                     </div>
                 ) : <p>No subscribers</p>}
             </div>
