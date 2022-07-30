@@ -3082,8 +3082,14 @@ input[type=radio] {
 }
 
 .loading-title {
-  font-size: 40px;
-  color: var(--primary-color);
+  font-size: 36px;
+  color: #000;
+  margin-bottom: 16px;
+}
+
+.loading-sub-title {
+  font-size: 16px;
+  color: #7A7C85;
 }
 /* LoadingLive end */
 

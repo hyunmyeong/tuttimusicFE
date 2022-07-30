@@ -2586,6 +2586,21 @@
 
   /* MODAL END */
   
+  /* LoadingLive start */
+
+.loading-wrap {
+  width:100%;
+}
+
+.loading-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.loading-sub-title {
+  font-size: 14px;
+}
+/* LoadingLive end */
   
   }
 

@@ -16,10 +16,11 @@ function LoadingLive() {
     <>
       <div className="loading-wrap">
         <div className="loading-title">라이브 방송 준비 중입니다</div>
+        <div className="loading-sub-title">방송 환경이 준비되기까지 잠시 기다려 주세요</div>
 
 
         <div className="spinner-wrap">
-          <FadeLoader color={"grey"} size={10} />
+          <FadeLoader color={"#8A51FB"} size={10} />
         </div>
       </div>
 
