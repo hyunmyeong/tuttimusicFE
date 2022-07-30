@@ -101,7 +101,7 @@ function Player() {
   
   useEffect(()=>{
     setCurrentTime(_time);
-    if (_time>0.2) {
+    if (_display===true&&_time>0.2) {
       wavesurfer.current?.play(_time)
     }
   },[_time])
@@ -117,10 +117,12 @@ function Player() {
   };
 
   const onPlayTimeChange = () =>{
+    if(playing===false) {
+      handlePlayPause()
+    }
     setTimeout(()=> {
-    let _currentTime = wavesurfer.current.getCurrentTime();
+    let _currentTime = wavesurfer.current?.getCurrentTime();
     setCurrentTime(_currentTime);
-    console.log(_currentTime);
     dispatch(playerTime(_currentTime));
     },300);
   }
