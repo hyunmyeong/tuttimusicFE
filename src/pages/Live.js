@@ -74,38 +74,38 @@ function Live() {
       <div className="live-box">
       <div className="live-box-left">
         <div className="live-view">
-          {data?.artist===userName?
-          <Streamer session={`session${data.id}`} streamer={data.artist}/>
+          {params.artist===userName?
+          <Streamer session={`session${data?.id}`} streamer={data?.artist}/>
           :
-          <Subscribers session={`session${data.id}`} subscriber={userName}/>
+          <Subscribers session={`session${data?.id}`} subscriber={userName}/>
           }         
           
         </div>
         <div className="live-info">
         <img 
         id="live-info-image"
-        src={data.profileImageUrl}
-        alt={data.artist}
+        src={data?.profileImageUrl}
+        alt={data?.artist}
         />
           <div className="live-info-user">
             <div id="live-info-user-name">
             <a
-            href={userName === data.artist ? 
-            `mypage` : `/userpage/${data.artist}`}
+            href={userName === data?.artist ? 
+            `mypage` : `/userpage/${data?.artist}`}
             target="_blank"
-            rel="noopener noreferrer">{data.artist}</a>
+            rel="noopener noreferrer">{data?.artist}</a>
             </div>
             <div id="live-user-live">LIVE</div>
           </div>
           <div className="live-info-title">
-            <div id="live-info-title-main">{data.roomTitle}</div>
-            <div id="live-info-title-sub">{data.description}</div>
+            <div id="live-info-title-main">{data?.roomTitle}</div>
+            <div id="live-info-title-sub">{data?.description}</div>
           </div>
         </div>
         </div>
         <div className="live-box-right">
         <div className="live-chat">
-            <Chatbox streamer={data.artist} session={`session${data.id}`} subscriber={userName} userProfileUrl={userProfileUrl} />
+            <Chatbox streamer={data?.artist} session={`session${data?.id}`} subscriber={userName} userProfileUrl={userProfileUrl} />
          </div>   
       </div>
 

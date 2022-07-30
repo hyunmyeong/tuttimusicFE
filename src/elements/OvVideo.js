@@ -14,8 +14,10 @@ export default class OpenViduVideoComponent extends Component {
 
         console.log(this.props.volume)
         let vid = document.getElementById("vid");
-        vid.volume = this.props.volume 
+        if (this.props.volume&&this.props.volume>0) {
+            vid.volume = this.props.volume 
         console.log(vid.volume)
+        }
     }
 
     componentDidMount() {
