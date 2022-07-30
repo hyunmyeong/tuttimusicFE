@@ -751,7 +751,6 @@
   .follow-icon {
     width:17px;
     height:17px;
-    color:#fff;
     margin-right: 5px;
   }
   
@@ -760,7 +759,7 @@
     height: 40px;
     border-radius: 10px;
     outline: none;
-    border: none;
+    /* border: none; */
     display: flex;
     align-items: center;
     justify-content: center;
