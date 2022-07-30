@@ -113,6 +113,12 @@
   .main-album-art {
     margin-bottom: 13px;
   }
+
+  .mobile-album-art {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+  }
   
   .main-thumbnail {
     width: 100%;
@@ -142,7 +148,7 @@
   .main-card-artist{
     font-size: 12px;
   }
-  
+
   /* MAIN PAGE END */
   
   /* MUSIC FEED */
