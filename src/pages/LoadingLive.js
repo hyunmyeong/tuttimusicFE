@@ -1,17 +1,32 @@
-import React from 'react';
+import React, { useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import FadeLoader from "react-spinners/FadeLoader";
-
+import { useSelector, useDispatch } from "react-redux";
+import {checkSession} from "../redux/modules/videoSlice";
 
 function LoadingLive() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const userName = localStorage.getItem("userName");
+  const videoInfo = useSelector((state)=> state.Video.video);
+  console.log(videoInfo)
+  console.log(videoInfo.videoSession)
+  const session = videoInfo.videoSession
 
-  React.useEffect(() => {
-    setTimeout(()=> {
+  useEffect(() => {
+    if (session===true) {
+      navigate('/livelist')
+      dispatch(checkSession(false))
+    } else {
+      setTimeout(()=> {
       navigate(`/live/${userName}`);
     },2000)
+    }
+
+    
+
   },[])
+
   return (
     <>
       <div className="loading-wrap">

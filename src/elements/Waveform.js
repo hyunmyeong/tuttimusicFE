@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import {likeSong} from "../redux/modules/songSlice";
 
 import WaveSurfer from "wavesurfer.js";
-import {ImPlay3} from "react-icons/im";
 import {IoMdPause} from "react-icons/io";
 import { IconContext } from "react-icons";
 import {FaVolumeUp, FaVolumeOff, FaVolumeDown, FaRegHeart, FaHeart} from "react-icons/fa";
@@ -16,10 +15,7 @@ import {playerPlay, addASong, playerVolume, playerTime, showPlayer, musicEnd} fr
 import {Range, getTrackBackground} from "react-range";
 
 import {IoMdPlay} from "react-icons/io";
-
 import Modal from "./Modal";
-
-
 
 
 function Waveform(props) {
@@ -46,9 +42,6 @@ function Waveform(props) {
 const closeModal = () => {
     setModalOpen(false);
     };
-
-
-
 
 
   // create new WaveSurfer
