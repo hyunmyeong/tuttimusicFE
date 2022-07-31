@@ -2459,6 +2459,10 @@ input[type=radio] {
   margin: 0 10px;
 }
 
+.nav-color {
+  color: var(--primary-color);
+}
+
 /* Navbar end */
 
 
