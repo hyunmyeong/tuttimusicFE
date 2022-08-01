@@ -25,6 +25,8 @@ function Navbar() {
   const userProfileUrl = localStorage.getItem("userProfileUrl");
   const userName = localStorage.getItem("userName");
 
+  const [color, setColor] = useState(0)
+
 
   useEffect(()=>{
     if (!token) {
@@ -84,18 +86,24 @@ function Navbar() {
           <div className="nav">
 
             <ul>
-              <li onClick={() => {
+              <li className={color === 0 ? 'nav-color' : 'none'}
+              onClick={() => {
                 navigate('/')
+                setColor(0)
               }}>
                 Home
               </li>
-              <li onClick={() => {
+              <li className={color === 1 ? 'nav-color' : 'none'}
+              onClick={() => {
                 navigate('/musicfeed')
+                setColor(1)
               }}>
                 Feed
               </li>
-              <li onClick={() => {
+              <li className={color === 2 ? 'nav-color' : 'none'}
+              onClick={() => {
                 navigate('/livelist')
+                setColor(2)
               }}>
                 LIVE
               </li>
