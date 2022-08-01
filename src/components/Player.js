@@ -93,7 +93,7 @@ function Player() {
   },[_playing])
 
   useEffect(()=>{
-    if (_volume) {
+    if (_display===true&&_volume) {
     setVolume(_volume);
     wavesurfer.current?.setVolume(_volume);
     }
