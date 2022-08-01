@@ -1,18 +1,18 @@
 # [tutti] 음악 스트리밍 및 공유 서비스
 
-![tutti600.jpg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6e39d4fe-29df-4eb3-9a91-cd4f582ecff7/tutti600.jpg)
+![Frame 149 (1)](https://user-images.githubusercontent.com/74285387/182149207-bd2894eb-00bb-41af-ac7c-30bae7cb1ed7.jpg)
 
 ### 음악 공유 및 온라인 비대면 라이브 공연 서비스
 
 ## [함께 하는 음악 생활, tutti**로 가기**](https://tuttimusic.shop)
 
----
+
 
 [**Front End Github**](https://github.com/itsstacy/tuttimusicFE) https://github.com/itsstacy/tuttimusicFE
 
 [**Back End Github**](https://github.com/doyupK/tutti_be) https://github.com/doyupK/tutti_be
 
----
+
 
 ## 📚 서비스 아키텍쳐
 
@@ -164,7 +164,8 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
             
     - 로딩 페이지 (screenshot)
         
-        ![로딩 페이지](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fab6b9c0-df13-4fd9-9a0b-9cc8d7fd8217/Untitled.png)
+        ![Untitled (4)](https://user-images.githubusercontent.com/74285387/182149619-f27e609c-4ae3-461a-a81c-9f228178849a.png)
+
         
         로딩 페이지
         
@@ -241,11 +242,12 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
             
     - 에러 메세지 (console)
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3bfe24dc-110d-44bd-9d03-9e62adcd1312/Untitled.png)
+        ![Untitled (2)](https://user-images.githubusercontent.com/74285387/182149533-76ebace3-8b23-4a40-b590-c0db3c5e0d27.png)
         
     - detail 플레이어와 하단 플레이어 (screenshot)
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4e3cb0eb-525d-4e54-b5af-e848b1511650/Untitled.png)
+        ![Untitled (3)](https://user-images.githubusercontent.com/74285387/182149571-37f0f60a-7dd3-4d4d-b9ac-d8c273561a63.png)
+
         
 
 ### Back-End
