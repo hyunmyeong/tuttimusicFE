@@ -14,6 +14,8 @@ import { VscArrowLeft } from "react-icons/vsc";
 
 import { searchMusic } from "../redux/modules/songSlice";
 
+import ToButton from "../elements/ToButton";
+
 function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -301,7 +303,7 @@ function Navbar() {
         </div>
         :
         null}
-
+    <ToButton/>
     </>
 
   )
