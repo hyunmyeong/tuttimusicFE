@@ -16,7 +16,7 @@
 
 ## 📚 서비스 아키텍쳐
 
-![tutti architecture_220729.drawio.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/59de2b3a-4c11-49be-8e32-c406ec8f5262/tutti_architecture_220729.drawio.png)
+https://user-images.githubusercontent.com/74285387/182148137-e66e2185-2f62-433a-9999-1c968ca6b66e.png
 
 Front & Back
 
