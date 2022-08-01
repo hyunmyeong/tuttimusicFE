@@ -84,9 +84,11 @@ const Login = (props) => {
                 const token = response.headers.authorization;
                 const artist = response.data.artist;
                 const profileUrl = response.data.profileUrl;
+                const expiredTime = response.data.expiredTime;
                 localStorage.setItem("token", token);
                 localStorage.setItem("userName", artist);
                 localStorage.setItem("userProfileUrl", profileUrl);
+                localStorage.setItem("expiredTime", expiredTime);
                 navigate("/")
 
 
