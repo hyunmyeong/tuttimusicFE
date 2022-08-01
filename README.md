@@ -124,7 +124,7 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
     - 코드로 보는 해결 과정
         <details>
         <summary>
-            - 수정 전
+         수정 전
         </summary>
                 ```jsx
             // LoadingLive.js
@@ -140,7 +140,7 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
         
         <details>
         <summary>    
-        - 수정 후
+        수정 후
         </summary>
             
             ```jsx
@@ -162,10 +162,12 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
             ```
           </details>  
           
-    - 로딩 페이지 (screenshot)
-        
+      <details>
+      <summary>         
+      로딩 페이지 (screenshot)
+      </summary>  
         ![Untitled (4)](https://user-images.githubusercontent.com/74285387/182149619-f27e609c-4ae3-461a-a81c-9f228178849a.png)
-
+      </details>  
         
     
 - Sync로 작동하는 두 개의 플레이어 중 하나를 껐을 때 다른 쪽의 플레이어를 조작하면 흰 화면이 뜨는 현상
@@ -184,7 +186,11 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
         - 리덕스에 state 정보가 변경되면  component가 mount되어 있지 않더라도 구독하는 모든 component가 업데이트된 상태를 다시 받아오고 해당 값과 연결된 모든 function이 재 작동됨
     
     - 코드로 보는 해결 과정
-        - 수정 전
+
+        <details>
+        <summary>
+        수정 전
+        </summary>
             
             ```jsx
             // 하단 플레이어
@@ -210,9 +216,10 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
                 }
               },[_time])
             ```
+        </details>
         <details>
         <summary>   
-        - 수정 후
+        수정 후
         </summary>
             
             ```jsx
@@ -240,14 +247,18 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
               },[_time])
             ```
          </details>   
-         
-    - 에러 메세지 (console)
-        
+      <details>
+      <summary>         
+      에러 메세지 (console)
+      </summary>  
         ![Untitled (2)](https://user-images.githubusercontent.com/74285387/182149533-76ebace3-8b23-4a40-b590-c0db3c5e0d27.png)
-        
-    - detail 플레이어와 하단 플레이어 (screenshot)
-        
+      </details>
+      <details>
+      <summary>         
+      detail 플레이어와 하단 플레이어 (screenshot)
+      </summary>  
         ![Untitled (3)](https://user-images.githubusercontent.com/74285387/182149571-37f0f60a-7dd3-4d4d-b9ac-d8c273561a63.png)
+      </details>
 
         
 
