@@ -306,7 +306,7 @@ function Detail() {
                   className="detail-artist-img-sm"
                   alt={comment.artist}
                   src={comment.profileUrl}
-                  onClick={()=>SameName(detail.artist)}
+                  onClick={()=>SameName(comment.artist)}
                   />
                   <div className="column-wrap">
                     <EditComment comment={comment} token={token} feedid={detail.id} username={userName}/>
