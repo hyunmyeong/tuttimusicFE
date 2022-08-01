@@ -112,166 +112,166 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
 
 라이브 페이지에서 뒤로가기를 누르면 이전 컴포넌트에서 useEffect 내에 navigate가 작동되어 다시 라이브 페이지로 돌아오는 현상
 
-    - **문제 발생**
-        - 라이브 방 만들기 후 나오는 로딩 컴포넌트를 거쳐 라이브 방으로 들어가는데, 이때 사용자가 뒤로가기를 했을 때 로딩 컴포넌트로 돌아간다. 돌아가자마자 useEffect 내에 navigate가 작동되어 다시 방으로 돌아온다.
-    - **선택지**
-        - 1안: 뒤로가기 action 자체를 막기
-        - 2안: prompt를 사용해서 페이지 이탈 시 특정 location으로 이동시키면 사용자가 원하는 페이지로 이동하지 않는다고 생각할 수 있기 때문에 올바른 해결법이 아님
-            
-            ex) navbar에 “feed”를 눌러서 페이지를 이탈했는데 홈(정해진 location)으로 이동되면 좋지 않은 UX이다.
-            
-        - 3안: 리덕스를 이용해 한번 로딩 페이지를 거쳤으면 전역 상태를 바꿔서 다시 입장하게 되면 navigate 이 작동하지 않도록 한다.
-        - 4안: 뒤로가기 했을 때 세션이 종료됐으면 다시 라이브 방으로 안 들어가고 다른 곳으로  navigate시키기
-    - **의견 결정**
-        - 3안: 리덕스를 사용해 로딩 페이지를 거쳤으면 전역 상태를 바꿔서 다시 입장하게 되면 navigate 이 작동하지 않도록 한다.
-            - checkSession이라는 reducer를 생성
-            - 방 만들 때 videoSession: false (기본값 false)
-            - 로딩 페이지를 거쳐 라이브방에 입장하면 videoSession: true 로 상태변경
-            - 뒤로가기 했을 때, videoSession: true이면 라이브 방이 아니라 채팅방 리스트로 이동하도록 설정
-            - 다시 방을 만들 때 videoSession: false로 상태변경
-    - **배운점**
-        - 페이지 이동 시 상태를 저장하고 싶을 때 전역상태관리를 사용할 수 있다.
-        - useEffect 사용법과 function 배치에 대한 이해
-    
-    
-    - 코드로 보는 해결 과정
-        <details>
-        <summary>
-         수정 전
-        </summary>
-                ```jsx
-            // LoadingLive.js
-            
-            useEffect(() => {
-                  setTimeout(()=> {
-                  navigate(`/live/${userName}`);
-                },2000)
-                }
-              },[])
-            ```
-        </details>
-        
-        <details>
-        <summary>    
-        수정 후
-        </summary>
-            
+- **문제 발생**
+    - 라이브 방 만들기 후 나오는 로딩 컴포넌트를 거쳐 라이브 방으로 들어가는데, 이때 사용자가 뒤로가기를 했을 때 로딩 컴포넌트로 돌아간다. 돌아가자마자 useEffect 내에 navigate가 작동되어 다시 방으로 돌아온다.
+- **선택지**
+    - 1안: 뒤로가기 action 자체를 막기
+    - 2안: prompt를 사용해서 페이지 이탈 시 특정 location으로 이동시키면 사용자가 원하는 페이지로 이동하지 않는다고 생각할 수 있기 때문에 올바른 해결법이 아님
+
+        ex) navbar에 “feed”를 눌러서 페이지를 이탈했는데 홈(정해진 location)으로 이동되면 좋지 않은 UX이다.
+
+    - 3안: 리덕스를 이용해 한번 로딩 페이지를 거쳤으면 전역 상태를 바꿔서 다시 입장하게 되면 navigate 이 작동하지 않도록 한다.
+    - 4안: 뒤로가기 했을 때 세션이 종료됐으면 다시 라이브 방으로 안 들어가고 다른 곳으로  navigate시키기
+- **의견 결정**
+    - 3안: 리덕스를 사용해 로딩 페이지를 거쳤으면 전역 상태를 바꿔서 다시 입장하게 되면 navigate 이 작동하지 않도록 한다.
+        - checkSession이라는 reducer를 생성
+        - 방 만들 때 videoSession: false (기본값 false)
+        - 로딩 페이지를 거쳐 라이브방에 입장하면 videoSession: true 로 상태변경
+        - 뒤로가기 했을 때, videoSession: true이면 라이브 방이 아니라 채팅방 리스트로 이동하도록 설정
+        - 다시 방을 만들 때 videoSession: false로 상태변경
+- **배운점**
+    - 페이지 이동 시 상태를 저장하고 싶을 때 전역상태관리를 사용할 수 있다.
+    - useEffect 사용법과 function 배치에 대한 이해
+
+
+- 코드로 보는 해결 과정
+    <details>
+    <summary>
+     수정 전
+    </summary>
             ```jsx
-            // LoadingLive.js
-            
-            const videoInfo = useSelector((state)=> state.Video.video);
-              const session = videoInfo.videoSession
-            
-            useEffect(() => {
-                if (session===true) {
-                  navigate('/livelist')
-                  dispatch(checkSession(false))
-                } else {
-                  setTimeout(()=> {
-                  navigate(`/live/${userName}`);
-                },2000)
-                }
-              },[])
-            ```
-          </details>  
-          
-      <details>
-      <summary>         
-      로딩 페이지 (screenshot)
-      </summary>  
-        ![Untitled (4)](https://user-images.githubusercontent.com/74285387/182149619-f27e609c-4ae3-461a-a81c-9f228178849a.png)
+        // LoadingLive.js
+
+        useEffect(() => {
+              setTimeout(()=> {
+              navigate(`/live/${userName}`);
+            },2000)
+            }
+          },[])
+        ```
+    </details>
+
+    <details>
+    <summary>    
+    수정 후
+    </summary>
+
+        ```jsx
+        // LoadingLive.js
+
+        const videoInfo = useSelector((state)=> state.Video.video);
+          const session = videoInfo.videoSession
+
+        useEffect(() => {
+            if (session===true) {
+              navigate('/livelist')
+              dispatch(checkSession(false))
+            } else {
+              setTimeout(()=> {
+              navigate(`/live/${userName}`);
+            },2000)
+            }
+          },[])
+        ```
       </details>  
+
+  <details>
+  <summary>         
+  로딩 페이지 (screenshot)
+  </summary>  
+    ![Untitled (4)](https://user-images.githubusercontent.com/74285387/182149619-f27e609c-4ae3-461a-a81c-9f228178849a.png)
+  </details>  
 
 ### Sync로 작동하는 두 개의 플레이어 중 하나를 껐을 때 다른 쪽의 플레이어를 조작하면 흰 화면이 뜨는 현상
 
-    - **문제 발생**
-        - detail페이지의 플레이어와 하단 플레이어는 sync로 작동 (play/pause, 볼륨조절, 원하는 구간으로 이동하는 기능)
-        - sync로 작동하는 두 개의 플레이어 중 하나를 껐을 때 (하단 플레이어를 끄는 기능이 있음) 다른 쪽의 플레이어를 조작하면 흰 화면이 뜨는 현상
-        - 한 쪽에서 플레이어를 조작하면 그로 인해 전역 상태가 변경되고 변경된 데이터가 다른 쪽 플레이어에 영향을 미쳐 sync로 작동됨
-    - **선택지**
-        - 1안: 하단 플레이어 삭제
-        - 2안: useSelector를 통해 가져오는 값이 있을 때만 해당 function이 작동되도록 수정
-        - 3안: sync 기능을 없애고 독자적으로 조작하도록 수정
-    - **의견 결정**
-        - 2안: useSelector를 통해 가져오는 값이 있을 때만 해당 function이 작동되도록 수정
-    - **배운점**
-        - 구독하는 state 정보가 변경되었을 때, useSelector를 통해 가져오는 값이 없으면 해당 값을 이용한 function에서 에러가 발생할 수 있는 점 (function을 포함하는 component가 mount되어 있지 않더라도 작동)
-        - 리덕스에 state 정보가 변경되면  component가 mount되어 있지 않더라도 구독하는 모든 component가 업데이트된 상태를 다시 받아오고 해당 값과 연결된 모든 function이 재 작동됨
-    
-    - 코드로 보는 해결 과정
+- **문제 발생**
+    - detail페이지의 플레이어와 하단 플레이어는 sync로 작동 (play/pause, 볼륨조절, 원하는 구간으로 이동하는 기능)
+    - sync로 작동하는 두 개의 플레이어 중 하나를 껐을 때 (하단 플레이어를 끄는 기능이 있음) 다른 쪽의 플레이어를 조작하면 흰 화면이 뜨는 현상
+    - 한 쪽에서 플레이어를 조작하면 그로 인해 전역 상태가 변경되고 변경된 데이터가 다른 쪽 플레이어에 영향을 미쳐 sync로 작동됨
+- **선택지**
+    - 1안: 하단 플레이어 삭제
+    - 2안: useSelector를 통해 가져오는 값이 있을 때만 해당 function이 작동되도록 수정
+    - 3안: sync 기능을 없애고 독자적으로 조작하도록 수정
+- **의견 결정**
+    - 2안: useSelector를 통해 가져오는 값이 있을 때만 해당 function이 작동되도록 수정
+- **배운점**
+    - 구독하는 state 정보가 변경되었을 때, useSelector를 통해 가져오는 값이 없으면 해당 값을 이용한 function에서 에러가 발생할 수 있는 점 (function을 포함하는 component가 mount되어 있지 않더라도 작동)
+    - 리덕스에 state 정보가 변경되면  component가 mount되어 있지 않더라도 구독하는 모든 component가 업데이트된 상태를 다시 받아오고 해당 값과 연결된 모든 function이 재 작동됨
 
-        <details>
-        <summary>
-        수정 전
-        </summary>
-            
-            ```jsx
-            // 하단 플레이어
-            
-            useEffect(()=>{
-                setPlaying(_playing);
-                if (allStop===false) {
-                  wavesurfer.current?.playPause();
-                }
-              },[_playing])
-            
-              useEffect(()=>{
-                if (_volume) {
-                setVolume(_volume);
-                wavesurfer.current?.setVolume(_volume);
-                }
-              },[_volume])
-              
-              useEffect(()=>{
-                setCurrentTime(_time);
-                if (_time>0.2) {
-                  wavesurfer.current?.play(_time)
-                }
-              },[_time])
-            ```
-        </details>
-        <details>
-        <summary>   
-        수정 후
-        </summary>
-            
-            ```jsx
-            // 하단 플레이어
-            
-            useEffect(()=>{
-                setPlaying(_playing);
-                if (_display===true&&allStop===false) {
-                  wavesurfer.current?.playPause();
-                }
-              },[_playing])
-            
-              useEffect(()=>{
-                if (_display===true&&_volume) {
-                setVolume(_volume);
-                wavesurfer.current?.setVolume(_volume);
-                }
-              },[_volume])
-              
-              useEffect(()=>{
-                setCurrentTime(_time);
-                if (_display===true&&_time>0.2) {
-                  wavesurfer.current?.play(_time)
-                }
-              },[_time])
-            ```
-         </details>   
-      <details>
-      <summary>         
-      에러 메세지 (console)
-      </summary>  
-        ![Untitled (2)](https://user-images.githubusercontent.com/74285387/182149533-76ebace3-8b23-4a40-b590-c0db3c5e0d27.png)
-      </details>
-      <details>
-      <summary>         
-      detail 플레이어와 하단 플레이어 (screenshot)
-      </summary>  
-        ![Untitled (3)](https://user-images.githubusercontent.com/74285387/182149571-37f0f60a-7dd3-4d4d-b9ac-d8c273561a63.png)
-      </details>
+- 코드로 보는 해결 과정
+
+    <details>
+    <summary>
+    수정 전
+    </summary>
+
+        ```jsx
+        // 하단 플레이어
+
+        useEffect(()=>{
+            setPlaying(_playing);
+            if (allStop===false) {
+              wavesurfer.current?.playPause();
+            }
+          },[_playing])
+
+          useEffect(()=>{
+            if (_volume) {
+            setVolume(_volume);
+            wavesurfer.current?.setVolume(_volume);
+            }
+          },[_volume])
+
+          useEffect(()=>{
+            setCurrentTime(_time);
+            if (_time>0.2) {
+              wavesurfer.current?.play(_time)
+            }
+          },[_time])
+        ```
+    </details>
+    <details>
+    <summary>   
+    수정 후
+    </summary>
+
+        ```jsx
+        // 하단 플레이어
+
+        useEffect(()=>{
+            setPlaying(_playing);
+            if (_display===true&&allStop===false) {
+              wavesurfer.current?.playPause();
+            }
+          },[_playing])
+
+          useEffect(()=>{
+            if (_display===true&&_volume) {
+            setVolume(_volume);
+            wavesurfer.current?.setVolume(_volume);
+            }
+          },[_volume])
+
+          useEffect(()=>{
+            setCurrentTime(_time);
+            if (_display===true&&_time>0.2) {
+              wavesurfer.current?.play(_time)
+            }
+          },[_time])
+        ```
+     </details>   
+  <details>
+  <summary>         
+  에러 메세지 (console)
+  </summary>  
+    
+  </details>
+  <details>
+  <summary>         
+  detail 플레이어와 하단 플레이어 (screenshot)
+  </summary>  
+    ![Untitled (3)](https://user-images.githubusercontent.com/74285387/182149571-37f0f60a-7dd3-4d4d-b9ac-d8c273561a63.png)
+  </details>
 
        
 
@@ -279,63 +279,63 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
 
 ### N+1
 
-    - 도입 이유
-        
-        통신간에 트래픽이 너무 크고, 느려서 연관 관계가 되어있는 엔티티 간에 필요한 데이터들을 추려서 가져와야하는 상황 발생
-        
-    - 문제 상황
-        
-        JPA 레포지토리를 통해 엔티티 객체를 조회할 때 그 객체와 연관되어 있는 객체의 데이터가 전부 같이나와 필요 없는 데이터까지 추출되어 트래픽 과부하와 불필요한 정제 코드들을 유발하는 문제
-        
-    - 문제 해결 과정
-        1. JPA로 읽어와서 반복문을 통해 필요한 Dto를 생성하여 정제하자
-        2. queryDsl을 적용시켜 innerJoin, leftJoin을 이용하여 간단, 정확하게 데이터를 가져오자
-    - 결론
-        
-        (1) 방법으로 구현하면 트래픽은 줄어들지만, 서버 시간 복잡도가 증가하고, 쿼리문 자체가 많이 나가기 때문에 (2) 를 사용하여 조회 쿼리 자체에 필터링을 해서 최적화를 진행
-        
-        - 수정 이력
-            
-            수정 전
-            
-            ![Jpa 메인페이지 get 방식 액티브 스레드 오버 타임.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4c673a5b-8a80-425a-996f-24031e80ee7f/Jpa__get_____.png)
-            
-            VU :2000  / 1S
-            
-            = 1분 12초
-            
-            수정 후
-            
-            ![QueyDsl 메인페이지 get방식 액티브 스레드 오버 타임.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1210f33c-c467-4559-a883-598bb3a47966/QueyDsl__get____.png)
-            
-            VU : 2000 / 1S
-            
-            = 15초
+- 도입 이유
+
+    통신간에 트래픽이 너무 크고, 느려서 연관 관계가 되어있는 엔티티 간에 필요한 데이터들을 추려서 가져와야하는 상황 발생
+
+- 문제 상황
+
+    JPA 레포지토리를 통해 엔티티 객체를 조회할 때 그 객체와 연관되어 있는 객체의 데이터가 전부 같이나와 필요 없는 데이터까지 추출되어 트래픽 과부하와 불필요한 정제 코드들을 유발하는 문제
+
+- 문제 해결 과정
+    1. JPA로 읽어와서 반복문을 통해 필요한 Dto를 생성하여 정제하자
+    2. queryDsl을 적용시켜 innerJoin, leftJoin을 이용하여 간단, 정확하게 데이터를 가져오자
+- 결론
+
+    (1) 방법으로 구현하면 트래픽은 줄어들지만, 서버 시간 복잡도가 증가하고, 쿼리문 자체가 많이 나가기 때문에 (2) 를 사용하여 조회 쿼리 자체에 필터링을 해서 최적화를 진행
+
+    - 수정 이력
+
+        수정 전
+
+        ![Jpa 메인페이지 get 방식 액티브 스레드 오버 타임.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4c673a5b-8a80-425a-996f-24031e80ee7f/Jpa__get_____.png)
+
+        VU :2000  / 1S
+
+        = 1분 12초
+
+        수정 후
+
+        ![QueyDsl 메인페이지 get방식 액티브 스레드 오버 타임.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1210f33c-c467-4559-a883-598bb3a47966/QueyDsl__get____.png)
+
+        VU : 2000 / 1S
+
+        = 15초
 
 ### Redis 적용 시 컨테이너 간 통신 에러
 
 
-    - 도입 이유
-        
-        실시간 채팅 내역을 DB에 저장 하는데 DB Connection을 최소화하기 위해 버퍼로 사용하고, 실시간 채팅 캐싱 기능 활용하기 위해 도입 결정
-        
-    - 문제 상황
-        
-        스프링 부트 서버와 레디스 서버를 도커 컨테이너에 올렸으나, 컨테이너 간 통신 불능
-        
-    - 문제 원인
-        
-        도커 내부 네트워크를 인지하지 못한 상태로 컨테이너 간 End point를 localhost로 설정한 것이 문제였다.
-        
-        - Network Group
-            
-            ![화면 캡처 2022-07-30 151523.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c83a3af4-d9e5-4ff1-abeb-a83590d063a7/__2022-07-30_151523.png)
-            
-    - 해결 과정
-        
-        도커 내부 네트워크는 localhost가 아닌 별도의 내부 네트워크를 가지고 있어, 
-        
-        도커 네트워크 브릿지로 통신하여 성공
+- 도입 이유
+
+    실시간 채팅 내역을 DB에 저장 하는데 DB Connection을 최소화하기 위해 버퍼로 사용하고, 실시간 채팅 캐싱 기능 활용하기 위해 도입 결정
+
+- 문제 상황
+
+    스프링 부트 서버와 레디스 서버를 도커 컨테이너에 올렸으나, 컨테이너 간 통신 불능
+
+- 문제 원인
+
+    도커 내부 네트워크를 인지하지 못한 상태로 컨테이너 간 End point를 localhost로 설정한 것이 문제였다.
+
+    - Network Group
+
+        ![화면 캡처 2022-07-30 151523.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c83a3af4-d9e5-4ff1-abeb-a83590d063a7/__2022-07-30_151523.png)
+
+- 해결 과정
+
+    도커 내부 네트워크는 localhost가 아닌 별도의 내부 네트워크를 가지고 있어, 
+
+    도커 네트워크 브릿지로 통신하여 성공
     
 
 ## 👋 tutti 팀원 정보
