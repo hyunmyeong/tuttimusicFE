@@ -2,13 +2,13 @@
 ![Frame 149 (1)](https://user-images.githubusercontent.com/74285387/182149207-bd2894eb-00bb-41af-ac7c-30bae7cb1ed7.jpg)
 ### 음악 공유 및 온라인 비대면 라이브 공연 서비스
 
-## [함께 하는 음악 생활, tutti**로 가기**](https://tuttimusic.shop)
+
+## [함께 하는 음악 생활, tutti로 가기](https://tuttimusic.shop)
 
 
-[**Front End Github**](https://github.com/itsstacy/tuttimusicFE) https://github.com/itsstacy/tuttimusicFE
+[**Front End Github**](https://github.com/itsstacy/tuttimusicFE)
 
-[**Back End Github**](https://github.com/doyupK/tutti_be) https://github.com/doyupK/tutti_be
-
+[**Back End Github**](https://github.com/doyupK/tutti_be)
 
 
 ## 📚 서비스 아키텍쳐
@@ -65,46 +65,55 @@ Back-End
     - 재 배포가 필요할 때, 기존 컨테이너의 레이어와 배포되는 레이어가 같으면 재사용할 수 있어서 프로세스가 훨씬 빨라짐
     - 별도의 OS 사용이 필요하지 않게 되어, 성능적인 개선, 효율적인 메모리 사용
 </details> 
-
+<br>
 
 ## 🎵 tutti의 핵심 서비스 기능
 
-### 음악 플레이 기능
-
+<details>
+<summary>
+<b> 음악 플레이 기능</b>
+</summary>
+<br>
 tutti에는 다양한 음악들이 있습니다.
-
 음악을 듣고 싶다면 음악을 클릭해 해당 음악을 들어보세요!
+음악을 플레이 했다면, 페이지를 벗어나도 🎵<b>하단 음악 플레이어</b> 를 통해 끊김 없이 음악을 들을 수 있어요!
+</details>
+<br>
 
-음악을 플레이 했다면, 페이지를 벗어나도 **🎵하단 음악 플레이어**를 통해 끊김 없이 음악을 들을 수 있어요!
-
-### 장르별 음악 검색
-
+<details>
+<summary>
+<b>장르별 음악 검색</b>
+</summary>
+<br>
 FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 찾아볼 수 있어요!
+또한 검색창을 통해서 🔍 <b>아티스트와 음악을 검색 </b>할 수 있으며 
+곡 또는 아티스트를 선택하면 해당 페이지로 넘어갈 수 있어요!   
+</details>
+<br>
 
-또한 검색창을 통해서 🔍**아티스트와 음악을 검색**할 수 있으며 
-
-곡 또는 아티스트를 선택하면 해당 페이지로 넘어갈 수 있어요!
-
-### 아티스트 페이지 (&실시간 알림)
-
+<details>
+<summary>
+<b>아티스트 페이지 (&실시간 알림)</b>
+</summary>
+<br>
 음악을 듣다 마음에 드는 아티스트를 발견했다면? 
-
-😎**아티스트의 프로필 페이지** 를 방문해 업로드한 음악이나 SNS(유튜브, 인스타그램)등
-
+😎<b>아티스트의 프로필 페이지</b> 를 방문해 업로드한 음악이나 SNS(유튜브, 인스타그램)등
 해당 아티스트에 대해 더 알 수 있어요!
+또한 아티스트를 ❤<b>팔로잉</b>을 하면 아티스트가 라이브를 시작할 때,
+제일 먼저 <b>💌알림</b>을 받을 수도 있어요!
+</details>
+<br>
 
-또한 아티스트를 ❤**팔로잉**을 하면 아티스트가 라이브를 시작할 때,
-
-제일 먼저 **💌알림**을 받을 수도 있어요!
-
-### 음악 라이브 방송 및 실시간 채팅 기능
-
+<details>
+<summary>
+<b>음악 라이브 방송 및 실시간 채팅 기능</b>
+</summary>
+<br>
 나의 노래나 연주를 사람들에게 들려주고 바로 반응을 보고 싶다면?
-
-**🎙라이브 방송과 실시간** **채팅** 기능을 통해서 다른 사용자들과 함께 소통도 가능해요
-
+🎙 <b>라이브 방송과 실시간 채팅 기능 </b>을 통해서 다른 사용자들과 함께 소통도 가능해요
 다른 사용자들의 반응이 필요하다면 라이브 기능을 사용해 보세요!
-
+</details>
+<br>
 
 ## ⚒ 트러블 슈팅
 
@@ -179,7 +188,7 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
   <summary>         
   로딩 페이지 (screenshot)
   </summary>  
-    ![Untitled (4)](https://user-images.githubusercontent.com/74285387/182149619-f27e609c-4ae3-461a-a81c-9f228178849a.png)
+    <img src="https://user-images.githubusercontent.com/74285387/182149619-f27e609c-4ae3-461a-a81c-9f228178849a.png"/>
   </details>  
 
 ### Sync로 작동하는 두 개의 플레이어 중 하나를 껐을 때 다른 쪽의 플레이어를 조작하면 흰 화면이 뜨는 현상
@@ -264,16 +273,16 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
   <summary>         
   에러 메세지 (console)
   </summary>  
-    
+    <img src="https://user-images.githubusercontent.com/74285387/182156329-94c5f916-955d-451d-a4ab-c5f48c1ae836.png"/>
   </details>
   <details>
   <summary>         
   detail 플레이어와 하단 플레이어 (screenshot)
   </summary>  
-    ![Untitled (3)](https://user-images.githubusercontent.com/74285387/182149571-37f0f60a-7dd3-4d4d-b9ac-d8c273561a63.png)
+    <img src="https://user-images.githubusercontent.com/74285387/182149571-37f0f60a-7dd3-4d4d-b9ac-d8c273561a63.png"/>
   </details>
 
-       
+<br>       
 
 ### Back-End
 
@@ -298,7 +307,7 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
 
         수정 전
 
-        ![Jpa 메인페이지 get 방식 액티브 스레드 오버 타임.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4c673a5b-8a80-425a-996f-24031e80ee7f/Jpa__get_____.png)
+        <img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4c673a5b-8a80-425a-996f-24031e80ee7f/Jpa__get_____.png"/>
 
         VU :2000  / 1S
 
@@ -337,16 +346,16 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
 
     도커 네트워크 브릿지로 통신하여 성공
     
-
+    
 ## 👋 tutti 팀원 정보
 
 이름 | 포지션 | E-mail | Github 
 ---- | ---- | ---- | ----
-권지은 (리더) | 	Front-End,React | stacykwon86@gmail.com | https://github.com/itsstacy
-김현명	| Front-End,React | ftm513@gmail.com | https://github.com/hyunmyeong
-이가연	| Front-End,React | 2022gygy@gmail.com| https://github.com/gygy2022
+권지은 (리더) | 	Front-End (React) | stacykwon86@gmail.com | https://github.com/itsstacy
+김현명	| Front-End (React) | ftm513@gmail.com | https://github.com/hyunmyeong
+이가연	| Front-End (React) | 2022gygy@gmail.com| https://github.com/gygy2022
 이정윤	| Designer | jungyunleeee@gmail.com | 
-김도엽 (리더) | Back-End,Spring | gltlvl12@gmail.com | https://github.com/doyupK
-김민지	| Back-End,Spring | alswlwkd20@naver.com | https://github.com/minji-kim525
-김창규	| Back-End,Spring | kimchangkyu99@gmail.com | https://github.com/ck-kor
-박세열	| Back-End,Spring | dmot@naver.com | https://github.com/WE-DA-pluggg
+김도엽 (리더) | Back-End (Spring) | gltlvl12@gmail.com | https://github.com/doyupK
+김민지	| Back-End (Spring) | alswlwkd20@naver.com | https://github.com/minji-kim525
+김창규	| Back-End (Spring) | kimchangkyu99@gmail.com | https://github.com/ck-kor
+박세열	| Back-End (Spring) | dmot@naver.com | https://github.com/WE-DA-pluggg
