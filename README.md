@@ -120,10 +120,13 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
         - 페이지 이동 시 상태를 저장하고 싶을 때 전역상태관리를 사용할 수 있다.
         - useEffect 사용법과 function 배치에 대한 이해
     
+    
     - 코드로 보는 해결 과정
-        - 수정 전
-            
-            ```jsx
+        <details>
+        <summary>
+            - 수정 전
+        </summary>
+                ```jsx
             // LoadingLive.js
             
             useEffect(() => {
@@ -133,8 +136,12 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
                 }
               },[])
             ```
-            
+        </details>
+        
+        <details>
+        <summary>    
         - 수정 후
+        </summary>
             
             ```jsx
             // LoadingLive.js
@@ -153,7 +160,8 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
                 }
               },[])
             ```
-            
+          </details>  
+          
     - 로딩 페이지 (screenshot)
         
         ![Untitled (4)](https://user-images.githubusercontent.com/74285387/182149619-f27e609c-4ae3-461a-a81c-9f228178849a.png)
@@ -202,8 +210,10 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
                 }
               },[_time])
             ```
-            
+        <details>
+        <summary>   
         - 수정 후
+        </summary>
             
             ```jsx
             // 하단 플레이어
@@ -229,7 +239,8 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
                 }
               },[_time])
             ```
-            
+         </details>   
+         
     - 에러 메세지 (console)
         
         ![Untitled (2)](https://user-images.githubusercontent.com/74285387/182149533-76ebace3-8b23-4a40-b590-c0db3c5e0d27.png)
