@@ -303,11 +303,13 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
 
 [👋 tutti 팀원 정보](https://www.notion.so/7662912bd623448c87531b9bc1679598)
 
-권지은 (리더)	Front-End,React	stacykwon86@gmail.com	https://github.com/itsstacy
-김현명	Front-End,React	ftm513@gmail.com	https://github.com/hyunmyeong
-이가연	Front-End,React	2022gygy@gmail.com	https://github.com/gygy2022
-이정윤	Designer	jungyunleeee@gmail.com	
-김도엽 (리더)	Back-End,Spring	gltlvl12@gmail.com	https://github.com/doyupK
-김민지	Back-End,Spring	alswlwkd20@naver.com	https://github.com/minji-kim525
-김창규	Back-End,Spring	kimchangkyu99@gmail.com	https://github.com/ck-kor
-박세열	Back-End,Spring	dmot@naver.com	https://github.com/WE-DA-pluggg
+이름 | 포지션 | E-mail | Github 
+---- | ---- | ---- | ----
+권지은 (리더) | 	Front-End,React | stacykwon86@gmail.com | https://github.com/itsstacy
+김현명	| Front-End,React | ftm513@gmail.com | https://github.com/hyunmyeong
+이가연	| Front-End,React | 2022gygy@gmail.com| https://github.com/gygy2022
+이정윤	| Designer | jungyunleeee@gmail.com | 
+김도엽 (리더) | Back-End,Spring | gltlvl12@gmail.com | https://github.com/doyupK
+김민지	| Back-End,Spring | alswlwkd20@naver.com | https://github.com/minji-kim525
+김창규	| Back-End,Spring | kimchangkyu99@gmail.com | https://github.com/ck-kor
+박세열	| Back-End,Spring | dmot@naver.com | https://github.com/WE-DA-pluggg
