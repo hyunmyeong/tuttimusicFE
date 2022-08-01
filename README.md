@@ -315,7 +315,7 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
 
         수정 전
 
-        <img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4c673a5b-8a80-425a-996f-24031e80ee7f/Jpa__get_____.png"/>
+        ![Jpa 메인페이지 get 방식 액티브 스레드 오버 타임](https://user-images.githubusercontent.com/103116643/182169538-032c18f7-ce39-4c69-b329-3e49bc6a3407.png)
 
         VU :2000  / 1S
 
@@ -323,7 +323,7 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
 
         수정 후
 
-        ![QueyDsl 메인페이지 get방식 액티브 스레드 오버 타임.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1210f33c-c467-4559-a883-598bb3a47966/QueyDsl__get____.png)
+        ![QueyDsl 메인페이지 get방식 액티브 스레드 오버 타임](https://user-images.githubusercontent.com/103116643/182169615-1291777f-9790-4850-946f-d8c75e8a15f2.png)
 
         VU : 2000 / 1S
 
@@ -350,7 +350,8 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
 
     - Network Group
 
-        ![화면 캡처 2022-07-30 151523.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c83a3af4-d9e5-4ff1-abeb-a83590d063a7/__2022-07-30_151523.png)
+        ![화면 캡처 2022-07-30 151523](https://user-images.githubusercontent.com/103116643/182169687-692e9657-14c5-4e28-9c04-7721b1fdd0ce.png)
+
 
 - <b>해결 과정</b>
 
@@ -359,6 +360,7 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
     도커 네트워크 브릿지로 통신하여 성공
 </details>
 <br>
+
 
 
 ## 👋 tutti 팀원 정보
