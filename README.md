@@ -14,7 +14,10 @@
 ## 📚 서비스 아키텍쳐
 ![tutti architecture_220729 drawio](https://user-images.githubusercontent.com/74285387/182148463-3121ba23-7841-46bf-a9e3-a82ea953507e.png)
 
+<details>
+<summary>
 Front & Back
+</summary>
 
 - Stomp, Sock, Redis
     - 소켓 통신 기반으로 실시간 채팅 구현
@@ -31,8 +34,12 @@ Front & Back
     - 깃허브에서 코드를 같이 관리하면서 배포시점 까지 설정할 수 있어서 편하다.
     - 깃허브에서 develop 브랜치를 default로 설정하고, 실제로 배포되는 브랜치는 master로 설정
     - **Front**: AWS 클라우드프론트 - create invalidation 까지 연결해서 캐싱을 삭제함 → 재배포 즉시 웹에 업데이트 반영
+</details>
 
+<details>
+<summary>
 Front-End
+</summary>
 
 - redux
     - mobx와 recoil이 리덕스보다 사용법이 간단하지만 레퍼런스는 redux가 더 많고 점유율 또한 더 높아서 기본을 탄탄하게 잡아가기 위해 선택
@@ -40,8 +47,12 @@ Front-End
 - Cloudfront
     - AWS에서 S3, certificate manager, route53, Cloudfront 를 one-stop으로 이용 가능
     - AWS S3 버킷과 연동이 쉽고 git actions 설정 시 S3와 같은 context로 연결해주기 때문에 설정이 간편하다.
+</details>
 
+<details>
+<summary>
 Back-End
+</summary>
 
 - Prometheus + Grafana
     - 서버의 상태를 실시간으로 모니터링해서 문제 발생 시 유지 보수 목적으로 적용
@@ -53,7 +64,8 @@ Back-End
 - Docker
     - 재 배포가 필요할 때, 기존 컨테이너의 레이어와 배포되는 레이어가 같으면 재사용할 수 있어서 프로세스가 훨씬 빨라짐
     - 별도의 OS 사용이 필요하지 않게 되어, 성능적인 개선, 효율적인 메모리 사용
-    
+</details> 
+
 
 ## 🎵 tutti의 핵심 서비스 기능
 
@@ -97,10 +109,9 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
 ## ⚒ 트러블 슈팅
 
 ### Front-End
-<details>
-<summary>
-라이브 페이지에서 뒤로가기를 누르면 이전 컴포넌트에서 useEffect 내에 navigate가 작동되어 다시 라이브 페이지로 돌아오는 현상
-</summary>
+
+### 라이브 페이지에서 뒤로가기를 누르면 이전 컴포넌트에서 useEffect 내에 navigate가 작동되어 다시 라이브 페이지로 돌아오는 현상
+
     - **문제 발생**
         - 라이브 방 만들기 후 나오는 로딩 컴포넌트를 거쳐 라이브 방으로 들어가는데, 이때 사용자가 뒤로가기를 했을 때 로딩 컴포넌트로 돌아간다. 돌아가자마자 useEffect 내에 navigate가 작동되어 다시 방으로 돌아온다.
     - **선택지**
@@ -170,12 +181,9 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
       </summary>  
         ![Untitled (4)](https://user-images.githubusercontent.com/74285387/182149619-f27e609c-4ae3-461a-a81c-9f228178849a.png)
       </details>  
-</details>    
 
-<details>
-<summary>
-Sync로 작동하는 두 개의 플레이어 중 하나를 껐을 때 다른 쪽의 플레이어를 조작하면 흰 화면이 뜨는 현상
-</summary>
+### Sync로 작동하는 두 개의 플레이어 중 하나를 껐을 때 다른 쪽의 플레이어를 조작하면 흰 화면이 뜨는 현상
+
     - **문제 발생**
         - detail페이지의 플레이어와 하단 플레이어는 sync로 작동 (play/pause, 볼륨조절, 원하는 구간으로 이동하는 기능)
         - sync로 작동하는 두 개의 플레이어 중 하나를 껐을 때 (하단 플레이어를 끄는 기능이 있음) 다른 쪽의 플레이어를 조작하면 흰 화면이 뜨는 현상
@@ -265,13 +273,12 @@ Sync로 작동하는 두 개의 플레이어 중 하나를 껐을 때 다른 쪽
         ![Untitled (3)](https://user-images.githubusercontent.com/74285387/182149571-37f0f60a-7dd3-4d4d-b9ac-d8c273561a63.png)
       </details>
 
-</details>        
+       
 
 ### Back-End
-<details>
-<summary>
-N+1
-</summary>
+
+### N+1
+
     - 도입 이유
         
         통신간에 트래픽이 너무 크고, 느려서 연관 관계가 되어있는 엔티티 간에 필요한 데이터들을 추려서 가져와야하는 상황 발생
@@ -304,13 +311,9 @@ N+1
             VU : 2000 / 1S
             
             = 15초
-</details>
 
+### Redis 적용 시 컨테이너 간 통신 에러
 
-<details>
-<summary>
-Redis 적용 시 컨테이너 간 통신 에러
-</summary>
 
     - 도입 이유
         
@@ -334,7 +337,6 @@ Redis 적용 시 컨테이너 간 통신 에러
         
         도커 네트워크 브릿지로 통신하여 성공
     
-</details>  
 
 ## 👋 tutti 팀원 정보
 
