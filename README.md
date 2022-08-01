@@ -16,7 +16,7 @@
 
 ## 📚 서비스 아키텍쳐
 
-https://user-images.githubusercontent.com/74285387/182148137-e66e2185-2f62-433a-9999-1c968ca6b66e.png
+https://github.com/itsstacy/tuttimusicFE/issues/107#issue-1324342961
 
 Front & Back
 
