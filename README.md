@@ -16,7 +16,8 @@
 
 ## 📚 서비스 아키텍쳐
 
-https://github.com/itsstacy/tuttimusicFE/issues/107#issue-1324342961
+
+![tutti architecture_220729 drawio](https://user-images.githubusercontent.com/74285387/182148463-3121ba23-7841-46bf-a9e3-a82ea953507e.png)
 
 Front & Back
 
