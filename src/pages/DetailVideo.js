@@ -39,9 +39,9 @@ function DetailVideo() {
 },[])
 
   //get lists from songslice
-  const detail = useSelector((state)=> state.Song.detail);
+  const detail = useSelector((state)=> state.Song?.detail);
   const commentsList = useSelector((state)=> state.Song.comments);
-  console.log(detail.genre)
+  console.log(detail?.genre)
 
   //get user info from local storage
   const userName = localStorage.getItem("userName");
@@ -57,7 +57,7 @@ function DetailVideo() {
     profileUrl: userProfileUrl,
     comment: myComment,
     token: token,
-    feedid: detail.id,
+    feedid: detail?.id,
     modifiedAt: currentTime,
     }));
   }
@@ -106,18 +106,18 @@ function DetailVideo() {
   const ClickEmptyHeart =()=>{
     dispatch(likeSong({
       token: token,
-      feedid: detail.id,
-      likeCount: detail.likeCount,
-      isLiked:detail.flag,
+      feedid: detail?.id,
+      likeCount: detail?.likeCount,
+      isLiked:detail?.flag,
     }))
   }
 
   const ClickFilledHeart =()=>{
     dispatch(likeSong({
       token: token,
-      feedid: detail.id,
-      likeCount: detail.likeCount,
-      isLiked:detail.flag,
+      feedid: detail?.id,
+      likeCount: detail?.likeCount,
+      isLiked:detail?.flag,
     }))
   }
 
@@ -141,16 +141,16 @@ function DetailVideo() {
       <>
         <section className="music-video">
         <video controls controlsList="nodownload">
-        <source src={detail.songUrl} type="video/mp4"/>
+        <source src={detail?.songUrl} type="video/mp4"/>
         브라우저가 video 태그를 지원하지 않습니다.
       </video>
       <div class="music-video-title-wrap">
       <div className="music-video-title">
-        <span>{detail.title}</span>
-        <span className="music-video-genre video-genre">{detail.genre}</span>
+        <span>{detail?.title}</span>
+        <span className="music-video-genre video-genre">{detail?.genre}</span>
       </div>
       <div className="music-video-edit-box">
-      {userName === detail.artist ?  
+      {userName === detail?.artist ?  
           <EditDelete detail={detail} token={token} id={params.id}/>
           : null}
       
@@ -158,14 +158,14 @@ function DetailVideo() {
           </div>
       </section>
       <div className="flex-wrap">
-              {detail.flag===false? 
+              {detail?.flag===false? 
               <FaRegHeart
               onClick={
                 ClickEmptyHeart
               }/> 
               : 
               <>
-              <IconContext.Provider value={{ color:detail.color}}>
+              <IconContext.Provider value={{ color:detail?.color}}>
               <FaHeart
               onClick={
                 ClickFilledHeart
@@ -174,7 +174,7 @@ function DetailVideo() {
               </IconContext.Provider>
               </>}
 
-              <p className="detail-like">{detail.likeCount}</p>
+              <p className="detail-like">{detail?.likeCount}</p>
             </div>
         <section className="music-detail">
         
@@ -183,14 +183,14 @@ function DetailVideo() {
         
           <div className="left-column">
             <div className="detail-artist-profile"
-              onClick={()=>SameName(detail.artist)}>
+              onClick={()=>SameName(detail?.artist)}>
               <img 
               className="detail-artist-img"
-              alt={detail.artist}
-              src={detail.profileUrl}
+              alt={detail?.artist}
+              src={detail?.profileUrl}
               />
               <p className="detail-artist">
-              {detail.artist}
+              {detail?.artist}
               </p>
             </div>
           </div>
@@ -201,7 +201,7 @@ function DetailVideo() {
             </p>
 
             <p className="detail-more-detail" onClick={()=> setShow(!show)}>
-              {(commenter.length > textLimit.current) && (show ? '닫기' : '...더보기')}
+              {(commenter?.length > textLimit.current) && (show ? '닫기' : '...더보기')}
             </p>
           </div>
         </section>
