@@ -208,8 +208,8 @@ FEED 페이지에서 원하는 장르를 선택해 해당 장르의 음악을 �
 - <b>의견 결정</b>
     - 2안: useSelector를 통해 가져오는 값이 있을 때만 해당 function이 작동되도록 수정
 - <b>배운점</b>
-    - 구독하는 state 정보가 변경되었을 때, useSelector를 통해 가져오는 값이 없으면 해당 값을 이용한 function에서 에러가 발생할 수 있는 점 (function을 포함하는 component가 mount되어 있지 않더라도 작동)
-    - 리덕스에 state 정보가 변경되면  component가 mount되어 있지 않더라도 구독하는 모든 component가 업데이트된 상태를 다시 받아오고 해당 값과 연결된 모든 function이 재 작동됨
+    - 구독하는 state 정보가 변경되었을 때, useSelector를 통해 가져오는 값이 없으면 해당 값을 이용한 function에서 에러가 발생할 수 있는 점
+    - 리덕스에 state 정보가 변경되면 구독하는 모든 component가 업데이트된 상태를 다시 받아오고 해당 값과 연결된 모든 function이 재 작동됨
 </details>
     
 - 코드로 보는 해결 과정
