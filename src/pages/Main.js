@@ -195,6 +195,7 @@ function Main() {
           src=
           {isMobile ? `${ImageUrl.banner_tutti_mobile}` : `${ImageUrl.banner_tutti_web}`}
           className="main-banner"
+          onClick={() => window.open('https://fluoridated-shell-c1f.notion.site/About-tutti-78df41db1a2c4e08949891dcdb8098a7','_blank')}
           />
           </div>
           <div className="banner-wrap banner-event">
