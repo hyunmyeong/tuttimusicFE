@@ -5,7 +5,7 @@
 
 ## [함께 하는 음악 생활, tutti로 가기](https://tuttimusic.shop)
 
-<a href="[http://example.com/](https://www.notion.so/tuttimusic/6-bb79c160d1a248c69faae0e247053204)" target="_blank">Project tutti Notion SA Home</a>
+<a href="https://www.notion.so/tuttimusic/6-bb79c160d1a248c69faae0e247053204" target="_blank">Project tutti Notion SA Home</a>
 
 <!-- [**Project tutti Notion SA Home**](https://www.notion.so/tuttimusic/6-bb79c160d1a248c69faae0e247053204) -->
 
